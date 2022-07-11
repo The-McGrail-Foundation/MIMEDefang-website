@@ -82,7 +82,7 @@ p.desc{
 
 h2.title{
     line-height:60px;
-    font-weight:700;    
+    font-weight:700;
     color:#293949;
     font-size:40px;
     text-align: center;
@@ -241,6 +241,10 @@ section.faq .text pre{
     background-color: #f5f5f5;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+section.faq a{
+    font-weight: bold;
 }
 
 section.thanks div[class^="col-"] {
