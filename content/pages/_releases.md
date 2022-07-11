@@ -1,0 +1,13 @@
+Title: MIMEDefang
+Date: 2021-07-09 22:57
+Author: admin_f0tn7wrk
+Slug: _releases
+Status: hidden
+
+## Releases
+
+MIMEDefang 3.0 is currently available for [download](https://mimedefang.org#download).
+
+## Git Repository
+
+The MIMEDefang git repository is on [GitHub ](https://github.com/The-McGrail-Foundation/MIMEDefang).

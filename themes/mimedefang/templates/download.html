@@ -1,0 +1,75 @@
+{% include "base.html" %}
+<section id="section-download" class="download">
+    <div class="container">
+        <h2 class="title">Download</h2>
+        <div class="row">
+            <div class="col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <p><b>Filename</b></p>
+                            <p><a href="#">mimedefang-3.0.tar.gz</a></p>
+                            <p>MIMEDefang 3.0 Release</p>
+                        </div>
+                        <div>
+                            <p><b>Signature</b></p>
+                            <p><a href="#">Yes</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="mb-4">
+                            <p><b>Filename</b></p>
+                            <p><a href="#">RPS-Mail-EventReporter-3.01.tar.gz</a></p>
+                        </div>
+                        <div class="mb-4">
+                            <p><b>Description</b></p>
+                            <p>RPS::Mail::EventReporter Module</p>
+                            <p><small>(Optional: Not required to use MIMEDefang)</small></p>
+                        </div>
+                        <div>
+                            <p><b>Signature</b></p>
+                            <p><a href="#">Yes</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+                <div class="card">
+                    <div class="card-body">
+                        <p><b>Perl Modules from CPAN</b></p>
+                        <ul>
+                            <li><a href="#">MIME-tools</a></li>
+                            <li><a href="#">MIME-Base64</a></li>
+                            <li><a href="#">MailTools-1</a></li>
+                            <li><a href="#">Digest-SHA1</a></li>
+                            <li><a href="#">Unix-Syslog</a></li>
+                            <li><a href="#">Net-DNSBL-Client</a></li>
+                            <li><a href="#">IO-Socket-SSL</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row previous-release">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <p><b>Previous Releases</b></p>
+                        <div class="release-list">
+                            <ul style="list-style-type: none;">
+                              {% block content %}
+                              {{ page.content }}
+                              {% endblock %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% include "footer.html" %}

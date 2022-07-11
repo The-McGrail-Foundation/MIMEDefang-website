@@ -1,0 +1,39 @@
+{% include "base.html" %}
+{% block content %}
+    <section class="whatis">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-6">
+                  {{ page.content }}
+                </div>
+                <div class="col-md-12 col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                          {{ RELEASES }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+{% block thankyou %}
+<section class="thanks">
+      <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center mt-5">
+                <p>{{ THANKYOU }}</p>
+            </div>
+        </div>
+          <div class="row justify-content-center align-items-center">
+              <div class="col-md-3 col-sm-6 col-xs-6">
+                  <img src="{{ SITEURL }}/theme/images/Zix.png" class="img-fluid">
+              </div>
+              <div class="col-md-3 col-sm-6 col-xs-6">
+                  <img src="{{ SITEURL }}/theme/images/appriver.png" class="img-fluid">
+              </div>
+          </div>
+      </div>
+</section>
+{% endblock %}
+{% include "footer.html" %}

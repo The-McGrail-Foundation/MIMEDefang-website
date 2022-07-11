@@ -1,0 +1,18 @@
+{% include "base.html" %}
+<section id="section-download" class="download">
+  <div class="container-fluid">
+      <div class="col-12 mt-5">
+          <div class="card">
+              <div class="card-body">
+                  <p><b>Documentation</b></p>
+                  <div class="documentation">
+                        {% block content %}
+                        {{ page.content }}
+                        {% endblock %}
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+{% include "footer.html" %}
