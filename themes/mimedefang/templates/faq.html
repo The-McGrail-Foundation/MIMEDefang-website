@@ -14,4 +14,10 @@
       </div>
     </div>
 </section>
+<script>
+   var collapseLink = document.querySelectorAll('#section-faq ul > li > a');
+   collapseLink.forEach( link => {
+      link.setAttribute("data-bs-toggle", "collapse");
+   })
+</script>
 {% include "footer.html" %}
