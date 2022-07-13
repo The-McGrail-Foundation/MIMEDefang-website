@@ -12,6 +12,8 @@ For an in depth look at how to combat spam using Sendmail, MIMEDefang and Perl, 
 [Slide Deck  
 ](https://mcgrail.com/downloads/The%20Perl%20Conference%202019%20-%20%20Fighting%20Spam%20with%20Perl%20using%20Apache%20SpamAssassin%20&%20MIMEDefang%20.pdf)
 
+---
+
 ## MIMEDefang program and API man pages are also available:  
 
 - [mimedefang](man_mimedefang.html)  
