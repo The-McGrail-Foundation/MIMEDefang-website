@@ -1,7 +1,7 @@
 Title: MIMEDefang - download
 Date: 2021-07-09 22:57
 Author: admin_f0tn7wrk
-Slug: download
+Slug: download/index
 Status: published
 Template: download
 

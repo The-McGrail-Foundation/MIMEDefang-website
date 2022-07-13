@@ -2,7 +2,7 @@ Title: FAQ
 Date: 2021-07-09 22:57
 Author: admin_f0tn7wrk
 Slug: faq
-save_as: faq.html
+save_as: faq/index.html
 Status: published
 Template: faq
 

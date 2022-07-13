@@ -1,7 +1,7 @@
 Title: MIMEDefang - documentation
 Date: 2021-07-09 22:57
 Author: gbechis
-Slug: documentation
+Slug: documentation/index
 Status: published
 Template: documentation
 
@@ -16,22 +16,22 @@ For an in depth look at how to combat spam using Sendmail, MIMEDefang and Perl, 
 
 ## MIMEDefang program and API man pages are also available:  
 
-- [mimedefang](man_mimedefang.html)  
-- [md-mx-ctrl](man_md-mx-ctrl.html)  
-- [mimedefang-filter](man_mimedefang-filter.html)  
-- [mimedefang-multiplexor](man_mimedefang-multiplexor.html)  
-- [mimedefang-notify](man_mimedefang-notify.html)  
-- [mimedefang-protocol](man_mimedefang-protocol.html)  
-- [Mail::MIMEDefang](man_Mail::MIMEDefang.html)  
-- [Mail::MIMEDefang::Actions](man_Mail::MIMEDefang::Actions.html)  
-- [Mail::MIMEDefang::Antispam](man_Mail::MIMEDefang::Antispam.html)  
-- [Mail::MIMEDefang::Antivirus](man_Mail::MIMEDefang::Antivirus.html)  
-- [Mail::MIMEDefang::Authres](man_Mail::MIMEDefang::Authres.html)  
-- [Mail::MIMEDefang::DKIM](man_Mail::MIMEDefang::DKIM.html)  
-- [Mail::MIMEDefang::DKIM::ARC](man_Mail::MIMEDefang::DKIM::ARC.html)  
-- [Mail::MIMEDefang::Mail](man_Mail::MIMEDefang::Mail.html)  
-- [Mail::MIMEDefang::MIME](man_Mail::MIMEDefang::MIME.html)  
-- [Mail::MIMEDefang::Net](man_Mail::MIMEDefang::Net.html)  
-- [Mail::MIMEDefang::RFC2822](man_Mail::MIMEDefang::RFC2822.html)  
-- [Mail::MIMEDefang::Unit](man_Mail::MIMEDefang::Unit.html)  
-- [Mail::MIMEDefang::utils](man_Mail::MIMEDefang::Utils.html)  
+- [mimedefang](../man_mimedefang.html)  
+- [md-mx-ctrl](../man_md-mx-ctrl.html)  
+- [mimedefang-filter](../man_mimedefang-filter.html)  
+- [mimedefang-multiplexor](../man_mimedefang-multiplexor.html)  
+- [mimedefang-notify](../man_mimedefang-notify.html)  
+- [mimedefang-protocol](../man_mimedefang-protocol.html)  
+- [Mail::MIMEDefang](../man_Mail::MIMEDefang.html)  
+- [Mail::MIMEDefang::Actions](../man_Mail::MIMEDefang::Actions.html)  
+- [Mail::MIMEDefang::Antispam](../man_Mail::MIMEDefang::Antispam.html)  
+- [Mail::MIMEDefang::Antivirus](../man_Mail::MIMEDefang::Antivirus.html)  
+- [Mail::MIMEDefang::Authres](../man_Mail::MIMEDefang::Authres.html)  
+- [Mail::MIMEDefang::DKIM](../man_Mail::MIMEDefang::DKIM.html)  
+- [Mail::MIMEDefang::DKIM::ARC](../man_Mail::MIMEDefang::DKIM::ARC.html)  
+- [Mail::MIMEDefang::Mail](../man_Mail::MIMEDefang::Mail.html)  
+- [Mail::MIMEDefang::MIME](../man_Mail::MIMEDefang::MIME.html)  
+- [Mail::MIMEDefang::Net](../man_Mail::MIMEDefang::Net.html)  
+- [Mail::MIMEDefang::RFC2822](../man_Mail::MIMEDefang::RFC2822.html)  
+- [Mail::MIMEDefang::Unit](../man_Mail::MIMEDefang::Unit.html)  
+- [Mail::MIMEDefang::utils](../man_Mail::MIMEDefang::Utils.html)  
