@@ -5,11 +5,10 @@ Slug: man_Mail::MIMEDefang
 Status: published
 Template: documentation
 
-
-NAME
+# NAME
     Mail::MIMEDefang - email filtering milter
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang is a framework for filtering e-mail. It uses Sendmail's
     "Milter" API, some C glue code, and some Perl code to let you write
     high-performance mail filters in Perl.
@@ -27,7 +26,7 @@ DESCRIPTION
     You're limited only by your imagination. If you can think of it and code
     it in Perl, you can do it with MIMEDefang.
 
-METHODS
+# METHODS
     init_globals
         Initialize global variables used across MIMEDefang instance and
         filter.
@@ -130,7 +129,7 @@ METHODS
     send_admin_mail(subject, body)
         Sends a mail message to the administrator
 
-  SEE ALSO
+# SEE ALSO
     Mail::MIMEDefang::Actions(3)
 
     Mail::MIMEDefang::Antispam(3)

@@ -5,14 +5,14 @@ Slug: man_Mail::MIMEDefang::Actions
 Status: published
 Template: documentation
 
-NAME
+# NAME
     Mail::MIMEDefang::Actions - actions methods for email filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Actions are a set of methods that can be called from
     mimedefang-filter to accept or reject the email message.
 
-METHODS
+# METHODS
     action_rebuild
         Sets a flag telling MIMEDefang to rebuild message even if it is
         unchanged.

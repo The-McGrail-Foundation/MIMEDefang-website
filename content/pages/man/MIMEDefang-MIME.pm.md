@@ -5,16 +5,15 @@ Slug: man_Mail::MIMEDefang::MIME
 Status: published
 Template: documentation
 
-
-NAME
+# NAME
     Mail::MIMEDefang::MIME - MIME objects interface methods for email
     filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::MIME are a set of methods that can be called from
     mimedefang-filter to operate on MIME objects.
 
-METHODS
+# METHODS
     collect_parts
         Method that adds parts to the array @FlatParts for flattening.
 

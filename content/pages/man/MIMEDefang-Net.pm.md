@@ -5,15 +5,14 @@ Slug: man_Mail::MIMEDefang::Net
 Status: published
 Template: documentation
 
-
-NAME
+# NAME
     Mail::MIMEDefang::Net - Network related methods for email filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Net are a set of methods that can be called from
     mimedefang-filter to call network related services.
 
-METHODS
+# METHODS
     expand_ipv6_address
         Method that returns an IPv6 address with all zero fields explicitly
         expanded, any field shorter than 4 hex digits will be padded with

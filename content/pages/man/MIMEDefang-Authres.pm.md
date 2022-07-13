@@ -5,15 +5,15 @@ Slug: man_Mail::MIMEDefang::Authres
 Status: published
 Template: documentation
 
-NAME
+# NAME
     Mail::MIMEDefang::Authres - Authentication Results interface for
     MIMEDefang
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Authres is a module used to add Authentication Results
     headers from mimedefang-filter.
 
-METHODS
+# METHODS
     md_authres
         Returns a mail Authentication-Results header value. The method
         accepts the following parameters:

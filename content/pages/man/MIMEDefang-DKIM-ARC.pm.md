@@ -5,14 +5,14 @@ Slug: man_Mail::MIMEDefang::DKIM::ARC
 Status: published
 Template: documentation
 
-NAME
+# NAME
     Mail::MIMEDefang::DKIM::ARC - ARC interface for MIMEDefang
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::DKIM::ARC is a module with a set of ARC related
     methods called from mimedefang-filter to operate with ARC signatures.
 
-METHODS
+# METHODS
     md_arc_sign
         Returns an hash with mail headers and the ARC signature for the
         message. If ARC sign fails the hash will contain an error message.

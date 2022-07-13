@@ -5,15 +5,14 @@ Slug: man_Mail::MIMEDefang::RFC2822
 Status: published
 Template: documentation
 
-
-NAME
+# NAME
     Mail::MIMEDefang::RFC2822 - Dates related methods for email filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::RFC2822 are a set of methods that can be called from
     mimedefang-filter to create RFC2822 formatted dates.
 
-METHODS
+# METHODS
     gen_date_msgid_headers
         Method that generates RFC2822 compliant Date and Message-ID headers.
 

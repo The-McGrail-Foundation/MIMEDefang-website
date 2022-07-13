@@ -5,14 +5,14 @@ Slug: man_Mail::MIMEDefang::DKIM
 Status: published
 Template: documentation
 
-NAME
+# NAME
     Mail::MIMEDefang::DKIM - DKIM interface for MIMEDefang
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::DKIM is a module with a set of DKIM related methods
     called from mimedefang-filter to operate with DKIM.
 
-METHODS
+# METHODS
     md_dkim_sign
         Returns a mail header and the DKIM signature for the message. The
         method accepts the following parameters:

@@ -5,17 +5,16 @@ Slug: man_Mail::MIMEDefang::Antivirus
 Status: published
 Template: documentation
 
-
-NAME
+# NAME
     Mail::MIMEDefang::Antivirus - Antivirus interface methods for email
     filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Antivirus are a set of methods that can be called from
     mimedefang-filter to scan with installed antivirus software the email
     message.
 
-METHODS
+# METHODS
     message_contains_virus
         Method that scans a message using every installed virus scanner.
 

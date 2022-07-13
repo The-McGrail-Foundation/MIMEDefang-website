@@ -5,15 +5,14 @@ Slug: man_Mail::MIMEDefang::Unit
 Status: published
 Template: documentation
 
-
-NAME
+# NAME
     Mail::MIMEDefang::Unit - Methods used by MIMEDefang regression tests
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Unit are a set of methods that are called from
     MIMEDefang regression tests.
 
-METHODS
+# METHODS
     include_mimedefang
         Method that includes mimedefang.pl.in code without running anything.
 

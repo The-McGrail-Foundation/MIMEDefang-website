@@ -6,15 +6,15 @@ Status: published
 Template: documentation
 
 
-NAME
+# NAME
     Mail::MIMEDefang::Utils - Support methods used internally or by email
     filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Utils are a set of methods that can be called from
     mimedefang-filter or by other methods.
 
-METHODS
+# METHODS
     time_str
         Method that returns a string representing the current time.
 

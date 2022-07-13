@@ -5,14 +5,14 @@ Slug: man_Mail::MIMEDefang::Antispam
 Status: published
 Template: documentation
 
-NAME
+# NAME
     Mail::MIMEDefang::Antispam - antispam related methods for email filters
 
-DESCRIPTION
+# DESCRIPTION
     Mail::MIMEDefang::Antispam are a set of methods that can be called from
     mimedefang-filter to check email messages with antispam softwares.
 
-METHODS
+# METHODS
     spam_assassin_is_spam
         Method that scans a mmessage using SpamAssassin and returns True if
         the email message has been detected as spam.
