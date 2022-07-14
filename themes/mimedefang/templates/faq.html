@@ -1,23 +1,40 @@
 {% include "base.html" %}
 <section id="section-faq" class="faq download">
-    <div class="container-fluid">
-      <div class="col-12 mt-5">
-          <div class="card">
-              <div class="card-body">
-                  <div class="text">
-                  {% block content %}
-                  {{ page.content }}
-                  {% endblock %}
-                  </div>
-              </div>
-          </div>
+  <div class="row justify-content-center">
+   <div class="col-md-8 col-sm-10">
+     <div class="list-group">
+      {% block content %}
+	    {% for article in articles|sort(attribute="num") %}
+	    {% if article.category == 'faq' %}
+      <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
+	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
+        <div class="text">
+          {{ article.content }}
+        </div>
       </div>
+      {% endif %}
+      {% endfor %}
+      {% endblock %}
+     </div>
     </div>
+  </div>
 </section>
 <script>
-   var collapseLink = document.querySelectorAll('#section-faq ul > li > a');
-   collapseLink.forEach( link => {
+  var collapseLink = document.querySelectorAll('#section-faq .list-group > a');
+  collapseLink.forEach( link => {
       link.setAttribute("data-bs-toggle", "collapse");
-   })
+  })
+
+  var collapseDiv = document.querySelectorAll('.collapse-div');
+  collapseDiv.forEach( div => {
+      div.addEventListener('show.bs.collapse', function (e) {
+          document.querySelector("[href='#"+e.target.id+"'] > i").classList.add('bi-caret-down-fill');
+          document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-right-fill');
+      })
+      div.addEventListener('hide.bs.collapse', function (e) {
+          document.querySelector("[href='#"+e.target.id+"'] > i").classList.add('bi-caret-right-fill');
+          document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-down-fill');
+      })
+  })
 </script>
 {% include "footer.html" %}
