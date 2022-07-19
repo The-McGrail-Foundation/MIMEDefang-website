@@ -1,13 +1,13 @@
 {% include "base.html" %}
 <section id="section-faq" class="faq download">
   <div class="container">
-  <h2 class="title">FAQ</h2>
+  <h2 class="title">Snippets</h2>
   <div class="row justify-content-center">
    <div class="col-md-12 col-sm-10">
      <div class="list-group">
       {% block content %}
 	    {% for article in articles|sort(attribute="num") %}
-	    {% if article.category == 'faq' %}
+	    {% if article.category == 'snippets' %}
       <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
 	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
         <div class="text">
