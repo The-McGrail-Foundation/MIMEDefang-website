@@ -1,7 +1,7 @@
 Title: MIMEDefang Project Charter
 Date: 2021-07-30 19:44
 Author: admin_f0tn7wrk
-Slug: mimedefang-project-charter
+Slug: mimedefang-project-charter/
 Status: published
 Template: pmc
 

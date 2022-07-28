@@ -4,4 +4,4 @@ Category: faq
 Num: 016
 Status: published
 
-MIMEDefang project management is described at the [PMC page](mimedefang-project-charter.html).
+MIMEDefang project management is described at the [PMC page](/mimedefang-project-charter).
