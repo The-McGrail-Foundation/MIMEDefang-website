@@ -40,7 +40,7 @@ get_smtp_return_code
 
 :   Method that reads return codes from SMTP server, returns a
     four-element list:(retval, code, dsn, text), where code is a 3-digit
-    SMTP code. Retval is \'CONTINUE\', \'TEMPFAIL\' or \'REJECT\'.
+    SMTP code. Retval is 'CONTINUE', 'TEMPFAIL' or 'REJECT'.
 
 get_smtp_extensions
 
@@ -48,7 +48,7 @@ get_smtp_extensions
     EHLO to have been sent already (artifact of get_smtp_return_code).
     The sub returns a four-element list:(retval, code, dsn, exts)
 
-    -   retval is \'CONTINUE\', \'TEMPFAIL\', or \'REJECT\'.
+    -   retval is 'CONTINUE', 'TEMPFAIL', or 'REJECT'.
 
     -   code is a 3-digit SMTP code.
 
@@ -62,8 +62,8 @@ md_check_against_smtp_server
     issuing a HELO / MAIL FROM: / RCPT TO: / QUIT sequence. The method
     returns:
 
-    -   (\'CONTINUE\', OK) if recipient is OK
+    -   ('CONTINUE', OK) if recipient is OK
 
-    -   (\'TEMPFAIL\', err) if temporary failure
+    -   ('TEMPFAIL', err) if temporary failure
 
-    -   (\'REJECT\', err) if recipient is not OK.
+    -   ('REJECT', err) if recipient is not OK.

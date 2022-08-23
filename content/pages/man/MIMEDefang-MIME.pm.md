@@ -23,10 +23,10 @@ collect_parts
 
 takeStabAtFilename ( \$entity )
 
-:   Makes a guess at a filename for the attachment. Calls MIME::Head\'s
+:   Makes a guess at a filename for the attachment. Calls MIME::Head's
     **recommended_filename()** method, which tries
-    \'Content-Disposition.filename\'and if not found,
-    \'Content-Type.name\'. Returns a MIME-decoded filename, or a blank
+    'Content-Disposition.filename'and if not found,
+    'Content-Type.name'. Returns a MIME-decoded filename, or a blank
     string if none found.
 
 find_part
@@ -47,7 +47,7 @@ remove_redundant_html_parts
 append_to_html_part
 
 :   Method that appends text to the spicified mime part, but does so by
-    parsing HTML and adding the text before \</body> or \</html> tags.
+    parsing HTML and adding the text before </body> or </html> tags.
 
 append_text_boilerplate
 

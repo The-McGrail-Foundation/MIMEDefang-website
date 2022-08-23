@@ -33,22 +33,22 @@ relay_is_blacklisted
     Parameters are the ip address of the relay host and the domain of
     the rbl server.
 
-is_public_ip4_address \$ip_addr
+is_public_ip4_address $ip_addr
 
 :   Returns true if `$ip_addr` is a publicly-routable IPv4 address,
     false otherwise
 
-is_public_ip6_address \$ip_addr
+is_public_ip6_address $ip_addr
 
 :   Returns true if `$ip_addr` is a publicly-routable IPv6 address,
     false otherwise
 
-get_mx_ip_addresses \$domain \[\$resolver_object\]
+get_mx_ip_addresses $domain \[\$resolver_object\]
 
 :   Get IP addresses of all MX hosts for given domain. If there are no
     MX hosts, then return A records.
 
-md_get_bogus_mx_hosts \$domain
+md_get_bogus_mx_hosts $domain
 
 :   Returns a list of bogus IP addresses that are in `$domain`\'s list
     of MX records. A bogus IP address is loopback/private/multicast/etc.

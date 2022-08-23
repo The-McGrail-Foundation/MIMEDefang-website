@@ -22,14 +22,14 @@ md_authres
 :   Returns a mail Authentication-Results header value. The method
     accepts the following parameters:
 
-    \$email
+    $email
 
     :   The email address of the sender
 
-    \$relayip
+    $relayip
 
     :   The relay ip address
 
-    \$serverdomain
+    $serverdomain
 
     :   The domain name of the server where MIMEDefang is running on

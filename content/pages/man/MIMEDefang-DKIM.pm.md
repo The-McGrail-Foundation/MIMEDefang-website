@@ -21,30 +21,30 @@ md_dkim_sign
 :   Returns a mail header and the DKIM signature for the message. The
     method accepts the following parameters:
 
-    \$keyfile
+    $keyfile
 
     :   The path to the private DKIM key
 
-    \$algorithm
+    $algorithm
 
     :   The algorithm to be used to sign the message, by default is
-        \'rsa-sha1\'
+        'rsa-sha1'
 
-    \$method
+    $method
 
-    :   The method used to sign the message, by default is \'relaxed\'
+    :   The method used to sign the message, by default is 'relaxed'
 
-    \$domain
+    $domain
 
-    :   The domain to be used when signing the message, by default it\'s
+    :   The domain to be used when signing the message, by default it's
         autodetected
 
-    \$selector
+    $selector
 
     :   The selector to be used when signing the message, by default
-        it\'s \'default\'
+        it's 'default'
 
-    \$headers
+    $headers
 
     :   The headers to sign, by default the headers are: From Sender
         Reply-To Subject Date Message-ID To Cc MIME-Version Content-Type

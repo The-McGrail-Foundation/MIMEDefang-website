@@ -22,36 +22,36 @@ md_arc_sign
     message. If ARC sign fails the hash will contain an error message.
     The method accepts the following parameters:
 
-    \$keyfile
+    $keyfile
 
     :   The path to the private ARC key
 
-    \$algorithm
+    $algorithm
 
     :   The algorithm to be used to sign the message, by default is
-        \'rsa-sha256\'
+        'rsa-sha256'
 
-    \$chain
+    $chain
 
     :   The cv= value for the Arc-Seal header. ar means to copy it from
-        an Authentication-Results header, or use none if there isn\'t
+        an Authentication-Results header, or use none if there isn't
         one.
 
-    \$domain
+    $domain
 
     :   The domain to be used when signing the message.
 
-    \$srvid
+    $srvid
 
     :   The authserv-id in the Authentication-Results headers, defaults
         to Domain.
 
-    \$selector
+    $selector
 
     :   The selector to be used when signing the message, by default
-        it\'s \'default\'
+        it's 'default'
 
-    \$headers
+    $headers
 
     :   The headers to sign, by default the headers are: From Sender
         Reply-To Subject Date Message-ID To Cc MIME-Version Content-Type
