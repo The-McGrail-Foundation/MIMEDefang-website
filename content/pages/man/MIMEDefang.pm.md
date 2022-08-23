@@ -1,155 +1,172 @@
 Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Date: 2022-08-24 00:00:23
 Author: gbechis
 Slug: man_Mail::MIMEDefang
 Status: published
 Template: documentation
 
 # NAME
-    Mail::MIMEDefang - email filtering milter
+
+Mail::MIMEDefang - email filtering milter
 
 # DESCRIPTION
-    Mail::MIMEDefang is a framework for filtering e-mail. It uses Sendmail's
-    "Milter" API, some C glue code, and some Perl code to let you write
-    high-performance mail filters in Perl.
 
-    People use MIMEDefang to:
+Mail::MIMEDefang is a framework for filtering e-mail. It uses
+Sendmail\'s Milter API, some C glue code, and some Perl code to let you
+write high-performance mail filters in Perl.
 
-        Block viruses
-        Block or tag spam
-        Remove HTML mail parts
-        Add boilerplate disclaimers to outgoing mail
-        Remove or alter attachments
-        Replace attachments with URL's
-        Implement sophisticated access controls.
+People use MIMEDefang to:
 
-    You're limited only by your imagination. If you can think of it and code
-    it in Perl, you can do it with MIMEDefang.
+Block viruses Block or tag spam Remove HTML mail parts Add boilerplate
+disclaimers to outgoing mail Remove or alter attachments Replace
+attachments with URLs Implement sophisticated access controls.
+
+You\'re limited only by your imagination. If you can think of it and
+code it in Perl, you can do it with MIMEDefang.
 
 # METHODS
-    init_globals
-        Initialize global variables used across MIMEDefang instance and
-        filter.
 
-    print_and_flush(text)
-        Prints to stdout and flush buffer.
+init_globals
 
-    md_openlog(tag, facility)
-        Initialize e syslog object using Sys::Syslog or Unix::Syslog as
-        appropriate.
+:   Initialize global variables used across MIMEDefang instance and
+    filter.
 
-    md_syslog(facility, msg)
-        Prints a message to syslog(3) using the specified facility
+print_and_flush(text)
 
-    md_graphdefang_log
-        This is called to log events that occur during mimedefang
-        processing. It should be called from mimedefang-filter with
-        appropriate event names and values. Possible examples:
-        "md_graphdefang_log('virus',$VirusName,$filename);"
-        "md_graphdefang_log('spam',$hits);"
-        "md_graphdefang_log('bad_filename',$filename,$extension);"
+:   Prints to stdout and flush buffer.
 
-    detect_and_load_perl_modules
-        Automatically detect and load Perl modules needed for some features
-        like SpamAssassin, rbl checks, zip file listing and HTML parsing.
+md_openlog(tag, facility)
 
-    detect_antivirus_support
-        Check if antivirus support should be loaded by looking at %Features
+:   Initialize e syslog object using Sys::Syslog or Unix::Syslog as
+    appropriate.
 
-    init_status_tag
-        Open the status file descriptor
+md_syslog(facility, msg)
 
-    set_status_tag(depth, tag)
-        Sets the status tag for this worker inside the multiplexor.
+:   Prints a message to **syslog** (3) using the specified facility
 
-    push_status_tag(tag)
-        Updates status tag inside multiplexor and pushes onto stack.
+md_graphdefang_log
 
-    pop_status_tag
-        Pops previous status of stack and sets tag in multiplexor.
+:   This is called to log events that occur during mimedefang
+    processing. It should be called from mimedefang-filter with
+    appropriate event names and values. Possible examples:
+    `md_graphdefang_log(virus,$VirusName,$filename);`
+    `md_graphdefang_log(spam,$hits);`
+    `md_graphdefang_log(bad_filename,$filename,$extension);`
 
-    percent_encode(str)
-        Encode a string with unsafe chars as "%XY" where X and Y are hex
-        digits.
+detect_and_load_perl_modules
 
-    percent_encode_for_graphdefang(str)
-        Encode a string with unsafe chars as "%XY" where X and Y are hex
-        digits.
+:   Automatically detect and load Perl modules needed for some features
+    like SpamAssassin, rbl checks, zip file listing and HTML parsing.
 
-        Quotes or spaces are not encoded but commas are encoded.
+detect_antivirus_support
 
-    percent_decode(str)
-        Decode a string previously encoded by percent_encode().
+:   Check if antivirus support should be loaded by looking at
+    `%Features`
 
-    write_result_line ( $cmd, @args )
-        Writes a result line to the RESULTS file.
+init_status_tag
 
-        $cmd should be a one-letter command for the RESULTS file
+:   Open the status file descriptor
 
-        @args are the arguments for $cmd, if any. They will be
-        percent_encode()'ed before being written to the file.
+set_status_tag(depth, tag)
 
-        Returns 0 or 1 and an optional warning message.
+:   Sets the status tag for this worker inside the multiplexor.
 
-    signal_unchanged
-        Tells mimedefang C program message has not been altered.
+push_status_tag(tag)
 
-    signal_changed
-        Tells mimedefang C program message has been altered.
+:   Updates status tag inside multiplexor and pushes onto stack.
 
-    in_message_context(name)
-        Returns 1 if we are processing a message; 0 otherwise.
+pop_status_tag
 
-    in_filter_wrapup(name)
-        Returns 1 if we are not in filter wrapup; 0 otherwise.
+:   Pops previous status of stack and sets tag in multiplexor.
 
-    in_filter_context
-        Returns 1 if we are inside filter or filter_multipart, 0 otherwise.
+percent_encode(str)
 
-    in_filter_end(name)
-        Returns 1 if we are inside filter_end 0 otherwise.
+:   Encode a string with unsafe chars as %XY where X and Y are hex
+    digits.
 
-    send_quarantine_notifications
-        Sends quarantine notification message, if anything was quarantined.
+percent_encode_for_graphdefang(str)
 
-    signal_complete
-        Tells mimedefang C program Perl filter has finished successfully.
+:   Encode a string with unsafe chars as %XY where X and Y are hex
+    digits. Quotes or spaces are not encoded but commas are encoded.
 
-        Also mails any quarantine notifications and sender notifications.
+percent_decode(str)
 
-    send_mail(fromAddr, fromFull, recipient, body, deliverymode)
-        Sends a mail message using Sendmail.
+:   Decode a string previously encoded by **percent_encode()**.
 
-        Invokes Sendmail without involving the shell, so that shell
-        metacharacters won't cause security problems.
+write_result_line ( \$cmd, \@args )
 
-        Deliverimode parameter is the optional sendmail delivery mode arg
-        (default "-odd").
+:   Writes a result line to the RESULTS file. `$cmd` should be a
+    one-letter command for the RESULTS file `@args` are the arguments
+    for `$cmd`, if any. They will be **percent_encode()**\'ed before
+    being written to the file. Returns 0 or 1 and an optional warning
+    message.
 
-    send_admin_mail(subject, body)
-        Sends a mail message to the administrator
+signal_unchanged
 
-# SEE ALSO
-    Mail::MIMEDefang::Actions(3)
+:   Tells mimedefang C program message has not been altered.
 
-    Mail::MIMEDefang::Antispam(3)
+signal_changed
 
-    Mail::MIMEDefang::Antivirus(3)
+:   Tells mimedefang C program message has been altered.
 
-    Mail::MIMEDefang::DKIM(3)
+in_message_context(name)
 
-    Mail::MIMEDefang::DKIM::ARC(3)
+:   Returns 1 if we are processing a message; 0 otherwise.
 
-    Mail::MIMEDefang::DKIM::Authres(3)
+in_filter_wrapup(name)
 
-    Mail::MIMEDefang::Mail(3)
+:   Returns 1 if we are not in filter wrapup; 0 otherwise.
 
-    Mail::MIMEDefang::MIME(3)
+in_filter_context
 
-    Mail::MIMEDefang::Net(3)
+:   Returns 1 if we are inside filter or filter_multipart, 0 otherwise.
 
-    Mail::MIMEDefang::RFC2822(3)
+in_filter_end(name)
 
-    Mail::MIMEDefang::Unit(3)
+:   Returns 1 if we are inside filter_end 0 otherwise.
 
-    Mail::MIMEDefang::Utils(3)
+send_quarantine_notifications
+
+:   Sends quarantine notification message, if anything was quarantined.
+
+signal_complete
+
+:   Tells mimedefang C program Perl filter has finished successfully.
+    Also mails any quarantine notifications and sender notifications.
+
+send_mail(fromAddr, fromFull, recipient, body, deliverymode)
+
+:   Sends a mail message using Sendmail. Invokes Sendmail without
+    involving the shell, so that shell metacharacters won\'t cause
+    security problems. Deliverimode parameter is the optional sendmail
+    delivery mode arg (default -odd).
+
+send_admin_mail(subject, body)
+
+:   Sends a mail message to the administrator
+
+## SEE ALSO
+
+**Mail::MIMEDefang::Actions** (3)
+
+**Mail::MIMEDefang::Antispam** (3)
+
+**Mail::MIMEDefang::Antivirus** (3)
+
+**Mail::MIMEDefang::DKIM** (3)
+
+**Mail::MIMEDefang::DKIM::ARC** (3)
+
+**Mail::MIMEDefang::DKIM::Authres** (3)
+
+**Mail::MIMEDefang::Mail** (3)
+
+**Mail::MIMEDefang::MIME** (3)
+
+**Mail::MIMEDefang::Net** (3)
+
+**Mail::MIMEDefang::RFC2822** (3)
+
+**Mail::MIMEDefang::Unit** (3)
+
+**Mail::MIMEDefang::Utils** (3)

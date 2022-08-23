@@ -6,7 +6,7 @@ Status: hidden
 
 ## Releases
 
-MIMEDefang 3.0 is currently available for [download](https://mimedefang.org#download).
+MIMEDefang 3.1 is currently available for [download](https://mimedefang.org#download).
 
 ## Git Repository
 
