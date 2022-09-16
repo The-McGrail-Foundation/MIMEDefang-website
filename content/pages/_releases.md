@@ -10,4 +10,5 @@ MIMEDefang 3.1 is currently available for [download](https://mimedefang.org/down
 
 ## Git Repository
 
-The MIMEDefang git repository is on [GitHub ](https://github.com/The-McGrail-Foundation/MIMEDefang).
+The MIMEDefang git repository is on [GitHub](https://github.com/The-McGrail-Foundation/MIMEDefang).   
+To check for issues you can use [GitHub issues](https://github.com/The-McGrail-Foundation/MIMEDefang/issues).
