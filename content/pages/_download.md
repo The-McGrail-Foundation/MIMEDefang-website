@@ -16,20 +16,6 @@ MIMEDefang 3.1 Release
 
 [Yes](https://mimedefang.org/releases/mimedefang-3.1.tar.gz.asc)
 
-**Filename**
-
-[RPS-Mail-EventReporter-3.01.tar.gz](https://mimedefang.org/static/RPS-Mail-EventReporter-3.01.tar.gz)
-
-**Description**
-
-RPS::Mail::EventReporter Module
-
-(Optional: Not required to use MIMEDefang)
-
-**Signature**
-
-[Yes](https://mimedefang.org/static/RPS-Mail-EventReporter-3.01.tar.gz.sig)
-
 **Perl Modules from CPAN**
 
 -   [MIME-tools ](http://metacpan.org/search?q=MIME-tools)
