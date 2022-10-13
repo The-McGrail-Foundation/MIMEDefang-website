@@ -1709,7 +1709,7 @@ Here\'s how you might use the function in filter_sender:
     otherwise.
 
 If you have the Mail::SpamAssassin Perl module installed (see
-http://www.spamassassin.org) you may call any of the spam_assassin\_\*
+https://www.spamassassin.org) you may call any of the spam_assassin\_\*
 functions. They should only be called from **filter_begin** or
 **filter_end** because they operate on the entire message at once. Most
 functions use an optionally provided config file. If no config file is
@@ -1953,7 +1953,7 @@ Bitdefender \"bdc\" - http://www.bitdefender.com/
 
 **clamav**
 
-:   Clam AntiVirus - http://www.clamav.net/
+:   Clam AntiVirus - https://www.clamav.net/
 
 **f-prot**
 
@@ -2414,7 +2414,7 @@ The following virus scanners are supported by MIMEDefang:
 **o**
 
 :   The clamscan and clamdscan command-line scanners and the clamd
-    daemon from Clam AntiVirus (http://www.clamav.net/)
+    daemon from Clam AntiVirus (https://www.clamav.net/)
 
 **o**
 
@@ -2455,7 +2455,7 @@ The following virus scanners are supported by MIMEDefang:
 # AUTHORS
 
 **mimedefang** was written by Dianne Skoll \<dfs\@roaringpenguin.com>.
-The **mimedefang** home page is *http://www.mimedefang.org/*.
+The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 # SEE ALSO
 

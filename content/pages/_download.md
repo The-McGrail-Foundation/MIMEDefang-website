@@ -18,10 +18,10 @@ MIMEDefang 3.1 Release
 
 **Perl Modules from CPAN**
 
--   [MIME-tools ](http://metacpan.org/search?q=MIME-tools)
--   [MIME-Base64 ](http://metacpan.org/search?q=MIME-Base64)
--   [MailTools-1 ](http://search.cpan.org/search?q=MailTools)
--   [Digest-SHA1 ](http://metacpan.org/search?q=Digest-SHA1)
--   [Unix-Syslog ](http://metacpan.org/search?q=Unix-Syslog)
--   [Net-DNSBL-Client ](http://metacpan.org/search?q=Net-DNSBL-Client)
--   [IO-Socket-SSL](http://metacpan.org/search?q=IO-Socket-SSL)
+-   [MIME-tools ](https://metacpan.org/search?q=MIME-tools)
+-   [MIME-Base64 ](https://metacpan.org/search?q=MIME-Base64)
+-   [MailTools-1 ](https://search.cpan.org/search?q=MailTools)
+-   [Digest-SHA1 ](https://metacpan.org/search?q=Digest-SHA1)
+-   [Unix-Syslog ](https://metacpan.org/search?q=Unix-Syslog)
+-   [Net-DNSBL-Client ](https://metacpan.org/search?q=Net-DNSBL-Client)
+-   [IO-Socket-SSL](https://metacpan.org/search?q=IO-Socket-SSL)

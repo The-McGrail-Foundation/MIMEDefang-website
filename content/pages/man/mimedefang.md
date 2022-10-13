@@ -280,7 +280,7 @@ introduce.
 # AUTHOR
 
 **mimedefang** was written by Dianne Skoll \<dfs\@roaringpenguin.com>.
-The **mimedefang** home page is *http://www.mimedefang.org/*.
+The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 # SEE ALSO
 

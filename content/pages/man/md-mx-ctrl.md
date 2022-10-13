@@ -284,7 +284,7 @@ needs to be run as *root* or the same user as
 # AUTHOR
 
 **md-mx-ctrl** was written by Dianne Skoll \<dfs\@roaringpenguin.com>.
-The **mimedefang** home page is *http://www.mimedefang.org/*.
+The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 # SEE ALSO
 
