@@ -8,13 +8,13 @@ Status: hidden
 
 **Filename**
 
-[mimedefang-3.1.tar.gz](https://mimedefang.org/releases/mimedefang-3.1.tar.gz)
+[mimedefang-3.2.tar.gz](https://mimedefang.org/releases/mimedefang-3.2.tar.gz)
 
-MIMEDefang 3.1 Release
+MIMEDefang 3.2 Release
 
 **Signature**
 
-[Yes](https://mimedefang.org/releases/mimedefang-3.1.tar.gz.asc)
+[Yes](https://mimedefang.org/releases/mimedefang-3.2.tar.gz.sig)
 
 **Perl Modules from CPAN**
 
