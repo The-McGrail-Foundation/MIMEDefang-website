@@ -71,3 +71,8 @@ md_copy_orig_msg_to_work_dir_as_mbox_file
 
 :   Method that copies original INPUTMSG file into work directory for
     virus-scanning as a valid mbox file.
+
+gen_mx_id
+
+:   Method that generates a random indentifier used by MIMEDefang
+    to create temporary files.

@@ -48,10 +48,13 @@ md_graphdefang_log
 
 :   This is called to log events that occur during mimedefang
     processing. It should be called from mimedefang-filter with
-    appropriate event names and values. Possible examples:
+    appropriate event names and values.
+    Possible examples:
     `md_graphdefang_log(virus,$VirusName,$filename);`
     `md_graphdefang_log(spam,$hits);`
     `md_graphdefang_log(bad_filename,$filename,$extension);`
+    If you need to log UTF-8 strings you can call the sub as:
+    `md_graphdefang_log('spam',$hits, undef, 1)`
 
 detect_and_load_perl_modules
 
