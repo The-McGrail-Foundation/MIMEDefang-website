@@ -1,7 +1,7 @@
 Title: Why won't SpamAssassin tag a message subject?
 Date: 2021-07-14 18:40:30
 Category: faq
-Num: 007
+Num: 008
 Status: published
 
 **Symptom**: I configured SpamAssassin to add the spam score to the subject, but it won’t do it.

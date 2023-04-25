@@ -1,7 +1,7 @@
 Title: Why was the e-mail altered?
 Date: 2021-07-14 18:40:30
 Category: faq
-Num: 013
+Num: 014
 Status: published
 
 Your system administrator or ISP has implemented a policy defining unacceptable e-mail attachments.  

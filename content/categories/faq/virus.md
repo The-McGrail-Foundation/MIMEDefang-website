@@ -1,7 +1,7 @@
 Title: I didn't send a virus -- why does your software claim I did?
 Date: 2021-07-14 18:40:30
 Category: faq
-Num: 014
+Num: 015
 Status: published
 
 Many viruses forge the sender’s address. By default, MIMEDefang does *not* send notifications to virus senders for this very reason.  
