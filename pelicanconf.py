@@ -25,6 +25,24 @@ AUTHOR_FEED_RSS = None
 
 DEFAULT_PAGINATION = False
 
+# Plugins
+# sitemap: https://pypi.org/project/pelican-sitemap/
+PLUGINS=["sitemap",]
+
+SITEMAP = {
+    "format": "xml",
+    "priorities": {
+        "articles": 0.5,
+        "indexes": 0.5,
+        "pages": 0.5
+    },
+    "changefreqs": {
+        "articles": "weekly",
+        "indexes": "weekly",
+        "pages": "weekly"
+    }
+}
+
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
