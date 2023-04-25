@@ -17,15 +17,23 @@ messages or to attach the messages to a new email message.
 
 # SYNOPSIS
 
-mimedefang-release [options] <directory\> ... Options: -a enable
-attach more, the released email will be sent as an attachment to the
-user. -h display the help -d path to the quarantined directory, it can
+mimedefang-release [options] <directory\> ...  
+
+# OPTIONS
+
+-a enable attach more, the released email will be sent as an attachment to the
+user.  
+-h display the help  
+-d path to the quarantined directory, it can
 be an absolute path or relative to MIMEDefang quarantine spool
-directory. -s set a custom subject for the email, this option is valid
-only in attach mode. -S specify an smtp server, in this mode the
+directory.  
+-s set a custom subject for the email, this option is valid
+only in attach mode.  
+-S specify an smtp server, in this mode the
 quarantined email will be delivered to the original user without
-modifications. -t enable TLS when delivering the email in smtp mode. -z
-compress the quarantined email using Archive::Zip. this option is valid
+modifications.  
+-t enable TLS when delivering the email in smtp mode.  
+-z compress the quarantined email using Archive::Zip. this option is valid
 only in attach mode.
 
 # EXAMPLES
