@@ -1,5 +1,5 @@
 Title: MIMEDefang - documentation
-Date: 2021-07-09 22:57
+Date: 2023-04-25 22:49
 Author: gbechis
 Slug: documentation/index
 Status: published
@@ -17,11 +17,13 @@ For an in depth look at how to combat spam using Sendmail, MIMEDefang and Perl, 
 ## MIMEDefang program and API man pages are also available:  
 
 - [mimedefang](../man_mimedefang.html)  
+- [mimedefang.pl](../man_mimedefang.pl.html)  
 - [md-mx-ctrl](../man_md-mx-ctrl.html)  
 - [mimedefang-filter](../man_mimedefang-filter.html)  
 - [mimedefang-multiplexor](../man_mimedefang-multiplexor.html)  
 - [mimedefang-notify](../man_mimedefang-notify.html)  
 - [mimedefang-protocol](../man_mimedefang-protocol.html)  
+- [mimedefang-release](../man_mimedefang-release.html)  
 - [Mail::MIMEDefang](../man_Mail::MIMEDefang.html)  
 - [Mail::MIMEDefang::Actions](../man_Mail::MIMEDefang::Actions.html)  
 - [Mail::MIMEDefang::Antispam](../man_Mail::MIMEDefang::Antispam.html)  

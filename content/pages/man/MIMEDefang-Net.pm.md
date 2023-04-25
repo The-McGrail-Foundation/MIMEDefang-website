@@ -33,6 +33,12 @@ relay_is_blacklisted
     Parameters are the ip address of the relay host and the domain of
     the rbl server.
 
+email_is_blacklisted
+
+:   Method that returns the result of the lookup (eg 127.0.0.2).
+    Parameters are an email address, the domain of the hashbl server,
+    and the type of hashing (MD5 or SHA1).
+
 is_public_ip4_address $ip_addr
 
 :   Returns true if `$ip_addr` is a publicly-routable IPv4 address,

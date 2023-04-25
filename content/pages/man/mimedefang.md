@@ -285,4 +285,4 @@ The **mimedefang** home page is *https://www.mimedefang.org/*.
 # SEE ALSO
 
 mimedefang.pl(8), mimedefang-filter(5), mimedefang-multiplexor(8),
-mimedefang-protocol(7)
+mimedefang-protocol(7), mimedefang-release(8)
