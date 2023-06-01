@@ -160,7 +160,7 @@ send_admin_mail(subject, body)
 
 **Mail::MIMEDefang::DKIM::ARC** (3)
 
-**Mail::MIMEDefang::DKIM::Authres** (3)
+**Mail::MIMEDefang::Authres** (3)
 
 **Mail::MIMEDefang::Mail** (3)
 
