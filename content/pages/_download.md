@@ -30,7 +30,7 @@ MIMEDefang-smtpd-filter 0.2 Release
 
 -   [MIME-tools ](https://metacpan.org/search?q=MIME-tools)
 -   [MIME-Base64 ](https://metacpan.org/search?q=MIME-Base64)
--   [MailTools-1 ](https://search.cpan.org/search?q=MailTools)
+-   [MailTools ](https://metacpan.org/release/MailTools)
 -   [Digest-SHA1 ](https://metacpan.org/search?q=Digest-SHA1)
 -   [Unix-Syslog ](https://metacpan.org/search?q=Unix-Syslog)
 -   [Net-DNSBL-Client ](https://metacpan.org/search?q=Net-DNSBL-Client)
