@@ -17,3 +17,5 @@ People use MIMEDefang to:
 -   Implement sophisticated access controls.
 
 You’re limited only by your imagination. If you can think of it and code it in Perl, you can do it with MIMEDefang.
+
+A complete description of MIMEDefang may be found in the PDF [presentation slides](https://mimedefang.org/static/mimedefang-mcgrail.pdf).
