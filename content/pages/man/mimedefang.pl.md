@@ -1,7 +1,7 @@
 Title: MIMEDefang - documentation
 Date: 2023-04-25 23:25:40
 Author: gbechis
-Slug: man_mimedefang.pl
+Slug: man_mimedefang_pl
 Status: published
 Template: documentation
 
