@@ -23,12 +23,12 @@ program that listens for state changes is referred to as a *listener*.
 
 From the point of view of a listener, notification works like this:
 
-1\) The listener connects to a TCP or UNIX-domain socket.
+1) The listener connects to a TCP or UNIX-domain socket.
 
-2\) The listener informs **mimedefang-multiplexor** of the *message
+2) The listener informs **mimedefang-multiplexor** of the *message
 types* it is interested in.
 
-3\) The listener loops, reading messages from the socket and reacting to
+3) The listener loops, reading messages from the socket and reacting to
 them.
 
 # MESSAGES
@@ -37,8 +37,8 @@ Each message from the multiplexor normally consists of a single
 upper-case letter, possibly followed by a space and some arguments, and
 then followed by a newline.
 
-Two special messages are \"\*OK\" followed by a newline, which is issued
-when a listener first connects, and \"\*ERR\" followed by some text and
+Two special messages are "*OK" followed by a newline, which is issued
+when a listener first connects, and "*ERR" followed by some text and
 a newline, which is issued when an error occurs.
 
 The normal messages are:
@@ -59,7 +59,7 @@ The normal messages are:
 
 **S** *n* *nmsg*
 
-:   This message is issued whenever worker *n*\'s status tag changes.
+:   This message is issued whenever worker *n*'s status tag changes.
     The status tag is a string indicating what the worker is currently
     doing; the **-Z** option to the multiplexor allows the Perl code to
     update the status tag so you have a good idea what each worker is
@@ -83,7 +83,7 @@ The normal messages are:
 
 A listener does not receive any messages until it has *expressed
 interest* in various message types. To express interest, the listener
-should send a question mark (\"?\") followed by the types of messages it
+should send a question mark ("?") followed by the types of messages it
 is interested in, followed by a newline over the socket. For example, a
 listener interested in the R and F messages would send this line:
 
@@ -91,13 +91,13 @@ listener interested in the R and F messages would send this line:
 
 A listener interested in every possible message type should send:
 
-?\*
+?*
 
 Once a listener has expressed interest, it may receive messages at any
 time, and should monitor the socket for messages.
 
-Note that a listener *always* receives the special messages \"\*OK\" and
-\"\*ERR\", even if it has not expressed interest in them.
+Note that a listener *always* receives the special messages "*OK" and
+"*ERR", even if it has not expressed interest in them.
 
 # EXAMPLE
 

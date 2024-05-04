@@ -12,7 +12,7 @@ mimedefang-multiplexor - Process pool controller for mail filters.
 
 # SYNOPSIS
 
-**mimedefang-multiplexor \[*options*\]**
+**mimedefang-multiplexor [*options*]**
 
 # DESCRIPTION
 
@@ -87,7 +87,7 @@ handled some number of scans.
 **-Z**
 
 :   This option specifies that the multiplexor should accept and process
-    \"status updates\" from busy workers. Note that this consumes one
+    "status updates" from busy workers. Note that this consumes one
     extra file descriptor per worker, plus a small amount of CPU time
     per status update.
 
@@ -150,7 +150,7 @@ handled some number of scans.
 :   Causes **mimedefang-multiplexor** to use *fileName* as a lock file
     to avoid multiple instances from running. If you supply **-p** but
     not **-o**, then **mimedefang-multiplexor** constructs a lock file
-    by appending \".lock\" to the pid file. However, this is less secure
+    by appending ".lock" to the pid file. However, this is less secure
     than having a root-owned pid file in a root-owned directory and a
     lock file writable by the user named by the **-U** option. (The lock
     file must be writable by the **-U** user.)
@@ -164,7 +164,7 @@ handled some number of scans.
     documented in **mimedefang-protocol**(7); see that manual page for
     details.
 
-Note that the **-f** option does *not* specify the \"filter\" to use
+Note that the **-f** option does *not* specify the "filter" to use
 with **mimedefang.pl**; instead, it specifies the program for
 **mimedefang-multiplexor** to execute. You almost certainly should *not*
 use this option unless you wish to replace **mimedefang.pl** with your
@@ -179,7 +179,7 @@ own program.
 
 **-l**
 
-:   Log certain events, including the output of the Perl workers\'
+:   Log certain events, including the output of the Perl workers'
     standard-error, using syslog. Normally, the multiplexor does not log
     much information.
 
@@ -240,20 +240,20 @@ to force **mimedefang.pl** to consume lots of memory.
 **-q *queue_size***
 
 :   Normally, if all workers are busy and **mimedefang-multiplexor**
-    receives another request, it fails it with the error \"No free
-    workers.\" However, if you use the **-q** option, then up to
+    receives another request, it fails it with the error "No free
+    workers." However, if you use the **-q** option, then up to
     *queue_size* requests will be queued. As soon as a worker becomes
     free, the queued requests will be handed off in FIFO order. If the
     queue is full and another request comes in, then the request is
-    failed with \"No free workers\".
+    failed with "No free workers".
 
 **-Q *queue_timeout***
 
 :   Queued requests should not stay on the queue indefinitely. If a
     queued request cannot be processed within *queue_timeout*
     (default 30) seconds of being placed on the queue, it is failed with
-    a \"Queued request timed out\" message. See the section \"QUEUEING
-    REQUESTS\" for more discussion.
+    a "Queued request timed out" message. See the section "QUEUEING
+    REQUESTS" for more discussion.
 
 **-O *sock***
 
@@ -279,12 +279,12 @@ See the section SOCKET SPECIFICATION for the format of *map_sock*.
 **-I *backlog***
 
 :   When **mimedefang-multiplexor** creates a listening socket, it
-    calculates the \"backlog\" argument to **listen**(2) based on the
+    calculates the "backlog" argument to **listen**(2) based on the
     maximum number of workers. However, you can explicitly set this
     backlog with the **-I** option. Setting the backlog to a high value
     (around 30-50) may help on a very busy server. If you see mail log
-    messages saying \"MXCommand: socket: Connection refused\" during
-    busy periods, then that\'s an indication you need a higher listen
+    messages saying "MXCommand: socket: Connection refused" during
+    busy periods, then that's an indication you need a higher listen
     backlog.
 
 **-L *interval***
@@ -297,12 +297,12 @@ See the section SOCKET SPECIFICATION for the format of *map_sock*.
 ```
     Worker status: Stopped=s Idle=i Busy=b Killed=k Queued=q Msgs=m Activations=a
 
-Here, \"Stopped\" is the number of non-running workers, \"Idle\" is the
-number of idle workers, \"Busy\" is the number of busy workers,
-\"Killed\" is the number of killed workers yet to be reaped, \"Queued\"
-is the number of queued requests, \"Msgs\" is the total number of
+Here, "Stopped" is the number of non-running workers, "Idle" is the
+number of idle workers, "Busy" is the number of busy workers,
+"Killed" is the number of killed workers yet to be reaped, "Queued"
+is the number of queued requests, "Msgs" is the total number of
 messages processed since the multiplexor began running, and
-\"Activations\" is the number of times a Perl process has been started
+"Activations" is the number of times a Perl process has been started
 since the multiplexor began running.
 
 If you supply an *interval* of 0 (which is the default), no periodic
@@ -313,18 +313,18 @@ seconds, it is silently reset to 5 seconds.
 
 :   Specifies the syslog facility for log messages. The default is
     *mail*. See **openlog**(3) for a list of valid facilities. You can
-    use either the short name (\"mail\") or long name (\"LOG_MAIL\") for
+    use either the short name ("mail") or long name ("LOG_MAIL") for
     the facility name.
 
 **-E**
 
 :   Specifies that the multiplexor should create an embedded Perl
     interpreter. This can improve performance dramatically. But see the
-    section \"EMBEDDING PERL\" for more information.
+    section "EMBEDDING PERL" for more information.
 
 **-X** *n*
 
-:   Specifies that the multiplexor should initiate a \"tick\" request
+:   Specifies that the multiplexor should initiate a "tick" request
     every *n* seconds. This causes your *filter_tick* function (if
     defined) to be called. Note that you have no control over which
     worker executes *filter_tick*. If all workers are busy when a tick
@@ -339,13 +339,13 @@ seconds, it is silently reset to 5 seconds.
     behaves as if **-P 1** had been specified.)
 
 If you run parallel ticks, each tick is assigned an integer identifying
-its \"type\". The type ranges from 0 to *n*-1. While there may be as
+its "type". The type ranges from 0 to *n*-1. While there may be as
 many as *n* tick requests running at a time, only one tick of each type
 will be active at any time.
 
 **-Y** *label*
 
-:   Sets the tag used in the multiplexor\'s syslog messages to *label*
+:   Sets the tag used in the multiplexor's syslog messages to *label*
     instead of **mimedefang-multiplexor**.
 
 **-G**
@@ -368,8 +368,8 @@ will be active at any time.
     function in your filter. If you are doing recipient verification
     against servers that may be slow or unreliable, you can use the
     **-y** option to limit the number of concurrent recipient
-    verifications per domain. That way, if one domain\'s server becomes
-    very slow, it won\'t consume all available workers for recipient
+    verifications per domain. That way, if one domain's server becomes
+    very slow, it won't consume all available workers for recipient
     verification. Instead, its RCPT commands will be tempfailed and
     there will be workers available to handle RCPT commands for other
     domains.
@@ -514,7 +514,7 @@ The possible keys in the key=value pairs are:
 :   The number of busy workers (workers which are processing an e-mail
     message) immediately after the event happened.
 
-**reason=\"*string***\"****
+**reason="*string***"
 
 :   The reason for a StartWorker or KillWorker event. (Present only for
     these events.)
@@ -540,7 +540,7 @@ If you send the **mimedefang-multiplexor** process a SIGTERM signal
 # AUTHOR
 
 **mimedefang-mulitplexor** was written by Dianne Skoll
-\<dfs\@roaringpenguin.com>. The **mimedefang** home page is
+<dfs@roaringpenguin.com>. The **mimedefang** home page is
 *http://www.mimedefang.org/*.
 
 # SEE ALSO

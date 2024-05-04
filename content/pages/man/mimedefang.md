@@ -19,7 +19,7 @@ mimedefang - Sendmail MIME mail filter
 
 # DESCRIPTION
 
-**mimedefang** is a filter built around Sendmail 8.11\'s *milter* API
+**mimedefang** is a filter built around Sendmail 8.11's *milter* API
 for mail filters. It collects each incoming message and runs a filter on
 the message. This is useful for deleting attachments which may be a
 security risk on poorly-designed systems like Microsoft Windows.
@@ -39,7 +39,7 @@ second line of the SYNOPSIS.
 **-U *user***
 
 :   Runs **mimedefang** as *user* rather than *root*. The *user*
-    argument must match the argument to **mimedefang-multiplexor**\'s
+    argument must match the argument to **mimedefang-multiplexor**'s
     **-U** option as well.
 
 **-y**
@@ -73,7 +73,7 @@ second line of the SYNOPSIS.
 
 **-b *backlog***
 
-:   Sets the \"backlog\" argument to the **listen**(2) system call to
+:   Sets the "backlog" argument to the **listen**(2) system call to
     *backlog*. If this option is omitted, then the operating-system
     default backlog is used.
 
@@ -152,7 +152,7 @@ If you use the **-G** option, you probably should change the mode to
 :   Causes **mimedefang** to use *fileName* as a lock file to avoid
     multiple instances from running. If you supply **-P** but not
     **-o**, then **mimedefang** constructs a lock file by appending
-    \".lock\" to the pid file. However, this is less secure than having
+    ".lock" to the pid file. However, this is less secure than having
     a root-owned pid file in a root-owned directory and a lock file
     writable by the user named by the **-U** option. (The lock file must
     be writable by the **-U** user.)
@@ -164,7 +164,7 @@ If you use the **-G** option, you probably should change the mode to
     **mimedefang** tempfail new connections if there are fewer than
     *num* free workers, *unless* the connection is from the local host.
     This allows you to favour connections from localhost so your
-    clientmqueue doesn\'t build up. Note that supplying **-R 0** is
+    clientmqueue doesn't build up. Note that supplying **-R 0** is
     subtly different from omitting the option; in this case,
     **mimedefang** permits new connections from localhost to queue, but
     not connections from other hosts (unless you also supply the **-q**
@@ -197,13 +197,13 @@ you supply **-q**, then **-R** is ignored.
 **-x *string***
 
 :   Add *string* as the content of the X-Scanned-By: header. If you set
-    *string* to the empty string (i.e. -x \"\"), then no X-Scanned-By:
+    *string* to the empty string (i.e. -x ""), then no X-Scanned-By:
     header will be added.
 
 **-X**
 
 :   Do not add an X-Scanned-By: header. Specifying -X is equivalent to
-    specifying -x \"\".
+    specifying -x "".
 
 **-D**
 
@@ -219,17 +219,17 @@ you supply **-q**, then **-R** is ignored.
 **-N**
 
 :   Normally, **mimedefang** sees all envelope recipients, even ones
-    that Sendmail knows to be invalid. If you don\'t want Sendmail to
+    that Sendmail knows to be invalid. If you don't want Sendmail to
     perform a milter callback for recipients it knows to be invalid,
     invoke **mimedefang** with the -N flag. *Please note that this* flag
     only works with Sendmail and Milter 8.14.0 and newer. It has no
-    effect if you\'re running an older version of Sendmail or Milter.
+    effect if you're running an older version of Sendmail or Milter.
 
 -S *facility*
 
 :   Specifies the syslog facility for log messages. The default is
     *mail*. See **openlog**(3) for a list of valid facilities. You can
-    use either the short name (\"mail\") or long name (\"LOG_MAIL\") for
+    use either the short name ("mail") or long name ("LOG_MAIL") for
     the facility name.
 
 -a *macro*
@@ -239,12 +239,12 @@ you supply **-q**, then **-R** is ignored.
     built-in defaults. Note that in addition to asking **mimedefang** to
     pass the macro value to the filter, you must configure Sendmail to
     pass the macro through to **mimedefang** using the
-    confMILTER_MACROS_ENVFROM definition in Sendmail\'s m4 configuration
+    confMILTER_MACROS_ENVFROM definition in Sendmail's m4 configuration
     file.
 
 **-c**
 
-:   Strip \"bare\" carriage-returns (CR) characters from the message
+:   Strip "bare" carriage-returns (CR) characters from the message
     body. A bare CR should never appear in an e-mail message. Older
     versions of **mimedefang** used to strip them out automatically, but
     now they are left in by default. The **-c** option enables the older
@@ -279,7 +279,7 @@ introduce.
 
 # AUTHOR
 
-**mimedefang** was written by Dianne Skoll \<dfs\@roaringpenguin.com>.
+**mimedefang** was written by Dianne Skoll <dfs@roaringpenguin.com>.
 The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 # SEE ALSO

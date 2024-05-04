@@ -52,21 +52,21 @@ The following commands are available:
     parse by computer. The result is a single line with six words on it.
     The words are separated by a single space character.
 
-Each character in the first word corresponds to a worker, and is \"I\"
-for an idle worker, \"B\" for a busy worker, \"S\" for a worker which is
-not running, and \"K\" for a worker which has been killed, but has not
-yet exited. A worker is \"idle\" if there is a running Perl process
-waiting to do work. \"Busy\" means the Perl process is currently
-filtering a message. \"S\" means there is no associated Perl process
+Each character in the first word corresponds to a worker, and is "I"
+for an idle worker, "B" for a busy worker, "S" for a worker which is
+not running, and "K" for a worker which has been killed, but has not
+yet exited. A worker is "idle" if there is a running Perl process
+waiting to do work. "Busy" means the Perl process is currently
+filtering a message. "S" means there is no associated Perl process
 with the worker, but one can be started if the load warrants. Finally,
-\"K\" means the worker Perl process has been killed, but has yet to
+"K" means the worker Perl process has been killed, but has yet to
 terminate.
 
 The second word is the total number of messages processed since the
 multiplexor started up. The third word is the total number of workers
 which have been activated since the multiplexor started up. (That is,
-it\'s a count of the number of times the multiplexor has forked and
-exec\'d the Perl filter.)
+it's a count of the number of times the multiplexor has forked and
+exec'd the Perl filter.)
 
 The fourth word is the size of the queue for request queuing, and the
 fifth word is the actual number of requests in the queue. The sixth word
@@ -75,7 +75,7 @@ is the number of seconds elapsed since the multiplexor was started.
 **barstatus**
 
 :   Prints the status of busy workers and queued requests in a nice
-    \"bar chart\" format. This lets you keep an eye on things with a
+    "bar chart" format. This lets you keep an eye on things with a
     script like this:
 
     	while true ; do
@@ -94,17 +94,17 @@ is the number of seconds elapsed since the multiplexor was started.
 
 **load**
 
-:   Prints a table showing \"load averages\" for the last 10 seconds, 1
+:   Prints a table showing "load averages" for the last 10 seconds, 1
     minute, 5 minutes and 10 minutes.
 
 Each row in the table corresponds to a time interval, displayed in the
 first column. The remaining columns in the table are:
 
-**Msgs:** The number of messages scanned within the row\'s time
+**Msgs:** The number of messages scanned within the row's time
 interval.
 
 **Msgs/Sec:** The average number of messages scanned per second within
-the row\'s time interval.
+the row's time interval.
 
 **Avg Busy Workers:** The average number of busy workers whenever a
 message was scanned. (If you are processing any mail at all, this number
@@ -272,18 +272,18 @@ You can supply any other command and arguments to **md-mx-ctrl**. It
 percent-encodes each command-line argument, glues the encoded arguments
 together with a single space between each, and sends the result to the
 multiplexor as a command. This allows you to send arbitrary commands to
-your Perl workers. See the section \"EXTENDING MIMEDEFANG\" in
+your Perl workers. See the section "EXTENDING MIMEDEFANG" in
 **mimedefang-filter**(5) for additional details.
 
 # PERMISSIONS
 
-**md-mx-ctrl** uses the multiplexor\'s socket; therefore, it probably
+**md-mx-ctrl** uses the multiplexor's socket; therefore, it probably
 needs to be run as *root* or the same user as
 **mimedefang-multiplexor**.
 
 # AUTHOR
 
-**md-mx-ctrl** was written by Dianne Skoll \<dfs\@roaringpenguin.com>.
+**md-mx-ctrl** was written by Dianne Skoll <dfs@roaringpenguin.com>.
 The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 # SEE ALSO

@@ -45,7 +45,7 @@ file (e.g. **test-filter**) and run this command:
 
 This tests the filter for syntactic correctness. If it passes, you can
 install it as a production filter. (Note that the test tests only for
-correct Perl syntax; it doesn\'t make sure your filter does something
+correct Perl syntax; it doesn't make sure your filter does something
 sensible.)
 
 # MISCELLANEOUS OPTIONS
@@ -69,7 +69,7 @@ filter_validate does not exist, an error message is printed and
 # AUTHOR
 
 **mimedefang.pl** was written by Dianne Skoll
-\<dfs@roaringpenguin.com\>. The **mimedefang** home page is
+<dfs@roaringpenguin.com>. The **mimedefang** home page is
 *https://www.mimedefang.org/*.
 
 # SEE ALSO

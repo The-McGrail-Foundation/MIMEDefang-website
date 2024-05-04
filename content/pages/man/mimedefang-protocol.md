@@ -14,7 +14,7 @@ communicate with filter programs.
 # DESCRIPTION
 
 **mimedefang**(8) and **mimedefang-multiplexor**(8) provide a simplified
-mechanism for hooking scripts and programs into Sendmail\'s milter API.
+mechanism for hooking scripts and programs into Sendmail's milter API.
 
 The milter API is multi-threaded and written in C; **mimedefang** lets
 you write single-threaded filters written in the language of your
@@ -53,7 +53,7 @@ The filter program may be invoked in one of five ways:
 
 :   If the program is invoked with the single argument **-serveru**, it
     is expected to run as a server. In addition, anything it prints to
-    file descriptor 3 is used to update the \"worker status\" field in
+    file descriptor 3 is used to update the "worker status" field in
     the multiplexor. This lets the filter inform administrators exactly
     what it is doing. (See the **-Z** option to
     **mimedefang-multiplexor**.)
@@ -95,9 +95,9 @@ working directory. In that directory, it will find the following files.
 # THE COMMANDS FILE
 
 All commands have their arguments encoded as follows: All characters
-outside the range 33 to 126 ASCII, as well as the characters \"%\",
-\"\\\", \"\'\" and double-quote, are replaced by a percent sign followed
-by two hex digits specifying the character\'s numerical value. The
+outside the range 33 to 126 ASCII, as well as the characters "%",
+"", "'" and double-quote, are replaced by a percent sign followed
+by two hex digits specifying the character's numerical value. The
 filter must un-escape the arguments when it reads the COMMANDS file.
 
 The commands from the C to Perl filters are:
@@ -124,7 +124,7 @@ The commands from the C to Perl filters are:
 :   A recipient. There is one **R** line for each recipient. The
     *mailer*, *host* and *addr* parts of the line are the values of the
     Sendmail {rcpt_mailer}, {rcpt_host} and {rcpt_addr} macros if they
-    are available, or \"?\" if not.
+    are available, or "?" if not.
 
 **r*esmtp_arg***
 
@@ -143,7 +143,7 @@ The commands from the C to Perl filters are:
 
 **I*host_addr***
 
-:   The SMTP relay host\'s IP address in dotted-quad notation.
+:   The SMTP relay host's IP address in dotted-quad notation.
 
 **i*identifier***
 
@@ -153,10 +153,10 @@ The commands from the C to Perl filters are:
 
 **J*host_addr***
 
-:   The \"real\" SMTP relay host\'s IP address in dotted-quad notation.
+:   The "real" SMTP relay host's IP address in dotted-quad notation.
     Multi-stage MIMEDefang relays can use a special IP validation header
-    so that even the innermost MIMEDefang relay can see the \"original\"
-    relay\'s IP address.
+    so that even the innermost MIMEDefang relay can see the "original"
+    relay's IP address.
 
 **H*host_name***
 
@@ -164,11 +164,11 @@ The commands from the C to Perl filters are:
 
 **E*argument***
 
-:   The argument to the SMTP \"EHLO\" or \"HELO\" command.
+:   The argument to the SMTP "EHLO" or "HELO" command.
 
 **Q*qid***
 
-:   The message\'s Sendmail queue-ID.
+:   The message's Sendmail queue-ID.
 
 **=*macro* *val***
 
@@ -232,14 +232,14 @@ are:
 
 **I*header* *index* *val***
 
-:   Replace the *index\'th* occurrence of *header* with value *val*. The
+:   Replace the *index'th* occurrence of *header* with value *val*. The
     *index* is 1-based. The *header* should not contain a colon. Each of
     *header*, *index* and *val* is percent-escaped, but the single space
     between them is not.
 
 **J*header* *index***
 
-:   Delete the *index*\'th occurrence of *header*.
+:   Delete the *index*'th occurrence of *header*.
 
 **R*recip***
 
@@ -277,61 +277,61 @@ killed with SIGKILL.
 
 **ping**
 
-:   Elicits a reply of \"PONG\" from the server.
+:   Elicits a reply of "PONG" from the server.
 
 **scan *queue_id* *dir***
 
 :   Run a scan for the mail identiefied by the Sendmail queue-ID
     *queue_id* in the directory *dir*. The command is terminated with a
-    newline. The server must write a newline-terminated \"ok\" if the
-    scan completed successfully, or \"error: msg\" if something went
+    newline. The server must write a newline-terminated "ok" if the
+    scan completed successfully, or "error: msg" if something went
     wrong.
 
 **relayok *ip_addr* *hostname* *client_port* *daemon_ip* *daemon_port***
 
 :   Test whether or not to accept a connection from the specified host.
-    The server must write \"ok 1\" if we will accept the connection, or
-    \"ok 0 error_message code dsn\" if not. It can indicate a temporary
-    failure by writing \"ok -1 error_message code dsn\". Note that even
+    The server must write "ok 1" if we will accept the connection, or
+    "ok 0 error_message code dsn" if not. It can indicate a temporary
+    failure by writing "ok -1 error_message code dsn". Note that even
     if the connection is accepted, a later scan can still reject the
-    message based on other criteria. \"ip_addr\" is the IP address of
-    the relay and \"hostname\" is the hostname (if it could be
+    message based on other criteria. "ip_addr" is the IP address of
+    the relay and "hostname" is the hostname (if it could be
     determined; otherwise, the IP address in square brackets).
 
 **helook *ip_addr* *hostname* *helo_string* *client_port* *daemon_ip* *daemon_port***
 
 :   Test whether or not to accept the HELO/EHLO command. The server must
-    write \"ok 1\" if we will accept the mail attempt, or \"ok 0
-    error_message code dsn\" if not. \"ok -1 error_message code dsn\"
+    write "ok 1" if we will accept the mail attempt, or "ok 0
+    error_message code dsn" if not. "ok -1 error_message code dsn"
     indicates a temporary failure. *helo_string* is the argument to the
     HELO/EHLO command. The remaining arguments have the same meaning as
     in **relayok**.
 
-**senderok *sender_addr* *ip_addr* *hostname* *helo_string* *dir* *queue_id* \[*esmtp_args*\...\]**
+**senderok *sender_addr* *ip_addr* *hostname* *helo_string* *dir* *queue_id* [*esmtp_args*...]**
 
 :   Test whether or not to accept mail from the specified sender. The
-    server must write \"ok 1\" if we will accept the mail attempt, or
-    \"ok 0 error_message code dsn\" if not. \"ok -1 error_message code
-    dsn\" indicates a temporary failure. Note that even if the sender is
+    server must write "ok 1" if we will accept the mail attempt, or
+    "ok 0 error_message code dsn" if not. "ok -1 error_message code
+    dsn" indicates a temporary failure. Note that even if the sender is
     accepted, a later scan can still reject the message based on other
-    criteria. \"sender_addr\" is the sender\'s e-mail address. The
-    \"ip_addr\" and \"hostname\" arguments are as in **relayok**.
-    \"helo_string\" is the argument to the SMTP HELO/EHLO command.
-    \"dir\" is the MIMEDefang spool directory, and \"queue_id\" is the
+    criteria. "sender_addr" is the sender's e-mail address. The
+    "ip_addr" and "hostname" arguments are as in **relayok**.
+    "helo_string" is the argument to the SMTP HELO/EHLO command.
+    "dir" is the MIMEDefang spool directory, and "queue_id" is the
     Sendmail queue identifier.
 
-The optional \"esmtp_args\" are space-separated, percent-encoded ESMTP
+The optional "esmtp_args" are space-separated, percent-encoded ESMTP
 arguments supplied with the MAIL FROM: command.
 
-**recipok *recip_addr* *sender_addr* *ip_addr* *hostname* *first_recip* *helo_string* *dir* *queue_id* \[*esmtp_args*\...\]**
+**recipok *recip_addr* *sender_addr* *ip_addr* *hostname* *first_recip* *helo_string* *dir* *queue_id* [*esmtp_args*...]**
 
 :   Test whether or not to accept mail for the specified recipient. The
-    server must write \"ok 1\" if we will accept it, or \"ok 0
-    error_message code dsn\" if not. ok -1 error_message code dsn\"
+    server must write "ok 1" if we will accept it, or "ok 0
+    error_message code dsn" if not. ok -1 error_message code dsn"
     indicates a temporary-failure.
 
-\"recip_addr\" is the argument to the RCPT TO: command, and
-\"first_recip\" is the argument to the first RCPT TO: command for this
+"recip_addr" is the argument to the RCPT TO: command, and
+"first_recip" is the argument to the first RCPT TO: command for this
 message. Other arguments are as in **senderok**.
 
 **map *map_name* *key***
@@ -364,7 +364,7 @@ tock *band*
 
 :   The reply codes are:
 
-**ok \[*return_code*\] \[*parameters*\]**
+**ok [*return_code*] [*parameters*]**
 
 :   The operation completed successfully. Some operations have an
     associated return code, and possibly other parameters as well. See
@@ -383,7 +383,7 @@ When you send a reply code back to the multiplexor, be sure to terminate
 it with a newline, and to flush standard output. If your program uses
 the Standard I/O library, standard output may not be flushed
 immediately, and **mimedefang-multiplexor** will wait forever for the
-filter\'s reply, and eventually kill the filter on the assumption it has
+filter's reply, and eventually kill the filter on the assumption it has
 hung up.
 
 In server mode, if the filter program receives a SIGINT signal, it must
@@ -392,7 +392,7 @@ workers after they have processed a given number of e-mail messages.
 
 # AUTHOR
 
-**mimedefang** was written by Dianne Skoll \<dfs\@roaringpenguin.com>.
+**mimedefang** was written by Dianne Skoll <dfs@roaringpenguin.com>.
 The **mimedefang** home page is *http://www.mimedefang.org/*.
 
 # SEE ALSO
