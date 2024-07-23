@@ -9,6 +9,10 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
+**MIMEDefang 3.4.1** 2023-05-01
+
+   * regression tests and packaging fixes
+
 **MIMEDefang 3.4** 2023-04-16
 
    * add a mimedefang-release program to release a message from
@@ -80,651 +84,2851 @@ New features and fixes of MIMEDefang versions.
    * add experimental support to scan emails with Rspamd antispam
 
    * remove --enable_cleanup_with_rm "configure" parameter,
-	 switch to non reentrant version of readdir(3)
+    switch to non reentrant version of readdir(3)
 
    * Obtain the Queue-ID as early as possible in the SMTP
-	 session. Requires the "-y" command-line option to mimedefang.
+    session. Requires the "-y" command-line option to mimedefang.
 
    * Add support for USE_SETSYMLIST in the system unit and Red Hat
-  	 init script; setting USE_SETSYMLIST=yes adds the "-y" command-line
-	 option to mimedefang.
+      init script; setting USE_SETSYMLIST=yes adds the "-y" command-line
+    option to mimedefang.
 
    * mimedefang.pl: Add support for a configuration file
-	 to separate data from code
+    to separate data from code
 
    * mimedefang.pl: Add support to scan messages for viruses on a remote
-	 Clamav server using clamdscan client.
+    Clamav server using clamdscan client.
 
    * mimedefang.pl: Add re_match_in_rar_directory function to match
-	 unwanted file names extensions inside a rar archive file.
+    unwanted file names extensions inside a rar archive file.
 
    * mimedefang.pl: Added TLS support to md_check_against_smtp_server
 
 **MIMEDefang 2.84** 2018-03-21
 
-	* mimedefang.pl: Correctly use "$mon" rather than "$min" to generate
-	quarantine file names.
+   * mimedefang.pl: Correctly use "$mon" rather than "$min" to generate
+     quarantine file names.
 
-	* mimedefang-multiplexor: Make "workerinfo nnn" show how long ago
-	the last state change was for a given worker.
+   * mimedefang-multiplexor: Make "workerinfo nnn" show how long ago
+     the last state change was for a given worker.
 
 **MIMEDefang 2.83** 2017-10-30
 
-	* mimedefang.pl: Do not add a Message-ID: header when handing a
-	message to SpamAssassin if the original message lacks such a
-	header.
+   * mimedefang.pl: Do not add a Message-ID: header when handing a
+     message to SpamAssassin if the original message lacks such a
+     header.
 
-	* Add systemd unit files; thanks to Richard Laager.
+   * Add systemd unit files; thanks to Richard Laager.
 
-	* Minor tweaks to the sample filter.
+   * Minor tweaks to the sample filter.
 
-	* mimedefang-multiplexor: Change the maxLifetime option to kick in
-	only once a worker has processed at least one request; also check
-	for exceeded lifetimes during the periodic idle-time check.
+   * mimedefang-multiplexor: Change the maxLifetime option to kick in
+   only once a worker has processed at least one request; also check
+   for exceeded lifetimes during the periodic idle-time check.
 
-	* mimedefang-multiplexor: Fix an exit(EXIT_FAILURE) to be
-	exit(EXIT_SUCCESS) in on place.
+   * mimedefang-multiplexor: Fix an exit(EXIT_FAILURE) to be
+   exit(EXIT_SUCCESS) in on place.
 
 **MIMEDefang 2.82** 2017-09-08
 
-	* Update contrib/graphdefang with improvements from Kevin A. McGrail.
+   * Update contrib/graphdefang with improvements from Kevin A. McGrail.
 
-	* Fix Red Hat init script (thanks to Robert Scheck)
+   * Fix Red Hat init script (thanks to Robert Scheck)
 
-	* Exit with EXIT_SUCCESS if mimedefang-multiplexor is told to
-	terminate.
+   * Exit with EXIT_SUCCESS if mimedefang-multiplexor is told to
+   terminate.
 
-	* Terminology change:  Change "slave" to "worker" everywhere.
+   * Terminology change:  Change "slave" to "worker" everywhere.
 
-	*** NOTE INCOMPATIBILITY ***
+   *** NOTE INCOMPATIBILITY ***
 
-	Check your init scripts to make sure they use current names for shell
-	variables; a few "SLAVE" strings have been changed to "WORKER"
+   Check your init scripts to make sure they use current names for shell
+   variables; a few "SLAVE" strings have been changed to "WORKER"
 
-	* Add a new -V maxLifetime option to mimedefang-multiplexor that
-	terminates worker processes after maxLifetime seconds (approximately).
-	This is in addition to the -r maxRequests option.
+   * Add a new -V maxLifetime option to mimedefang-multiplexor that
+   terminates worker processes after maxLifetime seconds (approximately).
+   This is in addition to the -r maxRequests option.
 
-	* Log the lifetime and number of requests processed when we terminate
-	a worker process.
+   * Log the lifetime and number of requests processed when we terminate
+   a worker process.
 
 **MIMEDefang 2.81** 2017-08-31
 
-	* Don't barf if the installed version of Sys::Syslog has a developer
-	tag added (like 0.33_01 on Debian Stretch).
+   * Don't barf if the installed version of Sys::Syslog has a developer
+   tag added (like 0.33_01 on Debian Stretch).
 
-	* Make mimedefang and mimedefang-multiplexor write their PID files
-	as root to avoid an unprivileged user tampering with the pidfiles.
-	Thanks to Michael Orlitzky for pointing this issue out.
+   * Make mimedefang and mimedefang-multiplexor write their PID files
+   as root to avoid an unprivileged user tampering with the pidfiles.
+   Thanks to Michael Orlitzky for pointing this issue out.
 
-	*** NOTE INCOMPATIBILITY ***
+   *** NOTE INCOMPATIBILITY ***
 
-	You should move your PID files out of the MIMEDefang spool directory
-	and into a standard root-owned directory like /var/run.  Use the -o
-	option to create lock files in the spool directory.  The sample
-	init scripts have been updated to reflect this.
+   You should move your PID files out of the MIMEDefang spool directory
+   and into a standard root-owned directory like /var/run.  Use the -o
+   option to create lock files in the spool directory.  The sample
+   init scripts have been updated to reflect this.
 
 **MIMEDefang 2.80** 2017-07-24
 
-	* md-mx-ctrl: Add newline to mimedefang-multiplexor output that lacks
-	a newline.
+   * md-mx-ctrl: Add newline to mimedefang-multiplexor output that lacks
+   a newline.
 
-	* mimedefang-util: Properly substitute @PERL@ at configure time.
+   * mimedefang-util: Properly substitute @PERL@ at configure time.
 
-	* mimedefang-multiplexor.c: Move variable declarations to start of
-	compound statement to avoid problems with older C compilers.
+   * mimedefang-multiplexor.c: Move variable declarations to start of
+   compound statement to avoid problems with older C compilers.
 
-	* mimedefang.pl: Add an extra level of subdirectories in the quarantine
-	to avoid 32K subdirectory limit on ext3.  Idea by Kevin McGrail.
+   * mimedefang.pl: Add an extra level of subdirectories in the quarantine
+   to avoid 32K subdirectory limit on ext3.  Idea by Kevin McGrail.
 
-	*** NOTE INCOMPATIBILITY ***  Quarantine subdirectory naming changed.
+   *** NOTE INCOMPATIBILITY ***  Quarantine subdirectory naming changed.
 
-	* mimedefang.c: Fix bug that caused Queue-ID not to show up when
-	using MIMEDefang with Postfix (thanks to Kris Deugau).
+   * mimedefang.c: Fix bug that caused Queue-ID not to show up when
+   using MIMEDefang with Postfix (thanks to Kris Deugau).
 
 **MIMEDefang 2.79** 2016-09-26
 
-	* Add the --data-dump option to scripts/mimedefang-util
+   * Add the --data-dump option to scripts/mimedefang-util
 
-	* Improve Postfix compatibility by trying to get QueueID after first
-	RCPT command, and if not found, at the EOH milter phase.
+   * Improve Postfix compatibility by trying to get QueueID after first
+   RCPT command, and if not found, at the EOH milter phase.
 
-	* Make mimedefang-multiplexor exit with a successful return code upon
-	receipt of SIGTERM.
+   * Make mimedefang-multiplexor exit with a successful return code upon
+   receipt of SIGTERM.
 
-	* Use 64-bit variables where supported for some statstics counters that
-	could overflow with only 32-bit variables, yielding incorrect statistics.
-	* Fix configure.in to correctly detect that an embedded Perl interpreter
-	can be destroyed/recreated on systems that need the -pthread GCC flag.
+   * Use 64-bit variables where supported for some statstics counters that
+   could overflow with only 32-bit variables, yielding incorrect statistics.
+   * Fix configure.in to correctly detect that an embedded Perl interpreter
+   can be destroyed/recreated on systems that need the -pthread GCC flag.
 
 **MIMEDefang 2.78** 2015-04-23
 
-	* Fix bug in logic that coalesces multiparts to single-parts if
-	  possible; the bug broke DKIM signing.  Fix is courtesy of
-	  Peter Nagel.
+   * Fix bug in logic that coalesces multiparts to single-parts if
+     possible; the bug broke DKIM signing.  Fix is courtesy of
+     Peter Nagel.
 
 **MIMEDefang 2.77** 2015-04-20
 
-	* Change old author's name to "Dianne Skoll" in many places.
+   * Change old author's name to "Dianne Skoll" in many places.
 
 **MIMEDefang 2.76** 2015-03-27
 
-	* mimedefang.pl.in: Get rid of all Perl function prototypes.
-	  Perl prototypes are badly-implemented and consensus among
-	  modern Perl 5 programmers is they shouldn't be used.
-	  https://www.securecoding.cert.org/confluence/display/perl/DCL00-PL.+Do+not+use+subroutine+prototypes
+   * mimedefang.pl.in: Get rid of all Perl function prototypes.
+     Perl prototypes are badly-implemented and consensus among
+     modern Perl 5 programmers is they shouldn't be used.
+     https://www.securecoding.cert.org/confluence/display/perl/DCL00-PL.+Do+not+use+subroutine+prototypes
 
-	* Add support for filter_wrapup callback.  This is called at the
-	  very end and permits header modifications, but not body
-	  modifications.  Useful for DKIM-signing.
+   * Add support for filter_wrapup callback.  This is called at the
+     very end and permits header modifications, but not body
+     modifications.  Useful for DKIM-signing.
 
-	* mimedefang.pl.in: Fix typo: SOPHOS should have been SAVSCAN
+   * mimedefang.pl.in: Fix typo: SOPHOS should have been SAVSCAN
 
-	* mimedefang.c: Don't add a MIME-Version header if there is already
-	  one.
+   * mimedefang.c: Don't add a MIME-Version header if there is already
+     one.
 
-	* Fix https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=646347
-	  courtesy of Chrisoph Martin
+   * Fix https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=646347
+     courtesy of Chrisoph Martin
 
-	* Minor clarifications to mimedefang-filter man page.
+   * Minor clarifications to mimedefang-filter man page.
 
-	* Add "All / Summary" button to watch-multiple-mimedefangs.tcl
+   * Add "All / Summary" button to watch-multiple-mimedefangs.tcl
 
 **MIMEDefang 2.75** 2014-05-21
 
-	* Many cosmetic improvements to watch-multiple-mimedefangs.tcl
+   * Many cosmetic improvements to watch-multiple-mimedefangs.tcl
 
-	* Fix md_get_bogus_mx_hosts so it checks A records iff a domain has
-	  no MX records.
+   * Fix md_get_bogus_mx_hosts so it checks A records iff a domain has
+     no MX records.
 
-	* Add a forward declaration of rebuild_entity to avoid warnings on
-	  recent Perl versions.
+   * Add a forward declaration of rebuild_entity to avoid warnings on
+     recent Perl versions.
 
 **MIMEDefang 2.74** 2013-05-27
 
-	* Increase buffer size for md-mx-ctrl responses.
+   * Increase buffer size for md-mx-ctrl responses.
 
-	* Close input file handle in append_to_html_part.  Bug found by
-	Kees Theunissen.
+   * Close input file handle in append_to_html_part.  Bug found by
+   Kees Theunissen.
 
-	* Add action_add_entity function.
+   * Add action_add_entity function.
 
-	* Simplify code in action_replace_with_warning.
+   * Simplify code in action_replace_with_warning.
 
-	* Remove obsolete text from man page.
+   * Remove obsolete text from man page.
 
-	* Avoid deprecated "defined(@array)" construct.
+   * Avoid deprecated "defined(@array)" construct.
 
-	* Implement new "load1" md-mx-ctrl command which gives statistics
-	in more useful format than "load"
+   * Implement new "load1" md-mx-ctrl command which gives statistics
+   in more useful format than "load"
 
-	* get_mx_ip_addresses: Treat MX records of '', '.', '0', '0.', '0
-	.' and '0 ' as bogus.
+   * get_mx_ip_addresses: Treat MX records of '', '.', '0', '0.', '0
+   .' and '0 ' as bogus.
 
-	* watch-multiple-mimedefangs.tcl: Major improvements; see the
-	new -n, -r, -s and -t command-line options.
+   * watch-multiple-mimedefangs.tcl: Major improvements; see the
+   new -n, -r, -s and -t command-line options.
 
-	* Add rcpt_addr, rcpt_host and rcpt_mailer to default set of
-	macros that we ask for.
+   * Add rcpt_addr, rcpt_host and rcpt_mailer to default set of
+   macros that we ask for.
 
-	* Log Sendmail queue ID in more places.
+   * Log Sendmail queue ID in more places.
 
-	* Remove dead "connect_to_socket" routine in mimedefang.pl
+   * Remove dead "connect_to_socket" routine in mimedefang.pl
 
-	* Do not invokve smfi_setsymlist unless "-y" option to
-	mimedefang is given.  smfi_setsymlist leaks memory in versions
-	of Sendmail prior to 8.14.4.
+   * Do not invokve smfi_setsymlist unless "-y" option to
+   mimedefang is given.  smfi_setsymlist leaks memory in versions
+   of Sendmail prior to 8.14.4.
 
 **MIMEDefang 2.73** 2012-01-23
 
-	* Create /var/spool/MIMEDefang with mode 0750 by default.
+   * Create /var/spool/MIMEDefang with mode 0750 by default.
 
-	* Make the -G option cause files created by mimedefang to
-	be group-readable.  Add the new MD_ALLOW_GROUP_ACCESS init script
-	variable.
+   * Make the -G option cause files created by mimedefang to
+   be group-readable.  Add the new MD_ALLOW_GROUP_ACCESS init script
+   variable.
 
-	* Make the multiplexor snoop in on communications and save the
-	Sendmail queue-ID for logging purposes.  It logs the queue ID when
-	logging a worker's STDERR.
+   * Make the multiplexor snoop in on communications and save the
+   Sendmail queue-ID for logging purposes.  It logs the queue ID when
+   logging a worker's STDERR.
 
-	* Make configure.in check whether or not libmilter requires -lldap.
+   * Make configure.in check whether or not libmilter requires -lldap.
 
-	* Fix Graphdefang to handle new md_syslog output style.
+   * Fix Graphdefang to handle new md_syslog output style.
 
-	* Always check return code from chdir() in mimedefang.pl.  In
-	certain cases on large and heavily-loaded servers, if the chdir()
-	failed MIMEDefang would end up working in the wrong directory with
-	attendant chaos.
+   * Always check return code from chdir() in mimedefang.pl.  In
+   certain cases on large and heavily-loaded servers, if the chdir()
+   failed MIMEDefang would end up working in the wrong directory with
+   attendant chaos.
 
-	* Add "-G" option to mimedefang and mimedefang-multiplexor.  This
-	makes their sockets group-readable and group-writable.
+   * Add "-G" option to mimedefang and mimedefang-multiplexor.  This
+   makes their sockets group-readable and group-writable.
 
-	* Pass along the client port number, server IP address and server port
-	number to all filter functions.  This feature was sponsored by Scayl.
+   * Pass along the client port number, server IP address and server port
+   number to all filter functions.  This feature was sponsored by Scayl.
 
 **MIMEDefang 2.72** 2011-07-20
 
-	* The "make unstripped" target has disappeared.  Instead,
-	use:  make INSTALL_STRIP_FLAG=''
+   * The "make unstripped" target has disappeared.  Instead,
+   use:  make INSTALL_STRIP_FLAG=''
 
-	* The RPM_INSTALL_ROOT make variable has disappeared.  Instead,
-	use the standard DESTDIR:  make install DESTDIR=/some/dir
+   * The RPM_INSTALL_ROOT make variable has disappeared.  Instead,
+   use the standard DESTDIR:  make install DESTDIR=/some/dir
 
-	* In mimedefang.c, truncate overlong responses from the multiplexor.
-	Also sanitize replies so "\r" doesn't get fed to smfi_setmlreply.
+   * In mimedefang.c, truncate overlong responses from the multiplexor.
+   Also sanitize replies so "\r" doesn't get fed to smfi_setmlreply.
 
-	* If a worker process replies with a very long reply, have the
-	multiplexor consume (and discard) the excess input so the
-	multiplexor-to-worker protocol does not become de-synchronized.
+   * If a worker process replies with a very long reply, have the
+   multiplexor consume (and discard) the excess input so the
+   multiplexor-to-worker protocol does not become de-synchronized.
 
-	* When mimedefang becomes a daemon, have it wait for a
-	"go/no-go" message from the child before exiting.  This should
-	eliminate race conditions whereby the MTA starts before the
-	milter socket is present.
+   * When mimedefang becomes a daemon, have it wait for a
+   "go/no-go" message from the child before exiting.  This should
+   eliminate race conditions whereby the MTA starts before the
+   milter socket is present.
 
-	* Revert change in 2.72-BETA-1 that passed client port number.
-	It was a hack; we need a proper way to pass largish amounts of
-	information to the filter and that will have to wait for a major
-	reworking of MIMEDefang.
+   * Revert change in 2.72-BETA-1 that passed client port number.
+   It was a hack; we need a proper way to pass largish amounts of
+   information to the filter and that will have to wait for a major
+   reworking of MIMEDefang.
 
-	* Avoid run-time errors from Unix::Syslog on some platforms.
+   * Avoid run-time errors from Unix::Syslog on some platforms.
 
-	* Change md_syslog to log the Sendmail Queue-ID if it is
-	available.
+   * Change md_syslog to log the Sendmail Queue-ID if it is
+   available.
 
-	* Pass SMTP client port number to filter_relay, filter_helo,
-	filter_sender and filter_recipient.  Also make it available
-	to filter_begin/filter/filter_end in $RelayPort global variable.
+   * Pass SMTP client port number to filter_relay, filter_helo,
+   filter_sender and filter_recipient.  Also make it available
+   to filter_begin/filter/filter_end in $RelayPort global variable.
 
-	* Remove references to ParanoidFiler.
+   * Remove references to ParanoidFiler.
 
 **MIMEDefang 2.71** 2010-08-18
 
-	* More spelunking in the awful innards of Perl reveals that our
-	original fix in 2.70 for handling of $SIG{FOO}... didn't
-	completely fix the problem.  On systems where Perl was compiled to
-	use threading, running "md-mx-ctrl reread" could result in
-	subsequent failure by scanners to set signal dispositions.  This
-	has been fixed.
+   * More spelunking in the awful innards of Perl reveals that our
+   original fix in 2.70 for handling of $SIG{FOO}... didn't
+   completely fix the problem.  On systems where Perl was compiled to
+   use threading, running "md-mx-ctrl reread" could result in
+   subsequent failure by scanners to set signal dispositions.  This
+   has been fixed.
 
-	* Fix typo in examples/init-script.in
+   * Fix typo in examples/init-script.in
 
-	* Fix compatibility with Postfix (broken in 2.70.)
+   * Fix compatibility with Postfix (broken in 2.70.)
 
 **MIMEDefang 2.70** 2010-06-24
 
-	* Fixed a bug in embedded Perl: We have to call
-	PERL_SET_CONTEXT after forking or Perl gets confused.
-	In particular, setting signal-handling dispositions using
-	$SIG{FOO} = sub { ... } breaks.
+   * Fixed a bug in embedded Perl: We have to call
+   PERL_SET_CONTEXT after forking or Perl gets confused.
+   In particular, setting signal-handling dispositions using
+   $SIG{FOO} = sub { ... } breaks.
 
 **MIMEDefang 2.69** 2010-06-16
 
-	* Clarify wording of mimedefang-filter man page.
+   * Clarify wording of mimedefang-filter man page.
 
-	* Remove obsolete code that used to attempt to generate working
-	directory names.  Deactivate the no-longer-needed "-M" mimedefang
-	option.
+   * Remove obsolete code that used to attempt to generate working
+   directory names.  Deactivate the no-longer-needed "-M" mimedefang
+   option.
 
-	* Makefile.in: "make install" target obeys only DESTDIR and now ignores RPM_INSTALL_ROOT
+   * Makefile.in: "make install" target obeys only DESTDIR and now ignores RPM_INSTALL_ROOT
 
-	* Add new "-y" option to mimedefang-multiplexor.  This limits
-	the number of concurrent "recipok" commands on a per-domain basis.
+   * Add new "-y" option to mimedefang-multiplexor.  This limits
+   the number of concurrent "recipok" commands on a per-domain basis.
 
-	* Remove Anomy::HTMLCleaner support.
+   * Remove Anomy::HTMLCleaner support.
 
-	* use MIME::Parser::Filer's ignore_filename() call instead of
-	subclassing to override evil_filename().  Same effect, less code.
+   * use MIME::Parser::Filer's ignore_filename() call instead of
+   subclassing to override evil_filename().  Same effect, less code.
 
-	* refactor resend_message_one_recipient() to use
-	resend_message_specifying_mode() instead of reimplementing it.
+   * refactor resend_message_one_recipient() to use
+   resend_message_specifying_mode() instead of reimplementing it.
 
-	* header_timezone() now generates a strictly RFC2822-compliant timezone
-	string without needing POSIX::strftime()
+   * header_timezone() now generates a strictly RFC2822-compliant timezone
+   string without needing POSIX::strftime()
 
-	* Ensure that decode_mimewords() is called in scalar context.
+   * Ensure that decode_mimewords() is called in scalar context.
 
 **MIMEDefang 2.68** 2010-02-24
 
-	* The functions add_recipient, change_sender, delete_recipient,
-	action_add_header and action_insert_header can be called from
-	outside message context (that is, from filter_sender and
-	filter_recipient).  Based on suggestion from D. Stussy.
+   * The functions add_recipient, change_sender, delete_recipient,
+   action_add_header and action_insert_header can be called from
+   outside message context (that is, from filter_sender and
+   filter_recipient).  Based on suggestion from D. Stussy.
 
-	* Detect Sys::Syslog vs. Unix::Syslog at run-time rather than
-	when running ./configure.
+   * Detect Sys::Syslog vs. Unix::Syslog at run-time rather than
+   when running ./configure.
 
-	* Fix a crash with embedded Perl on FreeBSD with Perl 5.10.0.
-	Problem noted by Martin Blapp.
+   * Fix a crash with embedded Perl on FreeBSD with Perl 5.10.0.
+   Problem noted by Martin Blapp.
 
-	* Bug fix: Don't change Content-Disposition to "inline" by default.
-	This was causing weird bugs with Outlook iCalendar attachments:
+   * Bug fix: Don't change Content-Disposition to "inline" by default.
+   This was causing weird bugs with Outlook iCalendar attachments:
 
-	http://lists.roaringpenguin.com/pipermail/mimedefang/2006-December/031525.html
-	http://lists.roaringpenguin.com/pipermail/mimedefang/2004-November/025461.html
+   http://lists.roaringpenguin.com/pipermail/mimedefang/2006-December/031525.html
+   http://lists.roaringpenguin.com/pipermail/mimedefang/2004-November/025461.html
 
-	* Fix a really stupid segmentation fault when handling multiline
-	replies.  Bug found and fixed by Michiel Brandenburg.
+   * Fix a really stupid segmentation fault when handling multiline
+   replies.  Bug found and fixed by Michiel Brandenburg.
 
-	* Make relay_is_blacklisted and relay_is_blacklisted_multi handle
-	IPv6 addresses.  Patch loosely based on submission by Michiel
-	Brandenburg.  NOTE: relay_is_blacklisted_multi and relay_is_blacklisted
-	are DEPRECATED.  Use the CPAN module Net::DNSBL::Client instead.
+   * Make relay_is_blacklisted and relay_is_blacklisted_multi handle
+   IPv6 addresses.  Patch loosely based on submission by Michiel
+   Brandenburg.  NOTE: relay_is_blacklisted_multi and relay_is_blacklisted
+   are DEPRECATED.  Use the CPAN module Net::DNSBL::Client instead.
 
-	* Guard the rewriting of IPv4-compatible IPv6 addresses to plain IPv4
-	with N6_IS_ADDR_V4MAPPED and IN6_IS_ADDR_V4COMPAT tests.
+   * Guard the rewriting of IPv4-compatible IPv6 addresses to plain IPv4
+   with N6_IS_ADDR_V4MAPPED and IN6_IS_ADDR_V4COMPAT tests.
 
-	* Work around File::Spec::Unix's behaviour of caching
-	$ENV{TMPDIR}.  (I consider this a bug; see
-	https://rt.cpan.org/Ticket/Display.html?id=53236)
+   * Work around File::Spec::Unix's behaviour of caching
+   $ENV{TMPDIR}.  (I consider this a bug; see
+   https://rt.cpan.org/Ticket/Display.html?id=53236)
 
-	* Don't add a To: line for SpamAssassin's benefit; adding such
-	a line could mask a useful SpamAssassin rule.
+   * Don't add a To: line for SpamAssassin's benefit; adding such
+   a line could mask a useful SpamAssassin rule.
 
-	* Try hard not to lose any STDERR messages before reaping a worker.
+   * Try hard not to lose any STDERR messages before reaping a worker.
 
-	* Make the C code call smfi_setmlreply if (1) the milter library
-	supports it and (2) the Perl code returns a multi-line reply.
+   * Make the C code call smfi_setmlreply if (1) the milter library
+   supports it and (2) the Perl code returns a multi-line reply.
 
-	* Convert an IPv6-mapped IPv4 address to pure IPv4.  That is,
-	convert ::ffff:a.b.c.d simply to a.b.c.d.
+   * Convert an IPv6-mapped IPv4 address to pure IPv4.  That is,
+   convert ::ffff:a.b.c.d simply to a.b.c.d.
 
-	* Make rm_r more robust.
+   * Make rm_r more robust.
 
-	* Set TMPDIR environment variable to $workdir/tmp before
-	scanning; this should make Perl temporary files use the ramdisk.
+   * Set TMPDIR environment variable to $workdir/tmp before
+   scanning; this should make Perl temporary files use the ramdisk.
 
-	* Various code cleanups.
+   * Various code cleanups.
 
-	* When creating the Mail::SpamAssassin object, set user_dir
-	to /var/spool/MD-Quarantine.  Fixes problems with SpamAssassin
-	3.3.0.
+   * When creating the Mail::SpamAssassin object, set user_dir
+   to /var/spool/MD-Quarantine.  Fixes problems with SpamAssassin
+   3.3.0.
 
-	* Make "Overlong line in RESULTS file" a permanent, rather than
-	temporary, failure.
+   * Make "Overlong line in RESULTS file" a permanent, rather than
+   temporary, failure.
 
-	* Eliminate a possible race condition in SIGTERM handling.  On
-	busy, underpowered servers, this could result in the multiplexor
-	spontaneously terminating all workers and unlinking its socket.
+   * Eliminate a possible race condition in SIGTERM handling.  On
+   busy, underpowered servers, this could result in the multiplexor
+   spontaneously terminating all workers and unlinking its socket.
 
-	* Check for both POLLIN and POLLHUP if we use poll()
+   * Check for both POLLIN and POLLHUP if we use poll()
 
-	* Fix bug in closing of file descriptors after forking; we'd
-	sometimes close our status descriptor by mistake.
+   * Fix bug in closing of file descriptors after forking; we'd
+   sometimes close our status descriptor by mistake.
 
-	* Remove some pointless fcntl() calls.
+   * Remove some pointless fcntl() calls.
 
-	* Fix bug with Perl 5.10 and embedded perl, mentioned at
-	http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=516913
-	NOTE: This is a bug in Perl, not MIMEDefang, but we need to work
-	around it.
+   * Fix bug with Perl 5.10 and embedded perl, mentioned at
+   http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=516913
+   NOTE: This is a bug in Perl, not MIMEDefang, but we need to work
+   around it.
 
-	* Consume and log any STDERR output even if worker has terminated.
+   * Consume and log any STDERR output even if worker has terminated.
 
 **MIMEDefang 2.67** 2009-01-06
 
-	* Added support for FPROTD version 6 daemonized scanner.
+   * Added support for FPROTD version 6 daemonized scanner.
 
 **MIMEDefang 2.66** 2008-10-31
 
-	* Added the option to use poll(2) instead of select(2) in
-	mimedefang-multiplexor.  Use the --enable-poll ./configure option.
-	This will eliminate problems with file descriptors > 1023 on
-	many systems.  Thanks to Concordia University for sponsoring this
-	development.
+   * Added the option to use poll(2) instead of select(2) in
+   mimedefang-multiplexor.  Use the --enable-poll ./configure option.
+   This will eliminate problems with file descriptors > 1023 on
+   many systems.  Thanks to Concordia University for sponsoring this
+   development.
 
 **MIMEDefang 2.65** 2008-02-02
 
-	* Fix a few minor compiler warnings
+   * Fix a few minor compiler warnings
 
-	* embperl.c, configure.in: Fix problems with embedded Perl on
-	Debian HPPA architecture.
+   * embperl.c, configure.in: Fix problems with embedded Perl on
+   Debian HPPA architecture.
 
-	http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=486069
+   http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=486069
 
 **MIMEDefang 2.64** 2008-01-24
 
-	* Fix typo in the generic init-script.in file.  Also, on
-	FreeBSD/NetBSD, generic init-script.in fits into the *BSD init
-	structure natively.
+   * Fix typo in the generic init-script.in file.  Also, on
+   FreeBSD/NetBSD, generic init-script.in fits into the *BSD init
+   structure natively.
 
-	* watch-multiple-mimedefangs.tcl: Works better with Tcl/Tk 8.5.
-	Displays message volumes/day in more human-readable form.  New
-	-archive option logs statistics to files.
+   * watch-multiple-mimedefangs.tcl: Works better with Tcl/Tk 8.5.
+   Displays message volumes/day in more human-readable form.  New
+   -archive option logs statistics to files.
 
-	* Add support for NOD32 command-line scanner (Dusan Zovinec)
+   * Add support for NOD32 command-line scanner (Dusan Zovinec)
 
-	* Add support for Sophos "savscan" scanner (Adam Lanier)
+   * Add support for Sophos "savscan" scanner (Adam Lanier)
 
-	* embperl.c: Fix Perl's $$ variable so it reflects the actual PID
-	of the worker process.  If you are using Embedded Perl, this should
-	remove a major source of irritation (log messages previously used
-	the PID of the master multiplexor process.)
+   * embperl.c: Fix Perl's $$ variable so it reflects the actual PID
+   of the worker process.  If you are using Embedded Perl, this should
+   remove a major source of irritation (log messages previously used
+   the PID of the master multiplexor process.)
 
-	*  mimedefang.pl.in: Make md_check_against_smtp_server include the
-	Sendmail Queue-ID in the syslog message.
+   *  mimedefang.pl.in: Make md_check_against_smtp_server include the
+   Sendmail Queue-ID in the syslog message.
 
-	* mimedefang.c: If mail is submitted via a UNIX-domain socket
-	(yes, this is possible, apparently!) consider the sending relay
-	to be 127.0.0.1.  Fixes Debian bug #439432
+   * mimedefang.c: If mail is submitted via a UNIX-domain socket
+   (yes, this is possible, apparently!) consider the sending relay
+   to be 127.0.0.1.  Fixes Debian bug #439432
 
-	* mimedefang-filter.5.in: Minor clarifications
+   * mimedefang-filter.5.in: Minor clarifications
 
-	* redhat/mimedefang-init.in: Minor fixes
+   * redhat/mimedefang-init.in: Minor fixes
 
-	* examples/init-script.in: Minor fixes
+   * examples/init-script.in: Minor fixes
 
 **MIMEDefang 2.63** 2007-08-13
 
-	* mimedefang-multiplexor.c: Relax the umask when creating the
-	unprivileged socket ("-a" command-line option.)
+   * mimedefang-multiplexor.c: Relax the umask when creating the
+   unprivileged socket ("-a" command-line option.)
 
-	*  mimedefang.c(eom): If we do not have a queue ID yet, try to
-	obtain one in eom.  This is designed to improve operation with
-	Postfix, which does not assign a queue ID until after the first
-	successful RCPT.  Based on a patch from Henrik Krohns.
+   *  mimedefang.c(eom): If we do not have a queue ID yet, try to
+   obtain one in eom.  This is designed to improve operation with
+   Postfix, which does not assign a queue ID until after the first
+   successful RCPT.  Based on a patch from Henrik Krohns.
 
-	*  examples/init-script.in: Added MD_SKIP_BAD_RCPTS init
-	script option (suggested by John Nemeth)
+   *  examples/init-script.in: Added MD_SKIP_BAD_RCPTS init
+   script option (suggested by John Nemeth)
 
-	* Remove support for OpenAntivirus.  It's a dead product.
+   * Remove support for OpenAntivirus.  It's a dead product.
 
-	* mimedefang.pl.in(spam_assassin_status): Call $mail->finish()
-	to prevent temporary files from accumulating.
+   * mimedefang.pl.in(spam_assassin_status): Call $mail->finish()
+   to prevent temporary files from accumulating.
 
-	* redhat/mimedefang-init.in: Add configtest routine to check filter
-	syntax.
+   * redhat/mimedefang-init.in: Add configtest routine to check filter
+   syntax.
 
 **MIMEDefang 2.62** 2007-04-10
 
-	* milter_cap.c: Minor code cleanups.
+   * milter_cap.c: Minor code cleanups.
 
-	* You can invoke mimedefang like this:   mimedefang prcap
-	and it prints details about the version of libmilter it's linked
-	with and exit.
+   * You can invoke mimedefang like this:   mimedefang prcap
+   and it prints details about the version of libmilter it's linked
+   with and exit.
 
-	* mimedefang.pl.in: A new "change_sender" action lets you change
-	the envelope sender.  Only works with Sendmail/Milter 8.14.0 and
-	newer!
+   * mimedefang.pl.in: A new "change_sender" action lets you change
+   the envelope sender.  Only works with Sendmail/Milter 8.14.0 and
+   newer!
 
-	* mimedefang.c: A new "-N" flag causes Sendmail not to make
-	filter_recipient callbacks for invalid recipients.  Only works
-	with Sendmail/Milter 8.14.0!  Note that without the -N flag,
-	MIMEDefang now works the same with 8.14.0 and 8.13.x -- you always
-	see all recipients by default, even invalid ones.
+   * mimedefang.c: A new "-N" flag causes Sendmail not to make
+   filter_recipient callbacks for invalid recipients.  Only works
+   with Sendmail/Milter 8.14.0!  Note that without the -N flag,
+   MIMEDefang now works the same with 8.14.0 and 8.13.x -- you always
+   see all recipients by default, even invalid ones.
 
-	* mimedefang.pl.in: Clam interface code has been fixed to work
-	properly with ClamAV 0.90 and later.
+   * mimedefang.pl.in: Clam interface code has been fixed to work
+   properly with ClamAV 0.90 and later.
 
-	* redhat/mimedefang-init.in: Understand MX_TICK_REQUEST and
-	MX_TICK_PARALLEL variables which get translated into -X and -P
-	mimedefang-multiplexor options, respectively.
+   * redhat/mimedefang-init.in: Understand MX_TICK_REQUEST and
+   MX_TICK_PARALLEL variables which get translated into -X and -P
+   mimedefang-multiplexor options, respectively.
 
 **MIMEDefang 2.61** 2007-02-09
 
-	* SECURITY FIX: Versions 2.59 and 2.60 contained a programming
-	error that could lead to a buffer overflow.  This is definitely
-	exploitable as a denial-of-service attack, and potentially may
-	allow arbitrary code execution.  The bug is fixed in 2.61.
+   * SECURITY FIX: Versions 2.59 and 2.60 contained a programming
+   error that could lead to a buffer overflow.  This is definitely
+   exploitable as a denial-of-service attack, and potentially may
+   allow arbitrary code execution.  The bug is fixed in 2.61.
 
-	* mimedefang.c: If a message is going to end up being rejected,
-	discarded or tempfailed, we don't bother carrying out requests
-	to add/delete/modify headers or recipients, change the message
-	body, etc.
+   * mimedefang.c: If a message is going to end up being rejected,
+   discarded or tempfailed, we don't bother carrying out requests
+   to add/delete/modify headers or recipients, change the message
+   body, etc.
 
 **MIMEDefang 2.60** 2007-02-02
 
-	* mimedefang.c: Fix filter registration so MIMEDefang works
-	correctly against libmilter from Sendmail 8.14
+   * mimedefang.c: Fix filter registration so MIMEDefang works
+   correctly against libmilter from Sendmail 8.14
 
-	* Fix a number of "pointer differs in signedness" warnings.
-	(Problem noted by Ashley Kirchner.)
+   * Fix a number of "pointer differs in signedness" warnings.
+   (Problem noted by Ashley Kirchner.)
 
 **MIMEDefang 2.59** 2007-01-20
 
-	* watch-multiple-mimedefangs: Add grid-lines; tweak GUI a bit.
+   * watch-multiple-mimedefangs: Add grid-lines; tweak GUI a bit.
 
-	* configure.in and Makefile.in: Instead of explicitly linking
-	against limilter.a, just supply the -lmilter link option.  This
-	means it should work properly on 64-bit systems that keep their
-	libraries in /usr/lib64.  It also means that if you have a
-	libmilter.so lying around, we'll link against it instead of linking
-	statically.
+   * configure.in and Makefile.in: Instead of explicitly linking
+   against limilter.a, just supply the -lmilter link option.  This
+   means it should work properly on 64-bit systems that keep their
+   libraries in /usr/lib64.  It also means that if you have a
+   libmilter.so lying around, we'll link against it instead of linking
+   statically.
 
-	* configure.in: Require only 0.15 of Sys::Syslog to check for
-	setlogsock('native').  (Matt Selsky)
+   * configure.in: Require only 0.15 of Sys::Syslog to check for
+   setlogsock('native').  (Matt Selsky)
 
-	* mimedefang.c: Major changes: We build up the contents of
-	COMMANDS in memory and write it out in one big chunk per milter
-	callback.  Not only does this reduce the number of system calls,
-	but we also now _check the return code_ of those calls!
+   * mimedefang.c: Major changes: We build up the contents of
+   COMMANDS in memory and write it out in one big chunk per milter
+   callback.  Not only does this reduce the number of system calls,
+   but we also now _check the return code_ of those calls!
 
-	* mimedefang.pl.in(item_contains_virus_fprotd): More careful inspection
-	of F-PROT output to determine virus name.  (Jan-Pieter Cornet)
+   * mimedefang.pl.in(item_contains_virus_fprotd): More careful inspection
+   of F-PROT output to determine virus name.  (Jan-Pieter Cornet)
 
-	* Added a new tool (watch-multiple-mimedefangs.tcl) for monitoring
-	a cluster of MIMEDefang scanners
+   * Added a new tool (watch-multiple-mimedefangs.tcl) for monitoring
+   a cluster of MIMEDefang scanners
 
-	* mimedefang.pl.in: (dmo) Change "use POSIX;" to "use POSIX ();"
-	to save several hundred kilobytes of memory per worker.
+   * mimedefang.pl.in: (dmo) Change "use POSIX;" to "use POSIX ();"
+   to save several hundred kilobytes of memory per worker.
 
-	* mimedefang.pl.in: (dmo) Remove useless "use Getopt::Std;"
+   * mimedefang.pl.in: (dmo) Remove useless "use Getopt::Std;"
 
-	* mimedefang.pl.in: (dmo) Some code refactoring.
+   * mimedefang.pl.in: (dmo) Some code refactoring.
 
-	*  Modify multiplexor and mimedefang.pl.in so worker status updates
-	work correctly (the -Z multiplexor flag.)  Previously, the worker
-	status wasn't being reset correctly.
+   *  Modify multiplexor and mimedefang.pl.in so worker status updates
+   work correctly (the -Z multiplexor flag.)  Previously, the worker
+   status wasn't being reset correctly.
 
-	*  Modify multiplexor so worker status changes are broadcast using
-	the notification facility (-O multiplexor flag).  A new "S" message
-	is used for worker status changes.
+   *  Modify multiplexor so worker status changes are broadcast using
+   the notification facility (-O multiplexor flag).  A new "S" message
+   is used for worker status changes.
 
-	*  mimedefang.pl.in(read_commands_file): If the COMMANDS file did not
-	end with an F, the worker would give up and become idle, but not
-	inform the multiplexor.  As a result, the multiplexor would think
-	the worker was busy, and the worker would be unavailable until the
-	busy timeout elapsed and it was killed by the multiplexor.  This
-	bug has been fixed.
+   *  mimedefang.pl.in(read_commands_file): If the COMMANDS file did not
+   end with an F, the worker would give up and become idle, but not
+   inform the multiplexor.  As a result, the multiplexor would think
+   the worker was busy, and the worker would be unavailable until the
+   busy timeout elapsed and it was killed by the multiplexor.  This
+   bug has been fixed.
 
-	*  redhat/mimedefang-spec.in: Changes as suggested by Philip
-	Prindeville for cleaning up RPM builds and detecting proper
-	libraries on x86-64 systems.
+   *  redhat/mimedefang-spec.in: Changes as suggested by Philip
+   Prindeville for cleaning up RPM builds and detecting proper
+   libraries on x86-64 systems.
 
 **MIMEDefang 2.58** 2006-11-07
 
-	* Memory leak in mimedefang found and fixed.  If a client issues
-	more than one MAIL command in a single SMTP session, then the
-	milter used to leak approximately 16 bytes for each subsequent
-	MAIL command.
+   * Memory leak in mimedefang found and fixed.  If a client issues
+   more than one MAIL command in a single SMTP session, then the
+   milter used to leak approximately 16 bytes for each subsequent
+   MAIL command.
 
-	*  Running ./configure --enable-debugging includes much more debugging
-	output, especially to diagnose memory allocation and deallocation.
-	DO NOT USE ON A PRODUCTION SERVER.
+   *  Running ./configure --enable-debugging includes much more debugging
+   output, especially to diagnose memory allocation and deallocation.
+   DO NOT USE ON A PRODUCTION SERVER.
 
-	*  If we have Sys::Syslog 0.16 or higher, do not call setlogsock
-	(which is deprecated).  Patch based on suggestion from Matt Selsky.
+   *  If we have Sys::Syslog 0.16 or higher, do not call setlogsock
+   (which is deprecated).  Patch based on suggestion from Matt Selsky.
 
-	*  Sample init script sets HOME=/var/spool/MIMEDefang.
+   *  Sample init script sets HOME=/var/spool/MIMEDefang.
 
-	*  Sample filter for Windows clients tweaked slightly: We don't
-	complain about non-multipart .eml attachments (was causing false
-	positives.)
+   *  Sample filter for Windows clients tweaked slightly: We don't
+   complain about non-multipart .eml attachments (was causing false
+   positives.)
 
-	*  Fixed typo in Red Hat sample init script.
+   *  Fixed typo in Red Hat sample init script.
 
-	* mimedefang.pl.in: If SpamAssassin version >= 3.1.5, do not
-	supply LOCAL_RULES_DIR or LOCAL_STATE_DIR in constructor.  Use
-	defaults from Perl modules.
+   * mimedefang.pl.in: If SpamAssassin version >= 3.1.5, do not
+   supply LOCAL_RULES_DIR or LOCAL_STATE_DIR in constructor.  Use
+   defaults from Perl modules.
 
-	*  examples/init-script.in: Add ALLOW_NEW_CONNECTIONS_TO_QUEUE
-	config variable.
+   *  examples/init-script.in: Add ALLOW_NEW_CONNECTIONS_TO_QUEUE
+   config variable.
 
-	*  mimedefang-multiplexor.c: Fix useless call to sigprocmask.
-	(Used SIG_BLOCK; should have been SIG_SETMASK)
+   *  mimedefang-multiplexor.c: Fix useless call to sigprocmask.
+   (Used SIG_BLOCK; should have been SIG_SETMASK)
 
-	*  mimedefang.c: Make sure that we're given the -p option.
+   *  mimedefang.c: Make sure that we're given the -p option.
 
-	*  embperl.c: Remove warning about "Something in your filter has
-	opened a file descriptor..." because there are way too many systems
-	that trigger this warning, and they don't seem to have problems.
+   *  embperl.c: Remove warning about "Something in your filter has
+   opened a file descriptor..." because there are way too many systems
+   that trigger this warning, and they don't seem to have problems.
 
-	*  Remove all support for the File::Scan module.
+   *  Remove all support for the File::Scan module.
 
 **MIMEDefang 2.57** 2006-06-19
 
-	* suggested-minimum-filter-for-windows-clients: Explicitly set
-	$entity variable in filter_begin.
+   * suggested-minimum-filter-for-windows-clients: Explicitly set
+   $entity variable in filter_begin.
 
-	* mimedefang.pl.in: If clamdscan fails with zip module failure,
-	attempt to use scanner in $Features{'Virus:CLAMAV'} rather than
-	a hard-coded call to "clamscan"
+   * mimedefang.pl.in: If clamdscan fails with zip module failure,
+   attempt to use scanner in $Features{'Virus:CLAMAV'} rather than
+   a hard-coded call to "clamscan"
 
-	* Minor fixes to man pages.  Some cleanups courtesy of
-	Brandon Hutchinson
+   * Minor fixes to man pages.  Some cleanups courtesy of
+   Brandon Hutchinson
 
-	* mimedefang-multiplexor.c: New "md-mx-ctrl hload" command keeps track
-	of load for past 1, 4, 12 and 24 hours.  Gives long-term data to
-	complement the short-term "md-mx-ctrl load" data.
+   * mimedefang-multiplexor.c: New "md-mx-ctrl hload" command keeps track
+   of load for past 1, 4, 12 and 24 hours.  Gives long-term data to
+   complement the short-term "md-mx-ctrl load" data.
 
-	* mimedefang-multiplexor: New scheduling algorithm tries to keep
-	commands "sticky".  For example, when looking for a worker to run
-	"recipok", we prefer to use a worker that recently ran "recipok".
-	NOTE!!! If your filter incorrectly retains state from earlier
-	callbacks into filter_begin, this scheduling change WILL expose
-	the bugs in your filter.
+   * mimedefang-multiplexor: New scheduling algorithm tries to keep
+   commands "sticky".  For example, when looking for a worker to run
+   "recipok", we prefer to use a worker that recently ran "recipok".
+   NOTE!!! If your filter incorrectly retains state from earlier
+   callbacks into filter_begin, this scheduling change WILL expose
+   the bugs in your filter.
 
-	* mimedefang.c: Bug fix for NULL pointer dereference when running
-	"sendmail -bs".  Problem noted by Leena Heino.
+   * mimedefang.c: Bug fix for NULL pointer dereference when running
+   "sendmail -bs".  Problem noted by Leena Heino.
 
-	* mimedefang.pl.in: Fix for FPROTD integration courtesy of
-	Jonathan Hankins.
+   * mimedefang.pl.in: Fix for FPROTD integration courtesy of
+   Jonathan Hankins.
 
-	* mimedefang.pl.in: Fix for H+BEDV integration courtesy of
-	Thorsten Schlichting.
+   * mimedefang.pl.in: Fix for H+BEDV integration courtesy of
+   Thorsten Schlichting.
 
-	* mimedefang.pl.in: Pass LOCAL_STATE_DIR => '/var/lib' to
-	Mail::SpamAssassin constructor.  If your LOCAL_STATE_DIR
-	is elsewhere, you'll have to hack the Perl code, I'm afraid.
+   * mimedefang.pl.in: Pass LOCAL_STATE_DIR => '/var/lib' to
+   Mail::SpamAssassin constructor.  If your LOCAL_STATE_DIR
+   is elsewhere, you'll have to hack the Perl code, I'm afraid.
 
 **MIMEDefang 2.56** 2006-02-13
 
-	* Remove spam_assassin_init()->compile_now(1) call from sample filter.
+   * Remove spam_assassin_init()->compile_now(1) call from sample filter.
 
-	* mimedefang-multiplexor.c: Fix off-by-one error that could result
-	in a worker thinking that the global generation counter had
-	changed, causing the worker to restart unnecessarily.
+   * mimedefang-multiplexor.c: Fix off-by-one error that could result
+   in a worker thinking that the global generation counter had
+   changed, causing the worker to restart unnecessarily.
 
-	* redhat/mimedefang-init.in: Add support for MX_HELO_CHECK
-	configuration variable.
+   * redhat/mimedefang-init.in: Add support for MX_HELO_CHECK
+   configuration variable.
 
-	* mimedefang.c: Fix compilation problem on some systems.
+   * mimedefang.c: Fix compilation problem on some systems.
 
-	* mimedefang.pl.in: entity_contains_virus_nai,
-	message_contains_virus_nai: Add the --mime option when invoking
-	uvscan.
+   * mimedefang.pl.in: entity_contains_virus_nai,
+   message_contains_virus_nai: Add the --mime option when invoking
+   uvscan.
 
-	* mimedefang.pl.in: message_contains_virus_clamd: Use more reasonable
-	timeouts when talking to clamd.
+   * mimedefang.pl.in: message_contains_virus_clamd: Use more reasonable
+   timeouts when talking to clamd.
 
-**Changelog** for older [versions](https://raw.githubusercontent.com/The-McGrail-Foundation/MIMEDefang/master/Changelog)
+**MIMEDefang 2.55** 2006-01-24
+
+   * mimedefang.c: The new '-R' option lets you reserve a specified
+   number of workers for connections from localhost.  The idea is to
+   try to allow clientmqueue runs to succeed even on heavily-loaded
+   systems.
+
+   * Patched to look for more modern "vascan" virus-scanner rather than
+   older "vexira" scanner.  Support for the older Vexira scanner has
+   been dropped; please see README.VEXIRA.  Changes courtesy of
+   Matt Selsky and Ken Cormack.
+
+   * Added support for "filter_helo" function, based on a patch from
+   Philip Prindeville.
+
+   * examples/init-script.in: Fixed typo.
+
+   * mimedefang.c: Use symbolic constants (MD_TEMPFAIL, MD_CONTINUE,
+   etc.) instead of hard-coded integers, based on suggestion from
+   Philip Prindeville.
+
+   *  mimedefang.pl.in: The filter_begin function is now passed
+   a single argument ($entity) representing the parsed message.
+
+   *** NOTE INCOMPATIBILITY *** filter_begin NOW TAKES ONE ARGUMENT,
+                 NOT ZERO.  IF YOUR FILTER HAS A
+                 PROTOTYPE FOR filter_begin, YOU SHOULD
+                 FIX OR REMOVE THE PROTOTYPE
+
+   * mimedefang.c, mimedefang.pl.in: Added new action_insert_header
+   to prepend headers (rather than appending them).  Only works
+   properly with Sendmail 8.13; on older versions of Sendmail, falls
+   back to action_add_header.  Based on patch from Matthew van Eerde.
+
+   * mimedefang.pl.in: Added new function md_get_bogus_mx_hosts.
+   Allows to test for sender domains with bogus MX hosts (such as
+   hosts that resolve to the loopback or private IP addresses.)
+
+   * mimedefang.pl.in: Invoke the "fsav" virus scanner with the --mime
+   option.  Fix courtesy of Mack Wharton.
+
+   * mimedefang.pl.in: Correctly interpret kavscanner return code 9
+   (password-protected ZIP.)  Fix courtesy of Mack Wharton.
+
+   * examples/init-script.in: Fix typo that resulted in the shell
+   complaining of a syntax error (pointed out by Jason Englander).
+
+   * Clean up man pages by removing some obsolete material.
+
+   * mimedefang.c: Do NOT strip "bare CR" characters from e-mails by
+   default.  The new "-c" command-line option enables the older behavior.
+
+   *** NOTE INCOMPATIBILITY ***  WE NO LONGER STRIP BARE CR's FROM
+                  MESSAGES BY DEFAULT.  TEST YOUR FILTERS
+                  CAREFULLY TO MAKE SURE THEY CAN COPE
+                  WITH THIS, OR USE THE -c FLAG.
+
+   * mimedefang.c(rcptto): If you returned ACCEPT_AND_NO_MORE_FILTERING
+   from filter_recipient, the spool files wouldn't get cleaned up,
+   eventually clogging the spool directory.  This has been fixed.
+
+   * mimedefang.pl.in(interpret_hbedv_code): Fix interpretation of
+   H+BEDV return codes (pointed out by Henning Schmiedehausen).
+
+**MIMEDefang 2.54** 2005-11-04
+
+   * Makefile and configure script now allow MIMEDefang to be built
+   against a shared library version of libmilter (libmilter.so).
+
+   * Added experimental support for Kaspersky "kavscanner".
+
+   * Both mimedefang and mimedefang-multiplexor now accept a
+   "-z spooldir" argument so you can move the spool directory
+   away from the compiled-in default at run-time.
+
+**MIMEDefang 2.53** 2005-09-07
+
+   * mimedefang-protocol.7.in: Documented the "map" and "tick"
+   protocol commands.
+
+   * Remove call to anomy_clean_html from sample filter.
+   Anomy::HTMLCleaner is simply way too buggy for production use.
+
+   * mimedefang.pl.in: If clamd fails with a "Zip module error",
+   we fall back on "clamscan --unzip".  If both clamscan and
+   unzip are installed, this lets us handle "deflate64" compression,
+   which is NOT available in libz or clamd.
+
+   * mimedefang-multiplexor.c: Add more load commands: load-relayok,
+   load-senderok and load-recipok to time processing of relayok,
+   senderok and recipok callbacks.
+
+   * mimedefang-multiplexor.c: Reset SIGCHLD handler after creating
+   embedded Perl interpreter.  Designed to work around problems with
+   SpamAssassin 3.1RC1.
+
+   * mimedefang.c: Always create an empty HEADERS file, even if
+   (somehow) we get an e-mail with no headers.
+
+   * mimedefang.pl: Correctly set $Features{"Virus:FileScan"}
+
+   * mimedefang.pl(takeStabAtFilename): Do not use the Content-Decription
+   field as an indication of the filename.
+
+**MIMEDefang 2.52** 2005-06-01
+
+   * mimedefang.pl.in (item_contains_virus_fprotd): Remove all
+   references to $` and $', which can SIGNIFICANTLY slow down
+   Perl regexp matching.
+
+   * mimedefang.c(mfconnect): Do not call set_dsn from mfconnect,
+   because the Milter API specifies that you can't call smfi_setreply
+   from the connect callback.
+
+   * mimedefang-filter.5.in: Document the fact that filter_relay
+   cannot set the text of the SMTP reply code.
+
+   *  mimedefang.pl: We don't detect and load Perl modules until
+   the detect_and_load_perl_modules() function is called.
+
+   *** NOTE INCOMPATIBILITY ***
+
+   You *MUST* call detect_and_load_perl_modules() inside your filter
+   before you can rely on the %Features hash being set correctly,
+   and before you can rely on SpamAssassin being loaded!!!
+
+**MIMEDefang 2.51** 2005-02-08
+
+   Note: There was no public 2.50 release; the 2.50 version was a
+   private release that was available only with CanIt.
+
+   *  Added "-q" option to mimedefang.  This permits the multiplexor
+   to queue new incoming connections.  It may make higher utilization
+   of workers and improve throughput.
+
+   * ESMTP arguments in MAIL FROM: and RCPT TO: are now available
+   to the Perl filter.  See the mimedefang-filter(5) man page for
+   details.
+
+   * Documentation fixes: We don't refer to non-multiplexor mode
+   any more, because that mode hasn't been available for ages.
+
+   * The "tick" facility has been enhanced to permit multiple tick
+   types.  At any given instance, only one tick of a given type
+   can be active, but ticks of different types can be active at
+   the same time.
+
+   * Log a warning if a message has more than one Subject: header.
+
+**MIMEDefang 2.49** 2004-11-29
+
+   * README: Fixed URL for wvware tools.  (Brad Tarver)
+
+   * mimedefang-filter.5.in: Corrected error in documentation.
+   The man page used to state (incorrectly) that if the host name
+   could not be resolved, it was set to the host IP address.
+   In fact, it's set to [host.ip.addr.ess] with square brackets.
+
+   * mimedefang-multiplexor.c: Insist that argument to -s switch
+   be a UNIX-domain socket.
+
+   * mimedefang.c: protect inet_ntoa with a mutex (for those systems
+   that lack inet_ntop).
+
+   * mimedefang.c: Fix stupid logic error that made MIMEDefang ignore
+   the Sendmail {if_addr} macro when setting IP address for
+   X-Scanned-By: header.
+
+   * embperl.c: Soften warning about file descriptors being opened
+   in filter.  Some systems seem to do this (Solaris).
+
+   * mimedefang.pl.in (synthesize_received_header): Add
+   (envelope-sender $Sender) comment as desired by SpamAssassin:
+   http://wiki.apache.org/spamassassin/EnvelopeSenderInReceived
+
+   * mimedefang.pl.in (interpret_nvcc_code): Handle return code
+   of 11 from Norman Virus Control as "suspicious".
+
+**MIMEDefang 2.48** 2004-10-29
+
+   * Fix dumb bugs introducted in 2.46 and 2.47 related to
+   worker status reports.
+
+   * embperl.c: Detect if user opens file descriptors inside his/her
+   filter.  If so, log a loud and nasty warning that such code should
+   be moved to filter_initialize.
+
+**MIMEDefang 2.47** 2004-10-28
+
+   * Move worker "status reports" onto their own file descriptor.
+   If you want the status reports, you must invoke mimedefang-multiplexor
+   with the "-Z" flag.  In the sample init scripts, set
+   MX_STATUS_UDPATES=yes
+
+**MIMEDefang 2.46** 2004-10-28
+
+   * mimedefang-multiplexor.c: Added mechanism for workers to send
+   back "status reports" to the multiplexor.  The command
+   "md-mx-ctrl workers" now shows the current status of busy workers
+   (eg, "Running SpamAssassin", "recipok <addr@domain.net>", etc.)
+
+   * redhat/mimedefang-init.in: Unconditionally execute "ulimit -s 2048"
+   before invoking mimedefang.
+
+   * Added support for Command "csav" anti-virus.
+
+   * mimedefang.c: Print and log an error if we can't determine our
+   own IP address.
+
+   * mimedefang.pl.in: append_html_boilerplate and append_text_boilerplate
+   refuse to tamper with S/MIME messages.  They won't descend into
+   multipart/signed or multipart/encrypted parts.  Similarly for
+   remove_redundant_html_parts.
+
+   * mimedefang.pl.in: Split-and-rebuild algorithm is greatly improved.
+   In particular:  In filter_end, the $entity->head correctly contains
+   all message headers.  And we try to avoid creating useless
+   multipart containers -- if we would end up with a multipart/mixed
+   or multipart/alternative with only one sub-part, we "pop" the sub-part
+   up to the top level.
+
+   * mimedefang-filter.5.in: Corrected an error in one of the examples
+
+   * mimedefang.c: Add IP address of scanning host to X-Scanned-By:
+   header.
+
+   * SECURITY FIX: mimedefang.c: Tempfail message if RESULTS file
+   doesn't terminate with 'F' line.  (Detects disk-full condition.)
+
+   * mimedefang.pl.in (rebuild_entity): Add a Content-Type: header
+   if MIME part lacks one.  Some marginal e-mail software chokes on
+   a part with a missing content-type header.
+
+   * mimedefang.pl.in: flatten_mime removed.  Support for
+   $Stupidity{"flatten"} removed.  *** NOTE INCOMPATIBILITY ***
+
+   * action_add_part revamped completely; we try to preserve original
+   multipart type of message.  action_add_part now simply keeps a list
+   of parts to be added.  At the end:
+
+      a) If original message was multipart/mixed, we simply add
+      the part.
+
+      b) Otherwise, we make a new multipart/mixed container, put
+      original message as the first part of this new container, and
+      then add part to the multipart/mixed container.
+
+      *** NOTE INCOMPATIBILITY ***
+
+   * Proper multipart type passed to filter_end.
+
+   * All mimedefang.pl-generated messages have an
+   Auto-Submitted: auto-generated header.
+
+   * mimedefang.pl.in: Return codes of I/O operations are checked; we
+   die if any fail.  This is a security fix.
+
+   * mimedefang.pl.in (interpret_trend_code): Treat any code from
+   1 to 9 as indicative of a virus, upon recommendation of Stephane Lentz.
+
+   * mimedefang.pl.in (spam_assassin_init): Add a
+   LOCAL_RULES_DIR => @CONFDIR@/spamassassin argument to SpamAssassin
+   constructor.
+
+**MIMEDefang 2.45** 2004-09-22
+
+   * mimedefang-multiplexor.c: Add the "-a" command-line option
+   for opening a socket that only allows unprivileged commands.
+   These are commands that fetch status, but can't affect operation
+   of multiplexor.
+
+   * mimedefang.pl.in: Put a "use libs" directive at the top to
+   use Perl modules from the "site" directory before searching the
+   core directory.
+
+   * mimedefang.pl.in: Added filter_create_parser user-supplied
+   callback to create a MIME::Parser object.  This lets you customize
+   how parsing happens.
+
+   * mimedefang-multiplexor.8.in: Added warning that "$$" will be
+   incorrect if you use embedded Perl.
+
+   * mimedefang-multiplexor.c: Keep track of "age" of workers, and
+   track activations and reaps over last 10 minutes.
+
+   * mimedefang-multiplexor.c: Add new notification messages: "B"
+   indicates a busy timeout, and "U" indicates unexpected worker death.
+
+   * mimedefang.c: Add "-b" option to set the backlog parameter in
+   listen(2).
+
+   * notifier.c: Fixed (harmless) bug which would attempt to send out
+   notifications even if no notification socket was specified.  It
+   would just waste a tiny bit of CPU time before.
+
+   * watch-mimedefang.in: Fix Tcl code so you can run watch-mimedefang
+   on a Windows box, monitoring the mail server via SSH.
+
+   * mimedefang.pl.in (md_check_against_smtp_server): Add optional
+   $port argument to specify checking against a port other than 25.
+
+   * Makefile.in: Prevent sa-mimedefang.cf from being overwritten.
+
+   * mimedefang.filter.5.in:  Correct some documentation errors.
+
+   * mimedefang.pl.in: Added and documented read_commands_file function
+   so that you can initialize certain global variables in
+   filter_sender and filter_recipient.  Code contributed by
+   Jan Pieter Cornet.
+
+   * mimedefang-multiplexor.c: Log UNIX error code if problem
+   communicating with a worker.
+
+   * mimedefang-multiplexor.c: Implement new commands "help",
+   "workers", and "workerinfo".
+
+   * watch-mimedefang: added -command, -interval, -10s, -1m, -5m,
+   -10m and -title command-line options.
+
+   * mimedefang.pl.in(message_contains_virus_clamd): Time out if
+   clamd doesn't respond in 8 seconds.  Based on a patch from Chris
+   Myers.
+
+   * mimedefang-spec.in: Fix error in %preun script.
+
+   * watch-mimedefang.in: Many bug fixes.
+
+   * Makefile.in: Do not overwrite /etc/mail/sa-mimedefang.cf in
+   install-redhat target
+
+   * mimedefang-multiplexor.c: Track average latency of scan commands.
+
+   * watch-mimedefang.in: Huge rewrite.  Displays a lot more info about
+   the MIMEDefang server.  Can monitor a remote MIMEDefang server over
+   a low-bandwidth SSH connection.
+
+   * mimedefang.pl.in: Log helpful messages if clamd fails with an
+   error (Tomas Kopal)
+
+   * md-mx-ctrl.c: Support the "-i" command-line option to read commands
+   from stdin and send results to stdout.  Used to support
+   watch-mimedefang's low-bandwidth remote monitoring.
+
+
+   * mimedefang-filter.5.in: Clarified description of action_bounce.
+
+   * mimedefang-multiplexor.c: Added support for keeping "load average"
+   histories so you can see how loaded your system is.
+
+   * mimedefang-multiplexor.c: Raw 'status' output includes time when
+   multiplexor was first started.
+
+   * md-mx-ctrl.8.in: Documented new 'load' and 'rawload' commands.
+
+   * mimedefang.pl.in: Implemented a new set of RBL lookup functions
+   that perform multiple lookups in parallel and allow you to set
+   a timeout (the timeout applies to ALL lookups, not each individual
+   lookup.)  These new functions require the Net::DNS module.
+
+   * md-mx-ctrl.c: Implement 'load' and 'rawload' commands.
+
+**MIMEDefang 2.44** 2004-07-15
+
+   * Move /etc/mail/spamassassin/sa-mimedefang.cf to
+   /etc/mail/sa-mimedefang.cf   *** NOTE INCOMPATIBILITY ***
+
+   * README, README.ANOMY, README.NONROOT, README.SOPHIE,
+   README.SPAMASSASSIN: Update some README files that haven't been
+   touched in ages.
+
+   * configure.in: Remove --enable-running-on-scummy-sco command-line
+   option.
+
+   * configure.in: Hard-code a successful test for "wait3" on Solaris 9.
+
+   * mimedefang.c: Add -v option to print version and exit.
+
+   * mimedefang-multiplexor.c: Add -v option to print version and exit.
+
+   * mimedefang.pl.in: Check that the "IP Validation Header" begins
+   with X-MIMEDefang-Relay and refuse to use it if not.
+
+   * mimedefang-multiplexor.c (sigterm): If multiplexor is killed,
+   we kill all workers with SIGTERM.  We wait for up to 10 seconds, and
+   if there are still workers that haven't exited, we kill them
+   with SIGKILL.
+
+   * NEW: Support for Sendmail's SOCKETMAP map class.  See
+   mimedefang-filter(5) and mimedefang-multiplexor(8) for details.
+   This code has been present for a long time, but was commented
+   out; it is now enabled.
+
+   * NEW: Support for Sendmail's QUARANTINE feature.  This leaves
+   quarantined messages in your mail queue, and is NOT THE SAME as
+   MIMEDefang's quarantine.  See the Sendmail documentation for
+   details.
+
+   * mimedefang-multiplexor.c: If platform does not safely support an
+   embedded Perl interpreter, return an informative message when user
+   does "md-mx-ctrl reread".
+
+   * embperl.c: Fix a memory leak that apparently occurs on FreeBSD.
+
+   * mimedefang.pl.in: Add "Precedence: bulk" headers to all
+   MIMEDefang-generated notifications.
+
+   * configure.in: Fix a couple of typos
+
+   * configure.in: Check for Unix::Syslog or Sys::Syslog, even
+   if invoked with --disable-check-perl-modules
+
+   * init scripts: Kill mimedefang with TERM rather than KILL signal,
+   and wait for it to exit.
+
+   * mimedefang-filter.5.in: Correct error in documentation of
+   md_check_against_smtp_server.
+
+**MIMEDefang 2.43** 2004-05-10
+
+   * filter_relay, filter_sender and filter_recipient can return
+   a fifth element specifying a delay before returning a code
+   to the SMTP client.  This lets you implement tarpitting without
+   tying up a Perl worker.  However, the delay does tie up a libmilter
+   thread.
+
+   * mimedefang.pl.in: If resending a message fails during streaming,
+   we bounce the message and log an error at LOG_CRIT importance.
+
+   * Modified C and Perl code so that filter_relay is called
+   when remote client connects rather than after MAIL FROM.
+   This means the $helo argument is NOT available!
+
+      *** NOTE INCOMPATIBILITY ***
+
+   filter_relay no longer has access to the HELO argument, nor
+   does the MIMEDefang spool directory exist when filter_relay is called.
+
+   * mimedefang-multiplexor.c: Add -X option to run a "tick" request
+   every so often.  Added -Y option to set syslog label.
+
+   * mimedefang.pl.in: Call md_openlog lazily so users can call it from
+   filter to change syslog label.
+
+   * mimedefang.pl.in: Added hooks for filter_tick routine.
+
+**MIMEDefang 2.42** 2004-03-31
+
+   * redhat/mimedefang-init.in: Use "md-mx-ctrl reread" in preference
+   to "kill -INT" to force a rules reread.
+
+   * mimedefang.pl.in (md_copy_orig_msg_to_work_dir): Added
+   md_copy_orig_msg_to_work_dir and
+   md_copy_orig_msg_to_work_dir_as_mbox_file functions to help
+   virus-scanners that want the entire message, or want it in
+   UNIX mbox format.
+
+   * mimedefang.pl.in (spam_assassin_mail): Add support for
+   SpamAssassin 3.0.0's new Perl API.
+
+   * mimedefang-multiplexor.c (activateWorker): Call closelog() so
+   embedded Perl interpreter doesn't accidentally reuse syslog
+   file decriptor (Josh Kelley)
+
+**MIMEDefang 2.41** 2004-03-16
+
+   * mimedefang.pl.in (send_quarantine_notifications): Include
+   host name in quarantine mail body (Dirk Mueller).
+
+   * mimedefang.c (envfrom): Create directories with mode 0750
+   instead of 0700.
+
+   * mimedefang.pl.in (entity_contains_virus_clamd): Check for "ERROR"
+   return message from clamd (Nate Carlson).
+
+   (action_quarantine_entire_message): Do not send out an e-mail
+   message if $msg is non-blank (pointed out by many users...)
+
+   (entity_contains_virus_hbedv): Replace -allfiles with correct
+   --allfiles (Ken Cormack)
+
+   (entity_contains_virus_sophos): Add -mime option for Sophos sweep
+   (Dirk Mueller)
+
+**MIMEDefang 2.40** 2004-03-05
+
+   * mimedefang.pl.in (entity_contains_virus_avp5): Added support
+   for Kaspersky "aveclient" program, based on patch from
+   Enrico Ansaloni.
+
+   * mimedefang.pl.in (re_match_in_zip_directory): Added function
+   to look inside zip archives (if Archive::Zip is installed) to
+   do filename matching.  Modified example filter to call it.
+
+   * mimedefang.pl.in (do_scan): Make a replica of INPUTMSG under
+   Work/ so that virus-scanners with built-in MIME decoders can
+   have a crack at the original input message.  Also added --mbox
+   option for clamscan.
+
+   * mimedefang.pl.in (action_quarantine_entire_message): Do not include
+   $msg argument in original mail; just use it in admin notification.
+
+   * Documentation and cosmetic fixes from Matt Selsky.
+
+   * Loosened spool directory permissions -- made them group-readable
+   so you can run ClamAV as its own user (as long as it's in the defang
+   group.)
+
+   * Modified spec file to allow detection of AV software at
+   build time using --with 'antivirus' (From No. 6)
+
+   * mimedefang.pl.in (md_openlog): Added LOG_NDELAY option
+   (Recommended by "Don")
+
+   (entity_contains_virus_trend): Added "-a" option and other minor
+   fixes from "Number 6".
+
+   * notifier.c: Added the multiplexor "notification" facility.
+   This is an experimental new interface that lets the multiplexor
+   inform external programs about state changes; see the
+   mimedefang-notify(7) man page for details.
+
+   * mimedefang.pl.in (interpret_hbedv_code): Make the regexp that
+   picks out virus name for Vexira and H+BEDV more forgiving.
+
+   * examples/suggested-minimum-filter-for-windows-clients: Just
+   discard viruses.  Don't bother checking each entity.
+
+   * mimedefang.pl.in (entity_contains_virus_trend): Use the "-za"
+   flag (suggested by "Number 6")
+
+   * mimedefang.pl.in: Enable "use warnings" so we get warnings
+   even in embedded interpreter.  (problem noted by Dave O'Neill).
+
+   * mimedefang.pl.in: Added message_contains_virus and
+   entity_contains_virus functions to mimedefang.pl.in.  They use
+   *every* installed virus scanner.  Based on idea from Chris Myers.
+
+      *** NOTE INCOMPATIBILITY ***
+
+   The previous example filter defined functions called
+   message_contains_virus and entity_contains_virus.  These are
+   now defined in mimedefang.pl itself; you should remove the
+   definitions from your filter!
+
+   * examples/suggested-minimum-filter-for-windows-clients: Remove
+   all action_quarantine* from sample filter.
+
+   * contrib/fang.pl (make_message): Patch to handle multiple parts
+   (contributed by Eric Emerson).
+
+   * configure.in: Fix bug in BDC virus-scanner detection
+
+   * mimedefang.pl.in: Remove confusing "8.12.9/8.12.9" text from
+   synthesized Received: header
+
+   * mimedefang.pl.in: use MIME::Entity::dup() to fix destruction
+   of multipart/digest messages.  Fix due to Bryan Stansell.
+
+   * configure.in: Use $PERL everywhere, not perl.  Patch submitted
+   by Jeff Makey
+
+   * examples/suggested-minimum-filter-for-windows-clients (filter_end):
+   Remove call to remove_redundant_html_parts from default filter.
+
+   * mimedefang.pl.in (interpret_sweep_code): Return 'ok' for a
+   Sophos return code of 2.  Sophos Sweep seems to choke on
+   M$ docs; this is dangerous!!  Use another virus-scanner if
+   possible.
+
+**MIMEDefang 2.39** 2003-11-23
+
+   * mimedefang.c (set_reply): Double '%' characters in message
+   argument to smfi_setreply.
+
+   * suggested-minimum-filter-for-windows-clients: Fix syntax error
+   in bad filename regular expression.
+
+   * mimedefang-multiplexor.c: Added support for embedding a
+   Perl interpreter, which should improve performance a fair bit.
+
+   * mimedefang.pl.in: Added support for "filter_initialize" function
+   that gets called once each time a worker is activated.  If you
+   are using an embedded Perl interpreter, read the mimedefang-filter
+   man page carefully, especially the INITIALIZATION AND CLEANUP
+   section!
+
+   * mimedefang-multiplexor.c (doStatus): Fix memory leak in
+   doStatus.
+
+   (doHistogram): Added "histo" command to md-mx-ctrl.  It prints
+   a histogram showing how often a given number of workers have been
+   busy.
+
+   * Makefile (MANIFEST): Updated contrib/graphdefang to
+   graphdefang 0.9 (contributed by John Kirkland).
+
+   * mimedefang.pl.in (entity_contains_virus_filescan): Set
+   $CurrentVirusScannerMessage (problem noted by Ernst Du Plooy)
+
+   * mimedefang.pl.in (serverloop): Fixed a bug in which recipient
+   address was sometimes percent-escaped (eg "foo'bar@domain.net"
+   became "foo%27bar@domain.net").  Problem noted by
+   Patrick Morris.
+
+   * examples/suggested-minimum-filter-for-windows-clients: Made
+   the filter_bad_filename tests less paranoid.
+
+**MIMEDefang 2.38** 2003-10-08
+
+   * mimedefang.pl.in: Disable action_notify_sender if a virus
+   is detected.
+
+   * mimedefang.h: Change SMALLBUF definition from 4096 to 16384 for
+   longer SpamAssassin reports.
+
+   * configure.in: Fixed typo in --help output.
+
+**MIMEDefang 2.37** 2003-09-04
+
+   * mimedefang-multiplexor: Set FD_CLOEXEC flag on most descriptors
+   so they are closed when Perl filter executed.
+
+   * mimedefang.c (envfrom): Fixed bug whereby a file descriptor
+   was leaked for _each_ message if -C flag given.
+
+**MIMEDefang 2.36** 2003-08-12
+
+   * mimedefang.c: Make more conservative use of file descriptors.
+   Added "-C" option to enable ultra-conservative use of file
+   descriptors (by closing/reopening files in each callback.)
+
+   * Added support for Bitdefender's bdc scanner
+   (http://www.bitdefender.com).  Based on code suggested by
+   Philipp Baer.
+
+   * examples/suggested-minimum-filter-for-windows-clients: Always
+   add X-Spam-Score header if we run SpamAssassin.
+
+   * Makefile.in: "clean" target removes md-mx-ctrl (from Debian patch)
+
+   * configure.in, utils.c: Try harder to get a reasonable
+   definition of uint32_t
+
+   * examples/suggested-minimum-filter-for-windows-clients: Proper
+   regexp to detect CLSID attacks (Nik Clayton)
+
+   * mimedefang-filter.5.in: Fixed typos.
+
+   * mimedefang.pl.in: Check more stringently on the context of functions
+   called by the filter.
+
+   * mimedefang-multiplexor.c, mimedefang.c:  Added -D option
+   to stay in foreground instead of daemonizing (Ben Kamen).
+
+   * examples/init-script.in: Added MD_EXTRA variable (Jeremy Mates).
+
+   * configure.in: Search for and use <stdint.h>
+
+   * mimedefang-filter.5.in: Clarify availability of global variables.
+
+   * mimedefang.c: Get rid of last use of stdio in non-scalable
+   location.  Check every single smfi_xxxx callback for success
+   and log a message on failure.
+
+   * mimedefang.pl.in: Initialize $SALocalTestsOnly to 1.
+
+**MIMEDefang 2.35** 2003-07-02
+
+   * Documentation cleanups.
+
+   * mimedefang.pl.in: Replace multiple incorrect instances of
+   "sock" with "$sock".
+
+   (action_notify_administrator): action_notify_administrator can
+   be called OUTSIDE a message context, in which case it immediately
+   sends e-mail to the administrator.  (Suggested by Dirk Mueller.)
+
+   (action_replace_with_url):  Added optional "$salt" argument to
+   perturb SHA1 hash calculation and avoid leaking information about
+   whether an attachment has been received.  Problem noted by
+   Jeffrey Goldberg.
+
+   (gen_date_msgid_headers): Generate proper time zone information in
+   Date: and Received: headers.  Noted by Stephane Lentz.
+
+**MIMEDefang 2.34** 2003-06-26
+
+   * mimedefang-multiplexor.c: Added "-I" option so you can
+   specify the "backlog" argument to listen(2).  Suggested
+   by Kevin Brierly.
+
+   * mimedefang.c: Added 'DISCARD' return value for filter_relay,
+   filter_sender and filter_recipient (suggested by Ernst Du Plooy).
+
+   * mimedefang-multiplexor.c: Added "-q" and "-Q" options.  These
+   are experimental; they allow requests to be queued until
+   workers become free, rather than failing them immediately.
+   See the mimedefang-multiplexor(8) man page for details.
+
+   * mimedefang.pl.in (action_replace_with_url): Added optional
+   fifth $cd_data (suggested by Jeremy Mates).
+
+   (action_replace_with_warning): Name the warnings warning1.txt,
+   warning2.txt, etc. instead of all warning.txt.  Suggested by
+   Steffen Kaiser.
+
+   (interpret_nai_code): Handle (ED) in parsing of uvscan output.
+   (Noted by Jeremy McCarty).
+
+   * mimedefang.pl.in (entity_contains_virus_filescan): If File::Scan
+   is not installed, return "not-installed" instead of "tempfail"
+   (Problem noted by Richard Laager).
+
+   * mimedefang.c: Added "-a" command-line option to pass additional
+   Sendmail macros through to the filter.
+
+   * examples/suggested-minimum-filter-for-windows-clients: Sample
+   filter pre-compiles SpamAssassin rules; this may improve
+   performance.  Idea from Richard Laager
+
+   * REMOVED support for RAV Antivirus.  *** NOTE INCOMPATIBILITY ***
+
+   * redhat/mimedefang-init: Copy the PID files into /var/run to
+   keep Red Hat's silly killproc() function happy.
+
+   * redhat/mimedefang-spec.in: The spec file now generates two
+   RPM's: mimedefang and mimedefang-contrib
+
+   * Renamed md_log to md_graphdefang_log.
+
+   *** NOTE INCOMPATIBILITY ***
+
+   YOU MUST update your filter, and change all instances of
+   "md_log_enable" to "md_graphdefang_log_enable" and
+   "md_log" to "md_graphdefang_log"
+
+   * Experimental support for Sendmail SOCKETMAP feature (currently
+   disabled because it requires a Sendmail patch.)
+
+   * New feature: Added the filter_unknown_cmd hook so user-filters
+   can extend the MIMEDefang protocol.  Updated md-mx-ctrl as well.
+   See mimedefang-protocol(7) and mimedefang-filter(5) for details.
+
+   * SpamAssassin/spamassassin.cf: Tidied things up a bit.  Added
+   comments about how SA cannot modify the e-mail if used from
+   MIMEDefang.
+
+   * configure.in: Add /opt/rav/bin to ANTIVIR_PATH
+
+   * mimedefang.pl.in (spam_assassin_mail): More fixes to the
+   headers that get generated for SpamAssassin (Dirk Mueller).
+   Also created and documented the $AddApparentlyToForSpamAssassin
+   variable.
+
+   * mimedefang.pl.in (spam_assassin_mail): Fix the way the
+   synthesized Received: header was handed to SpamAssassin.
+
+   * configure.in: Changed default location of quarantine directory
+   to /var/spool/MD-Quarantine.  *** NOTE INCOMPATIBILITY ***
+   Use --with-quarantinedir=/var/spool/MIMEDefang if you want the
+   old behaviour.
+
+   * mimedefang.c: Removed support for non-multiplexor operation.
+   It is now mandatory to use the multiplexor.
+   *** NOTE INCOMPATIBILITY ***
+
+   * configure.in, Makefile.in, mimedefang.pl.in, README.SOPHIE:
+   Improved Sophie support, courtesy of Jason Englander.
+
+   * Makefile.in: "make install" target obeys DESTDIR (as well
+   as former RPM_INSTALL_ROOT) to change installation root.
+
+   * mimedefang.pl.in: Check for socket errors when talking to
+   daemonized virus scanners like Sophie, Trophie, Clamd and
+   CarrierScan, and return tempfail on error.  Problem noted
+   by Chris Stromsoe and Dave Shrimpton.
+
+   (relay_is_blacklisted): Rather than just returning true or
+   false, we return the actual DNS lookup value (like "127.0.0.2")
+   if a host is in a DNS-based blacklist.  Feature requested by
+   Matthew Hall.
+
+   * Tempfail codes default to 451/4.3.0 rather than 450/4.7.1.
+   These new codes are more consistent and in line with
+   RFCs 2821 and 1893.
+
+   * configure.in: Because of SCO's disgusting behaviour,
+   MIMEDefang will refuse to build on SCO UNIX or SCO Linux
+   unless you supply the --enable-running-on-scummy-sco configure
+   option.
+
+   * mimedefang-filter.5.in: Documented md_syslog.  md_syslog
+   is now an officially-supported API function.
+
+   * mimedefang.c (mfconnect): Do not use strncpy in
+   potentially-unsafe way (Dirk Mueller)
+
+   * mimedefang.c, mimedefang.pl.in: Allow Perl filters to specify
+   SMTP reply codes (4xx, 5xx) and DSN status codes (4.x.y, 5.x.y)
+   (Suggested by user "jkohan" on the MIMEDefang Web site.)
+
+   * mimedefang.pl.in: md_check_against_smtp_server returns the
+   same SMTP reply code and DSN status as the forwarding server
+   (rather than its own codes on failure.)
+
+**MIMEDefang 2.33** 2003-04-25
+
+   * mimedefang.c: Clean up working directory sooner in many different
+   places.
+
+   * mimedefang.c(eom): Delete all but the first "Content-Type:" header
+   in the e-mail message, and log a warning if there is more than one
+   such header.
+
+   * syslog-fac.c: Added "-S" option to mimedefang and
+   mimedefang-multiplexor to set syslog facility.  Also, created
+   and documented global variable $SyslogFacility in mimedefang-filter.
+
+   * mimedefang.pl.in (synthesize_received_header): Add a Received:
+   header when remailing messages.
+
+**MIMEDefang 2.32** 2003-04-15
+
+   * The function filter_recipient gets passed three additional
+   arguments: $rcpt_mailer, $rcpt_host and $rcpt_addr, which are
+   taken from the corresponding Sendmail macros.  See the Sendmail
+   documentation for more information.
+
+        *** NOTE INCOMPATIBILITY ***  filter_recipient is passed
+        three additional arguments; if you use function prototypes,
+        you may need to adjust your filter!
+
+   * From filter_begin to filter_end, the hash %RecipientMailers
+   contains rcpt_mailer, rcpt_host and rcpt_addr for each recipient.
+
+   * Added support for Vexira Virus Scanner from Central Command,
+   courtesy of John Rowan Littell.
+
+   * mimedefang.pl.in (get_quarantine_dir): Save Sendmail queue-ID
+   in quarantine directory.
+
+   * mimedefang.pl.in (md_check_against_smtp_server): Add a timeout
+   of 15 seconds to the socket connect call; otherwise, a down
+   downstream SMTP server could cause the worker to be killed.
+
+   * mimedefang.c (envfrom): When we create the spool directory,
+   call it "mdefang-qid" where "qid" is the Sendmail queue identifier.
+   If this fails, we fall back to the old way of generating spool
+   directory names.
+
+   * mimedefang.pl.in (replace_entire_message): Added
+   replace_entire_message function to replace the entire message
+   with a user-supplied MIME::Entity in filter_end.
+
+   * mimedefang.pl.in: Use the "-oi" option to Sendmail when
+   resending messages (Michael Sofka).
+
+   * mimedefang.pl.in (md_log_enable): Added optional
+   $enum_recips argument to control whether a line is logged for
+   each recipient, or just a single line per message. (John Kirkland)
+
+   * mimedefang.pl.in (gen_date_msgid_headers): We add proper
+   "Date:" and "Message-ID:" headers to internally-generated
+   MIMEDefang notifications.
+
+**MIMEDefang 2.31** 2003-03-17
+
+   * Manual page fixes
+
+   * Add support for FPROTD scanner, courtesy of
+   Steffen Kaiser
+
+   * Add support for remote scanning with Symantec
+   CarrierScan Server.
+
+   * mimedefang-multiplexor.c (doStatusLog): Added "-L" option
+   to mimedefang-multiplexor to periodically log worker status.
+
+   * mimedefang.pl.in: Add support for Symantec
+   CarrierScan Server virus scanner.
+
+   * mimedefang.pl.in (serverloop): Escape "<" and ">" if
+   $AddWarningsInline is true and we're appending the warning to an
+   HTML part (Mickey Hill).
+
+   * Makefile.in (MANIFEST): Sync to version 0.7 of graphdefang
+   (John Kirkland)
+
+   * mimedefang.pl.in: Added remove_redundant_html_parts() to delete HTML
+   parts if a corresponding text/plain part is present in the message.
+
+   * mimedefang-multiplexor.c: Major changes to the internal logic
+   of the worker scheduler.  Should be more efficient than the old
+   system.
+
+   * mimedefang-multiplexor.c (putOnFreeList): Fix logic errors
+   in putOnFreeList and putOnBusyList
+
+   * mimedefang.c: Reduce the use of stdio library to avoid hitting
+   limits on the number of streams.  Problem discovered by Nik
+   Clayton.
+
+   * Updated documentation (mimedefang-filter.5, mimedefang-protocol.7)
+   to reflect current reality.
+
+   * mimedefang.c (mfconnect): Added support for IPv6 addresses
+   in mfconnect
+
+   * mimedefang.pl: The global variable $MsgID is set to the Sendmail
+   queue identifier in filter_relay, filter_sender and filter_recipient.
+
+**MIMEDefang 2.30** 2003-02-14
+
+   * mimedefang-multiplexor.c: On systems that support wait3 and fill
+   in the usage structure, we log the worker's system and user CPU
+   usage when it exits.  The autoconf test is not too reliable on
+   Solaris; sorry...
+
+   * Create the temporary spool directory before calling filter_relay;
+   store it in $CWD for filter_relay, filter_sender, filter_recipient,
+   and the other filter functions, so we can pass state around.
+
+   * Officially deprecated non-use of the multiplexor.  I plan
+   on dropping support for non-multiplexor operation by 31 July 2003.
+
+   * mimedefang.c: A few typos fixed.
+
+   * mimedefang.c: Better syslog messages on certain system call failures.
+
+   * mimedefang.c: Added -M option to protect work directory
+   creation with a mutex.
+
+   * mimedefang.pl.in: resend_message returns a meaningful value
+   (true on success; false on failure.)
+
+   * mimedefang.c (envfrom): Fix potential descriptor leak.  Problem
+   noted by Nik Clayton.
+
+   * mimedefang.c (envfrom): Fixed some incorrect syslog messages.
+   Problem noted by Nik Clayton.
+
+   * mimedefang-multiplexor.c: Add handling for filter_cleanup, that
+   lets you run Perl code just before a worker is killed.  Based on
+   a suggestion by Brian Landers.
+
+2003-01-22  Dianne Skoll  <dfs@roaringpenguin.com>
+
+**MIMEDefang 2.29** 2003-01-22
+
+   * COPYING (IMPORTANT NOTE): IMPORTANT CLARIFICATION ABOUT MIMEDEFANG'S
+   LICENSE.  PLEASE READ THE FILE "COPYING" VERY CAREFULLY.
+
+   * Update contrib/graphdefang to version 0.6
+
+   * mimedefang.pl.in (send_mail): Redirect sendmail's STDOUT to
+   STDERR; otherwise, complaints from Sendmail can mess up the
+   communication between the multiplexor and the workers.
+
+   * mimedefang.c: Added -x option to set content of X-Scanned-By:
+   header.
+
+   * event_tcp.c (handle_readable): Multiplexor reads commands
+   in chunks rather than a character at a time.  Greatly reduces
+   system-call overhead, but not likely to make much difference
+   except on incredibly busy mail servers.
+
+   * mimedefang.pl.in: Add support for Trophie scanning library.
+   (Jason Englander)
+
+   * Makefile.in: Clean up md-mx-ctrl in make distclean (Jason Englander)
+
+   * mimedefang.pl.in: Add global $CWD variable so we don't need to
+   exec pwd to find current working directory.
+
+   * Log the Sendmail QUEUE-ID in most logging messages
+   (mimedefang.c, mimedefang.pl.in)
+
+**MIMEDefang 2.28** 2002-12-17
+
+   * configure.in: Added --enable-pthread-flag to force use of
+   "-pthread" C compiler flag (required for Tru64 UNIX)
+
+   * mimedefang.c (body): Added hackish workaround for an optimization
+   bug in gcc 3.2 on Sparc Solaris.
+
+   * mimedefang.pl.in (spam_assassin_mail): Synthesize "Return-Path:"
+   and "Received:" headers for SpamAssassin (Nels Lindquist).
+
+   * mimedefang.c: For filter_relay, filter_sender and filter_recipient,
+   use 'CONTINUE', 'TEMPFAIL' and 'REJECT' instead of 1, -1, and 0.
+   Also add 'ACCEPT_AND_NO_MORE_FILTERING' to accept mail without
+   further processing.  The old numeric return codes still work,
+   but are deprecated.
+
+   * mimedefang-multiplexor.c (MAX_CMD_LEN): Increased MAX_CMD_LEN
+   to 4096 from 512.
+
+   * mimedefang-filter.5.in: Fixed many typos (Jason Englander)
+
+   * mimedefang-multiplexor.c (findFreeWorker): Do not return
+   a killed-but-not-yet-reaped worker.
+
+**MIMEDefang 2.27** 2002-12-03
+
+   * mimedefang-multiplexor.c: Count all worker commands as a "request",
+   not just a "scan" command.  Increase MX_MAXIMUM default to 200
+   from 100 to compensate.
+
+   * mimedefang-multiplexor.c: More explicit log messages.
+
+   * redhat/mimedefang-init: Call "ulimit -s 2048" if we're using
+   lots of workers with the multiplexor.  This prevents pthreads
+   from complaining on Linux if you create hundreds of threads.
+   (Brad Dameron)
+
+   * mimedefang.pl.in (recipient_ok): Set global variables in
+   filter_relay, filter_sender and filter_recipient based on the
+   information available so far in the SMTP transaction. (Anne Bennet)
+
+   * mimedefang.c: Fix warnings about const/non-const and
+   signed/unsigned conversions (Anne Bennet)
+
+   * md-mx-ctrl.c (MXCommand): Better error message for common
+   case of permission denied.
+
+   * mimedefang.pl.in: Fix regular expression code so we don't use
+   $1 unless expression matched (Rudolph Pereira)
+
+   * configure.in: Allow the use of either Unix::Syslog or Sys::Syslog,
+   preferring Unix::Syslog if both are present.  MIMEDefang will
+   now build if you have Unix::Syslog, but not Sys::Syslog.  Bug
+   reported by Rudolph Pereira.
+
+   * mimedefang-multiplexor.c (findFreeWorker): When looking for
+   a free worker, prefer one that is running over one that needs
+   startup.  DOH!
+
+**MIMEDefang 2.26** 2002-11-19
+
+   * Quarantine notifications no longer sent unless you explicitly
+   ask for them.
+
+            *** INCOMPATIBILITY ***
+
+   * mimedefang.pl.in (send_quarantine_notifications): Added
+   send_quarantine_notifications routine which actually sends
+   quarantine notifications.  Unless you call this function in
+   filter_end, quarantine notifications are NO LONGER SENT.
+
+   * contrib: Update to graphdefang-0.5 (John Kirkland)
+
+   * mimedefang.pl.in (md_check_against_smtp_server): Added
+   md_check_against_smtp_server to check recipient addresses
+   before accepting them.
+
+   * mimedefang.pl.in (resend_message_one_recipient): Do not
+   hardcode sendmail path (Wolfgang Solfrank)
+
+**MIMEDefang 2.25** 2002-11-07
+
+   * Finally!! Documented /etc/mail/mimedefang-ip-key.  Please
+   see mimedefang-filter(5) and the section
+   "PRESERVING RELAY INFORMATION".
+
+   * mimedefang.pl.in: Added $RealRelayAddr and $RealRelayHostname
+   which give the actual relay host, ignoring the IP address
+   validation header.  (Used by CanIt.)
+
+   * mimedefang.pl.in (md_version): Added md_version() function
+   which returns MIMEDefang version.
+
+   * mimedefang.c (envfrom): Write out the value of the
+   "verify" macro (Jeremy Mates)
+
+   *mimedefang.pl.in: Remove append_boilerplate
+
+      *** INCOMPATIBILITY ***
+
+      The append_boilerplate function is gone.  It never really
+      worked properly.  Instead, use append_text_boilerplate and
+      append_html_boilerplate.
+
+   * mimedefang.pl.in (message_contains_virus_clamd): Let clamd
+   recurse through work directory.  Make sure you run Clam AntiVirus
+   version 0.52 or higher! (Jason Englander)
+
+   * watch-mimedefang: Now generated at configure time from
+   watch-mimedefang.in.  Let's us specify @SPOOLDIR@
+   (Jason Englander)
+
+   * mimedefang.pl.in (md_syslog): Use "%s" formatting string
+   to avoid problems with % characters in message (Steffen Kaiser)
+
+   * mimedefang.c (mfconnect): Check return value of
+   smfi_setpriv.
+
+   * mimedefang.c, mimedefang-multiplexor.c: We now flat-out
+   refuse to run as root.
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Sample filter now calls action_bounce() for viruses and
+   message/partial parts.
+
+   * configure.in: Add /usr/local/sbin:/usr/sbin:/sbin to search
+   path for virus scanners. (Douglas Hunley)
+
+   * examples/init-script.in: Change @DEFANGUSER_DEFAULT@ to
+   @DEFANGUSER@ (Andrey Pevnev)
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Check for and obey "tempfail" suggested action from virus
+   scanner (Martin Bene)
+
+   * Forgot to mention that default location for multiplexor socket
+   is now @SPOOLDIR@/mimedefang-multiplexor.sock.
+
+**MIMEDefang 2.24** 2002-10-24
+
+   * Makefile.in: Silence some warnings in "install" target.
+
+   * mimedefang.pl.in: Many functions which only make sense if
+   called from filter_begin, filter, filter_multipart or filter_end
+   syslog error messages if they are called from outside one of
+   those functions.
+
+   * md-mx-ctrl.c: Fix an off-by-one error.
+
+   * watch-mimedefang: Minor GUI improvements.
+
+   * mimedefang.pl.in (init_globals): Clear out globals after
+   serverloop() so extraneous values don't hang around
+   for filter_recipient, filter_relay and filter_sender
+
+   * configure.in: Added --disable-anti-virus to turn off all
+   searching for anti-virus programs.  Building with RPM uses this
+   option; you can set $Features{'Virus:XXX'} directly in your
+   filter.
+
+   * redhat/mimedefang-spec.in: Use --disable-anti-virus when building
+   RPM
+
+   * mimedefang-multiplexor.c (activateWorker): Reset signal handlers
+   to default before starting Perl filter program.
+
+   * Added md-mx-ctrl program and watch-mimedefang GUI.  Tcl/Tk
+   is required for "watch-mimedefang".
+
+   * Do not generate /etc/mail/mimedefang-ip-key unless
+   --with-ipheader configure argument given.
+
+   * mimedefang-protocol.7.in: Updated protocol documentation.
+
+   * mimedefang.c (body): Strip carriage-returns (\r) in C code
+   before writing to INPUTMSG file.  Saves time in Perl filter
+   and disk I/O.
+
+   * rm_r.c: Allocate proper space for dirent entry.  Thanks to
+   Heidi Hornstein
+
+   * configure.in: Do not test for -pthread unless we're using
+   gcc.  Thanks to Heidi Hornstein
+
+   * mimedefang.pl.in (resend_message): Do not remove angle
+   brackets from $Sender when resending message.
+
+**MIMEDefang 2.23** 2002-10-18
+
+   * SECURITY UPDATE: An attacker with sufficient bandwidth may be
+   able to crash mimedefang-multiplexor for versions up to 2.22.
+   This attack cannot be used to execute attacker's code; it's only a
+   denial-of-service attack.  See next changelog entry for details:
+
+   * event_tcp.c (handle_writeable): Check that state->f is
+   non-NULL before dereferencing it.
+
+   * event_tcp.c: Check for EINTR/EAGAIN on read() and write()
+   system calls.
+
+   * configure.in: Default DEFANGUSER to "defang" if
+   --with-user not supplied.
+
+**MIMEDefang 2.22** 2002-10-17
+
+   * Added "-validate" flag to mimedefang.pl; see mimedefang.pl(8).
+   Used by CanIt.
+
+   * mimedefang and mimedefang-multiplexor chdir into the spool
+   directory on startup.
+
+   * mimedefang.pl.in: Use Unix::Syslog if it's found at
+   ./configure time.
+
+   * mimedefang.c (eom): The index argument to action_delete_header
+   and action_change_header was not being obeyed.
+
+   * mimedefang.pl.in: Added action_delete_all_headers
+
+   * mimedefang.pl.in: Added support for clamd daemonized virus-scanner
+   (Jason Englander)
+
+   * mimedefang.pl.in: Fall back on setlogsock('inet') if
+   setlogsock('unix') fails.  Also, check for this in configure
+   script so we don't fill logs with error messages unnecessarily.
+   Thanks to Brian Landers and others for assistance with this.
+
+   * mimedefang.c (eom): Log filter time even if we
+   reject/discard/tempfail deliberately.  This is the first time I've
+   used "goto" in a very long time... :-)
+
+   * mimedefang.pl.in: Added $MaxMIMEParts variable to terminate parsing
+   and bounce the message if there are more than $MaxMIMEParts parts.
+   This does *NOT* work unless you use our specially-patched MIME::Tools
+   package, MIME-tools-5.411a-RP-Patched-02 or newer.
+
+   * Update contrib/graphdefang to version 0.3 (John Kirkland)
+
+   * Execute "rm" to clean up on systems which lack readdir_r
+
+   * Fix bug in "RAV" anti-virus invocation (was Linux-specific)
+
+   * Add "-dl" to kavdaemon options (Marcelo)
+
+   * Clarified SpamAssassin documentation.
+
+   * Added -pthread flag when compiling rm_r.c.  May fix IRIX problems.
+
+   * Compile two versions of drop_privs.c:  A threaded one for mimedefang
+   and a non-threaded one for mimedefang-multiplexor.
+
+   * configure fixes for Tru64 UNIX.  You may once again be able to
+   use MIMEDefang with Sendmail 8.11.x.
+
+   * Use sm_vsnprintf and sm_snprintf if platform lacks (v)snprintf
+   Requires libsm.a in this case.
+
+   * mimedefang-filter.5.in: Clarified filter documentation,
+   especially with regards to global variables.  Thanks
+   to Tony Nugent for his useful post at
+   http://lists.roaringpenguin.com/pipermail/mimedefang/2002-October/002576.html
+
+   * mimedefang.pl.in: Added $VirusName variable (John Kirkland)
+
+   * examples/suggested-minimum-filter-for-windows-clients: Added
+   calls to md_log (John Kirkland)
+
+   * utils.c (MXCommand): Slightly better error messages
+
+   * mimedefang.pl.in: Added md_log_enable and md_log (John Kirkland)
+
+   * redhat/mimedefang-spec.in: Remove references to mime-tools-patch.txt;
+   change group of spool dirs to "defang" (Stephane Lentz)
+
+   * rm_r.c (rm_r): Add compile-time option for forking/exec'ing
+   /bin/rm to clean up, instead of using built-in C code.
+
+   * mimedefang.pl.in (entity_contains_virus_sophos): Better
+   regexp for filtering virus-scanner messages.
+   (Michael McCarthy)
+
+   * mimedefang.pl.in (action_defang): Make last
+   three arguments to action_defang optional. (Ben Reser)
+
+   * mimedefang.pl.in (anomy_clean_html): Workaround for Anomy
+   "Use of uninitialized variable" errors (Aaron Paetznick)
+
+   * mimedefang.pl.in: Add "MIME-Version: 1.0" and
+   "Content-Type: text/plain" headers to internally-generated
+   messages (Enrico Scholz)
+
+   * mimedefang.c (eom): Added "-T" option to mimedefang.
+
+   * mimedefang.c (envfrom): Log the directory name which could
+   not be created if we were unable to create spool dir.
+
+**MIMEDefang 2.21** 2002-09-12
+
+   * Removed mime-tools-patch.txt.  Instead, download the patched
+   MIME-Tools tarball from the MIMEDefang site.
+
+   * Documented $WarningLocation
+
+   * SECURITY UPDATE: Default filter rejects attachments of type
+   "message/partial".  See
+   http://online.securityfocus.com/archive/1/291514
+
+   * mimedefang-multiplexor.c (statsLog): Do not log the date/time
+   if we log stats using syslog; it's redundant.  We still include
+   a UNIX timestamp.
+
+**MIMEDefang 2.20** 2002-09-06
+
+   * mimedefang.pl.in: Quarantine functions try to make a
+   hard link when copying messages; fall back to actual copy
+   if hard link fails.  This can greatly improve performance.
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   More "dangerous" extensions; tighter conditions for suspecting
+   CLSID attack (thanks to Nik Clayton).
+
+   * mimedefang.pl.in:  The "-features" output includes
+   MIMEDefang version as well as versions of selected Perl modules.
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Added three new "dangerous" extensions: .app, .fxp and .prg.
+   Thanks to Marco Berizzi.
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Allow filenames like "foo@bar.com,innocuous.txt" rather
+   than choking on the ".com," part.
+
+   * mimedefang.c (cleanup): Use an internal C implementation of
+   "rm -rf" rather than forking and execing /bin/rm.  This should
+   improve performance on heavily-loaded systems.
+
+   * configure.in: Added --with-user=LOGIN configure-time option.
+   We do not check for existence of this user at configure-time,
+   because it would complicate building of RPM.
+
+   * RPM creates "defang" user when installed.
+
+   * Cleaned up configure script to use AC_MSG_xxx instead of echo
+   in a lot of places.
+
+**MIMEDefang 2.19** 2002-08-23
+
+   * mimedefang.pl.in (signal_complete): Improved quarantine notification
+   message.
+
+   * Lowered some syslog output to "debug" level.
+
+   * Fixed warnings about uninitialized variables.
+
+   * "make install" target uses tighter permissions for
+   /etc/mail/mimedefang-ip-key.  (This experimental feature is for
+   future release.)
+
+**MIMEDefang 2.18** 2002-08-21
+
+   * All internally-generated messages and resent messages are
+   delivered in "deferred" mode now.  IMPORTANT:  If you run
+   Sendmail 8.12, you MUST run a "client-submission queue runner",
+   something like this at system startup:
+
+            sendmail -Ac -qp1m
+
+   * mimedefang.c (eom): Fixed dumb error in which cmdFP was
+   closed before the final command was written.
+
+   * mimedefang.c (eom): Write a final 'F' line to signify end
+   of COMMANDS file.
+
+   * mimedefang.pl.in (send_mail): Invoke Sendmail with "-odb"
+   (background delivery) rather than "-odi" (immediate delivery).
+
+**MIMEDefang 2.17** 2002-08-13
+
+   * mimedefang.c (helo): Added the $Helo global variable to hold
+   "HELO/EHLO" argument.  Also, the HELO argument is passed to
+   filter_relay, filter_sender and filter_recipient.  See the
+   mimedefang-filter(5) man page for details and examples.
+
+   * mimedefang.pl.in (serverloop): Experimental change:  Delete
+   "\r" characters in message.  Seemed to cause lots of difficulty
+   with MIME::Tools.
+
+   * mimedefang-protocol.7: Fixed typo:  "I" is used to change a
+   header value, not "U".  Thanks to Mathias Herbert.
+
+   * mimedefang.pl.in:  Fixed typo: "tmpfail" should have been "tempfail"
+
+**MIMEDefang 2.16** 2002-07-17
+
+   * configure.in: Take out tests for libsm.a and libsmutil.a -- they
+   are internal Sendmail libraries which should not be required.
+   INCOMPATIBILITY:  YOU MUST NOW USE SENDMAIL 8.12.X
+
+   * mimedefang.pl.in (rebuild_entity): Fixed incorrect setting of
+   $ext for parts with no filename (thanks to Javier Kohan)
+   (action_discard): Set $Actions{'discard'}
+
+   * mimedefang.c: Made X-Scanned-By: header a bit less verbose.
+
+   * mimedefang.pl.in (entity_contains_virus_rav): Filter output of
+   RAV to make it less verbose.
+   (message_contains_virus_sophos): Filter output of Sophos to make
+   it less verbose.
+
+   * mimedefang.pl.in: Filter the output of H+BEDV, NAI, TREND and AVP
+   to make   output less verbose.
+
+   * mimedefang.pl.in: message_contains_virus_trend: Fixed typo.
+
+   * utils.c (MXRecipientOK): Pass additional first_recipient argument
+   to filter_recipient.
+
+   * Added support for "Clam AntiVirus" (http://www.clamav.net/)
+   courtesy of Dejan Muhamedagic
+
+   * mimedefang.pl.in (run_virus_scanner): Added "$match" argument
+   to pick out interesting lines from virus-scanner messages.
+
+   * mimedefang.pl.in: Integrated Norman Virus Control (nvcc)
+   (http://www.norman.no/)
+
+   * utils.c: Allow filter_sender, filter_recipient and
+   filter_relay to explicitly indicate a tempfail.
+
+   * mimedefang.pl.in: Better support for kav anti-virus
+   (pointed out by Vadim Smelyansky)
+
+   * redhat/mimedefang-spec.in: Minor fixes
+
+   * mimedefang-multiplexor.c: Fix for compilation problems
+   on BSD.
+
+**MIMEDefang 2.15** 2002-06-14
+
+   * Added README.SECURITY
+
+   * examples/suggested-minimum-filter-for-windows-clients: Added
+   calls to virus-scanner in sample filter.
+
+   * Split mimedefang.c into mimedefang.c (milter-specific stuff)
+   and utils.c (utilities for talking to multiplexor)
+
+   * mimedefang.pl.in (message_contains_virus_rav): Fixed
+   incorrect return code in message_contains_virus_rav
+
+   * mimedefang-multiplexor: Added "-R" and "-M" options to
+   limit memory usage of workers.  Strongly recommended to
+   help mitigate DoS attacks.
+
+   * mimedefang-multiplexor.c (limit_mem_usage): Added ability
+   to limit memory usage of workers to mitigate DoS attacks which
+   use complicated MIME messages to consume lots of memory.  All
+   such messages will be tempfailed forever, so keep an eye on
+   your logs.  You'll see lines like this:
+
+   Worker 0 stderr: Out of memory!
+   Worker died prematurely -- check your filter rules
+
+   * Added filter_recipient function; added ip and hostname arguments
+   to filter_sender.  Improved mechanism for communicating with
+   filter_sender, filter_relay and filter_recipient functions.
+
+   * INCOMPATIBILITY:  filter_sender is now passed 3 arguments
+   (sender, relay_ip, relay_hostname) instead of 1 (sender).  You
+   may have to adjust your filter rules.
+
+   * mimedefang.c, mimedefang.pl.in: Pass a number of sendmail macros
+   down to the filter.
+
+   * mimedefang.c: MAJOR internal change to communication mechanism
+   between C and Perl.  Instead of lots of little files, the outbound
+   (C to Perl) direction uses three files:
+
+   INPUTMSG -- input message
+   HEADERS  -- headers
+   COMMANDS -- commands
+
+   The inbound (Perl to C) uses (mostly) a single RESULTS file
+   to pass results back.  If message is changed, we use a NEWBODY file.
+
+   * mimedefang.pl.in (action_replace_with_warning): Try to keep
+   warnings inline.
+
+**MIMEDefang 2.14** 2002-06-03
+
+   * configure.in: Added support for --sysconfdir autoconf variable
+   (which defaults to /etc, not PREFIX/etc].  Thanks to
+   Andrey V. Pevnev.
+
+   * configure.in: Added --with-confsubdir option (default mail)
+
+   * configure.in: Added --with-milterinc and --with-milterlib
+   arguments. (Thanks to Martin Matuska)
+
+   * Added support for Sophie virus-scanning daemon, courtesy
+   of Jason Englander.
+
+   * Minor documentation cleanups.
+
+   * Man pages are now generated by autoconf so they have correct
+   path names.
+
+   * mimedefang.pl.in (stream_by_recipient): Added
+   stream_by_recipient function.
+
+**MIMEDefang 2.13** 2002-05-31
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Do not set Stupidity{"Flatten"}.
+
+   * mimedefang.pl.in: Proper handling of action_add_part for
+   messages of type multipart/alternative.
+
+   * examples/init-script.in: Generic init script which should work
+   on most UNIXes.
+
+   * mimedefang.c (main): Drop privileges as soon as possible in
+   mimedefang and mimedefang-multiplexor.  That means you have to
+   keep the pid files and sockets in /var/spool/MIMEDefang instead
+   of /var/run.  YOU MAY HAVE TO ADJUST YOUR SENDMAIL CONFIGURATION!
+
+   * mimedefang.pl.in: Added support for F-Risk F-Prot,
+   courtesy of Javier Kohan.
+
+**MIMEDefang 2.12** 2002-05-23
+
+   * suggested-minimum-filter-for-windows-clients: Moved SpamAssassin
+   check to filter_end -- cleans up the code a bit.  Also reject
+   filenames with curly brackets in them to prevent CLSID attacks.
+
+   * mimedefang, mimedefang-multiplexor: Refuse to run suid or sgid.
+
+   * mimedefang.pl.in: Do not convert "multipart/alternative" to
+   "multipart/mixed."
+
+   * We now have a Sparc/Solaris machine for development!  Thanks
+   to Ben Kadish.
+
+   * Fixed problem with not locating "libsm.a" on Solaris (and
+   possibly other systems.)
+
+   * mimedefang.pl.in: Added support for Trend Micro "vscan"
+   virus scanner, courtesy of Stephane Lentz.  Stephane considers
+   the code alpha-quality...
+
+   * mimedefang.pl.in: Use MIME::Word's "decode_mimewords" function
+   instead of MIME::WordDecoder's "unmime".  The latter would sometimes
+   refuse to accept certain character sets.  decode_mimewords is
+   potentially lossy, but should be safer than unmime.
+
+   * mimedefang.c: Did away with need for getpwnam_r; we do one
+   password lookup and save results instead of doing a lookup in each
+   thread.
+
+   * drop_privs.c: Add thread-safe workaround for systems which
+   lack the getpwnam_r function.
+
+   * drop_privs.c: Use reentrant getpwnam_r routine instead of
+   non-thread-safe getpwnam.
+
+   * mimedefang.pl.in: Added $AddWarningsInline variable to add
+   warnings right in the e-mail message text itself instead of
+   adding an additional MIME part.
+
+   * mimedefang-filter.5: Fixed typo (changed append_add_part to
+   action_add_part).
+
+   * configure.in: Added --disable-check-perl-modules option to
+   skip Perl module checks.  Do not use this option unless you
+   know exactly what you're doing!!!
+
+   * Move default stats location to /var/log/mimedefang/stats to
+   more easily accomodate -U option.
+
+   * mimedefang.c: Added -U option to run as non-root user.
+
+   * mimedefang-multiplexor.c: Added -U option to run as
+   non-root user.
+
+   * mimedefang.pl.in: Fixed RAV return code handling for non array
+   requesting calls.
+
+   * examples/suggested-minimum-filter-for-windows-clients: Added
+   to list of banned extensions (thanks to Mickey Hill.)
+
+   * mimedefang.pl.in: Added spam_assassin_object and spam_assassin_mail
+
+   * mimedefang-filter.5: Added spam_assassin _object and _mail
+   descriptions and cleaned up language.
+
+   * configure.in: Require SpamAssassin version >= 1.6.  Removed the
+   SAVER check as it's not used anywhere.
+
+   * mimedefang.pl.in: Added Reliable AntiVirus
+
+   * mimedefang-filter.5: Added Reliable AntiVirus
+
+   * configure.in: Added Reliable AntiVirus
+
+**MIMEDefang 2.11** 2002-05-13
+
+   * mimedefang.pl.in (spam_assassin_status): Keep a single
+   SpamAssassin object persistent rather than creating a new
+   one for each spam check.
+
+   * Fixed stupid typos in mimedefang.pl.in and configure.in
+
+**MIMEDefang 2.10** 2002-05-10
+
+   * mimedefang-multiplexor.c (activateWorker): Added "-W" option
+   to strictly limit rate of worker activation.
+
+   * mimedefang.pl.in: Added action_add_part
+
+   * mimedefang-filter.5: Added description for action_add_part
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Modified to use new function action_add_part
+
+   * contrib/README: Added in linuxorg directory entry
+
+   * contrib/linuxorg/README: A description of the files and how to
+   install them.
+
+   * contrib/linuxorg/filter: Included the filter file written for
+   Linux Online & Linux Headquarters
+
+   * contrib/linuxorg/spam-trusted-hosts: This lists hosts that we
+   trust to insert proper SpamAssassin headers per the filter above.
+   This file is a sample and it's empty.  NOTE from dfs:  Because
+   this relies on message headers, it is possible to spoof, although
+   real-world spammers would not likely do so.
+
+   * contrib/linuxorg/spam-deliver: A collection of regex expressions
+   which indicate email addresses to which SPAM mail is to be delivered
+   to always, regardless of SpamAssassin's estimation of whether or not
+   it is SPAM.  The sample file excludes abuse@ and postmaster@ from
+   having their SPAM discarded
+
+   * Makefile.in:   Modified install-redhat to create /etc/mail/mimedefang
+   directory
+
+   * Makefile.in: Modified to create mimedefang.spec from a .in file
+   which will allow building BETA releases in addition to production ones.
+
+   * redhat/mimedefang-spec.in: Created this file to use with above
+   makefile change.  It's a copy of the old mimedefang.spec file which
+   was in this directory.
+
+   * mimedefang.pl.in: Added $config_file optional
+   parameter to spam_assassin_* calls.
+
+   * mimedefang-filter.5: Added optional $config_file to
+   spam_assassin_* calls.  Added $OpenAVHost to list of global variables.
+
+   * configure.in: dropped search for wvHtml since it's not used anymore
+
+   * mimedefang.pl.in: Added append_text_boilerplate and
+   append_html_boilerplate functions.  These actually add boilerplate
+   text in a semi-sensible way that should work even with HTML
+   mail.
+
+   * Added "-F" option to mimedefang and mimedefang-multiplexor
+   to specify filter rules files.
+
+   * mimedefang.pl.in (serverloop): Do not add a level of nesting
+   when we rebuild messages.
+
+   * mimedefang.c (eom): Set MIME-Version if we're mucking with MIME
+   headers.
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Add SpamAssassin report as a separate text/plain type rather
+   than appending boilerplate text to message.
+
+   * mimedefang.pl.in: Added global variables $AdminName, $AdminAddress,
+   $NotifySenderSubject, $NotifyAdministratorSubject, $QuarantineSubject,
+   $NotifyNoPreamble, $SALocalTestsOnly as suggested by Michael McLagan.
+
+   * mimedefang.pl.in: Added new %Features keys
+   Virus:FileScan, Virus:OpenAV, Virus:NAI, Virus:HBEDV, Virus:SOPHOS,
+   Virus:AVP and Virus:FSAV as suggested by Michael McLagan.
+
+   * mimedefang.pl.in: Added prototypes to almost all Perl routines as
+   suggested by Michael McLagan.
+
+   * Added support for F-Secure "fsav" anti-virus as suggested by
+   David Green.
+
+   * redhat/mimdefang-sysconfig: Added MX_WORKER_RATE variable.
+
+   * mimedefang.pl.in: Fixed action_change_header to accept
+   multiline headers.
+
+   * mimedefang-multiplexor.c: Added "-w" option.  The multiplexor
+   now waits a small period of time between worker activations rather
+   than activating them all at once.  This should reduce the load
+   on the server if you run many workers.
+
+   * examples/suggested-minimum-filter-for-windows-clients: Do
+   not call SpamAssassin for messages larger than 256kB.
+
+   * event_tcp.c: Fixed syntax error if socklen_t not defined.
+
+   * configure.in: Better detection of socklen_t typedef.
+
+   * mimedefang-filter.5: Documented $DaemonName, $DaemonAddress
+   and defang_warning.
+
+   * examples/suggested-minimum-filter-for-windows-clients (filter):
+   Call anomy_clean_html if Anomy::HTMLCleaner is installed.
+
+   * mimedefang.pl.in (action_quarantine_entire_message): Added optional
+   $msg argument which gets added to warning list and saved in
+   quarantine dir.
+
+   * mimedefang-filter.5: Documented $SuspiciousCharsInBody
+
+   * mimedefang.pl.in: Fixed warnings about using uninitialized
+   variables in sender_ok and relay_ok
+
+   * mimedefang.pl.in: Renamed internal "sendmail" routine to
+   "send_mail".
+
+**MIMEDefang 2.9** 2002-05-03
+
+   * Filters can check for presence of SpamAssassin at run-time
+   using the %Features hash; therefore, the suggested filter
+   has been merged with the SpamAssassin-enabled filter and
+   we distribute only one filter.
+
+   * mimedefang.c: Made default value for "-n" option 10.
+
+   * Merged patches from Michael McLagan for packaging.
+
+   * Improved scripts for Red Hat.  The "mimedefang" init script
+   is separated out from "sendmail", and settings are stored in
+   /etc/sysconfig/mimedefang.
+
+   * Added redhat/ directory for building RPMs.
+
+   * Moved word-to-html to contrib/ dir; do not install it by
+   default.
+
+   * mimedefang.pl.in (message_contains_virus_filescan): Minor cleanups.
+
+   * Updated documentation.
+
+   * mimedefang.c (main): Added '-P' option to write mimedefang's
+   process-ID to a file.
+
+   * mimedefang.pl.in: SpamAssassin, Anomy::HTMLCleaner and File::Scan
+   are detected at run-time, so if you install or remove those Perl
+   modules, you do not need to rerun ./configure and install a new
+   version of mimedefang.pl.
+
+   * mimedefang.pl.in: Use the first found of:
+         /etc/mail/spamassassin/sa-mimedefang.cf
+         /etc/mail/spamassassin/local.cf
+         /etc/mail/spamassassin.cf
+   as the SpamAssassin preferences file.
+
+   * Install our SpamAssassin preferences file as:
+         /etc/mail/spamassassin/sa-mimedefang.cf
+
+   * Updated examples/filter-using-spam-assassin.
+
+   * Makefile.in: Added MANDIR and LIBDIR macros; added RPM_INSTALL_ROOT
+   in front of install: targets to ease building of RPM's.  Thanks
+   to Michael McLagan for suggesting this.
+
+   * mimedefang-multiplexor.c (handleWorkerReceivedAnswer): Distinguish
+   between a timeout and the premature death of a worker.
+
+   * Makefile.in (MANIFEST): Added contrib/ directory.
+
+   * mimedefang.c (cleanup): Do not remove spool directories if
+   "-k" command-line option given and the filter fails.
+
+   * configure.in: Check for socklen_t at configure time.
+
+   * mimedefang-multiplexor.c (handlePipe): Removed possibility
+   of an extremely unlikely race condition.
+
+   * mimedefang.pl.in (rebuild_entity): Added support for
+   filter_multipart to examine the headers of parts with
+   sub-parts.
+
+   (interpret_avp_code): Updated intepretation of AVP return
+   codes.
+
+**MIMEDefang 2.8** 2002-04-26
+
+   * configure.in: Added detection of unpatched MIME-Tools;
+   moved virus-scanner status display to the end.
+
+   * mimedefang.pl.in (message_rejected): Made message_rejected
+   return true for action_bounce, action_tempfail AND action_discard.
+
+   * examples/suggested-minimum-filter-for-windows-clients:
+   Use re_match instead of re_match_ext to mitigate problems with
+   malformed MIME.
+
+   * mimedefang-filter.5: Added warning about unintended consequences
+   of using action_bounce().
+
+   * Added "-p" option to mimedefang-multiplexor to write process-ID
+   to a file.
+
+   * If you send mimedefang-multiplexor a SIGINT signal, it
+   terminates idle workers and forces busy workers to terminate as
+   soon as they become idle.  This is useful for forcing a reread
+   of the filter rule file without stopping and restarting
+   Sendmail.
+
+**MIMEDefang 2.7** 2002-04-12
+
+   * README: Updated documentation.
+
+   * mimedefang-filter.5: Clarified documentation on action_rebuild().
+
+   * mimedefang.pl.in: Added support for File::Scan, thanks to
+   Nels Lindquist.
+
+   * mimedefang.c (MXSenderOK): Added calls to filter_sender to
+   reject messages from blacklisted senders early.
+
+   * INCOMPATIBILITY: You must now supply the "-r" flag to mimedefang
+   if you want filter_relay to be called!  Most sites do not use
+   filter_relay, so it's a waste of resources to call it unnecessarily.
+
+   * configure.in: Added "--with-quarantinedir" configure option.
+   This lets you keep quarantined files in a separate directory
+   from the spool directory.  You can then keep the main spool
+   directory on a RAM disk for better performance.
+
+   * mimedefang.pl.in (message_rejected): Added message_rejected function
+   to test if something earlier on has bounced or tempfailed message.
+
+   * mimedefang.pl.in (action_notify_sender): Do nothing if
+   $Sender is "<>".  Thanks to Jason Englander.
+
+   * mimedefang.pl.in (signal_complete): Do not notify sender if
+   sender is '<>'
+
+   * Correct typo in action array to make logging of actions accurate.
+   Thanks to Martin Bene.
+
+   * Redirect Sendmail's stdout to /dev/null when sending mail.
+
+**MIMEDefang 2.6** 2002-02-26
+
+   * examples/suggested-minimum-filter-for-windows-clients: Commented
+   out anomy_clean_html so filter works out-of-the-box on all
+   systems.
+
+   * mimedefang.pl.in (rebuild_entity): Work around bug in MIME::Tools
+   which fails to rebuild message of type "message/rfc822"
+
+   * Added support for filter_relay function which lets you
+   reject connections early on in the SMTP transaction in multiplex
+   mode.  Still works in non-multiplex mode, but not early on in the
+   SMTP dialog.
+
+   * mimedefang.pl.in (action_tempfail): Added $msg parameter
+   which lets you customize the tempfail message.
+
+   * mimedefang.c: Relax test for "suspicious" characters to
+   worry only about embedded <CR> and <NUL> characters.
+
+   * Increased SMALLBUF from 256 to 2048 to handle long headers
+   better.
+
+   * mimedefang.c (body): Added checks for suspicious characters
+   in e-mail body.
+
+   * mimedefang.pl.in: Added $SuspiciousCharsInBody variable.
+
+   * mimedefang.pl.in (spam_assassin_status()): Fixed all the
+   spam_assassin functions to work with SpamAssasssin 2.x as well
+   as 1.5.
+
+   (time_str): Made generated quarantine directory names use
+   dots instead of colons in time -- this makes them more
+   Samba-friendly.
+
+   * Deprecated action_rebuild.  It causes problems.
+
+   * mimedefang.pl.in (rebuild_entity): Reworked logic to avoid
+   undefined ->bodyhandle calls.
+
+   * More examples and a README in the examples/ directory.
+
+   * mimedefang.pl.in (spam_assassin_check()): Made it work
+   with SpamAssassin 2.0.1.  Thanks to Mark Roedel.
+
+   * (action_add_header): Correctly wrap headers whose values
+   contain embedded newlines.
+
+**MIMEDefang 2.5** 2002-02-18
+
+   * mimedefang-multiplexor.c (statsLog): Added "-T" option
+   to log statistics using syslog.
+
+   * mimedefang.c (safeWriteHeader): Set a flag if suspicious
+   characters are found in header; communicate that to mimedefang.pl
+
+   * mimedefang.pl.in: Added action_rebuild and $SuspiciousCharsInHeaders
+
+   * Remove examples/high-risk-filter and examples/low-risk-filter
+
+**MIMEDefang 2.4** 2002-02-15
+
+   * mimedefang.c (safeWriteHeader): Added workaround for MIME-parsing
+   bug in Microsoft Outlook.
+
+   * Reworked the internals of event.c and event_tcp.c to handle
+   timeouts more efficiently.
+
+   * mimedefang-multiplexor.8: Updated synopsis
+
+   * mimedefang-multiplexor.c: Add "-t" and "-u" options to log
+   statistical information.
+
+   * mimedefang.pl.in (action_bounce): Add newline to end of
+   message.
+
+**MIMEDefang 2.3** 2002-01-18
+
+   * mimedefang.pl.in: Copy any headers added with action_add_header
+   to NEWHEADERS in the quarantine directory if message is quarantined.
+
+   * mimedefang-multiplexor.c (handleWorkerStderr): Log Perl stderr
+   directly to syslog, so we catch error messages even in idle workers.
+   Anything you print to STDERR in Perl gets sent to syslog.
+
+   * Much more aggressive logging of errors.
+
+   * mimedefang.c (envfrom): Apparently, mkdir(2) on Solaris can
+   fail with EBADF, so we retry in that case.  Thanks to
+   Nathan Schimke for discovering this.
+
+   * Added action_tempfail to force an SMTP "try again" code.
+
+   * Got rid of generic message_contains_virus() and
+   entity_contains_virus() functions.  You have to use scanner-specific
+   functions now.
+
+   * The virus-scanner functions attempt to interpret scanner exit
+   codes and suggest courses of action (tempfail, virus, etc.)
+
+   * Added action_quarantine_entire_message()
+
+   * mimedefang-multiplexor.c: Better error-condition handling.
+
+   * mimedefang.pl.in (spam_assassin_is_spam()): Added call
+   to finish() method on Spam Assassin status.
+
+   * Added spam_assassin_check and spam_assassin_status, courtesy
+   of Jeff Heinen.
+
+   * mimedefang.pl.in (anomy_clean_html): Added support for the Anomy
+   HTML Cleaner (see http://mailtools.anomy.net/)
+
+   * mimedefang-multiplexor.c (handleWorkerStderr): Fixed bug
+   in which errors would be directed to /STDERR instead of
+   /var/spool/MIMEDefang/mdefang-xxxx/STDERR.  DOH!
+
+   * mimedefang.pl.in (action_external_filter): Made sure to set
+   $Changed if external filter produces output.
+
+   * mimedefang.pl.in: added message_contains_virus_openantivirus
+   and entity_contains_virus_openantivirus
+
+   * Integrated MIMEDefang with SpamAssassin.  See
+   http://spamassassin.taint.org/ for details on SpamAssassin.
+
+   * mimedefang.pl.in: Added $MsgID and $QueueID variables.
+
+   * mimedefang.c (envfrom): Put sendmail queue identifier in
+   ./QUEUEID
+
+**MIMEDefang 2.2** 2001-12-05
+
+   * mimedefang.pl.in: Added action_notify_administrator.
+
+   * mimedefang-multiplexor.8: Clarified effect of "-f" flag.
+
+   * mimedefang.c (eom): If filter fails for any reason, TEMPFAIL
+   the mail rather than adding X-MIMEDefang-Warning: header.
+
+   * mimedefang.c, mimedefang-multiplexor.c: Error messages from
+   Perl process are now logged to syslog at DEBUG level.
+
+   * mimedefang-multiplexor.c (putOnFreeList): Made logging somewhat
+   less verbose.
+
+   * mimedefang.pl.in: Added add_recipient and del_recipient functions.
+
+   * mimedefang.c: Added code to add/delete envelope recipients.
+
+   * mimedefang.pl.in: Added stream_by_domain.
+
+   * mimedefang.pl.in: Added resend_message subroutine.
+
+   * examples/stream-by-domain-filter: Made an example showing how
+   to "stream" messages by domain.  This lets you have (for example)
+   different rules for "foo@abc.com" than "foo@def.com" if you host
+   virtual domains.
+
+   * mimedefang.pl.in (action_quarantine): Made name of quarantine
+   directory look like this: qdir-YYYY-MM-DD-HH:mm:ss-count.  For
+   example: qdir-2001-11-29-09:14:36-001
+
+   * mimedefang.pl.in: added action_replace_with_url
+
+   * mimedefang.pl.in: more comments
+
+   * mimedefang.c: Do not add X-Scanned-By: header if an identical
+   header to what would be added exists already.
+
+   * mimedefang.c: Working directory based on time() instead of
+   pthread_self().
+
+**MIMEDefang 2.1** 2001-10-26
+
+   * Makefile.in: Install suggested-minimum-filter-for-windows-clients
+   as mimedefang-filter.example
+
+   * mimedefang-multiplexor.c: Handle SIGTERM and kill workers before
+   exiting.
+
+   * mimedefang-multiplexor.c: Change default busy timeout to 30 from 300
+
+   * examples/redhat-sendmail-init-script-with-multiplexor: Fix
+   minor problems.
+
+   * examples/redhat-sendmail-init-script: Fix minor problems.
+
+   * mimedefang-multiplexor.c: More debug logging; put worker on
+   free list if a busy worker dies (for whatever reason).
+
+   * mimedefang-multiplexor.c: Scrupulous error checking of
+   return codes from system calls.
+
+**MIMEDefang 2.0** 2001-10-22
+
+   * mimedefang.c: Added usage() function.
+
+   * Added support for "-f" option to specify an alternate filter
+   program.
+
+   * Updated man pages.
+
+   Support for Sendmail 8.12
+   Support for multiplexor to re-use long-lived Perl processes.
+
+**MIMEDefang 1.3** 2001-07-19
+
+   * configure.in: Added checks for libsm and libldap, courtesy
+   of Nels Lindquist
+
+   * mimedefang.c: Added "-d" flag to mimedefang which causes it
+   not to delete spool files.  DO NOT USE THIS FLAG ON A PRODUCTION
+   MAIL SERVER.
+
+   * mimedefang.pl.in: Added append_boilerplate function to append
+   text to first text/plain or text/html part encountered.
+
+   * Use mime_type method instead of mime_attr("Content-Type")
+
+   * mimedefang.c (header): Removed embedded newlines and carriage
+   returns so all headers in the HEADERS file are guaranteed to
+   exist on a single line.  (Makes parsing headers from Perl easier.)
+   (header): Earlier closing of file descriptors to conserve them.
+
+   * mimedefang.pl.in: Added the "-f filter" option and "-test"
+   feature.
+
+   * mimedefang.c: Complete restructuring to avoid memory allocation
+   problems first noticed on Solaris.
+
+**MIMEDefang 1.2** 2001-06-04
+
+   * configure.in: Added --disable-uvscan, --disable-sweep,
+   --disable-AvpLinux and --disable-antivir to disable use
+   of virus scanners.  By default, MIMEDefang uses every
+   virus scanner it can find on your system.
+
+   * mimedefang.pl.in: Changed arguments to virus-scanners to make
+   them less verbose (Thanks to Nels Lindquist)
+
+   * mimedefang.pl.in: Added generic "message_contains_virus" and
+   "entity_contains_virus" functions which use any supported virus
+   scanner.
+
+   * configure.in: Added checks for Sophos, NAI, Kaspersky and
+   H+BEDV anti-virus scanners.
+
+   * mimedefang.c: Close descriptors after fork() to reduce
+   unnecessary file descriptor usage.
+
+   * mimedefang.c, Makefile.in, configure.in:  Detect -pthread
+   option to GCC; fix a whole bunch of compilation warnings.
+   Eliminate dependency on GNU "make".
+
+   * mimedefang.pl.in: Added relay_is_blacklisted function.
+
+   * mimedefang.c, mimedefang.pl.in: Added mechanism for adding
+   headers from the Perl filter.
+
+   * More error checking and syslogging of failures.
+
+   * Notification e-mails are sent using a safer way to execute
+   sendmail -- no shell is involved in the exec call.
+
+**MIMEDefang 1.0** 2001-03-14
+
+   * mimedefang.c: Added "-n" option to limit number of concurrent
+   Perl processes.  Also added calls to syslog.
+
+   * mimedefang.c: Made mfconnect tolerate NULL hostname and sa.
+
+   * mimedefang.pl.in: Made quarantine notification messages include
+   relay hostname and address, message headers and quarantined part
+   headers.
+
+   * mimedefang.pl.in: Incorporated patch from Nels Lindquist which
+   adds support for NAI anti-virus and checks for sfio when linking
+   against libmilter.
+
+   * mimdefang.c: Re-worked code so that relay machine name and
+   address are available.
+
+   * mimedefang.pl.in (re_match_ext): Fixed re_match_ext so it doesn't
+   complain about file names with no extensions.
+
+   * mimedefang.pl.in: Now requires MIME::Tools version 5.410
+
+   * mimedefang.pl.in: Added $DaemonName to set the "full name" of
+   mail from the daemon.
+
+   * mimedefang.pl.in: Warning messages are appended to quarantine
+   reports.
+
+   * mimedefang.pl.in: Fixed bug in message_contains_virus_hbedv
+   subroutine.
+
+   * mimedefang.pl.in (main): Explicitly set output_to_core to 0
+   so we don't rely on MIME::tools defaults.
+
+   * all:  Added test suite and test filter.
+
+   * configure.in: Made spool directory for processing mail
+   configurable (./configure --with-spooldir=DIR).  In particular,
+   we NO LONGER use /tmp by default; it's /var/spool/MIMEDefang.
+
+   * mimedefang.pl.in: Added action_discard() action.
+
+   * mimedefang.c (eom): Added check for DISCARD file to support
+   action_discard in filter.
+
+   * mimedefang.pl.in: Re-worked the way we handle
+   Stupidity{"NoMultipleInlines"} for Microsoft Outlook.  Thanks
+   to Robert A. Levene for all of his testing and his patience.
+
+   * mimedefang.c: Remove potentially troublesome MIME headers when
+   converting a single-part message to a multi-part message.
+   * Makefile.in: Added distro-beta target.
+
+   * mimedefang.pl.in (re_match): Made the re_match functions
+   case-insensitive.
+
+   * mimedefang.c: Added ability to change headers so that
+   single-part messages are correctly handled rather than
+   being mangled.
+
+   * configure.in: Added checks for -lnsl, -lresolv, -lsocket
+
+   * configure.in: Added check for getopt.h; added config.h.in
+   * mimedefang.pl.in: Added calls to filter_begin and filter_end;
+   added support for H+BEDV AntiVir virus scanner.
+
+   * configure.in: Added /usr/lib/libmilter to search path for
+   libmilter.a (thanks to Jörgen Hägg).
+
+   * mimedefang.pl.in: Made Perl script send mail using "sendmail"
+   instead of "mail" so we can set the originating address to
+   whatever we like.
+
+   * mimedefang.pl.in: Added action_notify_sender to alert sender
+   to the fact that their e-mail message has been modified.
+
+   * mimedefang.pl.in: Changed "bounce" action to continue processing
+   remaining parts of the message and only bounce at the end.
+
+   * mimedefang-filter.5: Documented re_match and re_match_ext
+   functions.
+
+   * mimedefang.pl.in: Added re_match and re_match_ext functions
+   to make filters more foolproof.
+
+   * mimedefang.pl.in: Added "takeStabAtFilename" to make filter
+   more reliable.
+
+   * README: Added note about increasing milter timeout.
+
+   * Renamed "MIMESweeper" to "MIMEDefanger" so as to avoid
+   conflict with a trademark.
+
+   * mimedefang.pl.in: Made "quarantine" action send only one
+   notification per message, rather than one notification per
+   quarantined part.
+
+   * Made "quarantine" action save more information to quarantine
+   directory.  Each quarantined message is in its own subdirectory,
+   and the subdirectory contains message headers, sender, recipients
+   and header and body of each quarantined part.
