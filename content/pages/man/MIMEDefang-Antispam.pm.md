@@ -51,6 +51,26 @@ spam_assassin_mail
 :   Method that calls SpamAssassin and returns a
     `Mail::SpamAssassin::Message` object.
 
+md_spamc_init
+
+:   Initialize Apache SpamAssassin and returns a `Mail::SpamAssassin::Client` object.
+    md_spamc_init and md_spamc_check subs should be used only with Apache SpamAssassin
+    starting from version 4.0.1.
+    The sub returns a Mail::SpamAssassin::Client object.
+    Optional parameters are SpamAssassin host, SpamAssassin port, the username to pass to
+    SpamAssassin server and the maximum size of the email message.
+
+item md_spamc_check
+
+:   Method that scans the message using SpamAssassin Perl client and returns an array of four elemets:
+
+    * Weight of message ('score')
+    * Number of hits required before Apache SpamAssassin considers a message spam
+    * A 'report' string, detailing tests that failed and their weights
+    * A flag explaining if the email is a spam message or not (true/false).
+    Required parameters is a `Mail::SpamAssassin::Client` object initialized by calling md_spamc_init sub.
+
+
 rspamd_check
 
 :   Method that scans the message using Rspamd and returns an array of

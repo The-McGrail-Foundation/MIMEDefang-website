@@ -21,7 +21,7 @@ mimedefang-release [options] <directory\> ...
 
 # OPTIONS
 
--a enable attach more, the released email will be sent as an attachment to the
+-a enable attach mode, the released email will be sent as an attachment to the
 user.  
 -h display the help  
 -d path to the quarantined directory, it can

@@ -32,7 +32,7 @@ md_dkim_sign
 
     $method
 
-    :   The method used to sign the message, by default is 'relaxed'
+    :   The method used to sign the message, by default is 'relaxed/simple'
 
     $domain
 
@@ -54,12 +54,16 @@ md_dkim_sign
         List-Unsubscribe List-Subscribe List-Post List-Owner
         List-Archive
 
+    $wrap
+
+    :   Option to disable DKIM header lines wrap.
+
 md_dkim_verify
 
-:   Verifies the DKIM signature of an email. Return value can be pass,
-    fail, invalid, temperror, none. In case of multiple signatures, the
-    best result will be returned. Best is defined as pass, followed by
-    fail, invalid, and none. The second return value is the domain that
-    has applied the signature. The third return value is the size of the
-    DKIM public key. The forth return value is the value of the b tag of
-    the DKIM signature.
+:   Verifies the DKIM signature of an email, this method has no parameters.
+    The first return value can be "pass", "fail", "invalid", "temperror" or "none".
+    In case of multiple signatures, the best result will be returned.
+    Best is defined as pass, followed by fail, invalid, and none.
+    The second return value is the domain that has applied the signature.
+    The third return value is the size of the DKIM public key.
+    The forth return value is the value of the b tag of the DKIM signature.

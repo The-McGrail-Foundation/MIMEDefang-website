@@ -145,6 +145,23 @@ action_tempfail
 :   Method that sends a temporary failure with a 4.x.x SMTP code. If
     code or DSN are omitted or invalid, use 451 and 4.3.0.
 
+action_greylist($dbh, $sender, $recipient, $ip, $min_retry, $max_retry)
+
+:   $dbh is a DBI handle connected to the greylist database.
+    $dbh object should be initialized in filter_initialize sub.
+    $min_delay and $max_delay are the minimum and maximum retry delays
+    respectively, those parameters are optional (default values are 300 and 14400 seconds).
+    If an SMTP client tries to deliver email faster, it
+    will continue to be greylisted.
+    $ip, $sender and $recipient are used to identify a unique connection.
+    If it waits longer, it will begin the greylisting test from scratch.
+    $ip is the IP address of the connecting SMTP client, to greylist an entire
+    subnet you can pass the subnet instead.
+    In filter_cleanup sub, the database connection should be closed.
+    Returns "tempfail" if a new sender sends the email from a new ip address,
+    "continue" if the email is allowed to pass or "reject" if the email has been
+    greylisted for too much time.
+
 add_recipient
 
 :   Signals to MIMEDefang to add a recipient to the envelope.

@@ -148,6 +148,23 @@ send_admin_mail(subject, body)
 
 :   Sends a mail message to the administrator
 
+send_multipart_mail(fromAddr, fromName, recipient, subject, body_text, body_html, extra_headers)
+
+:   Sends a multipart mail message using Sendmail.
+    Invokes Sendmail without involving the shell, so that shell metacharacters won't cause security problems.
+
+read_commands_file()
+
+:   This function should only be called from filter_sender and
+    filter_recipient.
+    This will read the COMMANDS file (as described in mimedefang-protocol(7),
+    and will fill or update the following global variables: $Sender, @Recipients, %RecipientMailers,
+    $RelayAddr, $RealRelayAddr, $RelayHostname, $RealRelayHostname,
+    $QueueID, $Helo, %SendmailMacros.
+    If you do not call read_commands_file, then the only information
+    available in filter_sender and filter_recipient is that
+    which is passed as an argument to the function.
+
 ## SEE ALSO
 
 **Mail::MIMEDefang::Actions** (3)

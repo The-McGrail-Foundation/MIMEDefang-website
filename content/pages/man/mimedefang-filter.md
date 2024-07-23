@@ -111,6 +111,11 @@ returning.) Available dispositions are:
 :   The entire e-mail message is discarded silently. Neither the sender
     nor the intended recipients are notified.
 
+**action_greylist**
+:   The e-mail message is greylisted.
+    If it's the first time we see this sender, the email will be tempfailed,
+    when the sender will retry the email will be accepted.
+
 # CONTROLLING RELAYING
 
 You can define a function called **filter_relay** in your filter. This

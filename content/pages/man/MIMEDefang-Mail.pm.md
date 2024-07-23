@@ -67,3 +67,10 @@ md_check_against_smtp_server
     -   ('TEMPFAIL', err) if temporary failure
 
     -   ('REJECT', err) if recipient is not OK.
+
+    The method accepts the following parameters:
+    * sender e-mail address
+    * recipient e-mail address
+    * helo string to put in "HELO" command
+    * SMTP server to try.
+    * optional: Port to connect on (defaults to 25)

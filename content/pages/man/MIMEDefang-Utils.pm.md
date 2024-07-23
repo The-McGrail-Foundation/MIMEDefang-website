@@ -67,6 +67,12 @@ re_match_in_zip_directory
 :   Method that returns 1 if the EXTENSION part of any file in the zip
     archive matches regexp.
 
+re_match_in_tgz_directory
+
+:   Method that returns 1 if the EXTENSION part of any file in the tgz archive
+    matches regexp.
+    To enable the check $Features{'tar'} should be enabled.
+
 md_copy_orig_msg_to_work_dir_as_mbox_file
 
 :   Method that copies original INPUTMSG file into work directory for

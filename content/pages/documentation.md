@@ -35,5 +35,6 @@ For an in depth look at how to combat spam using Sendmail, MIMEDefang and Perl, 
 - [Mail::MIMEDefang::MIME](../man_Mail::MIMEDefang::MIME.html)  
 - [Mail::MIMEDefang::Net](../man_Mail::MIMEDefang::Net.html)  
 - [Mail::MIMEDefang::RFC2822](../man_Mail::MIMEDefang::RFC2822.html)  
+- [Mail::MIMEDefang::SPF](../man_Mail::MIMEDefang::SPF.html)  
 - [Mail::MIMEDefang::Unit](../man_Mail::MIMEDefang::Unit.html)  
 - [Mail::MIMEDefang::utils](../man_Mail::MIMEDefang::Utils.html)  
