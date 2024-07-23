@@ -16,6 +16,7 @@ For an in depth look at how to combat spam using Sendmail, MIMEDefang and Perl, 
 
 ## MIMEDefang program and API man pages are also available:  
 
+- [Changelog](/documentation/Changelog.html)
 - [mimedefang](../man_mimedefang.html)  
 - [mimedefang.pl](../man_mimedefang_pl.html)
 - [md-mx-ctrl](../man_md-mx-ctrl.html)  
