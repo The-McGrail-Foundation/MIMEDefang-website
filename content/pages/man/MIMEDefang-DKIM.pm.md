@@ -56,7 +56,7 @@ md_dkim_sign
 
     $wrap
 
-    :   Option to disable DKIM header lines wrap.
+    :   Option to enable or disable DKIM header lines wrap (enabled by default).
 
 md_dkim_verify
 
