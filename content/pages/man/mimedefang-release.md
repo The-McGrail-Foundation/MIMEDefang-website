@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2023-04-25 22:42:05
+Title: mimedefang-release(8) - man page
+Description: mimedefang-release(8) is a tool that permits to release quarantined messages or to attach the messages to a new email message.
 Author: gbechis
 Slug: man_mimedefang-release
 Status: published
@@ -12,7 +12,7 @@ mimedefang-release - a tool to release quarantined email messages
 
 # DESCRIPTION
 
-mimedefang-release is a tool that permits to release quarantined
+**mimedefang-release**(8) is a tool that permits to release quarantined
 messages or to attach the messages to a new email message.
 
 # SYNOPSIS

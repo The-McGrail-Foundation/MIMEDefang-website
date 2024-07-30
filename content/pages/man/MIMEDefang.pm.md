@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:23
+Title: Mail::MIMEDefang(3) - man page
+Description: Mail::MIMEDefang(3) is a framework for filtering e-mail. It uses Sendmail's Milter API, some C glue code, and some Perl code to let you write high-performance mail filters in Perl.
 Author: gbechis
 Slug: man_Mail::MIMEDefang
 Status: published

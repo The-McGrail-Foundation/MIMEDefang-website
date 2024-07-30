@@ -56,8 +56,9 @@ TAGS_SAVE_AS = ""
 
 import datetime
 
-date = datetime.date.today()
-YEAR = date.strftime("%Y")
+tdate = datetime.date.today()
+YEAR = tdate.strftime("%Y")
+DEFAULT_DATE = 'fs'
 
 from pelican.settings import DEFAULT_CONFIG
 from pelican.readers import MarkdownReader

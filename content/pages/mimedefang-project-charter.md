@@ -1,5 +1,5 @@
-Title: MIMEDefang Project Charter
-Date: 2021-07-30 19:44
+Title: Project Charter
+Description: This charter briefly describes the mission, history, organization, and processes of the project.
 Author: admin_f0tn7wrk
 Slug: mimedefang-project-charter/index
 Status: published

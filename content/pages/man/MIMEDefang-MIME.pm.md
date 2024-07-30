@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::MIME (3) - man page
+Description: Mail::MIMEDefang::MIME are a set of methods that can be called from mimedefang-filter(5) to operate on MIME objects.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::MIME
 Status: published

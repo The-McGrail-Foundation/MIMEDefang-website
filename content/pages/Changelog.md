@@ -1,5 +1,5 @@
-Title: MIMEDefang - Changelog
-Date: 2024-07-23 17:30:45
+Title: Changelog
+Description: New features and fixes of MIMEDefang versions.
 Author: gbechis
 Slug: documentation/Changelog
 Status: published

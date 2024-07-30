@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2024-06-23 17:19:10
+Title: Mail::MIMEDefang::SPF(3) - man page
+Description: Mail::MIMEDefang::SPF is a module used to check for Sender Policy Framework headers from mimedefang-filter.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::SPF
 Status: published

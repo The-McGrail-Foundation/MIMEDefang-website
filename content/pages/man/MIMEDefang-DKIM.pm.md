@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::DKIM(3) - man page
+Description: Mail::MIMEDefang::DKIM is a module with a set of DKIM related methods called from mimedefang-filter(5) to operate with DKIM.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::DKIM
 Status: published

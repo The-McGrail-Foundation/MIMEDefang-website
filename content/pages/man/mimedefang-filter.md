@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Title: mimedefang-filter(5) - man page
+Description: mimedefang-filter(5) is a Perl fragment that controls how mimedefang.pl(8) disposes of various parts of a MIME message. In addition, it contains some global variable settings that affect the operation of mimedefang.pl(8).
 Author: gbechis
 Slug: man_mimedefang-filter
 Status: published

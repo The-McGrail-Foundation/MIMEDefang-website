@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::RFC2822(3) - man page
+Description: Mail::MIMEDefang::RFC2822 are a set of methods that can be called from mimedefang-filter(5) to create RFC2822 formatted dates.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::RFC2822
 Status: published

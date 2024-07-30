@@ -1,5 +1,5 @@
-Title: MIMEDefang - FAQ
-Date: 2021-07-17 12:57
+Title: FAQ
+Description: MIMEDefang's Frequently Asked Questions
 Slug: faq/index
 Status: published
 Template: faq

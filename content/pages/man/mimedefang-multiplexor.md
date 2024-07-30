@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Title: mimedefang-multiplexor(8) - man page
+Description: mimedefang-multiplexor(8) manages a pool of Perl processes for scanning e-mail. It is designed to work in conjunction with mimedefang(8) and mimedefang.pl(8).
 Author: gbechis
 Slug: man_mimedefang-multiplexor
 Status: published

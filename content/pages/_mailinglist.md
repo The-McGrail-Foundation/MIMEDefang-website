@@ -1,5 +1,5 @@
-Title: MIMEDefang
-Date: 2021-07-09 22:57
+Title: mailing list
+Description: MIMEDefang mailing list
 Author: admin_f0tn7wrk
 Slug: _mailinglist
 Status: hidden

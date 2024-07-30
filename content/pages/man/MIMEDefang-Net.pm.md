@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::Net(3) - man page
+Description: Mail::MIMEDefang::Net are a set of methods that can be called from mimedefang-filter(5) to call network related services.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::Net
 Status: published

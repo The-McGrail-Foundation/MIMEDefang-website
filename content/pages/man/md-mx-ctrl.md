@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Title: md-mx-ctrl(8) - man page
+Description: md-mx-ctrl(8) is a command-line tool for communicating with mimedefang-multiplexor(8).
 Author: gbechis
 Slug: man_md-mx-ctrl
 Status: published

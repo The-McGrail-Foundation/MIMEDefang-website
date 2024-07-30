@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Title: mimedefang-notify(7) - man page
+Description: If you supply the '-O' option to mimedefang-multiplexor(8), then it allows external programs to connect to a socket and be notified of certain state changes in the multiplexor.
 Author: gbechis
 Slug: man_mimedefang-notify
 Status: published

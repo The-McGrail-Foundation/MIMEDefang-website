@@ -1,5 +1,5 @@
-Title: MIMEDefang
-Date: 2021-07-09 22:57
+Title: Home
+Description: MIMEDefang is an e-mail filtering tool that works with the Sendmail 'Milter' library.
 Author: admin_f0tn7wrk
 latest_version: 3.0
 Download_url: https://mimedefang.org/download.html

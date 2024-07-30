@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Title: mimedefang(8) - man page
+Description: mimedefang(8) is a filter built around Sendmail 8.11's 'milter' API for mail filters.
 Author: gbechis
 Slug: man_mimedefang
 Status: published

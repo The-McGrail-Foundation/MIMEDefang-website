@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:23
+Title: Mail::MIMEDefang::Actions(3) - man page
+Description: Mail::MIMEDefang::Actions are a set of methods that can be called from mimedefang-filter(5) to accept or reject the email message.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::Actions
 Status: published

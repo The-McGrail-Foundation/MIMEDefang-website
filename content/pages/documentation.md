@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2023-04-25 22:49
+Title: documentation
+Description: MIMEDefang man pages and documentation
 Author: gbechis
 Slug: documentation/index
 Status: published

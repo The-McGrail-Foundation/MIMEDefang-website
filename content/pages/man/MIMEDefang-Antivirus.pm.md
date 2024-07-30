@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::Antivirus(3) - man page
+Description: Mail::MIMEDefang::Antivirus are a set of methods that can be called from mimedefang-filter(5) to scan with installed antivirus software the email message.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::Antivirus
 Status: published

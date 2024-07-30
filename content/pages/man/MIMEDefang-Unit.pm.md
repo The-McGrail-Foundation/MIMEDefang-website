@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::Unit(3) - man page
+Description: Mail::MIMEDefang::Unit are a set of methods that are called from MIMEDefang regression tests.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::Unit
 Status: published

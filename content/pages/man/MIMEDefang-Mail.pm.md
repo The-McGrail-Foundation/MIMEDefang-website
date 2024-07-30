@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-08-24 00:00:24
+Title: Mail::MIMEDefang::Mail(3) - man page
+Description: Mail::MIMEDefang::Mail are a set of methods that can be called from mimedefang-filter(5) to send email messages or to run SMTP checks.
 Author: gbechis
 Slug: man_Mail::MIMEDefang::Mail
 Status: published

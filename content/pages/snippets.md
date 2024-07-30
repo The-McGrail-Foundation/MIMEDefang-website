@@ -1,5 +1,5 @@
-Title: MIMEDefang - Snippets
-Date: 2021-07-19 09:10:52
+Title: Snippets
+Description: MIMEDefang's filter code snippets
 Slug: snippets/index
 Status: published
 Template: snippets

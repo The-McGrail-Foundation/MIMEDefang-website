@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2022-07-01 10:34:32
+Title: mimedefang-protocol(7) - man page
+Description: mimedefang(8) and mimedefang-multiplexor(8) provide a simplified mechanism for hooking scripts and programs into Sendmail's milter API.
 Author: gbechis
 Slug: man_mimedefang-protocol
 Status: published

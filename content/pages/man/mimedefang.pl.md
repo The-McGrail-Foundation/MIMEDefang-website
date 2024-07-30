@@ -1,5 +1,5 @@
-Title: MIMEDefang - documentation
-Date: 2023-04-25 23:25:40
+Title: mimedefang.pl(8) - man page
+Description: mimedefang.pl(8) is a Perl script designed to work with mimedefang(8).
 Author: gbechis
 Slug: man_mimedefang_pl
 Status: published
