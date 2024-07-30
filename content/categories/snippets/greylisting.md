@@ -10,7 +10,7 @@ In order to use use greylisting you should add this code tou your filter:
     sub filter_initialize {
         my($entity) = @_;
 
-        $dbh = DBI->connect($dsn, $username, $auth, {attr => val});
+        $dbh = DBI->connect($dsn, $username, $auth, {RaiseError => 1});
     }
 
     sub filter_recipient {
