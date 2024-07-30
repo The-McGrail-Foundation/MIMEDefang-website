@@ -1,10 +1,11 @@
 Title: MIMEDefang - download
-Date: 2023-05-01 15:30:25
+Date: 2024-07-30 12:48:05
 Author: admin_f0tn7wrk
 Slug: download/index
 Status: published
 Template: download
 
+-   [mimedefang-3.4.1.tar.gz](https://mimedefang.org/releases/mimedefang-3.4.1.tar.gz)
 -   [mimedefang-3.4.tar.gz](https://mimedefang.org/releases/mimedefang-3.4.tar.gz)
 -   [mimedefang-3.3.tar.gz](https://mimedefang.org/releases/mimedefang-3.3.tar.gz)
 -   [mimedefang-3.2.tar.gz](https://mimedefang.org/releases/mimedefang-3.2.tar.gz)

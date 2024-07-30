@@ -1,5 +1,5 @@
 Title: MIMEDefang
-Date: 2023-05-01 15:29:10
+Date: 2024-07-30 12:45:08
 Author: admin_f0tn7wrk
 Slug: _download
 Status: hidden
@@ -8,13 +8,13 @@ Status: hidden
 
 **Filename**
 
-[mimedefang-3.4.1.tar.gz](https://mimedefang.org/releases/mimedefang-3.4.1.tar.gz)
+[mimedefang-3.5.tar.gz](https://mimedefang.org/releases/mimedefang-3.5.tar.gz)
 
-MIMEDefang 3.4 Release
+MIMEDefang 3.5 Release
 
 **Signature**
 
-[Yes](https://mimedefang.org/releases/mimedefang-3.4.1.tar.gz.sig)
+[Yes](https://mimedefang.org/releases/mimedefang-3.5.tar.gz.sig)
 
 **Filename**
 

@@ -9,6 +9,28 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
+**MIMEDefang 3.5** 2024-07-30
+
+   * improve how filter elapsed time is calculated
+   
+   * remove socket file on exit
+
+   * add an option to disable DKIM header lines wrap
+
+   * simplify newline and return/newline handling in DKIM signatures
+
+   * add action_greylist to support basic greylisting
+
+   * remove CR from multiline header's values
+
+   * add a sub to send a multipart mail message using Sendmail
+
+   * add a sub to check emails using Mail::SpamAssassin::Client
+
+   * add re_match_in_tgz_directory sub to block attachments in .tgz files
+
+   * add a Mail::MIMEDefang::SPF module to do Sender Policy Framework checks
+
 **MIMEDefang 3.4.1** 2023-05-01
 
    * regression tests and packaging fixes

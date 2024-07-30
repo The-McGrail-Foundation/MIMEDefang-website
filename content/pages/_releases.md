@@ -1,12 +1,12 @@
 Title: MIMEDefang
-Date: 2023-05-01 15:28:45
+Date: 2024-07-30 12:45:08
 Author: admin_f0tn7wrk
 Slug: _releases
 Status: hidden
 
 ## Releases
 
-MIMEDefang 3.4.1 is currently available for [download](https://mimedefang.org/download).
+MIMEDefang 3.5 is currently available for [download](https://mimedefang.org/download).
 
 ## Git Repository
 
