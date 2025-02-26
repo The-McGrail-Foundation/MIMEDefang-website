@@ -24,15 +24,15 @@ Incoming messages are scanned as follows:
 1) A temporary working directory is created. It is made the current
 working directory and the e-mail message is split into parts in this
 directory. Each part is represented internally as an instance of
-MIME::Entity.
+`MIME::Entity`.
 
 2) If the file **/etc/mail/mimedefang-filter.pl** defines a Perl
 function called **filter_begin**, it is called with a single argument
-consisting of a MIME::Entity representing the parsed e-mail message. Any
+consisting of a `MIME::Entity` representing the parsed e-mail message. Any
 return value is ignored.
 
 3) For each *leaf* part of the mail message, **filter** is called with
-four arguments: **entity**, a MIME::Entity object; **fname**, the
+four arguments: **entity**, a `MIME::Entity` object; **fname**, the
 suggested filename taken from the MIME Content-Disposition header;
 **ext**, the file extension, and **type**, the MIME Content-Type value.
 For each *non-leaf* part of the mail message, **filter_multipart** is
@@ -50,13 +50,13 @@ used.
 
 4) After all parts have been processed, the function **filter_end** is
 called if it has been defined. It is passed a single argument consisting
-of the (possibly modified) MIME::Entity object representing the message
+of the (possibly modified) `MIME::Entity` object representing the message
 about to be delivered. Within **filter_end**, you can call functions
 that modify the message headers body.
 
 5) After **filter_end** returns, the function **filter_wrapup** is
 called if it has been defined. It is passed a single argument consisting
-of the (possibly modified) MIME::Entity object representing the message
+of the (possibly modified) `MIME::Entity` object representing the message
 about to be delivered, including any modifications made in
 **filter_end**. Within **filter_wrapup**, you can *not* call functions
 that modify the message body, but you can still add or modify message
@@ -637,7 +637,7 @@ filter is called with the following arguments:
 
 **$entity**
 
-:   The MIME::Entity object. (See the MIME::tools Perl module
+:   The `MIME::Entity` object. (See the MIME::tools Perl module
     documentation.)
 
 **$fname**
@@ -1288,7 +1288,7 @@ Here is an example illustrating how to use the boilerplate functions:
 
 The $entity parameter *must* be the argument passed in to
 **filter_end**. The $offset parameter is optional; if omitted, it
-defaults to -1, which adds the new part at the end. See the MIME::Entity
+defaults to -1, which adds the new part at the end. See the `MIME::Entity`
 man page and the **add_part** member function for the meaning of
 $offset.
 
@@ -1310,7 +1310,7 @@ calling $entity->add_part. The decision process is as follows:
 **action_add_entity($entity [, $offset])**
 
 :   This is similar to **action_add_part** but takes a pre-built
-    MIME::Entity object rather than constructing one based on $type,
+    `MIME::Entity` object rather than constructing one based on $type,
     $encoding, $data, $fname and $disposition arguments.
 
 # USEFUL ROUTINES
@@ -1399,7 +1399,7 @@ command as part of the Sendmail startup sequence:
 **replace_entire_message($entity)**
 
 :   This function can only be called from **filter_end**. It replaces
-    the entire message with $entity, a MIME::Entity object that you
+    the entire message with $entity, a `MIME::Entity` object that you
     have constructed. You can use any of the MIME::Tools functions to
     construct the entity.
 
@@ -1983,7 +1983,7 @@ Bitdefender "bdc" - http://www.bitdefender.com/
 
 **entity_contains_virus($entity)**
 
-:   This function runs the specified MIME::Entity through *every*
+:   This function runs the specified `MIME::Entity` through *every*
     installed virus-scanner and returns the scanner results. The return
     values are the same as for **message_contains_virus()**.
 
@@ -2363,87 +2363,31 @@ are no free workers when a tick would occur, the tick is skipped.
 
 The following virus scanners are supported by MIMEDefang:
 
-**o**
-
-:   Symantec CarrierScan Server
+* Symantec CarrierScan Server
     (http://www.symantec.com/region/can/eng/product/scs/)
-
-**o**
-
-:   Trend Micro vscan (http://www.antivirus.com/)
-
-**o**
-
-:   Sophos Sweep (http://www.sophos.com/products/antivirus/savunix.html)
-
-**o**
-
-:   H+BEDV AntiVir (http://www.hbedv.com/)
-
-**o**
-
-:   Central Command Vexira (http://www.centralcommand.com/)
-
-**o**
-
-:   NAI uvscan (http://www.nai.com)
-
-**o**
-
-:   Bitdefender bdc (http://www.bitdefender.com)
-
-**o**
-
-:   Norman Virus Control (NVCC) (http://www.norman.no/)
-
-**o**
-
-:   Command csav (http://www.commandsoftware.com)
-
-**o**
-
-:   F-Secure fsav (http://www.f-secure.com)
-
-**o**
-
-:   The clamscan and clamdscan command-line scanners and the clamd
-    daemon from Clam AntiVirus (https://www.clamav.net/)
-
-**o**
-
-:   Kaspersky Anti-Virus (AVP) (http://www.kaspersky.com/)
-
-**o**
-
-:   F-Risk F-Prot (http://www.f-prot.com/)
-
-**o**
-
-:   F-Risk F-Prot v6 (http://www.f-prot.com/)
-
-**o**
-
-:   F-Risk FPROTD (daemonized version of F-Prot)
-
-**o**
-
-:   Symantec CarrierScan Server
-    (http://www.symantec.ca/region/can/eng/product/scs/buymenu.html)
-
-**o**
-
-:   Sophie (http://www.vanja.com/tools/sophie/), which uses the libsavi
-    library from Sophos, is supported in daemon-scanning mode.
-
-**o**
-
-:   Trophie (http://www.vanja.com/tools/trophie/), which uses the
-    libvsapi library from Trend Micro, is supported in daemon-scanning
-    mode.
-
-**o**
-
-:   ESET NOD32 (http://www.eset.com/)
+* Trend Micro vscan (http://www.antivirus.com/)
+* Sophos Sweep (http://www.sophos.com/products/antivirus/savunix.html)
+* H+BEDV AntiVir (http://www.hbedv.com/)
+* Central Command Vexira (http://www.centralcommand.com/)
+* NAI uvscan (http://www.nai.com)
+* Bitdefender bdc (http://www.bitdefender.com)
+* Norman Virus Control (NVCC) (http://www.norman.no/)
+* Command csav (http://www.commandsoftware.com)
+* F-Secure fsav (http://www.f-secure.com)
+* The clamscan and clamdscan command-line scanners and the clamd
+  daemon from Clam AntiVirus (https://www.clamav.net/)
+* Kaspersky Anti-Virus (AVP) (http://www.kaspersky.com/)
+* F-Risk F-Prot (http://www.f-prot.com/)
+* F-Risk F-Prot v6 (http://www.f-prot.com/)
+* F-Risk FPROTD (daemonized version of F-Prot)
+* Symantec CarrierScan Server
+  (http://www.symantec.ca/region/can/eng/product/scs/buymenu.html)
+* Sophie (http://www.vanja.com/tools/sophie/), which uses the libsavi
+  library from Sophos, is supported in daemon-scanning mode.
+* Trophie (http://www.vanja.com/tools/trophie/), which uses the
+  libvsapi library from Trend Micro, is supported in daemon-scanning
+  mode.
+* ESET NOD32 (http://www.eset.com/)
 
 # AUTHORS
 

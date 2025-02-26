@@ -8,13 +8,13 @@ Status: hidden
 
 **Filename**
 
-[mimedefang-3.5.tar.gz](https://mimedefang.org/releases/mimedefang-3.5.tar.gz)
+[mimedefang-3.6.tar.gz](https://mimedefang.org/releases/mimedefang-3.6.tar.gz)
 
-MIMEDefang 3.5 Release
+MIMEDefang 3.6 Release
 
 **Signature**
 
-[Yes](https://mimedefang.org/releases/mimedefang-3.5.tar.gz.sig)
+[Yes](https://mimedefang.org/releases/mimedefang-3.6.tar.gz.sig)
 
 **Filename**
 

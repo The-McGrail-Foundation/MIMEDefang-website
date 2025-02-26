@@ -5,6 +5,7 @@ Slug: download/index
 Status: published
 Template: download
 
+-   [mimedefang-3.5.tar.gz](https://mimedefang.org/releases/mimedefang-3.5.tar.gz)
 -   [mimedefang-3.4.1.tar.gz](https://mimedefang.org/releases/mimedefang-3.4.1.tar.gz)
 -   [mimedefang-3.4.tar.gz](https://mimedefang.org/releases/mimedefang-3.4.tar.gz)
 -   [mimedefang-3.3.tar.gz](https://mimedefang.org/releases/mimedefang-3.3.tar.gz)

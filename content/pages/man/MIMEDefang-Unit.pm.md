@@ -24,3 +24,7 @@ include_mimedefang
 smtp_mail
 
 :   Method which sends a test email and returns SMTP replies.
+
+get_abs_path
+
+:   Method which returns the absolute path of a file by reading $PATH.

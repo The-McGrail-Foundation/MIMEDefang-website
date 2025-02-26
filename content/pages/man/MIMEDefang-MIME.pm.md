@@ -21,7 +21,7 @@ collect_parts
 
 :   Method that adds parts to the array `@FlatParts` for flattening.
 
-takeStabAtFilename ( \$entity )
+takeStabAtFilename ( $entity )
 
 :   Makes a guess at a filename for the attachment. Calls MIME::Head's
     **recommended_filename()** method, which tries
@@ -56,7 +56,7 @@ append_text_boilerplate
 append_html_boilerplate
 
 :   Method that appends text to text/html part or parts. It tries to be
-    clever and inserts the text before the \</body> tag to be able of
+    clever and inserts the text before the `</body>` tag to be able of
     being seen.
 
 anonymize_uri

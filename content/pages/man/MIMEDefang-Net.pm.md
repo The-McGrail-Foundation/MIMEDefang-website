@@ -49,7 +49,7 @@ is_public_ip6_address $ip_addr
 :   Returns true if `$ip_addr` is a publicly-routable IPv6 address,
     false otherwise
 
-get_mx_ip_addresses $domain \[\$resolver_object\]
+get_mx_ip_addresses $domain \[$resolver_object\]
 
 :   Get IP addresses of all MX hosts for given domain. If there are no
     MX hosts, then return A records.
@@ -59,10 +59,14 @@ md_get_bogus_mx_hosts $domain
 :   Returns a list of bogus IP addresses that are in `$domain`\'s list
     of MX records. A bogus IP address is loopback/private/multicast/etc.
 
+get_ptr_record $ip_address \[$resolver_object\]
+
+:   Get PTR record for given IP address.
+
 relay_is_blacklisted_multi
 
 :   Method that rerurns a hash table with one entry per original domain.
-    Entries in hash will be: `{ $domain =<gt` `$return` }>, where
+    Entries in hash will be: `{ $domain =>` `$return }`, where
     `$return` is one of SERVFAIL, NXDOMAIN or a list of IP addresses as
     a dotted-quad.
 

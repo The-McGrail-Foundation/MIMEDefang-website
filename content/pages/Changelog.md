@@ -9,6 +9,17 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
+**MIMEDefang 3.6** 2025-02-26
+
+   * add the possibility to output some stats in JSON format
+
+   * fix hang on next request after call to rspamd_check()
+
+   * improve synthesize_received_header sub to avoid
+     FPs in rdns checks
+
+   * fix re_match_in_7zip_directory crash
+
 **MIMEDefang 3.5** 2024-07-30
 
    * improve how filter elapsed time is calculated

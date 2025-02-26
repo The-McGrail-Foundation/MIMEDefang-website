@@ -26,13 +26,13 @@ spam_assassin_check
 :   Method that scans a message using SpamAssassin and returns an array
     of four elements,
 
-    -   Weight of message (\'hits\')
+    -   Weight of message (`'hits'`)
 
     -   Number of hits required before SA considers a message spam
 
     -   Comma separated list of symbolic test names that were triggered
 
-    -   A \'report\' string, detailing tests that failed and their
+    -   A `'report'` string, detailing tests that failed and their
         weights
 
 spam_assassin_status
@@ -64,9 +64,9 @@ item md_spamc_check
 
 :   Method that scans the message using SpamAssassin Perl client and returns an array of four elemets:
 
-    * Weight of message ('score')
+    * Weight of message (`'score'`)
     * Number of hits required before Apache SpamAssassin considers a message spam
-    * A 'report' string, detailing tests that failed and their weights
+    * A `'report'` string, detailing tests that failed and their weights
     * A flag explaining if the email is a spam message or not (true/false).
     Required parameters is a `Mail::SpamAssassin::Client` object initialized by calling md_spamc_init sub.
 
@@ -76,13 +76,13 @@ rspamd_check
 :   Method that scans the message using Rspamd and returns an array of
     six elemets:
 
-    -   Weight of message (\'hits\')
+    -   Weight of message (`'hits'`)
 
     -   Number of hits required before Rspamd considers a message spam
 
     -   Comma separated list of symbolic test names that were triggered
 
-    -   A \'report\' string, detailing tests that failed and their
+    -   A `'report'` string, detailing tests that failed and their
         weights or a Json report if JSON and LWP modules are present
 
     -   An action that should be applied to the email

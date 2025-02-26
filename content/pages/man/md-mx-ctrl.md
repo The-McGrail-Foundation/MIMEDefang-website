@@ -83,6 +83,10 @@ is the number of seconds elapsed since the multiplexor was started.
     		sleep 1
     	done
 
+**jsonstatus**
+
+:   Prints the status of all worker Perl processes in JSON format.
+
 **histo**
 
 :   Prints a histogram showing the number of workers that were busy each
@@ -234,6 +238,10 @@ twenty-second number is a copy of *nsecs* for convenience.
 The twenty-third through twenty-sixth numbers are the number of workers
 currently executing a scan, relayok, senderok and recipok command
 respectively.
+
+**jsonload1 *nsecs***
+
+:   Returns the **load1** data in JSON format.
 
 **workers**
 

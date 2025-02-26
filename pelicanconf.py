@@ -68,5 +68,5 @@ RELEASES, _ = MarkdownReader(config).read("content/pages/_releases.md")
 DOWNLOAD, _ = MarkdownReader(config).read("content/pages/_download.md")
 MAILINGLIST, _ = MarkdownReader(config).read("content/pages/_mailinglist.md")
 THANKYOU, _ = MarkdownReader(config).read("content/pages/_thankyou.md")
-MD_VER = "3.5"
+MD_VER = "3.6"
 MD_SMTPD_VER = "0.2"

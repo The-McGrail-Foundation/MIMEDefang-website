@@ -96,11 +96,12 @@ percent_decode(str)
 
 :   Decode a string previously encoded by **percent_encode()**.
 
-write_result_line ( \$cmd, \@args )
+write_result_line ( $cmd, @args )
 
 :   Writes a result line to the RESULTS file. `$cmd` should be a
     one-letter command for the RESULTS file `@args` are the arguments
-    for `$cmd`, if any. They will be **percent_encode()**\'ed before
+    for `$cmd`, if any.
+    They will be **percent_encode()**'ed before
     being written to the file. Returns 0 or 1 and an optional warning
     message.
 
@@ -140,8 +141,9 @@ signal_complete
 send_mail(fromAddr, fromFull, recipient, body, deliverymode)
 
 :   Sends a mail message using Sendmail. Invokes Sendmail without
-    involving the shell, so that shell metacharacters won\'t cause
-    security problems. Deliverimode parameter is the optional sendmail
+    involving the shell, so that shell metacharacters won't cause
+    security problems.
+    Deliverimode parameter is the optional sendmail
     delivery mode arg (default -odd).
 
 send_admin_mail(subject, body)
@@ -157,10 +159,10 @@ read_commands_file()
 
 :   This function should only be called from filter_sender and
     filter_recipient.
-    This will read the COMMANDS file (as described in mimedefang-protocol(7),
-    and will fill or update the following global variables: $Sender, @Recipients, %RecipientMailers,
-    $RelayAddr, $RealRelayAddr, $RelayHostname, $RealRelayHostname,
-    $QueueID, $Helo, %SendmailMacros.
+    This will read the COMMANDS file (as described in `mimedefang-protocol(7)`,
+    and will fill or update the following global variables: `$Sender`, `@Recipients`, `%RecipientMailers`,
+    `$RelayAddr`, `$RealRelayAddr`, `$RelayHostname`, `$RealRelayHostname`,
+    `$QueueID`, `$Helo`, `%SendmailMacros`.
     If you do not call read_commands_file, then the only information
     available in filter_sender and filter_recipient is that
     which is passed as an argument to the function.
