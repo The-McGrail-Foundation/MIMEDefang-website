@@ -10,7 +10,7 @@ PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
-MENUITEMS = [('Download', '/download/'), ('Mailing List', 'https://lists.mimedefang.org/mailman/listinfo/mimedefang_lists.mimedefang.org'), ('Documentation', '/documentation/'), ('FAQ', '/faq/'), ('Snippets', '/snippets/')]
+MENUITEMS = [('Download', '/download/'), ('Mailing List', '/mailing-list/'), ('Documentation', '/documentation/'), ('FAQ', '/faq/'), ('Snippets', '/snippets/')]
 
 TIMEZONE = 'UTC'
 
