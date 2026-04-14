@@ -13,16 +13,11 @@
     <meta name="title" property="og:title" content="{{ page.title }}" />
     <meta name="description" content="{{ page.description }}" />
     <meta property="og:description" content="{{ page.description }}" />
+    {% if page.ld_json %}
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "MIMEDefang",
-      "applicationCategory": "SecurityApplication",
-      "operatingSystem": "Linux, UNIX",
-      "license": "https://www.gnu.org/licenses/gpl-2.0.html"
-    }
+    {{ page.ld_json | safe }}
     </script>
+    {% endif %}
     <title>MIMEDefang - {{ page.title }}</title>
 </head>
 
