@@ -263,6 +263,7 @@ section.thanks div[class^="col-"] img{
 }
 
 footer{
+    margin-top: 2rem;
     background-color: #007BFF;
     color: #fff;
 }
