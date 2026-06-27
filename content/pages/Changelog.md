@@ -9,6 +9,28 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
+**MIMEDefang 3.7** 2026-XX-XX
+
+   * add autoscaling support to activate or deactivate workers when needed
+
+   * add Mail::MIMEDefang::Async module to run multiple tasks in parallel
+
+   * add Mail::MIMEDefang::BIMI module with BIMI support
+
+   * add Mail::MIMEDefang::TLSPolicy module for MTA-STS and DANE/TLSA policy checks
+
+   * add support for ClamAV scan using TCP/IP on localhost
+
+   * improve md_graphdefang_log with new per_message parameter
+
+   * add md_graphdefang_log_array for logging arbitrary numbers of values
+
+   * add -A flag to mimedefang-multiplexor for worker scheduling logging
+
+   * add -k flag to mimedefang-multiplexor for adaptive autoscaling
+
+   * fix strip CR before LF at header fold points in INPUTMSG
+
 **MIMEDefang 3.6** 2025-02-26
 
    * add the possibility to output some stats in JSON format

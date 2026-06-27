@@ -11,27 +11,32 @@ Mail::MIMEDefang::SPF - Sender Policy Framework interface for MIMEDefang
 
 # DESCRIPTION
 
-Mail::MIMEDefang::SPF is a module used to check for Sender Policy
-Framework headers from mimedefang-filter.
+Mail::MIMEDefang::SPF is a module used to check for Sender Policy Framework
+headers from `mimedefang-filter`.
 
 # METHODS
 
-md_spf_verify
+- md\_spf\_verify
 
-:   Returns code and explanation of Sender Policy Framework
+    Returns code and explanation of Sender Policy Framework
     check.
+    Additional optional return values are code and explanation
+    of helo SPF query, 5th and 6th return values are the SPF dns
+    records if they are available;
+
     Possible return code values are:
     "pass", "fail", "softfail", "neutral", "none", "error", "permerror", "temperror", "invalid"
+
     The method accepts the following parameters:
 
-    $email
+    - `$email`
 
-    :    The email address of the sender
+        The email address of the sender
 
-    $relayip
+    - `$relayip`
 
-    :    The relay ip address
+        The relay ip address
 
-    $helo (optional)
+    - `$helo` (optional)
 
-    :    The MTA helo server name
+        The MTA helo server name

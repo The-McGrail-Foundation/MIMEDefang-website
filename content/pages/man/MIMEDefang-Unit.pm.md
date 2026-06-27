@@ -11,20 +11,19 @@ Mail::MIMEDefang::Unit - Methods used by MIMEDefang regression tests
 
 # DESCRIPTION
 
-Mail::MIMEDefang::Unit are a set of methods that are called from
-MIMEDefang regression tests.
+Mail::MIMEDefang::Unit are a set of methods that are called from MIMEDefang
+regression tests.
 
 # METHODS
 
-include_mimedefang
+- include\_mimedefang
 
-:   Method that includes *mimedefang.pl.in* code without running
-    anything.
+    Method that includes `mimedefang.pl.in` code without running anything.
 
-smtp_mail
+- smtp\_mail
 
-:   Method which sends a test email and returns SMTP replies.
+    Method which sends a test email and returns SMTP replies.
 
-get_abs_path
+- get\_abs\_path
 
-:   Method which returns the absolute path of a file by reading $PATH.
+    Method which returns the absolute path of a file by reading $PATH.

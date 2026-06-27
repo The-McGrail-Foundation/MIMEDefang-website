@@ -11,59 +11,70 @@ Mail::MIMEDefang::DKIM - DKIM interface for MIMEDefang
 
 # DESCRIPTION
 
-Mail::MIMEDefang::DKIM is a module with a set of DKIM related methods
-called from *mimedefang-filter* to operate with DKIM.
+Mail::MIMEDefang::DKIM is a module with a set of DKIM related methods called
+from `mimedefang-filter` to operate with DKIM.
 
 # METHODS
 
-md_dkim_sign
+- md\_dkim\_sign
 
-:   Returns a mail header and the DKIM signature for the message. The
-    method accepts the following parameters:
+    Returns a mail header and the DKIM signature for the message.
+    The method accepts the following parameters:
 
-    $keyfile
+    - `$keyfile`
 
-    :   The path to the private DKIM key
+        The path to the private DKIM key
 
-    $algorithm
+    - `$algorithm`
 
-    :   The algorithm to be used to sign the message, by default is
-        'rsa-sha1'
+        The algorithm to be used to sign the message, by default is 'rsa-sha1'
 
-    $method
+    - `$method`
 
-    :   The method used to sign the message, by default is 'relaxed/simple'
+        The method used to sign the message, by default is 'relaxed/simple'
 
-    $domain
+    - `$domain`
 
-    :   The domain to be used when signing the message, by default it's
-        autodetected
+        The domain to be used when signing the message, by default it's autodetected
 
-    $selector
+    - `$selector`
 
-    :   The selector to be used when signing the message, by default
-        it's 'default'
+        The selector to be used when signing the message, by default it's 'default'
 
-    $headers
+    - `$headers`
 
-    :   The headers to sign, by default the headers are: From Sender
-        Reply-To Subject Date Message-ID To Cc MIME-Version Content-Type
-        Content-Transfer-Encoding Content-ID Content-Description
-        Resent-Date Resent-From Resent-Sender Resent-To Resent-cc
-        Resent-Message-ID In-Reply-To References List-Id List-Help
-        List-Unsubscribe List-Subscribe List-Post List-Owner
-        List-Archive
+        The headers to sign, by default the headers are:
+                       From Sender Reply-To Subject Date
+                       Message-ID To Cc MIME-Version
+                       Content-Type Content-Transfer-Encoding Content-ID Content-Description
+                       Resent-Date Resent-From Resent-Sender Resent-To Resent-cc
+                       Resent-Message-ID
+                       In-Reply-To References
+                       List-Id List-Help List-Unsubscribe List-Subscribe
+                       List-Post List-Owner List-Archive
 
-    $wrap
+        `$headers` parameter is a colon separated list of headers to sign,
 
-    :   Option to enable or disable DKIM header lines wrap (enabled by default).
+        this is added to the list of default headers as shown in in the DKIM specification.
 
-md_dkim_verify
+    - `$wrap`
 
-:   Verifies the DKIM signature of an email, this method has no parameters.
+        Option to enable or disable DKIM header lines wrap (enabled by default).
+
+- md\_dkim\_verify
+
+    Verifies the DKIM signature of an email, this method has no parameters.
+
     The first return value can be "pass", "fail", "invalid", "temperror" or "none".
-    In case of multiple signatures, the best result will be returned.
-    Best is defined as pass, followed by fail, invalid, and none.
+
+    In case of multiple signatures, the "best" result will be returned.
+
+    Best is defined as "pass", followed by "fail", "invalid", and "none".
+
     The second return value is the domain that has applied the signature.
+
     The third return value is the size of the DKIM public key.
-    The forth return value is the value of the b tag of the DKIM signature.
+
+    The forth return value is the value of the "b" tag of the DKIM signature.
+
+    If the sub is called in scalar context, the `$dkim` object is returned.

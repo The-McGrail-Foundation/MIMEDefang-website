@@ -11,84 +11,74 @@ Mail::MIMEDefang::Antispam - antispam related methods for email filters
 
 # DESCRIPTION
 
-Mail::MIMEDefang::Antispam are a set of methods that can be called from
-*mimedefang-filter* to check email messages with antispam softwares.
+Mail::MIMEDefang::Antispam are a set of methods that can be called
+from `mimedefang-filter` to check email messages with antispam softwares.
 
 # METHODS
 
-spam_assassin_is_spam
+- spam\_assassin\_is\_spam
 
-:   Method that scans a mmessage using SpamAssassin and returns True if
-    the email message has been detected as spam.
+    Method that scans a mmessage using SpamAssassin and returns True if the email
+    message has been detected as spam.
 
-spam_assassin_check
+- spam\_assassin\_check
 
-:   Method that scans a message using SpamAssassin and returns an array
-    of four elements,
+    Method that scans a message using SpamAssassin and returns an array of four
+    elements,
 
-    -   Weight of message (`'hits'`)
+    - Weight of message ('hits')
+    - Number of hits required before SA considers a message spam
+    - Comma separated list of symbolic test names that were triggered
+    - A 'report' string, detailing tests that failed and their weights
 
-    -   Number of hits required before SA considers a message spam
+- spam\_assassin\_status
 
-    -   Comma separated list of symbolic test names that were triggered
+    Method that scans a mmessage using SpamAssassin and returns a
+    `Mail::SpamAssassin:PerMsgStatus` object.
+    The caller is responsible for calling the `finish` method.
 
-    -   A `'report'` string, detailing tests that failed and their
-        weights
+- spam\_assassin\_init
 
-spam_assassin_status
+    Initialize Apache SpamAssassin and returns a `Mail::SpamAssassin` object.
 
-:   Method that scans a mmessage using SpamAssassin and returns a
-    `Mail::SpamAssassin:PerMsgStatus` object. The caller is responsible
-    for calling the `finish` method.
+- spam\_assassin\_mail
 
-spam_assassin_init
+    Method that calls SpamAssassin and returns
+    a `Mail::SpamAssassin::Message` object.
 
-:   Initialize Apache SpamAssassin and returns a `Mail::SpamAssassin`
-    object.
+- md\_spamc\_init
 
-spam_assassin_mail
-
-:   Method that calls SpamAssassin and returns a
-    `Mail::SpamAssassin::Message` object.
-
-md_spamc_init
-
-:   Initialize Apache SpamAssassin and returns a `Mail::SpamAssassin::Client` object.
-    md_spamc_init and md_spamc_check subs should be used only with Apache SpamAssassin
+    Initialize Apache SpamAssassin and returns a `Mail::SpamAssassin::Client` object.
+    `md_spamc_init` and `md_spamc_check` subs should be used only with Apache SpamAssassin
     starting from version 4.0.1.
-    The sub returns a Mail::SpamAssassin::Client object.
+
+    >     The sub returns a Mail::SpamAssassin::Client object.
+
     Optional parameters are SpamAssassin host, SpamAssassin port, the username to pass to
     SpamAssassin server and the maximum size of the email message.
 
-item md_spamc_check
+- md\_spamc\_check
 
-:   Method that scans the message using SpamAssassin Perl client and returns an array of four elemets:
+    Method that scans the message using SpamAssassin Perl client and returns an array of four elemets:
 
-    * Weight of message (`'score'`)
-    * Number of hits required before Apache SpamAssassin considers a message spam
-    * A `'report'` string, detailing tests that failed and their weights
-    * A flag explaining if the email is a spam message or not (true/false).
-    Required parameters is a `Mail::SpamAssassin::Client` object initialized by calling md_spamc_init sub.
+    - Weight of message ('score')
+    - Number of hits required before Apache SpamAssassin considers a message spam
+    - A 'report' string, detailing tests that failed and their weights
+    - A flag explaining if the email is a spam message or not (true/false).
 
+    Required parameters is a Mail::SpamAssassin::Client object initialized by calling `md_spamc_init` sub.
 
-rspamd_check
+- rspamd\_check
 
-:   Method that scans the message using Rspamd and returns an array of
-    six elemets:
+    Method that scans the message using Rspamd and returns an array of six elemets:
 
-    -   Weight of message (`'hits'`)
+    - Weight of message ('hits')
+    - Number of hits required before Rspamd considers a message spam
+    - Comma separated list of symbolic test names that were triggered
+    - A 'report' string, detailing tests that failed and their weights
+      or a Json report if JSON and LWP modules are present
+    - An action that should be applied to the email
+    - A flag explaining if the email is a spam message or not (true/false).
 
-    -   Number of hits required before Rspamd considers a message spam
-
-    -   Comma separated list of symbolic test names that were triggered
-
-    -   A `'report'` string, detailing tests that failed and their
-        weights or a Json report if JSON and LWP modules are present
-
-    -   An action that should be applied to the email
-
-    -   A flag explaining if the email is a spam message or not
-        (true/false).
-
-    An optional rspamd url can be passed to the method, its default
-    value is http://127.0.0.1:11333.
+    An optional rspamd url can be passed to the method, its default value
+    is http://127.0.0.1:11333.

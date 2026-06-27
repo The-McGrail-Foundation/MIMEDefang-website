@@ -5,110 +5,130 @@ Slug: man_md-mx-ctrl
 Status: published
 Template: documentation
 
-# NAME
+# MD-MX-CTRL
 
-md-mx-ctrl - Control mimedefang-multiplexor
+[NAME](#NAME)  
+[SYNOPSIS](#SYNOPSIS)  
+[DESCRIPTION](#DESCRIPTION)  
+[OPTIONS](#OPTIONS)  
+[COMMANDS](#COMMANDS)  
+[ADDITIONAL COMMANDS](#ADDITIONAL%20COMMANDS)  
+[PERMISSIONS](#PERMISSIONS)  
+[AUTHOR](#AUTHOR)  
+[SEE ALSO](#SEE%20ALSO)  
 
-# SYNOPSIS
+------------------------------------------------------------------------
 
-**md-mx-ctrl \[*options*\] *command***
+## NAME <span id="NAME"></span>
 
-# DESCRIPTION
+md-mx-ctrl − Control mimedefang-multiplexor
 
-**md-mx-ctrl** is a command-line tool for communicating with
+## SYNOPSIS <span id="SYNOPSIS"></span>
+
+**md-mx-ctrl** \[*options*\] *command*
+
+## DESCRIPTION <span id="DESCRIPTION"></span>
+
+***md-mx-ctrl*** is a command-line tool for communicating with
 **mimedefang-multiplexor**(8).
 
-# OPTIONS
+## OPTIONS <span id="OPTIONS"></span>
 
-**-h**
+|     |        |     |                             |     |
+|-----|--------|-----|-----------------------------|-----|
+|     | **−h** |     | Displays usage information. |     |
 
-:   Displays usage information.
+**−s** *path*
 
-**-s *path***
+Specifies the path to the **mimedefang-multiplexor** socket. If not
+specified, defaults to @SPOOLDIR@/mimedefang-multiplexor.sock.
 
-:   Specifies the path to the **mimedefang-multiplexor** socket. If not
-    specified, defaults to
-    /var/spool/MIMEDefang/mimedefang-multiplexor.sock.
+|  |  |  |  |
+|----|----|----|----|
+|  | **−i** |  | This flag causes **md-mx-ctrl** to sit in a loop, reading commands on standard input and printing results to standard output. It is intended for use by a monitoring program such as **watch-mimedefang**. |
 
-**-i**
-
-:   This flag causes **md-mx-ctrl** to sit in a loop, reading commands
-    on standard input and printing results to standard output. It is
-    intended for use by a monitoring program such as
-    **watch-mimedefang**.
-
-# COMMANDS
+## COMMANDS <span id="COMMANDS"></span>
 
 The following commands are available:
 
-**status**
-
-:   Prints the status of all worker Perl processes in human-readable
-    format.
+|  |  |  |  |
+|----|----|----|----|
+|  | **status** |  | Prints the status of all worker Perl processes in human-readable format. |
 
 **rawstatus**
 
-:   Prints the status of all worker Perl processes in a format easy to
-    parse by computer. The result is a single line with six words on it.
-    The words are separated by a single space character.
+Prints the status of all worker Perl processes in a format easy to parse
+by computer. The result is a single line with six words on it. The words
+are separated by a single space character.
 
-Each character in the first word corresponds to a worker, and is "I"
-for an idle worker, "B" for a busy worker, "S" for a worker which is
-not running, and "K" for a worker which has been killed, but has not
-yet exited. A worker is "idle" if there is a running Perl process
-waiting to do work. "Busy" means the Perl process is currently
-filtering a message. "S" means there is no associated Perl process
-with the worker, but one can be started if the load warrants. Finally,
-"K" means the worker Perl process has been killed, but has yet to
-terminate.
+Each character in the first word corresponds to a worker, and is "I" for
+an idle worker, "B" for a busy worker, "S" for a worker which is not
+running, and "K" for a worker which has been killed, but has not yet
+exited. A worker is "idle" if there is a running Perl process waiting to
+do work. "Busy" means the Perl process is currently filtering a message.
+"S" means there is no associated Perl process with the worker, but one
+can be started if the load warrants. Finally, "K" means the worker Perl
+process has been killed, but has yet to terminate.
 
 The second word is the total number of messages processed since the
 multiplexor started up. The third word is the total number of workers
 which have been activated since the multiplexor started up. (That is,
-it's a count of the number of times the multiplexor has forked and
-exec'd the Perl filter.)
+it’s a count of the number of times the multiplexor has forked and
+exec’d the Perl filter.)
 
 The fourth word is the size of the queue for request queuing, and the
 fifth word is the actual number of requests in the queue. The sixth word
 is the number of seconds elapsed since the multiplexor was started.
 
+**autoscale**
+
+Displays the current autoscaling configuration and runtime state. The
+output is a single line of key=value pairs:
+
+**enabled** is 1 if autoscaling is active, 0 otherwise. **interval** is
+the number of seconds between autoscale checks. **ema_busy** is the
+current exponential moving average of the busy-worker ratio.
+**scale_out** and **scale_in** are the EMA thresholds above/below which
+a worker is added or removed, respectively. **out_cool** and **in_cool**
+are the cooldown periods (in seconds) that must elapse before another
+scale-out or scale-in event may occur. **ema_alpha** is the smoothing
+factor used to compute the EMA.
+
+Autoscaling is enabled with the **−k** option of
+**mimedefang-multiplexor**(8).
+
 **barstatus**
 
-:   Prints the status of busy workers and queued requests in a nice
-    "bar chart" format. This lets you keep an eye on things with a
-    script like this:
+Prints the status of busy workers and queued requests in a nice "bar
+chart" format. This lets you keep an eye on things with a script like
+this:
 
-    	while true ; do
-    		md-mx-ctrl barstatus
-    		sleep 1
-    	done
+while true ; do
+
+|     |     |     |                      |
+|-----|-----|-----|----------------------|
+|     |     |     |                      |
+|     |     |     | md-mx-ctrl barstatus |
+|     |     |     |                      |
+|     |     |     | sleep 1              |
+|     |     |     | done                 |
 
 **jsonstatus**
 
-:   Prints the status of all worker Perl processes in JSON format.
+Prints the status of all worker Perl processes in JSON format.
 
-**histo**
-
-:   Prints a histogram showing the number of workers that were busy each
-    time a request was processed. A single line is printed for the
-    numbers from 1 up to the maximum number of workers. Each line
-    contains the count of busy workers (1, 2, 3 up to MX_MAXIMUM), a
-    space, and the number of times that many workers were busy when a
-    request was processed.
-
-**load**
-
-:   Prints a table showing "load averages" for the last 10 seconds, 1
-    minute, 5 minutes and 10 minutes.
+|  |  |  |  |
+|----|----|----|----|
+|  | **histo** |  | Prints a histogram showing the number of workers that were busy each time a request was processed. A single line is printed for the numbers from 1 up to the maximum number of workers. Each line contains the count of busy workers (1, 2, 3 up to MX_MAXIMUM), a space, and the number of times that many workers were busy when a request was processed. |
+|  | **load** |  | Prints a table showing "load averages" for the last 10 seconds, 1 minute, 5 minutes and 10 minutes. |
 
 Each row in the table corresponds to a time interval, displayed in the
 first column. The remaining columns in the table are:
 
-**Msgs:** The number of messages scanned within the row's time
-interval.
+**Msgs:** The number of messages scanned within the row’s time interval.
 
 **Msgs/Sec:** The average number of messages scanned per second within
-the row's time interval.
+the row’s time interval.
 
 **Avg Busy Workers:** The average number of busy workers whenever a
 message was scanned. (If you are processing any mail at all, this number
@@ -118,23 +138,30 @@ is scanned.)
 If you have the **watch**(1) command on your system, you can keep an eye
 on the load with this command:
 
-    	watch -n 10 md-mx-ctrl load
+watch -n 10 md-mx-ctrl load
 
 If you do not have **watch**, the following shell script is a less fancy
 equivalent:
 
-    	#!/bin/sh
-    	while true; do
-    		clear
-    		date
-    		md-mx-ctrl load
-    		sleep 10
-    	done
+\#!/bin/sh
+
+|     |     |     |                 |
+|-----|-----|-----|-----------------|
+|     |     |     | while true; do  |
+|     |     |     |                 |
+|     |     |     | clear           |
+|     |     |     |                 |
+|     |     |     | date            |
+|     |     |     |                 |
+|     |     |     | md-mx-ctrl load |
+|     |     |     |                 |
+|     |     |     | sleep 10        |
+|     |     |     | done            |
 
 **rawload**
 
-:   Prints the load averages in computer-readable format. The format
-    consists of twenty-nine space-separated numbers:
+Prints the load averages in computer-readable format. The format
+consists of twenty-nine space-separated numbers:
 
 The first four are integers representing the number of messages scanned
 in the last 10 seconds, 1 minute, 5 minutes and 10 minutes.
@@ -164,51 +191,51 @@ started.
 
 **load-relayok**
 
-:   Similar to **load**, but shows timings for **filter_relay** calls.
+Similar to **load**, but shows timings for **filter_relay** calls.
 
 **load-senderok**
 
-:   Similar to **load**, but shows timings for **filter_sender** calls.
+Similar to **load**, but shows timings for **filter_sender** calls.
 
 **load-recipok**
 
-:   Similar to **load**, but shows timings for **filter_recipient**
-    calls.
+Similar to **load**, but shows timings for **filter_recipient** calls.
 
 **rawload-relayok**
 
-:   Similar to **rawload**, but shows timings for **filter_relay**
-    calls. Note that the worker activation and reap statistics are
-    present, but always 0. They are only valid in a **rawload** command.
+Similar to **rawload**, but shows timings for **filter_relay** calls.
+Note that the worker activation and reap statistics are present, but
+always 0. They are only valid in a **rawload** command.
 
 **rawload-senderok**
 
-:   Similar to **rawload**, but shows timings for **filter_sender**
-    calls. Note that the worker activation and reap statistics are
-    present, but always 0. They are only valid in a **rawload** command.
+Similar to **rawload**, but shows timings for **filter_sender** calls.
+Note that the worker activation and reap statistics are present, but
+always 0. They are only valid in a **rawload** command.
 
 **rawload-recipok**
 
-:   Similar to **rawload**, but shows timings for **filter_recipient**
-    calls. Note that the worker activation and reap statistics are
-    present, but always 0. They are only valid in a **rawload** command.
+Similar to **rawload**, but shows timings for **filter_recipient**
+calls. Note that the worker activation and reap statistics are present,
+but always 0. They are only valid in a **rawload** command.
 
-**load1 *nsecs***
+**load1** *nsecs*
 
-:   The **load1** command displays the load for various commands over
-    the last *nsecs* seconds, where *nsecs* is an integer from 10
-    to 600. The **load1** command combines the output of **load**,
-    **load-relayok**, **load-senderokf** and **load-recipok** into one
-    display.
+The **load1** command displays the load for various commands over the
+last *nsecs* seconds, where *nsecs* is an integer from 10 to 600. The
+**load1** command combines the output of **load**, **load-relayok**,
+**load-senderokf** and **load-recipok** into one display.
 
 You might use the command like this:
 
-    	watch -n 10 md-mx-ctrl load1 60
+|     |     |                                 |
+|-----|-----|---------------------------------|
+|     |     | watch -n 10 md-mx-ctrl load1 60 |
 
-**rawload1 *nsecs***
+**rawload1** *nsecs*
 
-:   Returns the **load1** data in human-readable format. The result is a
-    line containing twenty-six space-separated numbers:
+Returns the **load1** data in human-readable format. The result is a
+line containing twenty-six space-separated numbers:
 
 The first three numbers are the number of scans performed in the last
 *nsecs* seconds, the average number of busy workers when a scan was
@@ -239,42 +266,34 @@ The twenty-third through twenty-sixth numbers are the number of workers
 currently executing a scan, relayok, senderok and recipok command
 respectively.
 
-**jsonload1 *nsecs***
+**jsonload1** *nsecs*
 
-:   Returns the **load1** data in JSON format.
+Returns the **load1** data in JSON format.
 
 **workers**
 
-:   Displays a list of workers and their process IDs. Each line of
-    output consists of a worker number, a status (I, B, K, or S), and
-    for idle or busy workers, the process-ID of the worker. For busy
-    workers, the line may contain additional information about what the
-    worker is doing. The command **slaves** is a deprecated synonym for
-    this command.
+Displays a list of workers and their process IDs. Each line of output
+consists of a worker number, a status (I, B, K, or S), and for idle or
+busy workers, the process-ID of the worker. For busy workers, the line
+may contain additional information about what the worker is doing. The
+command **slaves** is a deprecated synonym for this command.
 
 **busyworkers**
 
-:   Similar to **workers**, but only outputs a line for each busy
-    worker. The command **busyslaves** is a deprecated synonym for this
-    command.
+Similar to **workers**, but only outputs a line for each busy worker.
+The command **busyslaves** is a deprecated synonym for this command.
 
-**workerinfo *n***
+**workerinfo** *n*
 
-:   Displays information about worker number *n*. The command
-    **slaveinfo** is a deprecated synonym for this command.
+Displays information about worker number *n*. The command **slaveinfo**
+is a deprecated synonym for this command.
 
-**reread**
+|  |  |  |  |
+|----|----|----|----|
+|  | **reread** |  | Forces **mimedefang-multiplexor** to kill all idle workers, and terminate and restart busy workers when they become idle. This forces a reread of filter rules. |
+|  | **msgs** |  | Prints the total number of messages scanned since the multiplexor started. |
 
-:   Forces **mimedefang-multiplexor** to kill all idle workers, and
-    terminate and restart busy workers when they become idle. This
-    forces a reread of filter rules.
-
-**msgs**
-
-:   Prints the total number of messages scanned since the multiplexor
-    started.
-
-# ADDITIONAL COMMANDS
+## ADDITIONAL COMMANDS <span id="ADDITIONAL COMMANDS"></span>
 
 You can supply any other command and arguments to **md-mx-ctrl**. It
 percent-encodes each command-line argument, glues the encoded arguments
@@ -283,18 +302,20 @@ multiplexor as a command. This allows you to send arbitrary commands to
 your Perl workers. See the section "EXTENDING MIMEDEFANG" in
 **mimedefang-filter**(5) for additional details.
 
-# PERMISSIONS
+## PERMISSIONS <span id="PERMISSIONS"></span>
 
-**md-mx-ctrl** uses the multiplexor's socket; therefore, it probably
+**md-mx-ctrl** uses the multiplexor’s socket; therefore, it probably
 needs to be run as *root* or the same user as
 **mimedefang-multiplexor**.
 
-# AUTHOR
+## AUTHOR <span id="AUTHOR"></span>
 
-**md-mx-ctrl** was written by Dianne Skoll <dfs@roaringpenguin.com>.
+**md-mx-ctrl** was written by Dianne Skoll \<dfs@roaringpenguin.com\>.
 The **mimedefang** home page is *https://www.mimedefang.org/*.
 
-# SEE ALSO
+## SEE ALSO <span id="SEE ALSO"></span>
 
 mimedefang.pl(8), mimedefang-filter(5), mimedefang(8),
 mimedefang-protocol(7), watch-mimedefang(8)
+
+------------------------------------------------------------------------

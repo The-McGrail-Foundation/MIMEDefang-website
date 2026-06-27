@@ -7,29 +7,38 @@ Template: documentation
 
 # NAME
 
-Mail::MIMEDefang::Authres - Authentication Results interface for
-MIMEDefang
+Mail::MIMEDefang::Authres - Authentication Results interface for MIMEDefang
 
 # DESCRIPTION
 
 Mail::MIMEDefang::Authres is a module used to add Authentication Results
-headers from *mimedefang-filter*.
+headers from `mimedefang-filter`.
 
 # METHODS
 
-md_authres
+- md\_authres
 
-:   Returns a mail Authentication-Results header value. The method
-    accepts the following parameters:
+    Returns a mail Authentication-Results header value.
+    The method accepts the following parameters:
 
-    $email
+    - `$email`
 
-    :   The email address of the sender
+        The email address of the sender
 
-    $relayip
+    - `$relayip`
 
-    :   The relay ip address
+        The relay ip address
 
-    $serverdomain
+    - `$serverdomain`
 
-    :   The domain name of the server where MIMEDefang is running on
+        The domain name of the server where MIMEDefang is running on
+
+    - `$helo` (optional)
+
+        The MTA helo server name
+
+    - `$bimi_domain` (optional)
+
+        The From: header domain to use for BIMI lookup.  When provided and when DMARC
+        passes at enforcement level, a `bimi=pass` (or `bimi=fail`) result is
+        appended to the Authentication-Results header.
