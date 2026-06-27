@@ -1,5 +1,5 @@
 Title: documentation
-Description: MIMEDefang man pages and documentation
+Description: MIMEDefang documentation: man pages for mimedefang(8), mimedefang-filter(5), mimedefang.pl(8), and all command-line tools.
 Author: gbechis
 Slug: documentation/index
 Status: published

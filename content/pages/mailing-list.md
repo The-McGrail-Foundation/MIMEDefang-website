@@ -1,5 +1,5 @@
 Title: Mailing List
-Description: MIMEDefang mailing list
+Description: Join the MIMEDefang mailing list — ask questions, share filter scripts, and follow development of the open-source Milter email filtering framework.
 Author: gbechis
 Slug: mailing-list/index
 Status: published

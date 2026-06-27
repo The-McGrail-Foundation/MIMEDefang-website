@@ -1,5 +1,5 @@
 Title: Getting Started with MIMEDefang
-Description: A step-by-step guide to installing MIMEDefang, writing your first filter, and starting the service.
+Description: Install MIMEDefang, write your first Perl milter filter, and connect to Sendmail or Postfix. Complete step-by-step getting-started guide.
 Author: gbechis
 Slug: getting-started/index
 Status: published
