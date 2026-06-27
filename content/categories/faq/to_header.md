@@ -2,6 +2,7 @@ Title: When I add a To: header, why doesn't the recipient receive a copy of the 
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 007
+Audience: admin
 Status: published
 
 **Symptom**: I used `action_add_header` to add a new “To:” (or “Cc:” or “Bcc:”) field to a message,  

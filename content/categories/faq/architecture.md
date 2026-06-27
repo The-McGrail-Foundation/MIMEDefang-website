@@ -2,6 +2,7 @@ Title: What is the architecture of MIMEDefang?
 Date: 2023-12-01 10:30:15
 Category: faq
 Num: 003
+Audience: admin
 Status: published
 
 The MIMEDefang system consists of three main programs:

@@ -2,6 +2,7 @@ Title: Why don't SpamAssassin DCC/Razor/RBL checks work?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 005
+Audience: admin
 Status: published
 
 **Symptom**: Network-related SpamAssassin tests don’t seem to have any effect.

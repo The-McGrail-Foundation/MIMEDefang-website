@@ -2,6 +2,7 @@ Title: What are the prerequisites for installing MIMEDefang?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 001
+Audience: admin
 Status: published
 
 The following software is required for MIMEDefang:

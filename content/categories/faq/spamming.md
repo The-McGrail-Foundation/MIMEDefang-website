@@ -2,6 +2,7 @@ Title: Why are you spamming me?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 012
+Audience: enduser
 Status: published
 
 Many people see e-mails with the following header:

@@ -2,6 +2,7 @@ Title: What tests is SpamAssassin running? Can I test its configuration?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 010
+Audience: admin
 Status: published
 
 MIMEDefang runs as the configured defang user, hence, SpamAssassin’s integration into MIMEDefang runs as this user, too.

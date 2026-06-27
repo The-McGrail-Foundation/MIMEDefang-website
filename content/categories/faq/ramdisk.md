@@ -2,6 +2,7 @@ Title: How to setup a RAM disk in Linux?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 011
+Audience: admin
 Status: published
 
 `/bin/mount -t tmpfs -o size=500m,mode=0700,uid=${md_user},gid=${md_group} /dev/shm $md_spooldir`

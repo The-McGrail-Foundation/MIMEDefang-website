@@ -4,10 +4,11 @@
   <h2 class="title">FAQ</h2>
   <div class="row justify-content-center">
    <div class="col-md-12 col-sm-10">
-     <div class="list-group">
-      {% block content %}
+     {% block content %}
+     <h4 class="mt-2 mb-3">For End Users</h4>
+     <div class="list-group mb-4">
 	    {% for article in articles|sort(attribute="num") %}
-	    {% if article.category == 'faq' %}
+	    {% if article.category == 'faq' and article.audience == 'enduser' %}
       <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
 	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
         <div class="text">
@@ -16,8 +17,21 @@
       </div>
       {% endif %}
       {% endfor %}
-      {% endblock %}
      </div>
+     <h4 class="mt-2 mb-3">For Administrators</h4>
+     <div class="list-group">
+	    {% for article in articles|sort(attribute="num") %}
+	    {% if article.category == 'faq' and article.audience == 'admin' %}
+      <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
+	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
+        <div class="text">
+          {{ article.content }}
+        </div>
+      </div>
+      {% endif %}
+      {% endfor %}
+     </div>
+     {% endblock %}
     </div>
   </div>
   </div>

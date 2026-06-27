@@ -2,6 +2,7 @@ Title: How do I install MIMEDefang?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 002
+Audience: admin
 Status: published
 
 First, download MIMEDefang from the [download page](https://mimedefang.org/download/").

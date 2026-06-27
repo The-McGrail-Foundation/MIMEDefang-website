@@ -2,6 +2,7 @@ Title: Why is SpamAssassin not found even though it is installed?
 Date: 2021-07-14 18:40:30
 Category: faq
 Num: 004
+Audience: admin
 Status: published
 
 **Symptom**: When you build MIMEDefang, it detects SpamAssassin just fine. But when you run it, it doesn’t seem to find the SpamAssassin Perl modules.
