@@ -9,8 +9,8 @@
      <div class="list-group mb-4">
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'faq' and article.audience == 'enduser' %}
-      <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
-	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
+      <a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
+	  	<div class="collapse-div collapse" id="{{ article.slug }}">
         <div class="text">
           {{ article.content }}
         </div>
@@ -22,8 +22,8 @@
      <div class="list-group">
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'faq' and article.audience == 'admin' %}
-      <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
-	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
+      <a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
+	  	<div class="collapse-div collapse" id="{{ article.slug }}">
         <div class="text">
           {{ article.content }}
         </div>

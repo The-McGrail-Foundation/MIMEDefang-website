@@ -44,7 +44,7 @@
       {% set ns_tags.slugs = ns_tags.slugs + [tag.name | lower | replace('/', '-') | replace(' ', '-')] %}
       {% endfor %}
       <a class="list-group-item list-group-item-action snippet-item"
-         href="#collapse{{ article.num }}"
+         href="#{{ article.slug }}"
          role="button"
          data-tags="{{ ns_tags.slugs | join(' ') }}">
         <i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}
@@ -59,7 +59,7 @@
         <span class="badge {{ badge_class }} ms-1">{{ tag.name }}</span>
         {% endfor %}
       </a>
-  	  <div class="collapse-div collapse snippet-item" id="collapse{{ article.num }}" data-tags="{{ ns_tags.slugs | join(' ') }}">
+  	  <div class="collapse-div collapse snippet-item" id="{{ article.slug }}" data-tags="{{ ns_tags.slugs | join(' ') }}">
         <div class="text">
           {{ article.content }}
         </div>
