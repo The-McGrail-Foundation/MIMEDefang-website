@@ -1,14 +1,30 @@
     </main>
     <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <p>Copyright © {{ YEAR }} MIMEDefang. All trademarks and registered servicemarks are the property of their respective companies.</p>
+        <div class="container py-4">
+            <div class="row align-items-center gy-3">
+                <div class="col-md-4 text-center text-md-start">
+                    <img src="{{ SITEURL }}/theme/images/mimedefang_logo9-300x150.png" alt="MIMEDefang" class="footer-logo">
+                </div>
+                <div class="col-md-4 text-center">
+                    <p class="footer-copy mb-0">Copyright &copy; {{ YEAR }} MIMEDefang. All trademarks and registered servicemarks are the property of their respective companies.</p>
+                </div>
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="https://github.com/The-McGrail-Foundation/MIMEDefang" class="footer-icon me-2" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    <a href="https://metacpan.org/dist/Mail-MIMEDefang" class="footer-icon" aria-label="MetaCPAN"><i class="bi bi-box-seam"></i></a>
                 </div>
             </div>
         </div>
     </footer>
     <script src="{{ SITEURL }}/theme/js/bootstrap.bundle.min.js"></script>
+    <script>
+    (function () {
+        var nav = document.querySelector('.navbar');
+        function onScroll() {
+            nav.classList.toggle('navbar-scrolled', window.scrollY > 10);
+        }
+        window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+    </script>
 </body>
 
 </html>

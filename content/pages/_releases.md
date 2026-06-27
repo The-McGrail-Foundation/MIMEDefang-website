@@ -13,9 +13,8 @@ MIMEDefang 3.6 is currently available for [download](https://mimedefang.org/down
 ## Git Repository
 
 <a href="https://github.com/The-McGrail-Foundation/MIMEDefang" class="btn btn-outline-dark btn-sm mb-2"><i class="bi bi-github"></i> View on GitHub</a>
-
-To report issues: [GitHub Issues](https://github.com/The-McGrail-Foundation/MIMEDefang/issues)
+<a href="https://github.com/The-McGrail-Foundation/MIMEDefang/issues" class="btn btn-outline-dark btn-sm mb-2"><i class="bi bi-bug"></i> GitHub Issues</a>
 
 ## CPAN
 
-<a href="https://metacpan.org/dist/Mail-MIMEDefang" class="btn btn-outline-secondary btn-sm mb-2"><i class="bi bi-box-seam"></i> Mail-MIMEDefang on MetaCPAN</a>
+<a href="https://metacpan.org/dist/Mail-MIMEDefang" class="btn btn-outline-secondary btn-sm mb-2"><i class="bi bi-box-seam"></i> Mail::MIMEDefang on MetaCPAN</a>
