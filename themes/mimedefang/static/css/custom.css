@@ -162,10 +162,10 @@ section:nth-of-type(even) {
    ============================================================ */
 section.whatis .card {
   border-radius: var(--md-radius);
-  border: 0 none;
+  border: 3px solid var(--md-primary);
   background-color: var(--md-accent);
   margin: 0;
-  padding: 2.5rem 1.75rem;
+  padding: 1.5rem;
 }
 section.whatis .card .card-body {
   padding: 0;

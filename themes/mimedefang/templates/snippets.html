@@ -18,17 +18,17 @@
   {% if ns.all_tags %}
   <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
     <span class="fw-semibold me-1">Filter:</span>
-    <button class="btn btn-sm btn-outline-secondary snippet-tag-btn active" data-tag="all">All</button>
+    <button class="btn btn-sm btn-outline-primary snippet-tag-btn active" data-tag="all">All</button>
     {% for tag_name in ns.all_tags | sort %}
     {% set tag_slug = tag_name | lower | replace('/', '-') | replace(' ', '-') %}
-    {% set tag_class = {
-        'Authentication':'btn-primary',
-        'Antispam':      'btn-danger',
-        'Antivirus':     'btn-success',
-        'Attachments':   'btn-dark',
-        'Async':         'btn-warning'
-    }[tag_name] | default('btn-secondary') %}
-    <button class="btn btn-sm {{ tag_class }} snippet-tag-btn" data-tag="{{ tag_slug }}">{{ tag_name }}</button>
+    {% set tag_icon = {
+        'Authentication': 'bi-shield-lock',
+        'Antispam':       'bi-slash-circle',
+        'Antivirus':      'bi-bug',
+        'Attachments':    'bi-paperclip',
+        'Async':          'bi-arrow-repeat'
+    }[tag_name] | default('bi-tag') %}
+    <button class="btn btn-sm btn-outline-primary snippet-tag-btn" data-tag="{{ tag_slug }}"><i class="bi {{ tag_icon }} me-1"></i>{{ tag_name }}</button>
     {% endfor %}
   </div>
   {% endif %}
@@ -49,14 +49,14 @@
          data-tags="{{ ns_tags.slugs | join(' ') }}">
         <i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}
         {% for tag in article.tags %}
-        {% set badge_class = {
-            'Authentication':'bg-primary',
-            'Antispam':      'bg-danger',
-            'Antivirus':     'bg-success',
-            'Attachments':   'bg-dark',
-            'Async':         'bg-warning text-dark'
-        }[tag.name] | default('bg-secondary') %}
-        <span class="badge {{ badge_class }} ms-1">{{ tag.name }}</span>
+        {% set tag_icon = {
+            'Authentication': 'bi-shield-lock',
+            'Antispam':       'bi-slash-circle',
+            'Antivirus':      'bi-bug',
+            'Attachments':    'bi-paperclip',
+            'Async':          'bi-arrow-repeat'
+        }[tag.name] | default('bi-tag') %}
+        <span class="badge bg-primary ms-1"><i class="bi {{ tag_icon }} me-1"></i>{{ tag.name }}</span>
         {% endfor %}
       </a>
   	  <div class="collapse-div collapse snippet-item" id="{{ article.slug }}" data-tags="{{ ns_tags.slugs | join(' ') }}">
