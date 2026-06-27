@@ -2,14 +2,64 @@
 <section id="section-faq" class="faq download">
   <div class="container">
   <h2 class="title">Snippets</h2>
+
+  {# Build sorted unique tag list across all snippet articles #}
+  {% set ns = namespace(all_tags=[]) %}
+  {% for article in articles %}
+  {% if article.category == 'snippets' %}
+  {% for tag in article.tags %}
+  {% if tag.name not in ns.all_tags %}
+  {% set ns.all_tags = ns.all_tags + [tag.name] %}
+  {% endif %}
+  {% endfor %}
+  {% endif %}
+  {% endfor %}
+
+  {% if ns.all_tags %}
+  <div class="mb-3 d-flex flex-wrap gap-2 align-items-center">
+    <span class="fw-semibold me-1">Filter:</span>
+    <button class="btn btn-sm btn-outline-secondary snippet-tag-btn active" data-tag="all">All</button>
+    {% for tag_name in ns.all_tags | sort %}
+    {% set tag_slug = tag_name | lower | replace('/', '-') | replace(' ', '-') %}
+    {% set tag_class = {
+        'Authentication':'btn-primary',
+        'Antispam':      'btn-danger',
+        'Antivirus':     'btn-success',
+        'Attachments':   'btn-dark',
+        'Async':         'btn-warning'
+    }[tag_name] | default('btn-secondary') %}
+    <button class="btn btn-sm {{ tag_class }} snippet-tag-btn" data-tag="{{ tag_slug }}">{{ tag_name }}</button>
+    {% endfor %}
+  </div>
+  {% endif %}
+
   <div class="row justify-content-center">
    <div class="col-md-12 col-sm-10">
-     <div class="list-group">
+     <div class="list-group" id="snippet-list">
       {% block content %}
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'snippets' %}
-      <a class="list-group-item list-group-item-action" href="#collapse{{ article.num }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
-	  	<div class="collapse-div collapse" id="collapse{{ article.num }}">
+      {% set ns_tags = namespace(slugs=[]) %}
+      {% for tag in article.tags %}
+      {% set ns_tags.slugs = ns_tags.slugs + [tag.name | lower | replace('/', '-') | replace(' ', '-')] %}
+      {% endfor %}
+      <a class="list-group-item list-group-item-action snippet-item"
+         href="#collapse{{ article.num }}"
+         role="button"
+         data-tags="{{ ns_tags.slugs | join(' ') }}">
+        <i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}
+        {% for tag in article.tags %}
+        {% set badge_class = {
+            'Authentication':'bg-primary',
+            'Antispam':      'bg-danger',
+            'Antivirus':     'bg-success',
+            'Attachments':   'bg-dark',
+            'Async':         'bg-warning text-dark'
+        }[tag.name] | default('bg-secondary') %}
+        <span class="badge {{ badge_class }} ms-1">{{ tag.name }}</span>
+        {% endfor %}
+      </a>
+  	  <div class="collapse-div collapse snippet-item" id="collapse{{ article.num }}" data-tags="{{ ns_tags.slugs | join(' ') }}">
         <div class="text">
           {{ article.content }}
         </div>
@@ -39,5 +89,35 @@
           document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-down-fill');
       })
   })
+
+  // Tag filter
+  var tagButtons = document.querySelectorAll('.snippet-tag-btn');
+  tagButtons.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var selectedTag = this.dataset.tag;
+
+      tagButtons.forEach(function(b) { b.classList.remove('active'); });
+      this.classList.add('active');
+
+      var items = document.querySelectorAll('.snippet-item');
+      items.forEach(function(item) {
+        if (selectedTag === 'all') {
+          item.style.display = '';
+        } else {
+          var itemTags = (item.dataset.tags || '').split(' ');
+          if (itemTags.indexOf(selectedTag) !== -1) {
+            item.style.display = '';
+          } else {
+            // Close any open collapse before hiding
+            if (item.classList.contains('collapse-div') && item.classList.contains('show')) {
+              var bsCollapse = bootstrap.Collapse.getInstance(item);
+              if (bsCollapse) { bsCollapse.hide(); }
+            }
+            item.style.display = 'none';
+          }
+        }
+      });
+    });
+  });
 </script>
 {% include "footer.html" %}

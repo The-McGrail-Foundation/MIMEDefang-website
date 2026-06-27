@@ -1,6 +1,7 @@
 Title: How can I use rspamd to detect spam messages ?
 Date: 2022-08-07 18:27:50
 Category: snippets
+Tags: Antispam
 Num: 004
 Status: published
 
