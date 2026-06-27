@@ -11,4 +11,13 @@ ld_json: {"@context":"https://schema.org","@type":"WebPage","url":"https://www.m
 
 ## What is MIMEDefang?
 
-MIMEDefang is an e-mail filtering tool that works with the Sendmail "Milter" library.  MIMEDefang lets you express your filtering policies in Perl rather than C, making it quick and easy to filter or manipulate your mail.  MIMEDefang is mature software: The first version was released in 2000. It's also in use in thousands of installations. It remains under active development.  MIMEDefang is free software: It's released under the terms of the GNU General Public License. It runs under Linux, FreeBSD, Solaris and most other UNIX or UNIX-like systems.
+MIMEDefang is a flexible, open-source email filtering framework that integrates with Sendmail and Postfix via the Milter API, letting you write your filtering policies in Perl.
+
+- **Powerful** — inspect, modify, accept, or reject any part of an email message during the SMTP transaction
+- **Scriptable** — express complex policies in Perl with full access to the MIME tree, headers, and envelope
+- **Integrates** — works with SpamAssassin, ClamAV, rspamd, DKIM signing, SPF, DMARC, and more
+- **Proven** — in production since 2000, deployed across thousands of sites; free software under the GNU GPL
+- **Portable** — runs on Linux, FreeBSD, Solaris, and most UNIX-like systems
+
+<a href="/getting-started/" class="btn btn-primary me-2">Get Started</a>
+<a href="/download/" class="btn btn-outline-secondary">Download</a>

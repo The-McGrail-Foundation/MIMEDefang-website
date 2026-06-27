@@ -247,19 +247,25 @@ section.faq a{
     font-weight: bold;
 }
 
-section.thanks div[class^="col-"] {
-    text-align: center;
+.thanks-note {
+    padding: .75rem 0;
+    border-top: 1px solid #dee2e6;
+    background-color: #f8f9fa;
 }
-section.thanks div[class^="col-"] img{
-    max-width: 150px;
-    margin: .5rem 0;
+.thanks-note .thanks-text {
+    font-size: 0.8rem;
+    color: #6c757d;
 }
-
-@media (min-width: 576px) {
-    section.thanks div[class^="col-"] img{
-        max-width: 100%;
-        margin: 0;
-    }
+.thanks-note .thanks-text p {
+    margin: 0;
+}
+.thanks-note .thanks-text h2 {
+    display: none;
+}
+.thanks-logo {
+    max-height: 28px;
+    opacity: 0.45;
+    filter: grayscale(100%);
 }
 
 footer{
