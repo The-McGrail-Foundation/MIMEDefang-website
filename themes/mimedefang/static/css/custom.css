@@ -291,32 +291,22 @@ section.faq .text p {
   line-height: 1.875rem;
 }
 
-/* Dark code blocks — FAQ, Snippets, Documentation */
+/* Code blocks — FAQ, Snippets, Documentation */
 section.faq .text pre,
 .documentation pre {
   display: block;
-  background: #1e2a3a;
-  color: #e2e8f0;
-  border: none;
-  border-radius: var(--md-radius);
-  font-size: 0.8125rem;
-  line-height: 1.6;
-  padding: 1rem 1.25rem;
-  margin: 0 0 0.875rem;
+  padding: 9.5px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.42857143;
+  color: #333;
+  word-break: break-all;
+  word-wrap: break-word;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   overflow-x: auto;
   white-space: pre;
-  word-break: normal;
-  word-wrap: normal;
-}
-
-/* Inline code */
-section.faq .text code,
-.documentation code {
-  background: #eaf3fb;
-  color: #0056b3;
-  border-radius: 0.25rem;
-  font-size: 0.875em;
-  padding: 0.15rem 0.4rem;
 }
 
 section.faq a {
