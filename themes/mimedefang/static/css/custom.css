@@ -291,7 +291,7 @@ section.faq .text p {
   line-height: 1.875rem;
 }
 
-/* Code blocks — FAQ, Snippets, Documentation */
+/* Code blocks - FAQ, Snippets, Documentation */
 section.faq .text pre,
 .documentation pre {
   display: block;

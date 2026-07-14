@@ -20,12 +20,12 @@ The check uses the sender address, relay IP, and optional HELO name.
         md_syslog('Info', "SPF result for $sender: $spf_result ($spf_explanation)");
 
         if ($spf_result eq 'fail') {
-            # Hard SPF fail — reject the message
+            # Hard SPF fail - reject the message
             return action_bounce("SPF check failed: $spf_explanation");
         }
 
         if ($spf_result eq 'softfail') {
-            # Soft fail — tag but do not reject
+            # Soft fail - tag but do not reject
             action_change_header('X-SPF-Result', "softfail ($spf_explanation)");
         }
 

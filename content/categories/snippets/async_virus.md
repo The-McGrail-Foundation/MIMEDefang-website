@@ -7,10 +7,10 @@ Status: published
 
 Two async ClamAV variants are available, both used in `filter_end`:
 
-- `md_async_message_contains_virus_clamd` — sends a `SCAN` command directly to
+- `md_async_message_contains_virus_clamd` - sends a `SCAN` command directly to
   the clamd socket.  Fastest, but clamd must run on the same host as MIMEDefang
   and be able to open the spool path itself.
-- `md_async_message_contains_virus_clamdscan` — spawns `clamdscan --stream`,
+- `md_async_message_contains_virus_clamdscan` - spawns `clamdscan --stream`,
   streaming file data over the INSTREAM protocol.  Works with both local
   Unix-socket clamd and remote TCP clamd.
 

@@ -1,5 +1,5 @@
 Title: download
-Description: Download MIMEDefang 3.6 — source tarball, GitHub repository, and CPAN package for the open-source Milter-based email filtering framework.
+Description: Download MIMEDefang 3.6 - source tarball, GitHub repository, and CPAN package for the open-source Milter-based email filtering framework.
 Author: admin_f0tn7wrk
 Slug: download/index
 Status: published

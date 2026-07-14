@@ -7,11 +7,11 @@ Status: published
 
 Two async spam-checking variants are available, both used in `filter_end`:
 
-- `md_async_spamc_check` — sends the message to spamd using the raw SPAMC wire
+- `md_async_spamc_check` - sends the message to spamd using the raw SPAMC wire
   protocol over an async socket.  Does not require `Mail::SpamAssassin::Client`.
-- `md_async_rspamd_check` — POSTs the message to the Rspamd HTTP API over an
+- `md_async_rspamd_check` - POSTs the message to the Rspamd HTTP API over an
   async TCP socket.  Does not require `LWP::UserAgent`.
-- `md_async_spam_assassin_check` — runs SpamAssassin in-process (no spamd),
+- `md_async_spam_assassin_check` - runs SpamAssassin in-process (no spamd),
   reading `./INPUTMSG`.  Use when spamd is not available.
 
 Each returns the same values as its synchronous counterpart.

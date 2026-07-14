@@ -12,7 +12,7 @@ New to MIMEDefang? The [Getting Started guide](/getting-started/) walks you thro
 
 ---
 
-## Man Pages — Commands
+## Man Pages - Commands
 
 | Page | Description |
 |---|---|
@@ -27,7 +27,7 @@ New to MIMEDefang? The [Getting Started guide](/getting-started/) walks you thro
 
 ---
 
-## Man Pages — Perl API
+## Man Pages - Perl API
 
 **Core**
 
@@ -70,4 +70,4 @@ New to MIMEDefang? The [Getting Started guide](/getting-started/) walks you thro
 
 ## Additional Resources
 
-- [Fighting Spam with Perl using Apache SpamAssassin & MIMEDefang](https://mcgrail.com/downloads/The%20Perl%20Conference%202019%20-%20%20Fighting%20Spam%20with%20Perl%20using%20Apache%20SpamAssassin%20&%20MIMEDefang%20.pdf) — slide deck from The Perl Conference 2019
+- [Fighting Spam with Perl using Apache SpamAssassin & MIMEDefang](https://mcgrail.com/downloads/The%20Perl%20Conference%202019%20-%20%20Fighting%20Spam%20with%20Perl%20using%20Apache%20SpamAssassin%20&%20MIMEDefang%20.pdf) - slide deck from The Perl Conference 2019

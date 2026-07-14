@@ -34,7 +34,7 @@ if no record exists.
         md_syslog('Info', "DMARC policy for $from_domain: $policy");
 
         if ($policy eq 'reject') {
-            # Domain publishes p=reject — be stricter on authentication failures
+            # Domain publishes p=reject - be stricter on authentication failures
             action_change_header('X-DMARC-Policy', "reject ($from_domain)");
         } elsif ($policy eq 'quarantine') {
             action_change_header('X-DMARC-Policy', "quarantine ($from_domain)");

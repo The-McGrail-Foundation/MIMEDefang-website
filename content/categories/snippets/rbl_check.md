@@ -27,7 +27,7 @@ to query several RBLs simultaneously and reject based on a hit count threshold.
         my $hit_count = relay_is_blacklisted_multi_count($RelayAddr, @rbls);
         if ($hit_count >= 2) {
             md_syslog('Warning',
-                "Relay $RelayAddr listed in $hit_count RBLs — rejecting");
+                "Relay $RelayAddr listed in $hit_count RBLs - rejecting");
             return action_bounce(
                 "Mail rejected: sender IP listed in multiple blacklists");
         }
