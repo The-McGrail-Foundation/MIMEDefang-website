@@ -78,6 +78,19 @@ h3.title {
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
 }
 
+.b-box {
+  display: none;
+}
+@media (min-width: 992px) {
+  .b-box {
+    display: flex;
+    align-self: stretch;
+    width: 20%;
+    margin: 0.375rem 0;
+    background-color: #000;
+  }
+}
+
 .navbar-brand {
   padding: 0.125rem 0.75rem;
   background-color: var(--md-nav-brand-bg);
@@ -103,7 +116,7 @@ nav .navbar-nav .nav-item {
 
 nav .navbar-nav .nav-item .nav-link {
   color: #fff;
-  font-size: 0.9375rem;
+  font-size: 1.125rem;
   font-weight: 500;
   border-radius: 0.375rem;
   transition: color 0.15s, background-color 0.15s;
