@@ -9,7 +9,7 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
-**MIMEDefang 3.7** 2026-07-14
+**MIMEDefang 3.7.1** 2026-07-14
 
    * add autoscaling support to activate or deactivate workers when needed
 
