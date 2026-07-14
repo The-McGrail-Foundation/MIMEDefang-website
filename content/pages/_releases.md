@@ -6,9 +6,9 @@ Status: hidden
 
 ## Latest Release
 
-<span class="badge bg-primary fs-6">v3.6</span> <span class="text-muted small">released 2025-02-26</span>
+<span class="badge bg-primary fs-6">v3.7</span> <span class="text-muted small">released 2026-07-15</span>
 
-MIMEDefang 3.6 is currently available for [download](https://mimedefang.org/download).
+MIMEDefang 3.7 is currently available for [download](https://mimedefang.org/download).
 
 ## Git Repository
 
