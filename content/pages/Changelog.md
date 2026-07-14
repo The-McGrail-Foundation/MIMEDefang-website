@@ -31,6 +31,10 @@ New features and fixes of MIMEDefang versions.
 
    * fix strip CR before LF at header fold points in INPUTMSG
 
+   * md_spf_verify() now falls back to a raw DNS TXT lookup for the SPF record
+     when Mail::SPF cannot hand back a parsed record object (permerror case);
+     NOTE: it no longer returns undef for the record in that case
+
 **MIMEDefang 3.6** 2025-02-26
 
    * add the possibility to output some stats in JSON format

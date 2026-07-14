@@ -81,8 +81,13 @@ from `mimedefang-filter` to call network related services.
     Method that returns an array indicating the domains in which
     the relay is blacklisted.
 
-- md\_dns\_txt($resolver, $name)
+- md\_dns\_txt($resolver, $name \[, $filter\])
 
     Query `$name` for TXT records using the supplied `Net::DNS::Resolver`
     object and return the first TXT string found, or `undef` on any error
     (NXDOMAIN, SERVFAIL, no TXT records).
+
+    The optional `$filter` argument is a `Regexp` (e.g. `qr/^v=spf1\b/i`);
+    when given, only a TXT record whose text matches `$filter` is returned,
+    which lets callers pick a specific record type (SPF, BIMI, ...) out of a
+    domain that publishes several unrelated TXT records.
