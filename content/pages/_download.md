@@ -8,13 +8,13 @@ Status: hidden
 
 **Filename**
 
-[mimedefang-3.7.tar.gz](https://mimedefang.org/releases/mimedefang-3.7.1.tar.gz)
+[Mail-MIMEDefang-3.7.1.tar.gz](https://mimedefang.org/releases/Mail-MIMEDefang-3.7.1.tar.gz)
 
 MIMEDefang 3.7.1 Release
 
 **Signature**
 
-[Yes](https://mimedefang.org/releases/mimedefang-3.7.1.tar.gz.sig)
+[Yes](https://mimedefang.org/releases/Mail-MIMEDefang-3.7.1.tar.gz.sig)
 
 **Filename**
 
