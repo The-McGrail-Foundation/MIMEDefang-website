@@ -124,10 +124,23 @@ nav .navbar-nav .nav-item .nav-link {
   transition: color 0.15s, background-color 0.15s;
   padding: 0.5rem 0.875rem;
 }
+@media (max-width: 991.98px) {
+  nav .navbar-nav .nav-item .nav-link {
+    min-height: 44px;
+    padding: 0.75rem 0.875rem;
+  }
+}
 nav .navbar-nav .nav-item .nav-link:hover,
 nav .navbar-nav .nav-item .nav-link:focus {
   color: #fff;
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Hamburger toggle */
+.navbar-toggler {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
 }
 
 /* Mobile collapse */
@@ -280,6 +293,11 @@ section.download .card .card-body p small {
 /* ============================================================
    FAQ / Snippets
    ============================================================ */
+.snippet-tag-btn {
+  min-height: 44px;
+  padding: 0.5rem 0.875rem;
+}
+
 section.faq .list-group-item {
   border: 1px solid rgba(0, 123, 255, 0.15);
   background-color: #fff;
