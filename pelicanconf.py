@@ -27,7 +27,9 @@ DEFAULT_PAGINATION = False
 
 # Plugins
 # sitemap: https://pypi.org/project/pelican-sitemap/
-PLUGINS=["sitemap",]
+# css_html_js_minify: minifies generated CSS/JS/HTML in the output directory
+PLUGIN_PATHS = ["plugins"]
+PLUGINS = ["sitemap", "minify_assets"]
 
 SITEMAP = {
     "format": "xml",
