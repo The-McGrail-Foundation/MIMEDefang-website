@@ -1,6 +1,7 @@
 Title: Why are my logs filling up with "Milter change: header..." entries?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Reduce Sendmail syslog noise from "Milter change: header..." messages by lowering confMILTER_LOG_LEVEL in sendmail.mc.
 Num: 009
 Audience: admin
 Status: published

@@ -1,6 +1,7 @@
 Title: How can I scan messages for viruses?
 Date: 2026-06-27 10:06:00
 Category: snippets
+Description: Perl filter snippet to scan messages for viruses in filter_end using message_contains_virus and Mail::MIMEDefang::Antivirus.
 Tags: Antivirus
 Num: 012
 Status: published

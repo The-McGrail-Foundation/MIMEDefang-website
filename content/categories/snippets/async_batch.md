@@ -1,6 +1,7 @@
 Title: How do I run multiple DNS checks in parallel with scoring?
 Date: 2026-06-27 12:02:00
 Category: snippets
+Description: Perl filter snippet to run multiple DNS checks (DNSBL, rDNS, SPF, DMARC, MX) concurrently and score the combined result with md_async_run_checks.
 Tags: Async
 Num: 018
 Status: published

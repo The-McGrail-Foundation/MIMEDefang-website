@@ -9,15 +9,15 @@ Template: documentation
 
 [NAME](#NAME)  
 [DESCRIPTION](#DESCRIPTION)  
-[PROTOCOL OVERVIEW](#PROTOCOL%20OVERVIEW)  
-[FILTER INVOCATION](#FILTER%20INVOCATION)  
-[INITIAL FILE LAYOUT](#INITIAL%20FILE%20LAYOUT)  
-[THE COMMANDS FILE](#THE%20COMMANDS%20FILE)  
-[FILTER OPERATION](#FILTER%20OPERATION)  
-[FINAL FILE LAYOUT](#FINAL%20FILE%20LAYOUT)  
-[SERVER MODE](#SERVER%20MODE)  
+[PROTOCOL OVERVIEW](#PROTOCOL-OVERVIEW)  
+[FILTER INVOCATION](#FILTER-INVOCATION)  
+[INITIAL FILE LAYOUT](#INITIAL-FILE-LAYOUT)  
+[THE COMMANDS FILE](#THE-COMMANDS-FILE)  
+[FILTER OPERATION](#FILTER-OPERATION)  
+[FINAL FILE LAYOUT](#FINAL-FILE-LAYOUT)  
+[SERVER MODE](#SERVER-MODE)  
 [AUTHOR](#AUTHOR)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -40,7 +40,7 @@ This manual describes how **mimedefang** communicates with the filter
 program, and gives you enough information to write your own filter
 program as a replacement for **mimedefang.pl** if you wish.
 
-## PROTOCOL OVERVIEW <span id="PROTOCOL OVERVIEW"></span>
+## PROTOCOL OVERVIEW <span id="PROTOCOL-OVERVIEW"></span>
 
 The protocol is a simple file-based protocol. For each invocation of a
 filter, **mimedefang** creates a unique working directory and populates
@@ -49,7 +49,7 @@ working directory with more files, which communicate the scan results
 back to **mimedefang**. This simple mechanism allows you to easily write
 filters in scripting languages without worrying about C-level details.
 
-## FILTER INVOCATION <span id="FILTER INVOCATION"></span>
+## FILTER INVOCATION <span id="FILTER-INVOCATION"></span>
 
 The filter program may be invoked in one of five ways: *  
 filter_prog directory*
@@ -83,7 +83,7 @@ for the worker to begin running in server mode.
 Similar to **−embserver** with the additional magic of updating the
 worker status from data written to file descriptor 3.
 
-## INITIAL FILE LAYOUT <span id="INITIAL FILE LAYOUT"></span>
+## INITIAL FILE LAYOUT <span id="INITIAL-FILE-LAYOUT"></span>
 
 When the filter begins a scan, it should change directories to the
 working directory. In that directory, it will find the following files.
@@ -103,7 +103,7 @@ a single line in this file.
 A file containing a list of commands. Each command is a single letter
 and may be followed by arguments. Each command is on its own line.
 
-## THE COMMANDS FILE <span id="THE COMMANDS FILE"></span>
+## THE COMMANDS FILE <span id="THE-COMMANDS-FILE"></span>
 
 All commands have their arguments encoded as follows: All characters
 outside the range 33 to 126 ASCII, as well as the characters "%", "\\,
@@ -180,7 +180,7 @@ Set the value of the specified Sendmail macro to *val*. Both *macro* and
 *val* are percent-encoded, but the single space character between them
 is not.
 
-## FILTER OPERATION <span id="FILTER OPERATION"></span>
+## FILTER OPERATION <span id="FILTER-OPERATION"></span>
 
 When the filter performs a scan, it can make use of all the information
 in the files mentioned previously. If the filter needs temporary working
@@ -189,7 +189,7 @@ its own use. In this case, you do not have to clean up your working
 files, because **mimedefang** deletes the working directory when the
 filter returns.
 
-## FINAL FILE LAYOUT <span id="FINAL FILE LAYOUT"></span>
+## FINAL FILE LAYOUT <span id="FINAL-FILE-LAYOUT"></span>
 
 The filter communicates the results of the scan back to **mimedefang**
 by creating additional files in the working directory. The most
@@ -257,7 +257,7 @@ Sendmail 8.14.0 and higher.
 |----|----|----|----|
 |  | **F** |  | Indicate that we have finished issuing commands. Anything after an F line is ignored. |
 
-## SERVER MODE <span id="SERVER MODE"></span>
+## SERVER MODE <span id="SERVER-MODE"></span>
 
 In server mode, **mimedefang-multiplexor** runs the filter program
 continuously in a server loop. The filter program reads commands from
@@ -393,7 +393,7 @@ workers after they have processed a given number of e-mail messages.
 **mimedefang** was written by Dianne Skoll \<dfs@roaringpenguin.com\>.
 The **mimedefang** home page is *https://www.mimedefang.org/*.
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang.pl(8), mimedefang(8), mimedefang-multiplexor(8),
 mimedefang-filter(5)

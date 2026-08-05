@@ -1,6 +1,7 @@
 Title: How can I check if a relay is blacklisted (RBL)?
 Date: 2026-06-27 10:07:00
 Category: snippets
+Description: Perl filter snippet to check if a relay is blacklisted (RBL) using relay_is_blacklisted and relay_is_blacklisted_multi_count.
 Tags: Antispam
 Num: 013
 Status: published

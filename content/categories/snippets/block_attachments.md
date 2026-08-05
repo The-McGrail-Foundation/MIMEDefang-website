@@ -1,6 +1,7 @@
 Title: How can I block dangerous file attachments?
 Date: 2026-06-27 10:08:00
 Category: snippets
+Description: Perl filter snippet to block dangerous file attachments (executables, scripts, macro-enabled Office documents) by extension.
 Tags: Attachments
 Num: 014
 Status: published

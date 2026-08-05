@@ -11,12 +11,12 @@ Template: documentation
 [SYNOPSIS](#SYNOPSIS)  
 [DESCRIPTION](#DESCRIPTION)  
 [OPTIONS](#OPTIONS)  
-[SOCKET SPECIFICATION](#SOCKET%20SPECIFICATION)  
-[QUEUEING REQUESTS](#QUEUEING%20REQUESTS)  
-[EMBEDDING PERL](#EMBEDDING%20PERL)  
+[SOCKET SPECIFICATION](#SOCKET-SPECIFICATION)  
+[QUEUEING REQUESTS](#QUEUEING-REQUESTS)  
+[EMBEDDING PERL](#EMBEDDING-PERL)  
 [STATISTICS](#STATISTICS)  
 [AUTHOR](#AUTHOR)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -344,7 +344,7 @@ available workers for recipient verification. Instead, its RCPT commands
 will be tempfailed and there will be workers available to handle RCPT
 commands for other domains.
 
-## SOCKET SPECIFICATION <span id="SOCKET SPECIFICATION"></span>
+## SOCKET SPECIFICATION <span id="SOCKET-SPECIFICATION"></span>
 
 The **−a**, **−N** and **−O** options takes a socket as an argument. The
 format of the socket parameter is similar to that of the Sendmail Milter
@@ -373,7 +373,7 @@ address.
 A TCP socket bound to port *portnum* listening on the IPv6 wildcard
 address.
 
-## QUEUEING REQUESTS <span id="QUEUEING REQUESTS"></span>
+## QUEUEING REQUESTS <span id="QUEUEING-REQUESTS"></span>
 
 Normally, if all workers are busy, any additional requests are failed
 immediately. However, the **−q** and **−Q** options allow you to queue
@@ -398,7 +398,7 @@ number of workers for connections from the loopback address. Using the
 **−R** option has the side-effect of permitting new connections from the
 loopback address to queue.
 
-## EMBEDDING PERL <span id="EMBEDDING PERL"></span>
+## EMBEDDING PERL <span id="EMBEDDING-PERL"></span>
 
 Normally, when **mimedefang-multiplexor** activates a worker, it forks
 and execs **mimedefang.pl**. However, if the multiplexor was compiled
@@ -503,7 +503,7 @@ If you send the **mimedefang-multiplexor** process a SIGTERM signal
 \<dfs@roaringpenguin.com\>. The **mimedefang** home page is
 *https://www.mimedefang.org/*.
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang.pl(8), mimedefang-filter(5), mimedefang(8),
 mimedefang-protocol(7)

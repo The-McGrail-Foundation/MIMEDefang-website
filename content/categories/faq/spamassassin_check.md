@@ -1,6 +1,7 @@
 Title: Why don't SpamAssassin DCC/Razor/RBL checks work?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Why SpamAssassin's DCC, Razor, and RBL network checks don't work under MIMEDefang and how to enable them in sa-mimedefang.cf.
 Num: 005
 Audience: admin
 Status: published

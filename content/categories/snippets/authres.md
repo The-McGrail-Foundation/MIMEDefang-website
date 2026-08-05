@@ -1,6 +1,7 @@
 Title: How can I add an Authentication-Results header?
 Date: 2026-06-27 10:04:00
 Category: snippets
+Description: Perl filter snippet to add a consolidated Authentication-Results header (SPF, DKIM, DMARC, BIMI) using md_authres.
 Tags: Authentication
 Num: 010
 Status: published

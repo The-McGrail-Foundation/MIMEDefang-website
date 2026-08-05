@@ -1,6 +1,7 @@
 Title: How do I initialise the async engine?
 Date: 2026-06-27 12:00:00
 Category: snippets
+Description: Perl filter snippet to initialise MIMEDefang's async engine with md_async_init and the AnyEvent-based event loop.
 Tags: Async
 Num: 016
 Status: published

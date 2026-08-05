@@ -1,6 +1,7 @@
 Title: How to setup a RAM disk in Linux?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: How to mount a tmpfs RAM disk on Linux for MIMEDefang's spool directory to speed up temporary file handling during the SMTP phase.
 Num: 011
 Audience: admin
 Status: published

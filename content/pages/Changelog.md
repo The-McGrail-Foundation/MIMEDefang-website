@@ -5,7 +5,7 @@ Slug: documentation/Changelog
 Status: published
 Template: documentation
 
-## Changelog
+# Changelog
 
 New features and fixes of MIMEDefang versions.
 

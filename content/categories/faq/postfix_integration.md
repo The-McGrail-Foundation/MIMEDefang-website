@@ -1,6 +1,7 @@
 Title: How do I integrate MIMEDefang with Postfix?
 Date: 2026-06-27 00:00:00
 Category: faq
+Description: Step-by-step guide to integrating MIMEDefang with Postfix via smtpd_milters and non_smtpd_milters in main.cf.
 Num: 018
 Audience: admin
 Status: published

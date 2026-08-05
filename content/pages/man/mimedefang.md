@@ -14,7 +14,7 @@ Template: documentation
 [OPERATION](#OPERATION)  
 [WARNINGS](#WARNINGS)  
 [AUTHOR](#AUTHOR)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -194,7 +194,7 @@ introduce.
 **mimedefang** was written by Dianne Skoll \<dfs@roaringpenguin.com\>.
 The **mimedefang** home page is *http://www.mimedefang.org/*.
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang.pl(8), mimedefang-filter(5), mimedefang-multiplexor(8),
 mimedefang-protocol(7), mimedefang-release(8)

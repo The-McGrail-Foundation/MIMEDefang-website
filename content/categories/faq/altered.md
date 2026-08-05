@@ -1,6 +1,7 @@
 Title: Who altered my e-mail?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Your ISP or system administrator has installed a mail scanning program that modified your e-mail; MIMEDefang administrators are not responsible for its policies.
 Num: 013
 Audience: enduser
 Status: published

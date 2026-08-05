@@ -9,34 +9,34 @@ Template: documentation
 
 [NAME](#NAME)  
 [DESCRIPTION](#DESCRIPTION)  
-[CALLING SEQUENCE](#CALLING%20SEQUENCE)  
+[CALLING SEQUENCE](#CALLING-SEQUENCE)  
 [DISPOSITION](#DISPOSITION)  
-[CONTROLLING RELAYING](#CONTROLLING%20RELAYING)  
-[FILTERING BY HELO](#FILTERING%20BY%20HELO)  
-[FILTERING BY SENDER](#FILTERING%20BY%20SENDER)  
-[FILTERING BY RECIPIENT](#FILTERING%20BY%20RECIPIENT)  
-[INITIALIZATION AND CLEANUP](#INITIALIZATION%20AND%20CLEANUP)  
-[CONTROLLING PARSING](#CONTROLLING%20PARSING)  
-[EXTENDING MIMEDEFANG](#EXTENDING%20MIMEDEFANG)  
-[REJECTING UNKNOWN USERS EARLY](#REJECTING%20UNKNOWN%20USERS%20EARLY)  
-[GLOBAL VARIABLES YOU CAN SET](#GLOBAL%20VARIABLES%20YOU%20CAN%20SET)  
+[CONTROLLING RELAYING](#CONTROLLING-RELAYING)  
+[FILTERING BY HELO](#FILTERING-BY-HELO)  
+[FILTERING BY SENDER](#FILTERING-BY-SENDER)  
+[FILTERING BY RECIPIENT](#FILTERING-BY-RECIPIENT)  
+[INITIALIZATION AND CLEANUP](#INITIALIZATION-AND-CLEANUP)  
+[CONTROLLING PARSING](#CONTROLLING-PARSING)  
+[EXTENDING MIMEDEFANG](#EXTENDING-MIMEDEFANG)  
+[REJECTING UNKNOWN USERS EARLY](#REJECTING-UNKNOWN-USERS-EARLY)  
+[GLOBAL VARIABLES YOU CAN SET](#GLOBAL-VARIABLES-YOU-CAN-SET)  
 [FILTER](#FILTER)  
 [GLOBAL VARIABLES SET BY
-MIMEDEFANG.PL](#GLOBAL%20VARIABLES%20SET%20BY%20MIMEDEFANG.PL)  
+MIMEDEFANG.PL](#GLOBAL-VARIABLES-SET-BY-MIMEDEFANG.PL)  
 [ACTIONS](#ACTIONS)  
-[USEFUL ROUTINES](#USEFUL%20ROUTINES)  
+[USEFUL ROUTINES](#USEFUL-ROUTINES)  
 [LOGGING](#LOGGING)  
-[RBL LOOKUP FUNCTIONS](#RBL%20LOOKUP%20FUNCTIONS)  
-[TEST FUNCTIONS](#TEST%20FUNCTIONS)  
-[SMTP FLOW](#SMTP%20FLOW)  
-[PRESERVING RELAY INFORMATION](#PRESERVING%20RELAY%20INFORMATION)  
-[GLOBAL VARIABLE LIFETIME](#GLOBAL%20VARIABLE%20LIFETIME)  
-[MAINTAINING STATE](#MAINTAINING%20STATE)  
-[SOCKET MAPS](#SOCKET%20MAPS)  
-[TICK REQUESTS](#TICK%20REQUESTS)  
-[SUPPORTED VIRUS SCANNERS](#SUPPORTED%20VIRUS%20SCANNERS)  
+[RBL LOOKUP FUNCTIONS](#RBL-LOOKUP-FUNCTIONS)  
+[TEST FUNCTIONS](#TEST-FUNCTIONS)  
+[SMTP FLOW](#SMTP-FLOW)  
+[PRESERVING RELAY INFORMATION](#PRESERVING-RELAY-INFORMATION)  
+[GLOBAL VARIABLE LIFETIME](#GLOBAL-VARIABLE-LIFETIME)  
+[MAINTAINING STATE](#MAINTAINING-STATE)  
+[SOCKET MAPS](#SOCKET-MAPS)  
+[TICK REQUESTS](#TICK-REQUESTS)  
+[SUPPORTED VIRUS SCANNERS](#SUPPORTED-VIRUS-SCANNERS)  
 [AUTHORS](#AUTHORS)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -51,7 +51,7 @@ mimedefang-filter − Configuration file for MIMEDefang mail filter.
 addition, it contains some global variable settings that affect the
 operation of **mimedefang.pl**.
 
-## CALLING SEQUENCE <span id="CALLING SEQUENCE"></span>
+## CALLING SEQUENCE <span id="CALLING-SEQUENCE"></span>
 
 Incoming messages are scanned as follows:
 
@@ -150,7 +150,7 @@ The e-mail message is greylisted. If it’s the first time we see this
 sender, the email will be tempfailed, when the sender will retry the
 email will be accepted.
 
-## CONTROLLING RELAYING <span id="CONTROLLING RELAYING"></span>
+## CONTROLLING RELAYING <span id="CONTROLLING-RELAYING"></span>
 
 You can define a function called **filter_relay** in your filter. This
 lets you reject SMTP connection attempts early on in the SMTP dialog,
@@ -220,7 +220,7 @@ sub filter_relay {
 
 }
 
-## FILTERING BY HELO <span id="FILTERING BY HELO"></span>
+## FILTERING BY HELO <span id="FILTERING-BY-HELO"></span>
 
 You can define a function called **filter_helo** in your filter. This
 lets you reject connections after the HELO/EHLO SMTP command. Note that
@@ -253,7 +253,7 @@ Sendmail. \$delay defaults to zero.
 a delay of 30 seconds, that doesn’t mean a Perl worker is tied up for
 the duration of the delay. The delay only costs one Milter thread.)
 
-## FILTERING BY SENDER <span id="FILTERING BY SENDER"></span>
+## FILTERING BY SENDER <span id="FILTERING-BY-SENDER"></span>
 
 You can define a function called **filter_sender** in your filter. This
 lets you reject messages from certain senders, rather than waiting until
@@ -324,7 +324,7 @@ return(’REJECT’, "Faking mail from the king is not allowed.");
 return (’CONTINUE’, "ok");  
 }
 
-## FILTERING BY RECIPIENT <span id="FILTERING BY RECIPIENT"></span>
+## FILTERING BY RECIPIENT <span id="FILTERING-BY-RECIPIENT"></span>
 
 You can define a function called **filter_recipient** in your filter.
 This lets you reject messages to certain recipients, rather than waiting
@@ -376,7 +376,7 @@ sub filter_recipient {
 
 }
 
-## INITIALIZATION AND CLEANUP <span id="INITIALIZATION AND CLEANUP"></span>
+## INITIALIZATION AND CLEANUP <span id="INITIALIZATION-AND-CLEANUP"></span>
 
 Just before a worker begins processing messages, **mimedefang.pl** calls
 the functions **filter_initialize** (if it is defined) with no
@@ -413,7 +413,7 @@ sent a SIGTERM signal. If that doesn’t kill it (because you’re catching
 signals, perhaps), then a further 10 seconds later, the worker is sent a
 SIGKILL signal.
 
-## CONTROLLING PARSING <span id="CONTROLLING PARSING"></span>
+## CONTROLLING PARSING <span id="CONTROLLING-PARSING"></span>
 
 If you define a function called **filter_create_parser** taking no
 arguments, then **mimedefang.pl** will call it to create a MIME::Parser
@@ -440,7 +440,7 @@ sub filter_create_parser () {
 |     |     |     | return \$parser;                       |
 |     |     | }   |                                        |
 
-## EXTENDING MIMEDEFANG <span id="EXTENDING MIMEDEFANG"></span>
+## EXTENDING MIMEDEFANG <span id="EXTENDING-MIMEDEFANG"></span>
 
 The man page for **mimedefang-protocol**(7) lists commands that are
 passed to workers in server mode (see "SERVER COMMANDS".) You can define
@@ -477,7 +477,7 @@ If you extend the set of commands using **filter_unknown_cmd**, you
 should make all your commands start with an upper-case letter to avoid
 clashes with future built-in commands.
 
-## REJECTING UNKNOWN USERS EARLY <span id="REJECTING UNKNOWN USERS EARLY"></span>
+## REJECTING UNKNOWN USERS EARLY <span id="REJECTING-UNKNOWN-USERS-EARLY"></span>
 
 A very common mail setup is to have a MIMEDefang machine act as an SMTP
 proxy, accepting and scanning mail and then relaying it to the real mail
@@ -538,7 +538,7 @@ you receive a lot of e-mail, and it will generate lots of useless log
 entries on the real mail server (because of all the RCPT TO: probes.) It
 may also significantly increase the load on the real mail server.
 
-## GLOBAL VARIABLES YOU CAN SET <span id="GLOBAL VARIABLES YOU CAN SET"></span>
+## GLOBAL VARIABLES YOU CAN SET <span id="GLOBAL-VARIABLES-YOU-CAN-SET"></span>
 
 The following Perl global variables should be set in
 **mimedefang-filter**: **  
@@ -746,7 +746,7 @@ archive match the regular expression. The function is very similar to
 **re_match_in_zip_directory** but the 7z binary is required and must be
 specified in **\$Features{"7zip"}**.
 
-## GLOBAL VARIABLES SET BY MIMEDEFANG.PL <span id="GLOBAL VARIABLES SET BY MIMEDEFANG.PL"></span>
+## GLOBAL VARIABLES SET BY MIMEDEFANG.PL <span id="GLOBAL-VARIABLES-SET-BY-MIMEDEFANG.PL"></span>
 
 The following global variables are set by **mimedefang.pl** and are
 available for use in your filter. All of these variables are always
@@ -1345,7 +1345,7 @@ This is similar to **action_add_part** but takes a pre-built
 MIME::Entity object rather than constructing one based on \$type,
 \$encoding, \$data, \$fname and \$disposition arguments.
 
-## USEFUL ROUTINES <span id="USEFUL ROUTINES"></span>
+## USEFUL ROUTINES <span id="USEFUL-ROUTINES"></span>
 
 **mimedefang.pl** includes some useful functions you can call from your
 filter: **  
@@ -1662,7 +1662,7 @@ Sets the tag used in syslog messages to \$tag, and sends the logs to the
 md_syslog, then it is called implicitly with \$tag set to
 **mimedefang.pl** and \$facility set to **mail**.
 
-## RBL LOOKUP FUNCTIONS <span id="RBL LOOKUP FUNCTIONS"></span>
+## RBL LOOKUP FUNCTIONS <span id="RBL-LOOKUP-FUNCTIONS"></span>
 
 **mimedefang.pl** includes the following functions for looking up IP
 addresses in DNS-based real-time blacklists. Note that the
@@ -1795,7 +1795,7 @@ join(’, ’, @bogushosts));
 return (’CONTINUE’, ’ok’);  
 }
 
-## TEST FUNCTIONS <span id="TEST FUNCTIONS"></span>
+## TEST FUNCTIONS <span id="TEST-FUNCTIONS"></span>
 
 **mimedefang.pl** includes some "test" functions: **  
 md_version()**
@@ -2058,7 +2058,7 @@ Connects to the specified socket (default **\$ClamdSock**), where the
 clamd daemon is expected to be listening. Return values are the same as
 the other entity_contains_virus functions.
 
-## SMTP FLOW <span id="SMTP FLOW"></span>
+## SMTP FLOW <span id="SMTP-FLOW"></span>
 
 This section illustrates the flow of messages through MIMEDefang. **  
 1. INITIAL CONNECTION**
@@ -2086,7 +2086,7 @@ filter_recipient routine, it is called.
 filter_begin is called. For each MIME part, filter is called. Then
 filter_end is called.
 
-## PRESERVING RELAY INFORMATION <span id="PRESERVING RELAY INFORMATION"></span>
+## PRESERVING RELAY INFORMATION <span id="PRESERVING-RELAY-INFORMATION"></span>
 
 Most organizations have more than one machine handling internet e-mail.
 If the primary machine is down, mail is routed to a secondary (or
@@ -2155,7 +2155,7 @@ information is available yet. You must take this into account when
 writing your filter; you must defer relay-based decisions to the message
 filter for mail arriving from your other MX hosts.
 
-## GLOBAL VARIABLE LIFETIME <span id="GLOBAL VARIABLE LIFETIME"></span>
+## GLOBAL VARIABLE LIFETIME <span id="GLOBAL-VARIABLE-LIFETIME"></span>
 
 The following list describes the lifetime of global variables (thanks to
 Tony Nugent for providing this documentation.)
@@ -2188,7 +2188,7 @@ available to filter_begin, filter and filter_end. Some are available to
 filter_relay, filter_sender or filter_recipient, but you should check
 the documentation of the variable above for details.
 
-## MAINTAINING STATE <span id="MAINTAINING STATE"></span>
+## MAINTAINING STATE <span id="MAINTAINING-STATE"></span>
 
 There are four basic groups of filtering functions:
 
@@ -2233,7 +2233,7 @@ internal MIMEDefang use. If you want to create files to store state,
 name them beginning with a lower-case letter to avoid clashes with
 future releases of MIMEDefang.
 
-## SOCKET MAPS <span id="SOCKET MAPS"></span>
+## SOCKET MAPS <span id="SOCKET-MAPS"></span>
 
 If you have Sendmail 8.13 or later, and have compiled it with the
 SOCKETMAP option, then you can use a special map type that communicates
@@ -2313,7 +2313,7 @@ database, or perform other kinds of processing. You can even implement
 standard Sendmail maps like virtusertable, mailertable, access_db, etc.
 using SOCKETMAP.
 
-## TICK REQUESTS <span id="TICK REQUESTS"></span>
+## TICK REQUESTS <span id="TICK-REQUESTS"></span>
 
 If you supply the **−X** option to **mimedefang-multiplexor**, then
 every so often, a "tick" request is sent to a free worker. If your
@@ -2329,7 +2329,7 @@ run **filter_tick**. Also, at most one **filter_tick** call with a
 particular "type" argument will be active at any time, and if there are
 no free workers when a tick would occur, the tick is skipped.
 
-## SUPPORTED VIRUS SCANNERS <span id="SUPPORTED VIRUS SCANNERS"></span>
+## SUPPORTED VIRUS SCANNERS <span id="SUPPORTED-VIRUS-SCANNERS"></span>
 
 The following virus scanners are supported by MIMEDefang:
 
@@ -2360,7 +2360,7 @@ The following virus scanners are supported by MIMEDefang:
 **mimedefang** was written by Dianne Skoll \<dfs@roaringpenguin.com\>.
 The **mimedefang** home page is *https://www.mimedefang.org/*.
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang(8), mimedefang.pl(8), Mail::MIMEDefang(3)
 

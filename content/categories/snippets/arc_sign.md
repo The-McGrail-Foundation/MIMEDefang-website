@@ -1,6 +1,7 @@
 Title: How can I sign a message with ARC?
 Date: 2026-06-27 10:00:00
 Category: snippets
+Description: Perl filter snippet to sign outgoing mail with ARC (Authenticated Received Chain) using md_arc_sign in filter_end.
 Tags: Authentication
 Num: 006
 Status: published

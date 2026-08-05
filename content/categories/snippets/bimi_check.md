@@ -1,6 +1,7 @@
 Title: How can I verify BIMI records for incoming mail?
 Date: 2026-06-27 10:03:00
 Category: snippets
+Description: Perl filter snippet to verify BIMI records for incoming mail with md_bimi_verify and md_bimi_lookup.
 Tags: Authentication
 Num: 009
 Status: published

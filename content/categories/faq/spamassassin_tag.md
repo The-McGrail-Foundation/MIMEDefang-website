@@ -1,6 +1,7 @@
 Title: Why won't SpamAssassin tag a message subject?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Why SpamAssassin can't tag the message subject directly under MIMEDefang, and how to add a spam-score header in filter_end instead.
 Num: 008
 Audience: admin
 Status: published

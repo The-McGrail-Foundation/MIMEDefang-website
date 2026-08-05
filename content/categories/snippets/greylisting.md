@@ -1,6 +1,7 @@
 Title: How can I implement greylisting ?
 Date: 2024-07-30 12:54:09
 Category: snippets
+Description: Perl filter snippet to implement greylisting in filter_recipient using Mail::MIMEDefang::Actions::action_greylist and a DBI database handle.
 Tags: Antispam
 Num: 005
 Status: published

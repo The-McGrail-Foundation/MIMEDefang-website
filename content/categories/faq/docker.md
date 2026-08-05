@@ -1,6 +1,7 @@
 Title: Is there a Docker image available for MIMEDefang?
 Date: 2026-06-27 00:00:00
 Category: faq
+Description: Official MIMEDefang Docker images for Postfix and Sendmail, published on Docker Hub as mimedefang/postfix and mimedefang/sendmail.
 Num: 021
 Audience: admin
 Status: published

@@ -1,6 +1,7 @@
 Title: Why is SpamAssassin not found even though it is installed?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Why MIMEDefang fails to find an installed SpamAssassin at runtime, usually caused by non-world-readable Perl module or data file permissions.
 Num: 004
 Audience: admin
 Status: published

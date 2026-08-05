@@ -1,6 +1,7 @@
 Title: How do I use async drop-in replacements for common checks?
 Date: 2026-06-27 12:01:00
 Category: snippets
+Description: Perl filter snippet showing async drop-in replacements for blacklist, SPF, DMARC, SpamAssassin, and Rspamd checks via Mail::MIMEDefang::Async.
 Tags: Async
 Num: 017
 Status: published

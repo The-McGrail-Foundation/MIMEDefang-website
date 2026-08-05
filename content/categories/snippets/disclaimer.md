@@ -1,6 +1,7 @@
 Title: How can I append a disclaimer to outgoing messages?
 Date: 2026-06-27 10:02:00
 Category: snippets
+Description: Perl filter snippet to append a text and HTML disclaimer to outgoing messages using append_text_boilerplate and append_html_boilerplate.
 Tags: Attachments
 Num: 008
 Status: published

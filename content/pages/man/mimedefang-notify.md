@@ -9,11 +9,11 @@ Template: documentation
 
 [NAME](#NAME)  
 [DESCRIPTION](#DESCRIPTION)  
-[NOTIFICATION OVERVIEW](#NOTIFICATION%20OVERVIEW)  
+[NOTIFICATION OVERVIEW](#NOTIFICATION-OVERVIEW)  
 [MESSAGES](#MESSAGES)  
-[EXPRESSING INTEREST](#EXPRESSING%20INTEREST)  
+[EXPRESSING INTEREST](#EXPRESSING-INTEREST)  
 [EXAMPLE](#EXAMPLE)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ certain state changes in the multiplexor. The external programs can
 react in whatever way they choose to these state changes. The external
 program that listens for state changes is referred to as a *listener*.
 
-## NOTIFICATION OVERVIEW <span id="NOTIFICATION OVERVIEW"></span>
+## NOTIFICATION OVERVIEW <span id="NOTIFICATION-OVERVIEW"></span>
 
 From the point of view of a listener, notification works like this:
 
@@ -73,7 +73,7 @@ status tag so you have a good idea what each worker is doing.
 |  | **Y** |  | This message is issued whenever the number of free workers changes from zero to non-zero. |
 |  | **Z** |  | This message is issued whenever the number of free workers falls to zero. |
 
-## EXPRESSING INTEREST <span id="EXPRESSING INTEREST"></span>
+## EXPRESSING INTEREST <span id="EXPRESSING-INTEREST"></span>
 
 A listener does not receive any messages until it has *expressed
 interest* in various message types. To express interest, the listener
@@ -147,7 +147,7 @@ system("/sbin/iptables -F smtp_connect");
 
 main();
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang.pl(8), mimedefang(8), mimedefang-multiplexor(8),
 mimedefang-filter(5)

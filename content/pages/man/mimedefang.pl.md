@@ -12,10 +12,10 @@ Template: documentation
 [DESCRIPTION](#DESCRIPTION)  
 [OPTIONS](#OPTIONS)  
 [OPERATION](#OPERATION)  
-[TESTING FILTERS](#TESTING%20FILTERS)  
-[MISCELLANEOUS OPTIONS](#MISCELLANEOUS%20OPTIONS)  
+[TESTING FILTERS](#TESTING-FILTERS)  
+[MISCELLANEOUS OPTIONS](#MISCELLANEOUS-OPTIONS)  
 [AUTHOR](#AUTHOR)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -50,7 +50,7 @@ should define the **filter** procedure. For each part of a MIME message,
 instructed by the filter. The various modes of disposition are described
 in **mimedefang-filter**(5).
 
-## TESTING FILTERS <span id="TESTING FILTERS"></span>
+## TESTING FILTERS <span id="TESTING-FILTERS"></span>
 
 You are *strongly* recommended to test your filter before installing it
 in **@CONFDIR_EVAL@/mimedefang-filter**. To test the filter, save it in
@@ -65,7 +65,7 @@ install it as a production filter. (Note that the test tests only for
 correct Perl syntax; it doesn’t make sure your filter does something
 sensible.)
 
-## MISCELLANEOUS OPTIONS <span id="MISCELLANEOUS OPTIONS"></span>
+## MISCELLANEOUS OPTIONS <span id="MISCELLANEOUS-OPTIONS"></span>
 
 There are a few other ways to invoke mimedefang.pl:
 
@@ -92,7 +92,7 @@ filter_validate does not exist, an error message is printed and
 \<dfs@roaringpenguin.com\>. The **mimedefang** home page is
 *https://www.mimedefang.org/*.
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang(8), mimedefang-filter(5), mimedefang-protocol(7),
 mimedefang-release(8)

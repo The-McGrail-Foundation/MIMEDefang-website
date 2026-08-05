@@ -1,6 +1,7 @@
 Title: How do I install MIMEDefang?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: How to install MIMEDefang from source - download the tarball, compile Sendmail with Milter support, and build with a UNIX C development environment.
 Num: 002
 Audience: admin
 Status: published

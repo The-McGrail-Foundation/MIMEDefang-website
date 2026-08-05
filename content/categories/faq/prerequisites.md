@@ -1,6 +1,7 @@
 Title: What are the prerequisites for installing MIMEDefang?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Required software to install MIMEDefang - a UNIX-like OS, Sendmail or Postfix with Milter support, Perl, required Perl modules, and a C compiler.
 Num: 001
 Audience: admin
 Status: published

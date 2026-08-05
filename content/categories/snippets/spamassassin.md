@@ -1,6 +1,7 @@
 Title: How can I use SpamAssassin to detect spam?
 Date: 2026-06-27 10:05:00
 Category: snippets
+Description: Perl filter snippet to use SpamAssassin to detect spam with spam_assassin_check and tag messages via X-Spam headers.
 Tags: Antispam
 Num: 011
 Status: published

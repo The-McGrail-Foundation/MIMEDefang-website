@@ -1,6 +1,7 @@
 Title: How can I check SPF records for incoming mail?
 Date: 2026-06-27 10:01:00
 Category: snippets
+Description: Perl filter snippet to check SPF records for incoming mail using md_spf_verify and act on pass/fail/softfail results.
 Tags: Authentication
 Num: 007
 Status: published

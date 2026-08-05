@@ -1,6 +1,7 @@
 Title: What is the architecture of MIMEDefang?
 Date: 2023-12-01 10:30:15
 Category: faq
+Description: MIMEDefang's architecture explained - the mimedefang Milter daemon, the mimedefang-multiplexor process pool manager, and the mimedefang.pl Perl filter workers.
 Num: 003
 Audience: admin
 Status: published

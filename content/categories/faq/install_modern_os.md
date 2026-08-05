@@ -1,6 +1,7 @@
 Title: How do I install MIMEDefang on a modern OS using packages?
 Date: 2026-06-27 00:00:00
 Category: faq
+Description: Install MIMEDefang from packages on Fedora, RHEL, Debian, Ubuntu, FreeBSD, and OpenBSD without compiling from source.
 Num: 020
 Audience: admin
 Status: published

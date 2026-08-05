@@ -1,6 +1,7 @@
 Title: Why was the e-mail altered?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Why MIMEDefang alters e-mail attachments, based on the unacceptable-attachment policy set by your system administrator or ISP.
 Num: 014
 Audience: enduser
 Status: published

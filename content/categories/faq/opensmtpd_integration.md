@@ -1,6 +1,7 @@
 Title: How do I integrate MIMEDefang with OpenSMTPD?
 Date: 2026-06-27 00:00:00
 Category: faq
+Description: Step-by-step guide to integrating MIMEDefang with OpenSMTPD's Milter support via smtpd.conf filter rules.
 Num: 019
 Audience: admin
 Status: published

@@ -5,7 +5,7 @@ Slug: mailing-list/index
 Status: published
 Template: basic
 
-## About MIMEDefang
+# About MIMEDefang
 
 This list is intended for users of the MIMEDefang e-mail scanner. It is meant for discussion of problems, ideas, and enhancements.
 To see the collection of prior postings to the list, visit the [MIMEDefang Archives](https://marc.info/?l=mimedefang). 

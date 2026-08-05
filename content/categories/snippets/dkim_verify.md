@@ -1,6 +1,7 @@
 Title: How can I verify a DKIM signature ?
 Date: 2021-07-19 08:51:23
 Category: snippets
+Description: Perl filter snippet to verify an incoming DKIM signature using md_dkim_verify from Mail::MIMEDefang::DKIM.
 Tags: Authentication
 Num: 002
 Status: published

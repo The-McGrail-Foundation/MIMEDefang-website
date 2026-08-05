@@ -1,6 +1,7 @@
 Title: When I add a To: header, why doesn't the recipient receive a copy of the e-mail?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: Adding or changing the To: header with action_add_header does not redirect mail; use add_recipient/delete_recipient to change the actual destination.
 Num: 007
 Audience: admin
 Status: published

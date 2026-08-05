@@ -1,6 +1,7 @@
 Title: How can I retrieve and act on DMARC records?
 Date: 2026-06-27 10:09:00
 Category: snippets
+Description: Perl filter snippet to retrieve and act on a domain's DMARC record and policy using md_get_dmarc_record.
 Tags: Authentication
 Num: 015
 Status: published

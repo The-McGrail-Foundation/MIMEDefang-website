@@ -6,7 +6,7 @@ Status: published
 Template: pmc
 
 
-## MIMEDefang Project Charter
+# MIMEDefang Project Charter
 
 ### (January 30, 2020)
 

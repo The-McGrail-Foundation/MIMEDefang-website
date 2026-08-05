@@ -1,6 +1,7 @@
 Title: How is MIMEDefang licensed and what rules must I abide by?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: MIMEDefang's licensing terms and usage rules are defined in the MIMEDefang Project Charter.
 Num: 016
 Audience: enduser
 Status: published

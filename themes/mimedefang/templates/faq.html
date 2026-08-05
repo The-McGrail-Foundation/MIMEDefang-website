@@ -1,7 +1,7 @@
 {% include "base.html" %}
 <section id="section-faq" class="faq download">
   <div class="container">
-  <h2 class="title">FAQ</h2>
+  <h1 class="title">FAQ</h1>
   <div class="row justify-content-center">
    <div class="col-md-12 col-sm-10">
      {% block content %}
@@ -9,7 +9,7 @@
      <div class="list-group mb-4">
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'faq' and article.audience == 'enduser' %}
-      <a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
+      <h3 class="list-group-item-heading m-0"><a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a></h3>
 	  	<div class="collapse-div collapse" id="{{ article.slug }}">
         <div class="text">
           {{ article.content }}
@@ -22,7 +22,7 @@
      <div class="list-group">
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'faq' and article.audience == 'admin' %}
-      <a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a>
+      <h3 class="list-group-item-heading m-0"><a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a></h3>
 	  	<div class="collapse-div collapse" id="{{ article.slug }}">
         <div class="text">
           {{ article.content }}
@@ -36,8 +36,27 @@
   </div>
   </div>
 </section>
+{% set faq_articles = articles|selectattr("category.name", "equalto", "faq")|sort(attribute="num")|list %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for article in faq_articles %}
+    {
+      "@type": "Question",
+      "name": {{ article.title | tojson }},
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": {{ article.content | striptags | tojson }}
+      }
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 <script>
-  var collapseLink = document.querySelectorAll('#section-faq .list-group > a');
+  var collapseLink = document.querySelectorAll('#section-faq .list-group a');
   collapseLink.forEach( link => {
       link.setAttribute("data-bs-toggle", "collapse");
   })

@@ -1,6 +1,7 @@
 Title: Why are you spamming me?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: The X-Scanned-By: MIMEDefang header means an ISP is using MIMEDefang to scan mail, not that MIMEDefang administrators sent it.
 Num: 012
 Audience: enduser
 Status: published

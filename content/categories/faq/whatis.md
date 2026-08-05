@@ -1,6 +1,7 @@
 Title: What is MIMEDefang?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: MIMEDefang is a Perl and C framework built on Sendmail's Milter API for filtering, scanning, and modifying e-mail.
 Num: 000
 Audience: enduser
 Status: published

@@ -1,6 +1,7 @@
 Title: How can I convert winmail.dat TNEF attachments to their original content?
 Date: 2021-07-19 08:51:23
 Category: snippets
+Description: Perl filter snippet to convert winmail.dat TNEF attachments to their original content using Convert::TNEF.
 Tags: Attachments
 Num: 003
 Status: published

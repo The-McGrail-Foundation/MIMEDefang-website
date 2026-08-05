@@ -1,6 +1,7 @@
 Title: What tests is SpamAssassin running? Can I test its configuration?
 Date: 2021-07-14 18:40:30
 Category: faq
+Description: How to test and lint MIMEDefang's SpamAssassin configuration by running spamassassin as the defang user.
 Num: 010
 Audience: admin
 Status: published

@@ -1,7 +1,7 @@
 {% include "base.html" %}
 <section id="section-faq" class="faq download">
   <div class="container">
-  <h2 class="title">Snippets</h2>
+  <h1 class="title">Snippets</h1>
 
   {# Build sorted unique tag list across all snippet articles #}
   {% set ns = namespace(all_tags=[]) %}
@@ -43,6 +43,7 @@
       {% for tag in article.tags %}
       {% set ns_tags.slugs = ns_tags.slugs + [tag.name | lower | replace('/', '-') | replace(' ', '-')] %}
       {% endfor %}
+      <h3 class="list-group-item-heading m-0">
       <a class="list-group-item list-group-item-action snippet-item"
          href="#{{ article.slug }}"
          role="button"
@@ -59,6 +60,7 @@
         <span class="badge bg-primary ms-1"><i class="bi {{ tag_icon }} me-1"></i>{{ tag.name }}</span>
         {% endfor %}
       </a>
+      </h3>
   	  <div class="collapse-div collapse snippet-item" id="{{ article.slug }}" data-tags="{{ ns_tags.slugs | join(' ') }}">
         <div class="text">
           {{ article.content }}
@@ -72,8 +74,26 @@
   </div>
   </div>
 </section>
+{% set snippet_articles = articles|selectattr("category.name", "equalto", "snippets")|sort(attribute="num")|list %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {% for article in snippet_articles %}
+    {
+      "@type": "TechArticle",
+      "position": {{ loop.index }},
+      "headline": {{ article.title | tojson }},
+      "description": {{ (article.description | default(article.title)) | tojson }},
+      "url": "{{ SITEURL }}/{{ article.url }}"
+    }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
 <script>
-  var collapseLink = document.querySelectorAll('#section-faq .list-group > a');
+  var collapseLink = document.querySelectorAll('#section-faq .list-group a');
   collapseLink.forEach( link => {
       link.setAttribute("data-bs-toggle", "collapse");
   })

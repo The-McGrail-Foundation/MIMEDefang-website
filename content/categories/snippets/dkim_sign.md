@@ -1,6 +1,7 @@
 Title: How can I DKIM sign an e-mail?
 Date: 2021-07-19 08:51:23
 Category: snippets
+Description: Perl filter snippet to DKIM sign an outgoing e-mail using md_dkim_sign from Mail::MIMEDefang::DKIM.
 Tags: Authentication
 Num: 001
 Status: published

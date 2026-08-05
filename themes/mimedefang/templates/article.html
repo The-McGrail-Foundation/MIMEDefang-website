@@ -1,0 +1,42 @@
+{% set page = article %}
+{% include "base.html" %}
+{% block content %}
+    <section class="article-page">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12 col-lg-8">
+                    <p><a href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a></p>
+                    <h1>{{ article.title }}</h1>
+                    {{ article.content }}
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if article.category.name == 'faq' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": {{ article.title | tojson }},
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": {{ article.content | striptags | tojson }}
+        }
+      }]
+    }
+    </script>
+    {% elif article.category.name == 'snippets' %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": {{ article.title | tojson }},
+      "description": {{ (article.description | default(article.title)) | tojson }},
+      "url": "{{ SITEURL }}/{{ article.url }}"
+    }
+    </script>
+    {% endif %}
+{% endblock %}
+{% include "footer.html" %}

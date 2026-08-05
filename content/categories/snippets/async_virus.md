@@ -1,6 +1,7 @@
 Title: How do I scan for viruses using the async ClamAV interface?
 Date: 2026-06-27 12:03:00
 Category: snippets
+Description: Perl filter snippet to scan for viruses asynchronously via the ClamAV clamd socket or clamdscan --stream interface.
 Tags: Async
 Num: 019
 Status: published

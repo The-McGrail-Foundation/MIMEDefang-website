@@ -1,6 +1,7 @@
 Title: How do I check for spam using the async SpamAssassin and Rspamd interfaces?
 Date: 2026-06-27 12:04:00
 Category: snippets
+Description: Perl filter snippet to check for spam asynchronously using md_async_spamc_check and md_async_rspamd_check in filter_end.
 Tags: Async
 Num: 020
 Status: published

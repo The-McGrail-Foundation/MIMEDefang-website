@@ -12,10 +12,10 @@ Template: documentation
 [DESCRIPTION](#DESCRIPTION)  
 [OPTIONS](#OPTIONS)  
 [COMMANDS](#COMMANDS)  
-[ADDITIONAL COMMANDS](#ADDITIONAL%20COMMANDS)  
+[ADDITIONAL COMMANDS](#ADDITIONAL-COMMANDS)  
 [PERMISSIONS](#PERMISSIONS)  
 [AUTHOR](#AUTHOR)  
-[SEE ALSO](#SEE%20ALSO)  
+[SEE ALSO](#SEE-ALSO)  
 
 ------------------------------------------------------------------------
 
@@ -293,7 +293,7 @@ is a deprecated synonym for this command.
 |  | **reread** |  | Forces **mimedefang-multiplexor** to kill all idle workers, and terminate and restart busy workers when they become idle. This forces a reread of filter rules. |
 |  | **msgs** |  | Prints the total number of messages scanned since the multiplexor started. |
 
-## ADDITIONAL COMMANDS <span id="ADDITIONAL COMMANDS"></span>
+## ADDITIONAL COMMANDS <span id="ADDITIONAL-COMMANDS"></span>
 
 You can supply any other command and arguments to **md-mx-ctrl**. It
 percent-encodes each command-line argument, glues the encoded arguments
@@ -313,7 +313,7 @@ needs to be run as *root* or the same user as
 **md-mx-ctrl** was written by Dianne Skoll \<dfs@roaringpenguin.com\>.
 The **mimedefang** home page is *https://www.mimedefang.org/*.
 
-## SEE ALSO <span id="SEE ALSO"></span>
+## SEE ALSO <span id="SEE-ALSO"></span>
 
 mimedefang.pl(8), mimedefang-filter(5), mimedefang(8),
 mimedefang-protocol(7), watch-mimedefang(8)
