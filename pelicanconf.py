@@ -58,6 +58,7 @@ SITEMAP = {
 RELATIVE_URLS = True
 
 # Disable unneeded blog features
+INDEX_SAVE_AS = ""
 ARCHIVES_SAVE_AS = ""
 AUTHOR_SAVE_AS = ""
 AUTHORS_SAVE_AS = ""
