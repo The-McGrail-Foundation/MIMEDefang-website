@@ -83,4 +83,4 @@ score, pass).
 
 # SEE ALSO
 
-[Mail::MIMEDefang::Async](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync), [Mail::MIMEDefang::Async::Checks](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync%3A%3AChecks)
+[Mail::MIMEDefang::Async](man_Mail::MIMEDefang::Async.html), [Mail::MIMEDefang::Async::Checks](man_Mail::MIMEDefang::Async::Checks.html)

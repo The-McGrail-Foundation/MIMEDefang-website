@@ -39,13 +39,13 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
     the global timeout fires. Returns `{ results => \%r, errors => \%e }`.
 
     Each check is a hashref with `name`, `type` (`'dns'`, `'socket'`, or
-    `'process'`), and `args`.  Use [Mail::MIMEDefang::Async::Checks](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync%3A%3AChecks) to build
+    `'process'`), and `args`.  Use [Mail::MIMEDefang::Async::Checks](man_Mail::MIMEDefang::Async::Checks.html) to build
     them.
 
 - md\_async\_relay\_is\_blacklisted($addr, $zone)
 
     Async drop-in replacement for `relay_is_blacklisted` from
-    [Mail::MIMEDefang::Net](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3ANet).
+    [Mail::MIMEDefang::Net](man_Mail::MIMEDefang::Net.html).
 
     Looks up `reverse_ip($addr).$zone` as a DNS A record. Returns the first
     matching IP string on a listing, `0` if not listed, or `undef` on
@@ -54,7 +54,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 - md\_async\_email\_is\_blacklisted($email, $zone, $hash\_type)
 
     Async drop-in replacement for `email_is_blacklisted` from
-    [Mail::MIMEDefang::Net](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3ANet).
+    [Mail::MIMEDefang::Net](man_Mail::MIMEDefang::Net.html).
 
     Hashes `$email` using **MD5** or **SHA1** (controlled by `$hash_type`), then
     looks up `$hash.$zone`. Returns the first matching IP string, `0` if not
@@ -62,7 +62,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 
 - md\_async\_spf\_verify($mail, $relayip, $helo)
 
-    Async-enhanced replacement for `md_spf_verify` from [Mail::MIMEDefang::SPF](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3ASPF).
+    Async-enhanced replacement for `md_spf_verify` from [Mail::MIMEDefang::SPF](man_Mail::MIMEDefang::SPF.html).
 
     Pre-fetches the sender domain's SPF TXT record via the async engine, then
     evaluates it using [Mail::SPF](https://metacpan.org/pod/Mail%3A%3ASPF) synchronously. Returns the same values as
@@ -71,7 +71,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 
 - md\_async\_dmarc\_verify($domain)
 
-    Async replacement for `md_get_dmarc_record` from [Mail::MIMEDefang::Net](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3ANet).
+    Async replacement for `md_get_dmarc_record` from [Mail::MIMEDefang::Net](man_Mail::MIMEDefang::Net.html).
 
     Performs an async TXT lookup on `_dmarc.$domain` and returns the raw DMARC
     policy string, or `undef` if none exists. Applies the same parent-domain
@@ -80,7 +80,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 - md\_async\_message\_contains\_virus\_clamd($clamd\_sock)
 
     Async replacement for `message_contains_virus_clamd` from
-    [Mail::MIMEDefang::Antivirus](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAntivirus).
+    [Mail::MIMEDefang::Antivirus](man_Mail::MIMEDefang::Antivirus.html).
 
     Sends a `SCAN $CWD/Work` command to the clamd daemon over a socket and
     interprets the response. `$clamd_sock` may be a Unix socket path or a
@@ -100,7 +100,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 - md\_async\_message\_contains\_virus\_clamdscan($conf)
 
     Async replacement for `message_contains_virus_clamdscan` from
-    [Mail::MIMEDefang::Antivirus](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAntivirus).
+    [Mail::MIMEDefang::Antivirus](man_Mail::MIMEDefang::Antivirus.html).
 
     Spawns `clamdscan --stream` which uses the `INSTREAM` wire protocol,
     streaming file data to clamd rather than asking it to open a local path.
@@ -120,7 +120,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 
 - md\_async\_spamc\_check(%args)
 
-    Async replacement for `md_spamc_check` from [Mail::MIMEDefang::Antispam](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAntispam).
+    Async replacement for `md_spamc_check` from [Mail::MIMEDefang::Antispam](man_Mail::MIMEDefang::Antispam.html).
 
     Sends the message to spamd using the raw SPAMC wire protocol over an async
     socket, without requiring [Mail::SpamAssassin::Client](https://metacpan.org/pod/Mail%3A%3ASpamAssassin%3A%3AClient).
@@ -134,7 +134,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 - md\_async\_spam\_assassin\_check()
 
     Drop-in replacement for `spam_assassin_check` from
-    [Mail::MIMEDefang::Antispam](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAntispam).
+    [Mail::MIMEDefang::Antispam](man_Mail::MIMEDefang::Antispam.html).
 
     Runs SpamAssassin in-process (no spamd required), reading `./INPUTMSG`.
     Returns the same four-element list: `($hits, $required_hits, $tests_list,
@@ -146,7 +146,7 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 
 - md\_async\_rspamd\_check($uri)
 
-    Async replacement for `rspamd_check` from [Mail::MIMEDefang::Antispam](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAntispam).
+    Async replacement for `rspamd_check` from [Mail::MIMEDefang::Antispam](man_Mail::MIMEDefang::Antispam.html).
 
     POSTs the message to the Rspamd HTTP API at `$uri/checkv2` using a raw
     HTTP/1.0 request over an async TCP socket (no `LWP::UserAgent` required).
@@ -180,5 +180,5 @@ Requires the optional modules **AnyEvent**, **AnyEvent::DNS**,
 
 # SEE ALSO
 
-[Mail::MIMEDefang::Async::Checks](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync%3A%3AChecks), [Mail::MIMEDefang::Async::Results](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync%3A%3AResults),
-[Mail::MIMEDefang::Net](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3ANet), [Mail::MIMEDefang::SPF](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3ASPF)
+[Mail::MIMEDefang::Async::Checks](man_Mail::MIMEDefang::Async::Checks.html), [Mail::MIMEDefang::Async::Results](man_Mail::MIMEDefang::Async::Results.html),
+[Mail::MIMEDefang::Net](man_Mail::MIMEDefang::Net.html), [Mail::MIMEDefang::SPF](man_Mail::MIMEDefang::SPF.html)

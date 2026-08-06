@@ -94,7 +94,7 @@ filter_validate does not exist, an error message is printed and
 
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
-mimedefang(8), mimedefang-filter(5), mimedefang-protocol(7),
-mimedefang-release(8)
+[mimedefang(8)](man_mimedefang.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang-protocol(7)](man_mimedefang-protocol.html),
+[mimedefang-release(8)](man_mimedefang-release.html)
 
 ------------------------------------------------------------------------

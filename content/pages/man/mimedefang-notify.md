@@ -149,7 +149,7 @@ main();
 
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
-mimedefang.pl(8), mimedefang(8), mimedefang-multiplexor(8),
-mimedefang-filter(5)
+[mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang(8)](man_mimedefang.html), [mimedefang-multiplexor(8)](man_mimedefang-multiplexor.html),
+[mimedefang-filter(5)](man_mimedefang-filter.html)
 
 ------------------------------------------------------------------------

@@ -184,7 +184,7 @@ You're limited only by your imagination. If you can think of it and code it in P
 
     This function should only be called from `filter_sender` and
     `filter_recipient`. This will read the `COMMANDS` file (as
-    described in [mimedefang-protocol(7)](http://man.he.net/man7/mimedefang-protocol)), and will fill or update the
+    described in [mimedefang-protocol(7)](man_mimedefang-protocol.html)), and will fill or update the
     following global variables: $Sender, @Recipients, %RecipientMailers,
     $RelayAddr, $RealRelayAddr, $RelayHostname, $RealRelayHostname,
     $QueueID, $Helo, %SendmailMacros.
@@ -195,26 +195,26 @@ You're limited only by your imagination. If you can think of it and code it in P
 
 ## SEE ALSO
 
-[Mail::MIMEDefang::Actions(3)](http://man.he.net/man3/Mail::MIMEDefang::Actions)
+[Mail::MIMEDefang::Actions(3)](man_Mail::MIMEDefang::Actions.html)
 
-[Mail::MIMEDefang::Antispam(3)](http://man.he.net/man3/Mail::MIMEDefang::Antispam)
+[Mail::MIMEDefang::Antispam(3)](man_Mail::MIMEDefang::Antispam.html)
 
-[Mail::MIMEDefang::Antivirus(3)](http://man.he.net/man3/Mail::MIMEDefang::Antivirus)
+[Mail::MIMEDefang::Antivirus(3)](man_Mail::MIMEDefang::Antivirus.html)
 
-[Mail::MIMEDefang::DKIM(3)](http://man.he.net/man3/Mail::MIMEDefang::DKIM)
+[Mail::MIMEDefang::DKIM(3)](man_Mail::MIMEDefang::DKIM.html)
 
-[Mail::MIMEDefang::DKIM::ARC(3)](http://man.he.net/man3/Mail::MIMEDefang::DKIM::ARC)
+[Mail::MIMEDefang::DKIM::ARC(3)](man_Mail::MIMEDefang::DKIM::ARC.html)
 
-[Mail::MIMEDefang::Authres(3)](http://man.he.net/man3/Mail::MIMEDefang::Authres)
+[Mail::MIMEDefang::Authres(3)](man_Mail::MIMEDefang::Authres.html)
 
-[Mail::MIMEDefang::Mail(3)](http://man.he.net/man3/Mail::MIMEDefang::Mail)
+[Mail::MIMEDefang::Mail(3)](man_Mail::MIMEDefang::Mail.html)
 
-[Mail::MIMEDefang::MIME(3)](http://man.he.net/man3/Mail::MIMEDefang::MIME)
+[Mail::MIMEDefang::MIME(3)](man_Mail::MIMEDefang::MIME.html)
 
-[Mail::MIMEDefang::Net(3)](http://man.he.net/man3/Mail::MIMEDefang::Net)
+[Mail::MIMEDefang::Net(3)](man_Mail::MIMEDefang::Net.html)
 
-[Mail::MIMEDefang::RFC2822(3)](http://man.he.net/man3/Mail::MIMEDefang::RFC2822)
+[Mail::MIMEDefang::RFC2822(3)](man_Mail::MIMEDefang::RFC2822.html)
 
-[Mail::MIMEDefang::Unit(3)](http://man.he.net/man3/Mail::MIMEDefang::Unit)
+[Mail::MIMEDefang::Unit(3)](man_Mail::MIMEDefang::Unit.html)
 
-[Mail::MIMEDefang::Utils(3)](http://man.he.net/man3/Mail::MIMEDefang::Utils)
+[Mail::MIMEDefang::Utils(3)](man_Mail::MIMEDefang::Utils.html)

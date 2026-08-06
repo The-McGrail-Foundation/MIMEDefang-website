@@ -43,8 +43,8 @@ smtp mode:
 
 # AUTHOR
 
-mimedefang-release(8) was written by Giovanni Bechis [&lt;giovanni@paclan.it](https://metacpan.org/pod/%3Cgiovanni%40paclan.it)>. The mimedefang home page is [https://www.mimedefang.org/](https://www.mimedefang.org/).
+mimedefang-release(8) was written by Giovanni Bechis [&lt;giovanni@paclan.it](https://metacpan.org/author/GBECHIS)>. The mimedefang home page is [https://www.mimedefang.org/](https://www.mimedefang.org/).
 
 # SEE ALSO
 
-mimedefang.pl(8), mimedefang-filter(5), mimedefang(8), mimedefang-protocol(7), watch-mimedefang(8)
+[mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang(8)](man_mimedefang.html), [mimedefang-protocol(7)](man_mimedefang-protocol.html), watch-mimedefang(8)

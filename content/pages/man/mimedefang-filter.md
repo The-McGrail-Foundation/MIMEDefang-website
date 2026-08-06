@@ -2362,6 +2362,6 @@ The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
-mimedefang(8), mimedefang.pl(8), Mail::MIMEDefang(3)
+[mimedefang(8)](man_mimedefang.html), [mimedefang.pl(8)](man_mimedefang_pl.html), [Mail::MIMEDefang(3)](man_Mail::MIMEDefang.html)
 
 ------------------------------------------------------------------------

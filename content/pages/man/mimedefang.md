@@ -196,7 +196,7 @@ The **mimedefang** home page is *http://www.mimedefang.org/*.
 
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
-mimedefang.pl(8), mimedefang-filter(5), mimedefang-multiplexor(8),
-mimedefang-protocol(7), mimedefang-release(8)
+[mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang-multiplexor(8)](man_mimedefang-multiplexor.html),
+[mimedefang-protocol(7)](man_mimedefang-protocol.html), [mimedefang-release(8)](man_mimedefang-release.html)
 
 ------------------------------------------------------------------------

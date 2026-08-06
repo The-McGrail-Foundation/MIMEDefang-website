@@ -315,7 +315,7 @@ The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
-mimedefang.pl(8), mimedefang-filter(5), mimedefang(8),
-mimedefang-protocol(7), watch-mimedefang(8)
+[mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang(8)](man_mimedefang.html),
+[mimedefang-protocol(7)](man_mimedefang-protocol.html), watch-mimedefang(8)
 
 ------------------------------------------------------------------------

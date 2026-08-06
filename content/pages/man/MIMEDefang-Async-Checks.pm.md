@@ -47,9 +47,9 @@ Each function returns a check-hashref suitable for passing to
     Build an async lookup for the DMARC TXT record at `_dmarc.$domain`.
     Required: `domain`.
 
-    Use `md_async_interpret_dmarc()` from [Mail::MIMEDefang::Async::Results](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync%3A%3AResults) to
+    Use `md_async_interpret_dmarc()` from [Mail::MIMEDefang::Async::Results](man_Mail::MIMEDefang::Async::Results.html) to
     parse the result.
 
 # SEE ALSO
 
-[Mail::MIMEDefang::Async](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync), [Mail::MIMEDefang::Async::Results](https://metacpan.org/pod/Mail%3A%3AMIMEDefang%3A%3AAsync%3A%3AResults)
+[Mail::MIMEDefang::Async](man_Mail::MIMEDefang::Async.html), [Mail::MIMEDefang::Async::Results](man_Mail::MIMEDefang::Async::Results.html)
