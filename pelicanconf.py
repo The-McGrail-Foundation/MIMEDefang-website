@@ -11,6 +11,12 @@ THEME = 'themes/mimedefang'
 PATH = 'content'
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
+
+# Ship an .htaccess (compression + cache lifetimes) with the build.
+STATIC_PATHS = ['extra/htaccess']
+EXTRA_PATH_METADATA = {
+    'extra/htaccess': {'path': '.htaccess'},
+}
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 MENUITEMS = [('Download', '/download/'), ('Mailing List', '/mailing-list/'), ('Documentation', '/documentation/'), ('FAQ', '/faq/'), ('Snippets', '/snippets/')]
