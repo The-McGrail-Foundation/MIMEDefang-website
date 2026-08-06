@@ -8,7 +8,7 @@
   --md-nav-bg: #007BFF;
   --md-nav-brand-bg: #E0F6FF;
   --md-text: #212529;
-  --md-muted: #6c757d;
+  --md-muted: #495057;
   --md-radius: 0.625rem;
 }
 
@@ -359,6 +359,9 @@ section.faq a {
   font-size: 0.8rem;
   color: var(--md-muted);
 }
+.text-muted {
+  color: var(--md-muted) !important;
+}
 .thanks-note .thanks-text p {
   margin: 0;
 }
@@ -367,6 +370,7 @@ section.faq a {
 }
 .thanks-logo {
   max-height: 28px;
+  width: auto;
   opacity: 0.45;
   filter: grayscale(100%);
 }
@@ -414,6 +418,21 @@ footer {
 .footer-copy {
   text-align: center;
   font-size: 0.8125rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.85);
   margin: 0;
+}
+
+/* ============================================================
+   Inline icons (replaces bootstrap-icons font)
+   ============================================================ */
+.bi {
+  display: inline-block;
+  vertical-align: -0.125em;
+}
+
+.caret-icon {
+  transition: transform 0.2s ease;
+}
+.caret-icon.caret-open {
+  transform: rotate(90deg);
 }

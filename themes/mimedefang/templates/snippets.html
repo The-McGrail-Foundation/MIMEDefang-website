@@ -1,4 +1,5 @@
 {% include "base.html" %}
+{% from "_icons.html" import icon %}
 <section id="section-faq" class="faq download">
   <div class="container">
   <h1 class="title">Snippets</h1>
@@ -22,13 +23,13 @@
     {% for tag_name in ns.all_tags | sort %}
     {% set tag_slug = tag_name | lower | replace('/', '-') | replace(' ', '-') %}
     {% set tag_icon = {
-        'Authentication': 'bi-shield-lock',
-        'Antispam':       'bi-slash-circle',
-        'Antivirus':      'bi-bug',
-        'Attachments':    'bi-paperclip',
-        'Async':          'bi-arrow-repeat'
-    }[tag_name] | default('bi-tag') %}
-    <button class="btn btn-sm btn-outline-primary snippet-tag-btn" data-tag="{{ tag_slug }}"><i class="bi {{ tag_icon }} me-1"></i>{{ tag_name }}</button>
+        'Authentication': 'shield-lock',
+        'Antispam':       'slash-circle',
+        'Antivirus':      'bug',
+        'Attachments':    'paperclip',
+        'Async':          'arrow-repeat'
+    }[tag_name] | default('tag') %}
+    <button class="btn btn-sm btn-outline-primary snippet-tag-btn" data-tag="{{ tag_slug }}">{{ icon(tag_icon, 'me-1') }}{{ tag_name }}</button>
     {% endfor %}
   </div>
   {% endif %}
@@ -48,16 +49,16 @@
          href="#{{ article.slug }}"
          role="button"
          data-tags="{{ ns_tags.slugs | join(' ') }}">
-        <i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}
+        {{ icon('caret-right-fill', 'me-2 caret-icon') }}{{ article.title }}
         {% for tag in article.tags %}
         {% set tag_icon = {
-            'Authentication': 'bi-shield-lock',
-            'Antispam':       'bi-slash-circle',
-            'Antivirus':      'bi-bug',
-            'Attachments':    'bi-paperclip',
-            'Async':          'bi-arrow-repeat'
-        }[tag.name] | default('bi-tag') %}
-        <span class="badge bg-primary ms-1"><i class="bi {{ tag_icon }} me-1"></i>{{ tag.name }}</span>
+            'Authentication': 'shield-lock',
+            'Antispam':       'slash-circle',
+            'Antivirus':      'bug',
+            'Attachments':    'paperclip',
+            'Async':          'arrow-repeat'
+        }[tag.name] | default('tag') %}
+        <span class="badge bg-primary ms-1">{{ icon(tag_icon, 'me-1') }}{{ tag.name }}</span>
         {% endfor %}
       </a>
       </h3>
@@ -101,12 +102,10 @@
   var collapseDiv = document.querySelectorAll('.collapse-div');
   collapseDiv.forEach( div => {
       div.addEventListener('show.bs.collapse', function (e) {
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.add('bi-caret-down-fill');
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-right-fill');
+          document.querySelector("[href='#"+e.target.id+"'] .caret-icon").classList.add('caret-open');
       })
       div.addEventListener('hide.bs.collapse', function (e) {
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.add('bi-caret-right-fill');
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-down-fill');
+          document.querySelector("[href='#"+e.target.id+"'] .caret-icon").classList.remove('caret-open');
       })
   })
 

@@ -3,6 +3,9 @@
 AUTHOR = 'MIMEDefang'
 SITENAME = 'MIMEDefang'
 SITEURL = 'https://mimedefang.org'
+# Always absolute, regardless of RELATIVE_URLS -- for tags (canonical, og:*)
+# that must never be relativized.
+SITEURL_ABSOLUTE = 'https://mimedefang.org'
 THEME = 'themes/mimedefang'
 
 PATH = 'content'

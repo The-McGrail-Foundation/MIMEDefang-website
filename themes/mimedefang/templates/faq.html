@@ -1,4 +1,5 @@
 {% include "base.html" %}
+{% from "_icons.html" import icon %}
 <section id="section-faq" class="faq download">
   <div class="container">
   <h1 class="title">FAQ</h1>
@@ -9,7 +10,7 @@
      <div class="list-group mb-4">
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'faq' and article.audience == 'enduser' %}
-      <h3 class="list-group-item-heading m-0"><a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a></h3>
+      <h3 class="list-group-item-heading m-0"><a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button">{{ icon('caret-right-fill', 'me-2 caret-icon') }}{{ article.title }}</a></h3>
 	  	<div class="collapse-div collapse" id="{{ article.slug }}">
         <div class="text">
           {{ article.content }}
@@ -22,7 +23,7 @@
      <div class="list-group">
 	    {% for article in articles|sort(attribute="num") %}
 	    {% if article.category == 'faq' and article.audience == 'admin' %}
-      <h3 class="list-group-item-heading m-0"><a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button"><i class="bi bi-caret-right-fill me-2"></i>{{ article.title }}</a></h3>
+      <h3 class="list-group-item-heading m-0"><a class="list-group-item list-group-item-action" href="#{{ article.slug }}" role="button">{{ icon('caret-right-fill', 'me-2 caret-icon') }}{{ article.title }}</a></h3>
 	  	<div class="collapse-div collapse" id="{{ article.slug }}">
         <div class="text">
           {{ article.content }}
@@ -64,12 +65,10 @@
   var collapseDiv = document.querySelectorAll('.collapse-div');
   collapseDiv.forEach( div => {
       div.addEventListener('show.bs.collapse', function (e) {
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.add('bi-caret-down-fill');
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-right-fill');
+          document.querySelector("[href='#"+e.target.id+"'] .caret-icon").classList.add('caret-open');
       })
       div.addEventListener('hide.bs.collapse', function (e) {
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.add('bi-caret-right-fill');
-          document.querySelector("[href='#"+e.target.id+"'] > i").classList.remove('bi-caret-down-fill');
+          document.querySelector("[href='#"+e.target.id+"'] .caret-icon").classList.remove('caret-open');
       })
   })
 </script>
