@@ -9,6 +9,8 @@ Template: documentation
 
 MIMEDefang is a mail filtering framework that hooks into Sendmail or Postfix via the Milter API. You write your filtering logic in Perl; MIMEDefang handles the integration with the MTA.
 
+Migrating from amavisd-new, or already running rspamd? See [MIMEDefang vs rspamd and amavisd-new](/comparison/).
+
 ---
 
 ## Prerequisites

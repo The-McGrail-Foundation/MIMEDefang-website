@@ -19,5 +19,7 @@ MIMEDefang is a flexible, open-source email filtering framework that integrates 
 - **Proven** - in production since 2000, deployed across thousands of sites; free software under the GNU GPL
 - **Portable** - runs on Linux, FreeBSD, Solaris, and most UNIX-like systems
 
+Coming from amavisd-new or rspamd? [See how MIMEDefang compares](/comparison/).
+
 <a href="/getting-started/" class="btn btn-primary me-2">Get Started</a>
 <a href="/download/" class="btn btn-outline-secondary">Download</a>
