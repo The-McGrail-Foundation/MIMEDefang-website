@@ -6,4 +6,4 @@ Status: hidden
 
 ## Mailing List
 
-We run a mailing list for MIMEDefang.  To sign up, please visit [the list information page.](https://lists.mimedefang.org/mailman/listinfo/mimedefang_lists.mimedefang.org)
+We run a mailing list for MIMEDefang.  To sign up, please visit [the list information page](https://lists.mimedefang.org/mailman/listinfo/mimedefang_lists.mimedefang.org).
