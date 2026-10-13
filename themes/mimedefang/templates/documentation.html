@@ -15,4 +15,34 @@
       </div>
   </div>
 </section>
+{% if not page.ld_json %}
+{% set page_url = SITEURL_ABSOLUTE ~ '/' ~ page.url %}
+{% set in_docs = page.slug.startswith('man_') or page.slug.startswith('documentation/') %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "TechArticle",
+      "headline": {{ page.title | tojson }},
+      "description": {{ (page.description | default(page.title)) | tojson }},
+      "url": "{{ page_url }}",
+      "inLanguage": "{{ DEFAULT_LANG }}",
+      {% if page.date %}"dateModified": "{{ page.date.isoformat() }}",{% endif %}
+      "isPartOf": {"@id": "{{ SITEURL_ABSOLUTE }}/#website"},
+      "about": {"@id": "{{ SITEURL_ABSOLUTE }}/#software"},
+      "publisher": {"@id": "{{ SITEURL_ABSOLUTE }}/#organization"}
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ SITEURL_ABSOLUTE }}/"},
+        {% if in_docs %}{"@type": "ListItem", "position": 2, "name": "Documentation", "item": "{{ SITEURL_ABSOLUTE }}/documentation/"},{% endif %}
+        {"@type": "ListItem", "position": {{ 3 if in_docs else 2 }}, "name": {{ page.title | tojson }}, "item": "{{ page_url }}"}
+      ]
+    }
+  ]
+}
+</script>
+{% endif %}
 {% include "footer.html" %}

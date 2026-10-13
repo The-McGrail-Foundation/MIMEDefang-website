@@ -7,3 +7,4 @@ Audience: enduser
 Status: published
 
 MIMEDefang project management is described at the [PMC page](/mimedefang-project-charter).
+Security issues are handled by the PMC as described on the [Security page](/security/).

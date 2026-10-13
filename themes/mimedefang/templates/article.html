@@ -12,11 +12,30 @@
             </div>
         </div>
     </section>
+    {% set article_url = SITEURL_ABSOLUTE ~ '/' ~ article.url %}
+    {% set section_name = {'faq': 'FAQ', 'snippets': 'Snippets'}[article.category.name] | default(article.category.name) %}
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Home", "item": "{{ SITEURL_ABSOLUTE }}/"},
+        {"@type": "ListItem", "position": 2, "name": {{ section_name | tojson }}, "item": "{{ SITEURL_ABSOLUTE }}/{{ article.category.name }}/"},
+        {"@type": "ListItem", "position": 3, "name": {{ article.title | tojson }}, "item": "{{ article_url }}"}
+      ]
+    }
+    </script>
     {% if article.category.name == 'faq' %}
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "FAQPage",
+      "url": "{{ article_url }}",
+      "inLanguage": "{{ DEFAULT_LANG }}",
+      "isPartOf": {"@id": "{{ SITEURL_ABSOLUTE }}/#website"},
+      "about": {"@id": "{{ SITEURL_ABSOLUTE }}/#software"},
+      "datePublished": "{{ article.date.isoformat() }}",
+      {% if article.modified %}"dateModified": "{{ article.modified.isoformat() }}",{% endif %}
       "mainEntity": [{
         "@type": "Question",
         "name": {{ article.title | tojson }},
@@ -34,7 +53,15 @@
       "@type": "TechArticle",
       "headline": {{ article.title | tojson }},
       "description": {{ (article.description | default(article.title)) | tojson }},
-      "url": "{{ SITEURL }}/{{ article.url }}"
+      "url": "{{ article_url }}",
+      "inLanguage": "{{ DEFAULT_LANG }}",
+      "datePublished": "{{ article.date.isoformat() }}",
+      {% if article.modified %}"dateModified": "{{ article.modified.isoformat() }}",{% endif %}
+      {% if article.tags %}"keywords": {{ article.tags | map(attribute='name') | list | tojson }},{% endif %}
+      "proficiencyLevel": "Expert",
+      "isPartOf": {"@id": "{{ SITEURL_ABSOLUTE }}/#website"},
+      "about": {"@id": "{{ SITEURL_ABSOLUTE }}/#software"},
+      "publisher": {"@id": "{{ SITEURL_ABSOLUTE }}/#organization"}
     }
     </script>
     {% endif %}

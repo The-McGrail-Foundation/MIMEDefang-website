@@ -4,9 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preload" href="{{ SITEURL }}/theme/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/custom.css" rel="stylesheet">
     <link rel="shortcut icon" type="image/x-icon" href="{{ SITEURL }}/theme/images/favicon.ico"/>
@@ -16,6 +14,65 @@
     <meta name="title" property="og:title" content="{{ page.title }}" />
     <meta name="description" content="{{ page.description }}" />
     <meta property="og:description" content="{{ page.description }}" />
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "{{ SITEURL_ABSOLUTE }}/#organization",
+          "name": "The McGrail Foundation",
+          "url": "https://github.com/The-McGrail-Foundation",
+          "logo": "{{ SITEURL_ABSOLUTE }}/theme/images/mimedefang_logo9-300x150.png",
+          "sameAs": ["https://github.com/The-McGrail-Foundation"]
+        },
+        {
+          "@type": "Organization",
+          "@id": "{{ SITEURL_ABSOLUTE }}/#community",
+          "name": "MIMEDefang Community",
+          "url": "{{ SITEURL_ABSOLUTE }}/mailing-list/",
+          "parentOrganization": {"@id": "{{ SITEURL_ABSOLUTE }}/#organization"}
+        },
+        {
+          "@type": "WebSite",
+          "@id": "{{ SITEURL_ABSOLUTE }}/#website",
+          "url": "{{ SITEURL_ABSOLUTE }}/",
+          "name": "{{ SITENAME }}",
+          "inLanguage": "{{ DEFAULT_LANG }}",
+          "publisher": {"@id": "{{ SITEURL_ABSOLUTE }}/#organization"}
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "{{ SITEURL_ABSOLUTE }}/#software",
+          "name": "MIMEDefang",
+          "url": "{{ SITEURL_ABSOLUTE }}/",
+          "downloadUrl": "{{ SITEURL_ABSOLUTE }}/download/",
+          "softwareHelp": "{{ SITEURL_ABSOLUTE }}/documentation/",
+          "applicationCategory": "SecurityApplication",
+          "operatingSystem": "Linux, FreeBSD, Solaris",
+          "description": "MIMEDefang is an open-source email filtering framework that integrates with Sendmail and Postfix via the Milter API. Write custom filtering policies in Perl to inspect, modify, or reject email messages during the SMTP transaction.",
+          "softwareVersion": "{{ MD_VER }}",
+          "datePublished": "{{ MD_VER_DATE }}",
+          "releaseNotes": "{{ SITEURL_ABSOLUTE }}/documentation/Changelog.html",
+          "license": "https://www.gnu.org/licenses/gpl-2.0.html",
+          "programmingLanguage": ["Perl", "C"],
+          "author": {"@id": "{{ SITEURL_ABSOLUTE }}/#organization"},
+          "publisher": {"@id": "{{ SITEURL_ABSOLUTE }}/#organization"},
+          "maintainer": {"@id": "{{ SITEURL_ABSOLUTE }}/#community"},
+          "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+          "featureList": ["MIME stream inspection and modification", "SpamAssassin integration", "ClamAV integration", "rspamd integration", "DKIM signing", "SPF and DMARC enforcement", "Attachment stripping", "Custom Perl scripting"],
+          "softwareRequirements": "Sendmail 8.12+ or Postfix 2.3+, Perl 5.10+",
+          "codeRepository": "https://github.com/The-McGrail-Foundation/MIMEDefang",
+          "sameAs": [
+            "https://github.com/The-McGrail-Foundation/MIMEDefang",
+            "https://metacpan.org/dist/Mail-MIMEDefang",
+            "https://en.wikipedia.org/wiki/MIMEDefang",
+            "https://www.wikidata.org/wiki/Q14093494"
+          ]
+        }
+      ]
+    }
+    </script>
     {% if page.ld_json %}
     <script type="application/ld+json">
     {{ page.ld_json | safe }}

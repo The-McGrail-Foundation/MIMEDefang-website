@@ -12,10 +12,11 @@ PATH = 'content'
 PAGE_URL = '{slug}.html'
 PAGE_SAVE_AS = '{slug}.html'
 
-# Ship an .htaccess (compression + cache lifetimes) with the build.
-STATIC_PATHS = ['extra/htaccess']
+# Ship an .htaccess (compression + cache lifetimes) and robots.txt with the build.
+STATIC_PATHS = ['extra/htaccess', 'extra/robots.txt']
 EXTRA_PATH_METADATA = {
     'extra/htaccess': {'path': '.htaccess'},
+    'extra/robots.txt': {'path': 'robots.txt'},
 }
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
