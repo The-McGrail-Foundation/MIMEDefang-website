@@ -67,6 +67,8 @@ mimedefang.pl -f /etc/mail/mimedefang-filter /path/to/test/dir
 
 This runs your filter offline against a message directory and reports any errors.
 
+For a complete filter with spam and virus checks, attachment blocking, SPF and DKIM, use the [Filter Generator](/filter-generator/).
+
 ---
 
 ## Starting the Service
@@ -164,6 +166,7 @@ Postfix will now pass every incoming message through MIMEDefang before delivery.
 
 ## Next Steps
 
+- Build a complete filter with the [Filter Generator](/filter-generator/).
 - Browse the [code snippets](/snippets/) for ready-to-use filter examples (spam checks, DKIM signing, greylisting, and more).
 - Read the [mimedefang-filter(5)](../man_mimedefang-filter.html) man page for the complete filter callback reference.
 - Explore the full [API documentation](/documentation/) for all available Perl modules.

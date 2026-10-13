@@ -10,6 +10,8 @@ ld_json: {"@context":"https://schema.org","@type":"WebPage","url":"https://mimed
 
 New to MIMEDefang? The [Getting Started guide](/getting-started/) walks you through installation, writing your first filter, and connecting it to your MTA.
 
+Want a working filter quickly? The [Filter Generator](/filter-generator/) builds a `mimedefang-filter` with spam and virus checks, attachment blocking, SPF, DKIM and more.
+
 ---
 
 ## Man Pages - Commands

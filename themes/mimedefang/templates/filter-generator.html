@@ -1,0 +1,240 @@
+{% include "base.html" %}
+<section id="section-filter-generator" class="download filter-generator">
+  <div class="container">
+  <h1 class="title">Filter Generator</h1>
+  <div class="fg-intro">
+    {{ page.content }}
+  </div>
+
+  <div class="fg-layout">
+  <form id="fg-form" class="fg-form" autocomplete="off">
+
+    <fieldset class="fg-card">
+      <legend>General</legend>
+      <label class="fg-field">Administrator address
+        <input type="email" name="admin_address">
+      </label>
+      <label class="fg-field">Administrator name
+        <input type="text" name="admin_name">
+      </label>
+      <label class="fg-field">Notification sender address
+        <input type="email" name="daemon_address">
+      </label>
+      <label class="fg-check"><input type="checkbox" name="warnings_inline"> Add warnings inline in the message body</label>
+      <label class="fg-check"><input type="checkbox" name="graphdefang"> Log events for graphdefang</label>
+      <label class="fg-field" data-show="graphdefang">Syslog facility
+        <input type="text" name="syslog_facility">
+      </label>
+      <label class="fg-field">Maximum MIME parts (empty for no limit)
+        <input type="number" min="0" name="max_mime_parts">
+      </label>
+      <label class="fg-field">Suspicious characters in headers
+        <select name="suspicious_chars">
+          <option value="quarantine">Quarantine and discard</option>
+          <option value="tempfail">Tempfail</option>
+          <option value="ignore">Ignore</option>
+        </select>
+      </label>
+      <label class="fg-field">Trusted networks (internal relays)
+        <input type="text" name="trusted_networks">
+        <small>Space-separated addresses or octet-aligned networks, e.g. <code>127.0.0.1 ::1 10.0.0.0/8 192.168.1.0/24</code>. Used to skip SMTP checks and spam scanning, and to choose which mail to DKIM sign.</small>
+      </label>
+    </fieldset>
+
+    <fieldset class="fg-card">
+      <legend>Antispam</legend>
+      <div class="fg-radios">
+        <label class="fg-check"><input type="radio" name="antispam" value="spamassassin"> SpamAssassin</label>
+        <label class="fg-check"><input type="radio" name="antispam" value="rspamd"> Rspamd</label>
+        <label class="fg-check"><input type="radio" name="antispam" value="none"> None</label>
+      </div>
+
+      <div data-show="antispam=spamassassin">
+        <label class="fg-field">SpamAssassin mode
+          <select name="sa_mode">
+            <option value="local">Embedded (Mail::SpamAssassin in the worker)</option>
+            <option value="spamd">spamd client (SpamAssassin 4.0.1+)</option>
+          </select>
+        </label>
+        <label class="fg-check" data-show="sa_mode=local"><input type="checkbox" name="sa_local_tests_only"> Local tests only (no RBL, URIBL or Razor lookups)</label>
+        <div class="fg-row" data-show="sa_mode=spamd">
+          <label class="fg-field">spamd host <input type="text" name="spamd_host"></label>
+          <label class="fg-field">spamd port <input type="number" min="1" name="spamd_port"></label>
+        </div>
+      </div>
+
+      <div data-show="antispam=rspamd">
+        <label class="fg-field">Rspamd URI <input type="text" name="rspamd_uri"></label>
+        <label class="fg-check"><input type="checkbox" name="rspamd_follow_action"> Apply the Rspamd action (reject, soft reject, rewrite subject)</label>
+      </div>
+
+      <div data-show="antispam=spamassassin|rspamd">
+        <label class="fg-field">Messages larger than this are not scanned (KB)
+          <input type="number" min="1" name="max_scan_kb">
+        </label>
+        <label class="fg-field">When a message is spam
+          <select name="spam_action">
+            <option value="header">Add X-Spam headers only</option>
+            <option value="subject">Add headers and tag the Subject</option>
+            <option value="quarantine">Quarantine and discard</option>
+            <option value="reject">Add headers, reject above a score</option>
+          </select>
+        </label>
+        <label class="fg-field" data-show="spam_action=subject">Subject tag
+          <input type="text" name="spam_subject_prefix">
+        </label>
+        <label class="fg-field" data-show="spam_action=reject">Reject score
+          <input type="number" step="0.1" name="spam_reject_score">
+        </label>
+        <label class="fg-check"><input type="checkbox" name="spam_attach_report"> Attach the spam report to spam messages</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="fg-card">
+      <legend>Antivirus</legend>
+      <label class="fg-field">Virus scanner
+        <select name="antivirus">
+          <option value="clamd">ClamAV (clamd socket)</option>
+          <option value="clamdscan">ClamAV (clamdscan)</option>
+          <option value="auto">Every scanner MIMEDefang detects</option>
+          <option value="none">No virus scanning</option>
+        </select>
+      </label>
+      <div data-show="antivirus=clamd|clamdscan|auto">
+        <label class="fg-field" data-show="antivirus=clamd">clamd socket (path or host:port)
+          <input type="text" name="clamd_sock">
+        </label>
+        <label class="fg-field">When a virus is found
+          <select name="virus_action">
+            <option value="discard">Discard</option>
+            <option value="bounce">Reject</option>
+            <option value="quarantine">Quarantine and discard</option>
+          </select>
+        </label>
+        <label class="fg-check"><input type="checkbox" name="virus_paranoid"> Also block "suspicious" files the scanner flags</label>
+        <label class="fg-check"><input type="checkbox" name="virus_tempfail"> Tempfail when the scanner fails</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="fg-card">
+      <legend>Attachments</legend>
+      <label class="fg-check"><input type="checkbox" name="attach_enable"> Filter attachments</label>
+      <div data-show="attach_enable">
+        <label class="fg-field">Dangerous extensions
+          <textarea name="bad_exts" rows="4"></textarea>
+        </label>
+        <label class="fg-check"><input type="checkbox" name="block_clsid"> Block CLSID extensions (<code>{...}</code>)</label>
+        <label class="fg-check"><input type="checkbox" name="inspect_zip"> Look for dangerous names inside ZIP files</label>
+        <label class="fg-check"><input type="checkbox" name="block_partial"> Reject <code>message/partial</code></label>
+        <label class="fg-field">Dangerous attachments are
+          <select name="attach_action">
+            <option value="drop">Removed, with a warning</option>
+            <option value="defang">Defanged (renamed)</option>
+            <option value="quarantine">Quarantined and removed</option>
+            <option value="bounce">Rejected with the message</option>
+          </select>
+        </label>
+        <label class="fg-check"><input type="checkbox" name="rebuild"> Rebuild every message as clean MIME</label>
+      </div>
+    </fieldset>
+
+    <fieldset class="fg-card">
+      <legend>Authentication</legend>
+      <label class="fg-check"><input type="checkbox" name="spf"> SPF check</label>
+      <label class="fg-field" data-show="spf">On SPF fail
+        <select name="spf_action">
+          <option value="header">Record the result only</option>
+          <option value="reject">Reject</option>
+        </select>
+      </label>
+      <label class="fg-check"><input type="checkbox" name="dkim_verify"> Verify DKIM signatures</label>
+      <label class="fg-check"><input type="checkbox" name="authres"> Add an Authentication-Results header (SPF and DKIM)</label>
+      <label class="fg-field" data-show="authres">Server name in Authentication-Results
+        <input type="text" name="server_domain">
+      </label>
+      <label class="fg-check"><input type="checkbox" name="dkim_sign"> DKIM sign outgoing mail</label>
+      <div data-show="dkim_sign">
+        <label class="fg-field">Private key file <input type="text" name="dkim_key"></label>
+        <div class="fg-row">
+          <label class="fg-field">Selector <input type="text" name="dkim_selector"></label>
+          <label class="fg-field">Domain (empty: sender's domain) <input type="text" name="dkim_domain"></label>
+        </div>
+        <div class="fg-row">
+          <label class="fg-field">Algorithm
+            <select name="dkim_algorithm">
+              <option value="rsa-sha256">rsa-sha256</option>
+              <option value="ed25519-sha256">ed25519-sha256</option>
+              <option value="rsa-sha1">rsa-sha1</option>
+            </select>
+          </label>
+          <label class="fg-field">Canonicalization
+            <select name="dkim_method">
+              <option value="relaxed/relaxed">relaxed/relaxed</option>
+              <option value="relaxed/simple">relaxed/simple</option>
+              <option value="simple/simple">simple/simple</option>
+            </select>
+          </label>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="fg-card">
+      <legend>SMTP-time checks</legend>
+      <label class="fg-check"><input type="checkbox" name="rbl"> Reject relays listed in DNS blocklists</label>
+      <div data-show="rbl">
+        <label class="fg-field">Blocklist zones <input type="text" name="rbl_zones"></label>
+        <div class="fg-row">
+          <label class="fg-field">Reject when listed in at least <input type="number" min="1" name="rbl_threshold"></label>
+          <label class="fg-field">DNS timeout (s) <input type="number" min="1" name="rbl_timeout"></label>
+        </div>
+      </div>
+      <label class="fg-check"><input type="checkbox" name="helo_check"> Reject invalid HELO names</label>
+      <label class="fg-check"><input type="checkbox" name="greylist"> Greylisting</label>
+      <div data-show="greylist">
+        <label class="fg-field">DBI data source <input type="text" name="greylist_dsn"></label>
+        <div class="fg-row">
+          <label class="fg-field">DB user <input type="text" name="greylist_user"></label>
+          <label class="fg-field">DB password <input type="password" name="greylist_pass"></label>
+        </div>
+        <div class="fg-row">
+          <label class="fg-field">Minimum retry (s) <input type="number" min="0" name="greylist_min"></label>
+          <label class="fg-field">Maximum retry (s) <input type="number" min="0" name="greylist_max"></label>
+        </div>
+        <label class="fg-check"><input type="checkbox" name="greylist_subnet"> Greylist by /24 network instead of single IP</label>
+      </div>
+      <label class="fg-check"><input type="checkbox" name="rcpt_verify"> Verify recipients against the downstream mail server</label>
+      <label class="fg-field" data-show="rcpt_verify">Downstream server <input type="text" name="rcpt_server"></label>
+    </fieldset>
+
+    <fieldset class="fg-card">
+      <legend>Load a generated filter</legend>
+      <label class="fg-field">Paste a filter made here (or its <code>generator-options</code> line) to restore its options
+        <textarea id="fg-import-text" rows="3"></textarea>
+      </label>
+      <div class="fg-buttons">
+        <button type="button" id="fg-import" class="btn btn-sm btn-outline-primary">Load options</button>
+        <button type="button" id="fg-reset" class="btn btn-sm btn-outline-primary">Reset to defaults</button>
+        <span id="fg-import-msg" class="fg-msg" role="status"></span>
+      </div>
+    </fieldset>
+  </form>
+
+  <div class="fg-preview">
+    <div class="fg-card">
+      <div class="fg-preview-head">
+        <strong>mimedefang-filter</strong>
+        <span class="fg-buttons">
+          <button type="button" id="fg-copy" class="btn btn-sm btn-outline-primary">Copy</button>
+          <button type="button" id="fg-download" class="btn btn-sm btn-primary">Download</button>
+        </span>
+      </div>
+      <pre id="fg-output" class="fg-output" tabindex="0"></pre>
+      <p class="fg-req fg-req-title">Before installing, run <code>mimedefang.pl -f mimedefang-filter -test</code></p>
+      <div id="fg-req" class="fg-req"></div>
+    </div>
+  </div>
+  </div>
+  </div>
+</section>
+<script src="{{ SITEURL }}/theme/js/filter-generator.js" defer></script>
+{% include "footer.html" %}
