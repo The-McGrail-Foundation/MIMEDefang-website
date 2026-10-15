@@ -342,6 +342,54 @@ section.faq .text pre,
   white-space: pre;
 }
 
+/* Tables - Documentation (scroll horizontally on narrow screens) */
+.documentation table {
+  display: block;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  background-color: transparent;
+}
+.documentation th,
+.documentation td {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #b8dcf5;
+  vertical-align: top;
+  min-width: 9rem;
+}
+.documentation th {
+  background-color: rgba(0, 123, 255, 0.08);
+}
+.documentation tbody tr:nth-child(even) {
+  background-color: rgba(0, 123, 255, 0.04);
+}
+.documentation td code {
+  word-break: normal;
+}
+@media (max-width: 767.98px) {
+  .documentation table {
+    font-size: 0.8125rem;
+  }
+  .documentation th,
+  .documentation td {
+    padding: 0.375rem 0.5rem;
+    min-width: 7.5rem;
+  }
+  /* keep row labels visible while scrolling sideways */
+  .documentation th:first-child,
+  .documentation td:first-child {
+    position: sticky;
+    left: 0;
+    z-index: 1;
+    /* opaque, so scrolled cells do not show through; matches th tint on --md-accent */
+    background-color: #ceecff;
+    box-shadow: inset -1px 0 0 #b8dcf5, inset 0 -1px 0 #b8dcf5;
+  }
+}
+
 section.faq a {
   font-weight: 600;
   color: #337ab7;
