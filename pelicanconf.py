@@ -20,7 +20,7 @@ EXTRA_PATH_METADATA = {
 }
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
-MENUITEMS = [('Download', '/download/'), ('Mailing List', '/mailing-list/'), ('Documentation', '/documentation/'), ('FAQ', '/faq/'), ('Snippets', '/snippets/')]
+MENUITEMS = [('Download', '/download/'), ('Mailing List', '/mailing-list/'), ('Documentation', '/documentation/'), ('FAQ', '/faq/'), ('Snippets', '/snippets/'), ('Filter Generator', '/filter-generator/')]
 
 TIMEZONE = 'UTC'
 
