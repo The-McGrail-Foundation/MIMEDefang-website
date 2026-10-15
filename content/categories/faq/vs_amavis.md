@@ -6,7 +6,7 @@ Num: 022
 Audience: admin
 Status: published
 
-Yes. Both are written in Perl and both can use SpamAssassin, rspamd and antivirus scanners, but MIMEDefang is a native milter. It runs your policy *during* the SMTP transaction, so you can reject mail before accepting it, with no backscatter. It also lets you rewrite any MIME part: drop or replace attachments, add disclaimers, or change headers.
+Yes. Both are written in Perl and both can use Apache SpamAssassin, rspamd and antivirus scanners, but MIMEDefang is a native milter. It runs your policy *during* the SMTP transaction, so you can reject mail before accepting it, with no backscatter. It also lets you rewrite any MIME part: drop or replace attachments, add disclaimers, or change headers.
 
 amavisd-new usually runs as an after-queue `content_filter`. To migrate, replace the `content_filter` line with an `smtpd_milters` entry and port your policies into the MIMEDefang filter.
 
