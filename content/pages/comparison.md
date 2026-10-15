@@ -24,7 +24,7 @@ In short: **amavisd-new** is a content-filter gateway, **rspamd** is a spam-scor
 | **Hooks during the SMTP session** | Connect, HELO, MAIL FROM, RCPT TO, and message body | Message body only | Message body (scan) |
 | **Reject before accepting the message** | Yes (no backscatter) | Only in before-queue setups | Yes, in milter mode |
 | **Rewrite MIME parts** | Yes: drop/replace attachments, add parts, add disclaimers, change headers | Limited (headers, banned-file defanging) | Limited (headers, subject) |
-| **Spam detection** | Through SpamAssassin or rspamd | Through SpamAssassin or rspamd | Built in |
+| **Spam detection** | Through Apache SpamAssassin or rspamd | Through Apache SpamAssassin or rspamd | Built in |
 | **Antivirus** | ClamAV and many other scanners | Many scanners | Through external scanners |
 | **DKIM / ARC / SPF / DMARC / BIMI** | Yes (DKIM, ARC, SPF, DMARC, BIMI) | DKIM | DKIM, ARC, SPF, DMARC |
 | **Process model** | Preforked pool of Perl workers managed by `mimedefang-multiplexor` | Preforked Perl daemon | Event-driven C workers |
