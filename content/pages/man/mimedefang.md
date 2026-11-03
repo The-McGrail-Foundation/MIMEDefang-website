@@ -107,9 +107,9 @@ to the specified file. The file will be owned by root.
 
 **−o** *fileName*
 
-Causes mimedefang to use *fileName* as a lock file to avoid multiple
+Causes **mimedefang** to use *fileName* as a lock file to avoid multiple
 instances from running. If you supply **−P** but not **−o**, then
-mimedefang constructs a lock file by appending ".lock" to the pid file.
+**mimedefang** constructs a lock file by appending ".lock" to the pid file.
 However, this is less secure than having a root-owned pid file in a
 root-owned directory and a lock file writable by the user named by the
 **−U** option. (The lock file must be writable by the **−U** user.)
@@ -152,7 +152,7 @@ Specifies the syslog facility for log messages. The default is *mail*.
 See **openlog**(3) for a list of valid facilities. You can use either
 the short name ("mail") or long name ("LOG_MAIL") for the facility name.
 
-−a *macro*
+**−a** *macro*
 
 Pass the value of the specified Sendmail macro through to the Perl
 filter. You can repeat the −a option to write more macros than the
@@ -164,7 +164,9 @@ definition in Sendmail’s m4 configuration file.
 |  |  |  |  |
 |----|----|----|----|
 |  | **−c** |  | Strip "bare" carriage-returns (CR) characters from the message body. A bare CR should never appear in an e-mail message. Older versions of **mimedefang** used to strip them out automatically, but now they are left in by default. The **−c** option enables the older behavior. |
+|  | **−L** *ip.addr* |  | Treat SMTP connections from *ip.addr* as if they came from the loopback address: the filter sees 127.0.0.1 as the relay address (**$RelayAddr**). It does not affect **−R**, which looks at the real peer address. This is useful when a local proxy or content filter relays mail to **sendmail** from an address other than 127.0.0.1. The option may be given only once. |
 |  | **−h** |  | Print usage information and exit. |
+|  | **−v** |  | Print the version and exit. |
 
 ## OPERATION <span id="OPERATION"></span>
 
@@ -197,6 +199,6 @@ The **mimedefang** home page is *http://www.mimedefang.org/*.
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
 [mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang-multiplexor(8)](man_mimedefang-multiplexor.html),
-[mimedefang-protocol(7)](man_mimedefang-protocol.html), [mimedefang-release(8)](man_mimedefang-release.html)
+[mimedefang-protocol(7)](man_mimedefang-protocol.html), [mimedefang-release(8)](man_mimedefang-release.html), [md-mx-ctrl(8)](man_md-mx-ctrl.html)
 
 ------------------------------------------------------------------------

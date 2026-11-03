@@ -72,6 +72,9 @@ from `mimedefang-filter` or by other methods.
 
     Method that returns 1 if the EXTENSION part of any file in the zip archive
     matches regexp.
+    Like the other `re_match_in_*_directory` methods it returns 0 when the
+    archive cannot be listed (corrupt, encrypted file names, missing tool), and
+    it does not look inside nested archives.
 
 - md\_copy\_orig\_msg\_to\_work\_dir\_as\_mbox\_file
 

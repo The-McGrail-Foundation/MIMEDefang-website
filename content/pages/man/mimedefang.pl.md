@@ -25,7 +25,10 @@ mimedefang.pl − Perl script to scan MIME messages.
 
 ## SYNOPSIS <span id="SYNOPSIS"></span>
 
-**mimedefang.pl \[-f** *filter*\] *dir*
+**mimedefang.pl \[-f** *filter*\] *dir*  
+**mimedefang.pl \[-f** *filter*\] **-test**  
+**mimedefang.pl \[-f** *filter*\] **-validate**  
+**mimedefang.pl \[-f** *filter*\] **-features**
 
 ## DESCRIPTION <span id="DESCRIPTION"></span>
 

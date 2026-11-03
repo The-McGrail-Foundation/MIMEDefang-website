@@ -24,6 +24,16 @@ Published advisories are listed on the
 [GitHub Security Advisories](https://github.com/The-McGrail-Foundation/MIMEDefang/security/advisories) page of the repository.
 Security fixes are also noted in the [Changelog](/documentation/Changelog.html).
 
+## Fixed vulnerabilities
+
+| CVE | Description | Fixed in |
+|---|---|---|
+| [CVE-2026-120211](https://www.cve.org/CVERecord?id=CVE-2026-120211) | PID file symlink following (privileged file overwrite) | 3.7.2 |
+| [CVE-2026-120304](https://www.cve.org/CVERecord?id=CVE-2026-120304) | `anonymize_uri()` regular expression denial of service | 3.7.2 |
+| [CVE-2026-120305](https://www.cve.org/CVERecord?id=CVE-2026-120305) | `md_spf_verify()`/`md_authres()` regular expression denial of service | 3.7.2 |
+
+Users of earlier versions should upgrade to MIMEDefang 3.7.2.
+
 ## Releases
 
 - The latest release is always available on the [Download](/download/) page, together with its GPG signature.

@@ -9,6 +9,35 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
+**MIMEDefang 3.7.2** 2026-11-04
+
+   * security: fix [CVE-2026-120211](https://www.cve.org/CVERecord?id=CVE-2026-120211), PID file symlink following
+     (privileged file overwrite)
+
+   * security: fix [CVE-2026-120304](https://www.cve.org/CVERecord?id=CVE-2026-120304), anonymize_uri() regular expression
+     denial of service
+
+   * security: fix [CVE-2026-120305](https://www.cve.org/CVERecord?id=CVE-2026-120305), md_spf_verify()/md_authres() regular
+     expression denial of service
+
+   * header names and values returned by the filter are validated before being passed
+     to the MTA; invalid header names are logged and dropped
+
+   * MTA-STS (RFC 8461): policy fetches allow HTTPS only, follow no redirects, stop at
+     64 KB, and the domain is validated before being used in the policy URL
+
+   * systemd units: enable ProtectHome, ProtectSystem=full, ProtectKernelTunables,
+     ProtectKernelModules, ProtectControlGroups, LockPersonality and RestrictRealtime
+
+   * re_match_in_7zip_directory: correctly parse solid archives, skip directory entries,
+     no longer hang on archives with encrypted headers
+
+   * re_match_in_rar_directory: read the file list up to the closing separator
+
+   * Mail::MIMEDefang::Async: faster parsing of the SpamAssassin X-Spam-Status header
+
+   * Mail::MIMEDefang::Net: improve IPv6 checks
+
 **MIMEDefang 3.7.1** 2026-07-14
 
    * add autoscaling support to activate or deactivate workers when needed

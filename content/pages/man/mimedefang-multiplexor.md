@@ -153,9 +153,9 @@ root.
 
 **−o** *fileName*
 
-Causes mimedefang-multiplexor to use *fileName* as a lock file to avoid
+Causes **mimedefang-multiplexor** to use *fileName* as a lock file to avoid
 multiple instances from running. If you supply **−p** but not **−o**,
-then mimedefang-multiplexor constructs a lock file by appending ".lock"
+then **mimedefang-multiplexor** constructs a lock file by appending ".lock"
 to the pid file. However, this is less secure than having a root-owned
 pid file in a root-owned directory and a lock file writable by the user
 named by the **−U** option. (The lock file must be writable by the
@@ -210,6 +210,10 @@ to force **mimedefang.pl** to consume lots of memory.
 |     |        |     |                                   |     |
 |-----|--------|-----|-----------------------------------|-----|
 |     | **−h** |     | Print usage information and exit. |     |
+
+**−v**
+
+Print the version and exit.
 
 **−t** *filename*
 

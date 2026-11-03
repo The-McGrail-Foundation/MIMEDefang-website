@@ -53,6 +53,8 @@ The following commands are available:
 
 |  |  |  |  |
 |----|----|----|----|
+|  | **help** |  | Lists the commands the multiplexor accepts. On the unprivileged socket (**mimedefang-multiplexor −a**) only the read-only commands are listed. |
+|  | **free** |  | Prints the number of free (idle or stopped) workers. |
 |  | **status** |  | Prints the status of all worker Perl processes in human-readable format. |
 
 **rawstatus**
@@ -291,6 +293,8 @@ is a deprecated synonym for this command.
 |  |  |  |  |
 |----|----|----|----|
 |  | **reread** |  | Forces **mimedefang-multiplexor** to kill all idle workers, and terminate and restart busy workers when they become idle. This forces a reread of filter rules. |
+|  | **hload** |  | Prints the hourly load of scan requests in computer-readable format: sixteen space-separated numbers. The first four are the number of messages processed in the last 1, 4, 12 and 24 hours; the second four are the average number of busy workers per request; the third four are the average time per request in milliseconds; and the last four are the number of seconds of history actually covered by each of the four windows. |
+|  | **hload-relayok**, **hload-senderok**, **hload-recipok** |  | Similar to **hload**, but for **filter_relay**, **filter_sender** and **filter_recipient** calls. |
 |  | **msgs** |  | Prints the total number of messages scanned since the multiplexor started. |
 
 ## ADDITIONAL COMMANDS <span id="ADDITIONAL-COMMANDS"></span>
@@ -315,7 +319,7 @@ The **mimedefang** home page is *https://www.mimedefang.org/*.
 
 ## SEE ALSO <span id="SEE-ALSO"></span>
 
-[mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang(8)](man_mimedefang.html),
+[mimedefang.pl(8)](man_mimedefang_pl.html), [mimedefang-filter(5)](man_mimedefang-filter.html), [mimedefang(8)](man_mimedefang.html), [mimedefang-multiplexor(8)](man_mimedefang-multiplexor.html),
 [mimedefang-protocol(7)](man_mimedefang-protocol.html), watch-mimedefang(8)
 
 ------------------------------------------------------------------------
