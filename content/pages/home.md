@@ -1,5 +1,5 @@
 Title: Home
-Description: MIMEDefang 3.7.2 - open-source email filtering via the Milter API for Sendmail and Postfix. Inspect, modify, or reject mail with custom Perl policies.
+Description: MIMEDefang 3.7.3 - open-source email filtering via the Milter API for Sendmail and Postfix. Inspect, modify, or reject mail with custom Perl policies.
 Author: admin_f0tn7wrk
 latest_version: 3.0
 Download_url: https://mimedefang.org/download.html

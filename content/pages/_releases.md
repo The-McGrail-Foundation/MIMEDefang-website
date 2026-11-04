@@ -6,9 +6,9 @@ Status: hidden
 
 ## Latest Release
 
-<span class="badge bg-primary fs-6">v3.7.2</span> <span class="text-muted small">released 2026-11-04</span>
+<span class="badge bg-primary fs-6">v3.7.3</span> <span class="text-muted small">released 2026-11-04</span>
 
-MIMEDefang 3.7.2 is currently available for [download](/download/). It is a security release, all users are encouraged to upgrade ([details](/security/)).
+MIMEDefang 3.7.3 is currently available for [download](/download/). It fixes the build from CPAN; 3.7.2 was a security release, users of earlier versions are encouraged to upgrade ([details](/security/)).
 
 ## Git Repository
 

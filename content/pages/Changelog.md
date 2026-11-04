@@ -9,6 +9,10 @@ Template: documentation
 
 New features and fixes of MIMEDefang versions.
 
+**MIMEDefang 3.7.3** 2026-11-04
+
+   * fix build when installing from CPAN
+
 **MIMEDefang 3.7.2** 2026-11-04
 
    * security: fix [CVE-2026-120211](https://www.cve.org/CVERecord?id=CVE-2026-120211), PID file symlink following

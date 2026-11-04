@@ -8,13 +8,13 @@ Status: hidden
 
 **Filename**
 
-[Mail-MIMEDefang-3.7.2.tar.gz](/releases/Mail-MIMEDefang-3.7.2.tar.gz)
+[Mail-MIMEDefang-3.7.3.tar.gz](/releases/Mail-MIMEDefang-3.7.3.tar.gz)
 
-MIMEDefang 3.7.2 Release
+MIMEDefang 3.7.3 Release
 
 **Signature**
 
-[Yes](/releases/Mail-MIMEDefang-3.7.2.tar.gz.sig)
+[Yes](/releases/Mail-MIMEDefang-3.7.3.tar.gz.sig)
 
 **Filename**
 
