@@ -29,7 +29,7 @@ In short: **amavisd-new** is a content-filter gateway, **rspamd** is a spam-scor
 | **DNSBL checks** | Built in, with parallel lookups | Through SpamAssassin | Built in | Through the external Net::DNSBL::Client module |
 | **DKIM / ARC / SPF / DMARC / BIMI** | All of them, plus MTA-STS/DANE checks | DKIM | DKIM, ARC, SPF, DMARC | DKIM signing |
 | **Monitoring** | `md-mx-ctrl`, `watch-mimedefang` | amavisd-snmp-subagent | Web UI | `mm-mx-ctrl`, `watch-multiple-mailmunges` |
-| **Process model** | Preforked pool of Perl workers managed by `mimedefang-multiplexor`, with autoscaling | Preforked Perl daemon | Event-driven C workers | Preforked pool of Perl workers managed by `mailmunge-multiplexor` |
+| **Process model** | Preforked pool of Perl workers managed by `mimedefang-multiplexor`, with optional adaptive autoscaling | Preforked Perl daemon | Event-driven C workers | Preforked pool of Perl workers managed by `mailmunge-multiplexor` |
 | **Licence** | GPL-2.0 | GPL-2.0 or BSD | Apache-2.0 | GPL-2.0 |
 | **In production since** | 2000 | 2000s | 2013 | 2021 (fork of MIMEDefang) |
 
@@ -90,12 +90,12 @@ A MIMEDefang filter does not run unchanged on Mailmunge. It has to be ported, wi
 |---|---|---|
 | Antivirus | Built in, many scanners | External module (File::VirusScan) |
 | DNSBL checks | Built in, with parallel lookups | External module (Net::DNSBL::Client) |
-| DKIM | Signing and verification | Signing |
-| SPF, DMARC, ARC, BIMI | Built in | Not included |
-| MTA-STS / DANE checks | Built in | Not included |
+| DKIM | Signing and verification | Signing, use standard CPAN modules to verify signatures |
+| SPF, DMARC, ARC, BIMI | Built in | Use standard CPAN modules |
+| MTA-STS / DANE checks | Built in | Use standard CPAN modules |
 | Greylisting, SMTP call-forward, MX checks | Built in | Built in |
-| Parallel asynchronous checks | Built in | Not included |
-| Worker autoscaling | Built in | Not included |
+| Parallel asynchronous checks | Built in | Parallel asynchronous DNS lookups |
+| Worker pool scaling | On demand between min/max, plus adaptive load-based autoscaling | On demand between min/max |
 | OpenSMTPD support | Yes, through mimedefang-smtpd-filter | No |
 
 **Maintenance.** MIMEDefang is maintained by The McGrail Foundation.
