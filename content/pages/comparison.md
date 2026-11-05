@@ -90,7 +90,7 @@ A MIMEDefang filter does not run unchanged on Mailmunge. It has to be ported, wi
 |---|---|---|
 | Antivirus | Built in, many scanners | External module (File::VirusScan) |
 | DNSBL checks | Built in, with parallel lookups | External module (Net::DNSBL::Client) |
-| DKIM | Signing and verification | Signing, use standard CPAN modules to verify signatures |
+| DKIM | Signing and verification | Signing built-in, use standard CPAN modules to verify signatures |
 | SPF, DMARC, ARC, BIMI | Built in | Use standard CPAN modules |
 | MTA-STS / DANE checks | Built in | Use standard CPAN modules |
 | Greylisting, SMTP call-forward, MX checks | Built in | Built in |
